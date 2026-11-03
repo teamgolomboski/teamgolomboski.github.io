@@ -99,19 +99,46 @@
 
   /* ---------- Nav ---------- */
   .site-nav{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;box-shadow:0 2px 14px rgba(0,0,0,.25)}
-  .nav-inner{display:flex;align-items:center;gap:20px;min-height:68px;flex-wrap:wrap;padding-top:8px;padding-bottom:8px}
-  .brand{display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-decoration:none;color:#fff;margin-right:auto;flex:none;min-width:0}
+  .nav-inner{display:flex;align-items:center;gap:14px;min-height:68px;flex-wrap:nowrap;padding-top:8px;padding-bottom:8px}
+  .brand{display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-decoration:none;color:#fff;margin-right:0;flex:none;min-width:0}
   .brand-name{font-family:"Archivo",system-ui,sans-serif;font-weight:800;font-size:1.3rem;line-height:1.15;letter-spacing:-.01em;color:#fff;white-space:nowrap}
   .brand-sub{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#9fb8d2;font-weight:600;line-height:1.2;white-space:nowrap}
-  .nav-links{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
-  .nav-links a{color:#dbe7f3;text-decoration:none;font-weight:600;font-size:.96rem;padding:9px 12px;border-radius:8px}
+  .nav-links{display:flex;align-items:center;gap:2px;flex-wrap:nowrap;flex:1 1 auto;min-width:0;justify-content:flex-end}
+  .nav-links a{color:#dbe7f3;text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 8px;border-radius:8px;white-space:nowrap}
   .nav-links a:hover{background:rgba(255,255,255,.10);color:#fff}
   .nav-links a.active{background:rgba(255,255,255,.16);color:#fff}
-  .nav-donate{background:var(--orange);color:#fff;padding:10px 20px;text-decoration:none;font-weight:600;font-size:.96rem;border-radius:8px;display:inline-flex;align-items:center}
+  .nav-donate{background:var(--orange);color:#fff;padding:10px 18px;text-decoration:none;font-weight:600;font-size:.96rem;border-radius:8px;display:inline-flex;align-items:center;flex:none;white-space:nowrap}
   .nav-donate:hover{background:var(--orange-dark)}
-  /* Header actions (Donate + mobile Menu button): on desktop they flow with the
-     link row exactly as before; on mobile they sit at the right of the brand. */
-  .nav-actions{display:contents}
+  /* Header actions (Donate + mobile Menu button): pinned to the far right
+     of the header bar on the SAME row as the wordmark and nav links, on
+     every width. The row never wraps: the nav links take the available
+     middle space (flex:1, nowrap, tightened below as widths narrow)
+     before Donate could ever be pushed onto a second row. On mobile the
+     Menu button joins Donate in this same right-hand group. */
+  .nav-actions{display:flex;align-items:center;gap:8px;flex:none;margin-left:auto}
+  /* Intermediate widths: tighten brand, nav spacing/font and Donate
+     padding progressively so the single row still fits. The ≤768px
+     block near the end of this stylesheet re-specifies the phone
+     header (nav hidden, Donate + Menu at the right) and wins there. */
+  @media (max-width:1150px){
+    .nav-inner{gap:10px}
+    .brand-name{font-size:1.12rem}
+    .brand-sub{font-size:.66rem;letter-spacing:.11em}
+    .nav-links{gap:0}
+    .nav-links a{font-size:.86rem;padding:8px 6px}
+    .nav-donate{font-size:.9rem;padding:9px 14px}
+  }
+  @media (max-width:950px) and (min-width:769px){
+    .nav-inner{gap:6px}
+    .brand-name{font-size:1rem}
+    .nav-links a{font-size:.8rem;padding:7px 4px}
+    .nav-donate{font-size:.85rem;padding:8px 12px}
+  }
+  @media (max-width:850px) and (min-width:769px){
+    .brand-name{font-size:.92rem}
+    .nav-links a{font-size:.76rem;padding:7px 3px}
+    .nav-donate{font-size:.82rem;padding:8px 11px}
+  }
   .menu-btn{display:none;font:inherit;font-weight:700;font-size:.95rem;color:#fff;background:var(--navy-2);border:1.5px solid rgba(255,255,255,.45);border-radius:10px;padding:10px 16px;min-height:48px;cursor:pointer;align-items:center;gap:8px}
   .menu-btn:hover{background:#16406f}
   .menu-btn[aria-expanded="true"]{background:#16406f;border-color:#fff}
