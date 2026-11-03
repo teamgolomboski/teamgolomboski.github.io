@@ -443,6 +443,34 @@
   .disclaimer{font-size:.95rem;color:var(--muted);margin-top:30px;max-width:760px;line-height:1.6}
   .disclaimer a{font-weight:600}
 
+  /* ---------- Find Help (promoted ZIP finder — first on the page) ---------- */
+  /* Hardened like the Start Here band: the panel background is a plain hex
+     with an explicit background-color fallback and no colour-scheme-dependent
+     variable, so weak in-app WebViews (e.g. Messenger) still paint solid navy.
+     Heading, supporting line and labels are explicitly light for the navy. */
+  .finder-section{padding:36px 0 4px}
+  .finder-panel{background-color:#0a2340;background:#0a2340;color:#ffffff;border-radius:16px;padding:36px 32px 32px;box-shadow:0 12px 32px rgba(10,35,64,.22)}
+  .finder-panel h2{color:#ffffff}
+  .finder-panel .finder-sub{color:#c9d6e4;margin:12px 0 0;font-size:1.08rem;max-width:640px;line-height:1.55}
+  .finder-search{margin-top:24px}
+  .finder-search label{display:block;font-weight:700;font-size:1.12rem;margin-bottom:10px;color:#ffffff}
+  .finder-row{display:flex;gap:12px;align-items:stretch}
+  .finder-row input{flex:1 1 auto;min-width:0;width:100%;font:inherit;font-size:1.12rem;padding:16px 18px;min-height:60px;border:2px solid #ffffff;border-radius:12px;background-color:#ffffff;background:#ffffff;color:#17222e}
+  .finder-row input:focus{outline:3px solid #9fd3b4;outline-offset:2px;border-color:#1f7a4d}
+  .finder-btn{flex:none;min-height:60px;padding:14px 34px;font-size:1.1rem;background-color:#1f7a4d;background:#1f7a4d;color:#ffffff}
+  .finder-btn:hover{background-color:#16603c;background:#16603c}
+  .finder-hint{color:#c9d6e4;font-size:.95rem;margin:12px 0 0}
+  .finder-panel .help-noresults{background-color:#e8f4ec;background:#e8f4ec;color:#17222e;margin-top:22px}
+  .finder-panel .help-noresults a{color:#16603c}
+  .finder-results{margin-top:30px;scroll-margin-top:84px}
+  .finder-results .listing-group:first-child .group-head{margin-top:0}
+  @media (max-width:640px){
+    .finder-section{padding:24px 0 0}
+    .finder-panel{padding:26px 20px 24px}
+    .finder-row{flex-direction:column}
+    .finder-btn{width:100%;justify-content:center}
+  }
+
   /* ---------- Find Help (APDA RI team strip) ---------- */
   .team-strip-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .team-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
@@ -1900,6 +1928,246 @@
     </div>
   </section>
 
+  <section class="finder-section" aria-label="Find programs near you">
+    <div class="wrap">
+      <div class="finder-panel">
+        <h2>Find Programs &amp; Support Groups Near You</h2>
+        <p class="finder-sub">Enter your ZIP code or town to see exercise classes and support groups close to home.</p>
+        <div class="finder-search">
+          <label for="nearSearch">Enter your ZIP code or town</label>
+          <div class="finder-row">
+            <input type="search" id="nearSearch" autocomplete="off" placeholder="Enter your ZIP code or town — try: Warwick, Providence, 02886" />
+            <button type="button" class="btn finder-btn" id="finderSearchBtn">Search</button>
+          </div>
+          <p class="finder-hint">Groups that meet on Zoom (online) always stay on the list — you can join those from anywhere.</p>
+        </div>
+        <div class="help-noresults" id="finderNoResults" role="status">
+          <p>Nothing matched that search — Rhode Island is small, so try a nearby town, or call Fatima Tobar at <a href="tel:+14015917890"><strong>401-591-7890</strong></a> and she will point you to the closest program.</p>
+        </div>
+      </div>
+      <div class="finder-results" id="finderResults">
+        <div class="listing-group" id="exerciseGroup">
+          <h3 class="group-head">Exercise &amp; Movement</h3>
+          <div class="listing-grid">
+            <article class="listing-card" data-town="chepachet" data-zip="02814">
+              <span class="listing-type">Boxing</span>
+              <h4 class="listing-name">Box Steady at ONE Strong RI</h4>
+              <p class="listing-meta">Chepachet · 02814</p>
+              <p class="listing-detail">Maria Kishfy · <a href="tel:+14014408136">401-440-8136</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="east greenwich" data-zip="02818">
+              <span class="listing-type">Boxing</span>
+              <h4 class="listing-name">Rock Steady Boxing</h4>
+              <p class="listing-meta">East Greenwich</p>
+              <p class="listing-detail">Carolyn Kosiba-Quiterio · <a href="tel:+14012035133">401-203-5133</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="newport" data-zip="02840">
+              <span class="listing-type">Boxing</span>
+              <h4 class="listing-name">PWR!Moves Boxing Fusion at Newport Boxfit</h4>
+              <p class="listing-meta">Newport · 02840</p>
+              <p class="listing-detail">Wednesdays 1–2 PM · <a href="tel:+14017436183">401-743-6183</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="newport" data-zip="02840">
+              <span class="listing-type">Exercise Classes</span>
+              <h4 class="listing-name">PWR!Moves &amp; Parkinson's Cycling at Renaissance Fitness</h4>
+              <p class="listing-meta">Newport · 02840</p>
+              <p class="listing-detail">Kristin Matteson · <a href="tel:+14017436183">401-743-6183</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="pawtucket" data-zip="02860">
+              <span class="listing-type">Boxing</span>
+              <h4 class="listing-name">Boxing at Manfredo's</h4>
+              <p class="listing-meta">Pawtucket · 02860</p>
+              <p class="listing-detail">Fitness assessment first · Maria Kishfy · <a href="tel:+14014408136">401-440-8136</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="peace dale" data-zip="02883">
+              <span class="listing-type">Boxing</span>
+              <h4 class="listing-name">Rock Steady Boxing at South County YMCA</h4>
+              <p class="listing-meta">Peace Dale · 02883</p>
+              <p class="listing-detail">Tue &amp; Thu · <a href="tel:+14017833900">401-783-3900</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="warwick" data-zip="02888">
+              <span class="listing-type">Boxing</span>
+              <h4 class="listing-name">Parkinson's Boxing at On The Ropes</h4>
+              <p class="listing-meta">Warwick</p>
+              <p class="listing-detail">Mon/Wed/Fri 12 PM · <a href="mailto:ontheropesri2019@gmail.com">ontheropesri2019@gmail.com</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="warwick" data-zip="02888">
+              <span class="listing-type">Drumming &amp; Pedaling</span>
+              <h4 class="listing-name">Kent County YMCA</h4>
+              <p class="listing-meta">Warwick</p>
+              <p class="listing-detail"><a href="tel:+14018280130">401-828-0130</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="warwick" data-zip="02888">
+              <span class="listing-type">Exercise Class</span>
+              <h4 class="listing-name">Parkinson's Power (PWR!Moves) at Healthtrax</h4>
+              <p class="listing-meta">Warwick</p>
+              <p class="listing-detail">Fridays 11 AM</p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="westerly" data-zip="02891">
+              <span class="listing-type">Boxing / Fitness</span>
+              <h4 class="listing-name">Punch Back at Parkinson's + Pedaling at Westerly YMCA</h4>
+              <p class="listing-meta">Westerly · 02891</p>
+              <p class="listing-detail"><a href="tel:+14015962894">401-596-2894</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="providence" data-zip="02906">
+              <span class="listing-type">Dance</span>
+              <h4 class="listing-name">DAPpers Dance for PD at Ballet Rhode Island</h4>
+              <p class="listing-meta">Providence</p>
+              <p class="listing-detail">Thursdays 10–11:15 AM, also on Zoom · Rachel Balaban · <a href="tel:+14012617062">401-261-7062</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="lincoln" data-zip="02865">
+              <span class="listing-type">Cycling</span>
+              <h4 class="listing-name">Pedaling for Parkinson's at MacColl YMCA</h4>
+              <p class="listing-meta">Lincoln</p>
+              <p class="listing-detail"><a href="tel:+14017250773">401-725-0773</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="barrington" data-zip="02806">
+              <span class="listing-type">Drumming</span>
+              <h4 class="listing-name">Bayside Family YMCA</h4>
+              <p class="listing-meta">Barrington</p>
+              <p class="listing-detail">Tuesdays 4 PM · <a href="tel:+14012452444">401-245-2444</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="middletown" data-zip="02842">
+              <span class="listing-type">Pickleball</span>
+              <h4 class="listing-name">PD Pickleball Clinic</h4>
+              <p class="listing-meta">Middletown</p>
+              <p class="listing-detail">Mondays 11 AM–1 PM · <a href="tel:+14013743715">401-374-3715</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="warren" data-zip="02885">
+              <span class="listing-type">Pickleball</span>
+              <h4 class="listing-name">PD Pickleball</h4>
+              <p class="listing-meta">Warren</p>
+              <p class="listing-detail">Mondays 1–3 PM · <a href="tel:+14013743715">401-374-3715</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="little compton" data-zip="02837">
+              <span class="listing-type">Exercise Class</span>
+              <h4 class="listing-name">PWR!Moves at Little Compton Wellness Center</h4>
+              <p class="listing-meta">Little Compton · 02837</p>
+              <p class="listing-detail">Mondays 3:30 PM · <a href="tel:+14015920400">401-592-0400</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="north attleboro" data-zip="02760">
+              <span class="listing-type">Boxing</span>
+              <h4 class="listing-name">Rock Steady Boxing</h4>
+              <p class="listing-meta">North Attleboro, MA · 02760</p>
+              <p class="listing-detail"><a href="tel:+16172011868">617-201-1868</a></p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="attleboro" data-zip="02703">
+              <span class="listing-type">Exercise</span>
+              <h4 class="listing-name">Delay the Disease at Attleboro YMCA</h4>
+              <p class="listing-meta">Attleboro, MA</p>
+              <p class="listing-detail">Tue &amp; Thu 11 AM</p>
+              <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
+            </article>
+          </div>
+        </div>
+
+        <div class="listing-group" id="supportGroup">
+          <h3 class="group-head">Support Groups</h3>
+          <div class="listing-grid">
+            <article class="listing-card" data-town="providence" data-zip="02906">
+              <span class="listing-type">Support Group</span>
+              <h4 class="listing-name">Young Onset Support Group</h4>
+              <p class="listing-meta">Providence</p>
+              <p class="listing-detail">1st Wednesday 6:30 PM · Spaulding Rehabilitation Butler Campus · Geena Goyette · <a href="tel:+14018864650">401-886-4650</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="virtual zoom online" data-zip="" data-virtual="true">
+              <span class="listing-type">Support Group · Online</span>
+              <h4 class="listing-name">Care Partners Support Group</h4>
+              <p class="listing-meta">Virtual (Zoom)</p>
+              <p class="listing-detail">1st Thursday 10 AM · Facilitated by Fatima Tobar &amp; Michelle Mach · <a href="mailto:ftobar@apdaparkinson.org">ftobar@apdaparkinson.org</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="virtual zoom online" data-zip="" data-virtual="true">
+              <span class="listing-type">Support Group · Online</span>
+              <h4 class="listing-name">HopeHealth Caregiver Support Group</h4>
+              <p class="listing-meta">Virtual (Zoom)</p>
+              <p class="listing-detail">1st &amp; 3rd Monday 5 PM · <a href="tel:+14014154664">401-415-4664</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="east greenwich" data-zip="02818">
+              <span class="listing-type">Support Group</span>
+              <h4 class="listing-name">Support Group at Atria Harborhill</h4>
+              <p class="listing-meta">East Greenwich</p>
+              <p class="listing-detail">1st Thursday 1 PM</p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="east providence" data-zip="02914">
+              <span class="listing-type">Support Group</span>
+              <h4 class="listing-name">Support Group at Evergreen House</h4>
+              <p class="listing-meta">East Providence</p>
+              <p class="listing-detail">3rd Tuesday 1 PM · <a href="tel:+14012281120">401-228-1120</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="cranston" data-zip="02920">
+              <span class="listing-type">Support Group</span>
+              <h4 class="listing-name">Support Group at Scandinavian Communities</h4>
+              <p class="listing-meta">Cranston</p>
+              <p class="listing-detail">Contact <a href="mailto:ftobar@apdaparkinson.org">ftobar@apdaparkinson.org</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="lincoln" data-zip="02865">
+              <span class="listing-type">Support Group</span>
+              <h4 class="listing-name">Support Group at Lincoln Senior Center</h4>
+              <p class="listing-meta">Lincoln</p>
+              <p class="listing-detail">2nd Tuesday 10 AM · <a href="tel:+14015917890">401-591-7890</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="warwick" data-zip="02888">
+              <span class="listing-type">Support Group</span>
+              <h4 class="listing-name">Support &amp; Social Group at Spaulding Outpatient Center, Kent Hospital</h4>
+              <p class="listing-meta">Warwick</p>
+              <p class="listing-detail">Every Tuesday 12–1 PM · <a href="tel:+14018864650">401-886-4650</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="middletown" data-zip="02842">
+              <span class="listing-type">Support Group</span>
+              <h4 class="listing-name">Aquidneck Island Support Group at Middletown Library</h4>
+              <p class="listing-meta">Middletown</p>
+              <p class="listing-detail">Kristin Matteson · <a href="tel:+14017436183">401-743-6183</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="barrington" data-zip="02806">
+              <span class="listing-type">Support Group</span>
+              <h4 class="listing-name">The Parkinson's Connection at Peck Center</h4>
+              <p class="listing-meta">Barrington</p>
+              <p class="listing-detail">3rd Monday 1 PM · <a href="tel:+14012471926">401-247-1926</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+            <article class="listing-card" data-town="little compton" data-zip="02837">
+              <span class="listing-type">Support Group</span>
+              <h4 class="listing-name">Empowering PWP Support Group</h4>
+              <p class="listing-meta">Little Compton</p>
+              <p class="listing-detail">2nd Thursday 3 PM · <a href="tel:+14015920400">401-592-0400</a></p>
+              <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
+            </article>
+          </div>
+        </div>
+
+        <p class="disclaimer">Programs and services are subject to change. Please visit the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">American Parkinson's Disease Association Rhode Island Chapter's website</a> for the latest information.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+
   <section class="section" aria-label="Choose where to start">
     <div class="wrap">
       <div class="section-head">
@@ -1936,7 +2204,7 @@
       </div>
       <div class="find-search">
         <label for="helpSearch">Search for help</label>
-        <input type="search" id="helpSearch" autocomplete="off" placeholder="Type what you need — try: exercise, rides, money help, support group" />
+        <input type="search" id="helpSearch" autocomplete="off" placeholder="Type what you need — try: exercise, rides, financial help, support group" />
         <p class="hint">Not sure what to type? Scroll down — every kind of help is listed below.</p>
       </div>
 
@@ -1966,8 +2234,8 @@
         </article>
 
         <article class="help-card" data-keywords="money financial scholarship aid rides transportation respite equipment help paying cost bills hardship fund patient aid home help">
-          <h3>Money Help</h3>
-          <p><strong>What this is:</strong> Money to help pay for things Parkinson's makes necessary. APDA Rhode Island Patient Aid scholarships can help pay for exercise classes, rides to appointments, respite care (a break for caregivers), help at home, and adaptive equipment (tools that make daily tasks easier). There is also a Financial Hardship Fund for harder times.</p>
+          <h3>Financial Help</h3>
+          <p><strong>What this is:</strong> Help paying for things Parkinson's makes necessary. APDA Rhode Island Patient Aid scholarships can help pay for exercise classes, rides to appointments, respite care (a break for caregivers), help at home, and adaptive equipment (tools that make daily tasks easier). There is also a Financial Hardship Fund for harder times.</p>
           <div class="help-actions">
             <a class="btn btn-green" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">See Local Resources</a>
             <a class="btn btn-navy" href="https://www.apdaparkinson.org/wp-content/uploads/2020/03/APDA-Patient-Aid-Application-PDF-RI-V3.02.pdf" target="_blank" rel="noopener">Patient Aid Application (PDF)</a>
@@ -1991,241 +2259,6 @@
 
       <div class="help-noresults" id="helpNoResults" role="status">
         <p><strong>We couldn't find a match for that word.</strong> Please don't give up — call <strong>Fatima Tobar</strong> at APDA Rhode Island at <a href="tel:+14015917890"><strong>401-591-7890</strong></a> or email <a href="mailto:ftobar@apdaparkinson.org">ftobar@apdaparkinson.org</a>. She helps Rhode Island residents find the right resources, support groups, and referrals.</p>
-      </div>
-
-      <p class="disclaimer">Programs and services are subject to change. Please visit the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">American Parkinson's Disease Association Rhode Island Chapter's website</a> for the latest information.</p>
-    </div>
-  </section>
-
-  <section class="section" aria-label="Find programs near you">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="rule" aria-hidden="true"></div>
-        <h2>Find Programs Near You</h2>
-        <p>Real classes and groups from APDA Rhode Island, listed by town. Type your ZIP code or town and the list below will narrow down.</p>
-      </div>
-      <div class="find-search" style="margin-left:0">
-        <label for="nearSearch">Enter your ZIP code or town</label>
-        <input type="search" id="nearSearch" autocomplete="off" placeholder="Enter your ZIP code or town — try: Warwick, Providence, 02814" />
-        <p class="hint">Groups that meet on Zoom (online) always stay on the list — you can join those from anywhere.</p>
-      </div>
-      <div class="help-noresults" id="finderNoResults" role="status">
-        <p>Nothing matched that search — Rhode Island is small, so try a nearby town, or call Fatima Tobar at <a href="tel:+14015917890"><strong>401-591-7890</strong></a> and she will point you to the closest program.</p>
-      </div>
-
-      <div class="listing-group" id="exerciseGroup">
-        <h3 class="group-head">Exercise &amp; Movement</h3>
-        <div class="listing-grid">
-          <article class="listing-card" data-town="chepachet" data-zip="02814">
-            <span class="listing-type">Boxing</span>
-            <h4 class="listing-name">Box Steady at ONE Strong RI</h4>
-            <p class="listing-meta">Chepachet · 02814</p>
-            <p class="listing-detail">Maria Kishfy · <a href="tel:+14014408136">401-440-8136</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="east greenwich" data-zip="02818">
-            <span class="listing-type">Boxing</span>
-            <h4 class="listing-name">Rock Steady Boxing</h4>
-            <p class="listing-meta">East Greenwich</p>
-            <p class="listing-detail">Carolyn Kosiba-Quiterio · <a href="tel:+14012035133">401-203-5133</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="newport" data-zip="02840">
-            <span class="listing-type">Boxing</span>
-            <h4 class="listing-name">PWR!Moves Boxing Fusion at Newport Boxfit</h4>
-            <p class="listing-meta">Newport · 02840</p>
-            <p class="listing-detail">Wednesdays 1–2 PM · <a href="tel:+14017436183">401-743-6183</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="newport" data-zip="02840">
-            <span class="listing-type">Exercise Classes</span>
-            <h4 class="listing-name">PWR!Moves &amp; Parkinson's Cycling at Renaissance Fitness</h4>
-            <p class="listing-meta">Newport · 02840</p>
-            <p class="listing-detail">Kristin Matteson · <a href="tel:+14017436183">401-743-6183</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="pawtucket" data-zip="02860">
-            <span class="listing-type">Boxing</span>
-            <h4 class="listing-name">Boxing at Manfredo's</h4>
-            <p class="listing-meta">Pawtucket · 02860</p>
-            <p class="listing-detail">Fitness assessment first · Maria Kishfy · <a href="tel:+14014408136">401-440-8136</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="peace dale" data-zip="02883">
-            <span class="listing-type">Boxing</span>
-            <h4 class="listing-name">Rock Steady Boxing at South County YMCA</h4>
-            <p class="listing-meta">Peace Dale · 02883</p>
-            <p class="listing-detail">Tue &amp; Thu · <a href="tel:+14017833900">401-783-3900</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="warwick" data-zip="02888">
-            <span class="listing-type">Boxing</span>
-            <h4 class="listing-name">Parkinson's Boxing at On The Ropes</h4>
-            <p class="listing-meta">Warwick</p>
-            <p class="listing-detail">Mon/Wed/Fri 12 PM · <a href="mailto:ontheropesri2019@gmail.com">ontheropesri2019@gmail.com</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="warwick" data-zip="02888">
-            <span class="listing-type">Drumming &amp; Pedaling</span>
-            <h4 class="listing-name">Kent County YMCA</h4>
-            <p class="listing-meta">Warwick</p>
-            <p class="listing-detail"><a href="tel:+14018280130">401-828-0130</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="warwick" data-zip="02888">
-            <span class="listing-type">Exercise Class</span>
-            <h4 class="listing-name">Parkinson's Power (PWR!Moves) at Healthtrax</h4>
-            <p class="listing-meta">Warwick</p>
-            <p class="listing-detail">Fridays 11 AM</p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="westerly" data-zip="02891">
-            <span class="listing-type">Boxing / Fitness</span>
-            <h4 class="listing-name">Punch Back at Parkinson's + Pedaling at Westerly YMCA</h4>
-            <p class="listing-meta">Westerly · 02891</p>
-            <p class="listing-detail"><a href="tel:+14015962894">401-596-2894</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="providence" data-zip="02906">
-            <span class="listing-type">Dance</span>
-            <h4 class="listing-name">DAPpers Dance for PD at Ballet Rhode Island</h4>
-            <p class="listing-meta">Providence</p>
-            <p class="listing-detail">Thursdays 10–11:15 AM, also on Zoom · Rachel Balaban · <a href="tel:+14012617062">401-261-7062</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="lincoln" data-zip="02865">
-            <span class="listing-type">Cycling</span>
-            <h4 class="listing-name">Pedaling for Parkinson's at MacColl YMCA</h4>
-            <p class="listing-meta">Lincoln</p>
-            <p class="listing-detail"><a href="tel:+14017250773">401-725-0773</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="barrington" data-zip="02806">
-            <span class="listing-type">Drumming</span>
-            <h4 class="listing-name">Bayside Family YMCA</h4>
-            <p class="listing-meta">Barrington</p>
-            <p class="listing-detail">Tuesdays 4 PM · <a href="tel:+14012452444">401-245-2444</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="middletown" data-zip="02842">
-            <span class="listing-type">Pickleball</span>
-            <h4 class="listing-name">PD Pickleball Clinic</h4>
-            <p class="listing-meta">Middletown</p>
-            <p class="listing-detail">Mondays 11 AM–1 PM · <a href="tel:+14013743715">401-374-3715</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="warren" data-zip="02885">
-            <span class="listing-type">Pickleball</span>
-            <h4 class="listing-name">PD Pickleball</h4>
-            <p class="listing-meta">Warren</p>
-            <p class="listing-detail">Mondays 1–3 PM · <a href="tel:+14013743715">401-374-3715</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="little compton" data-zip="02837">
-            <span class="listing-type">Exercise Class</span>
-            <h4 class="listing-name">PWR!Moves at Little Compton Wellness Center</h4>
-            <p class="listing-meta">Little Compton · 02837</p>
-            <p class="listing-detail">Mondays 3:30 PM · <a href="tel:+14015920400">401-592-0400</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="north attleboro" data-zip="02760">
-            <span class="listing-type">Boxing</span>
-            <h4 class="listing-name">Rock Steady Boxing</h4>
-            <p class="listing-meta">North Attleboro, MA · 02760</p>
-            <p class="listing-detail"><a href="tel:+16172011868">617-201-1868</a></p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="attleboro" data-zip="02703">
-            <span class="listing-type">Exercise</span>
-            <h4 class="listing-name">Delay the Disease at Attleboro YMCA</h4>
-            <p class="listing-meta">Attleboro, MA</p>
-            <p class="listing-detail">Tue &amp; Thu 11 AM</p>
-            <a class="btn btn-green listing-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">See all exercise classes (APDA)</a>
-          </article>
-        </div>
-      </div>
-
-      <div class="listing-group" id="supportGroup">
-        <h3 class="group-head">Support Groups</h3>
-        <div class="listing-grid">
-          <article class="listing-card" data-town="providence" data-zip="02906">
-            <span class="listing-type">Support Group</span>
-            <h4 class="listing-name">Young Onset Support Group</h4>
-            <p class="listing-meta">Providence</p>
-            <p class="listing-detail">1st Wednesday 6:30 PM · Spaulding Rehabilitation Butler Campus · Geena Goyette · <a href="tel:+14018864650">401-886-4650</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="virtual zoom online" data-zip="" data-virtual="true">
-            <span class="listing-type">Support Group · Online</span>
-            <h4 class="listing-name">Care Partners Support Group</h4>
-            <p class="listing-meta">Virtual (Zoom)</p>
-            <p class="listing-detail">1st Thursday 10 AM · Facilitated by Fatima Tobar &amp; Michelle Mach · <a href="mailto:ftobar@apdaparkinson.org">ftobar@apdaparkinson.org</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="virtual zoom online" data-zip="" data-virtual="true">
-            <span class="listing-type">Support Group · Online</span>
-            <h4 class="listing-name">HopeHealth Caregiver Support Group</h4>
-            <p class="listing-meta">Virtual (Zoom)</p>
-            <p class="listing-detail">1st &amp; 3rd Monday 5 PM · <a href="tel:+14014154664">401-415-4664</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="east greenwich" data-zip="02818">
-            <span class="listing-type">Support Group</span>
-            <h4 class="listing-name">Support Group at Atria Harborhill</h4>
-            <p class="listing-meta">East Greenwich</p>
-            <p class="listing-detail">1st Thursday 1 PM</p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="east providence" data-zip="02914">
-            <span class="listing-type">Support Group</span>
-            <h4 class="listing-name">Support Group at Evergreen House</h4>
-            <p class="listing-meta">East Providence</p>
-            <p class="listing-detail">3rd Tuesday 1 PM · <a href="tel:+14012281120">401-228-1120</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="cranston" data-zip="02920">
-            <span class="listing-type">Support Group</span>
-            <h4 class="listing-name">Support Group at Scandinavian Communities</h4>
-            <p class="listing-meta">Cranston</p>
-            <p class="listing-detail">Contact <a href="mailto:ftobar@apdaparkinson.org">ftobar@apdaparkinson.org</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="lincoln" data-zip="02865">
-            <span class="listing-type">Support Group</span>
-            <h4 class="listing-name">Support Group at Lincoln Senior Center</h4>
-            <p class="listing-meta">Lincoln</p>
-            <p class="listing-detail">2nd Tuesday 10 AM · <a href="tel:+14015917890">401-591-7890</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="warwick" data-zip="02888">
-            <span class="listing-type">Support Group</span>
-            <h4 class="listing-name">Support &amp; Social Group at Spaulding Outpatient Center, Kent Hospital</h4>
-            <p class="listing-meta">Warwick</p>
-            <p class="listing-detail">Every Tuesday 12–1 PM · <a href="tel:+14018864650">401-886-4650</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="middletown" data-zip="02842">
-            <span class="listing-type">Support Group</span>
-            <h4 class="listing-name">Aquidneck Island Support Group at Middletown Library</h4>
-            <p class="listing-meta">Middletown</p>
-            <p class="listing-detail">Kristin Matteson · <a href="tel:+14017436183">401-743-6183</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="barrington" data-zip="02806">
-            <span class="listing-type">Support Group</span>
-            <h4 class="listing-name">The Parkinson's Connection at Peck Center</h4>
-            <p class="listing-meta">Barrington</p>
-            <p class="listing-detail">3rd Monday 1 PM · <a href="tel:+14012471926">401-247-1926</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-          <article class="listing-card" data-town="little compton" data-zip="02837">
-            <span class="listing-type">Support Group</span>
-            <h4 class="listing-name">Empowering PWP Support Group</h4>
-            <p class="listing-meta">Little Compton</p>
-            <p class="listing-detail">2nd Thursday 3 PM · <a href="tel:+14015920400">401-592-0400</a></p>
-            <a class="btn btn-navy listing-btn" href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">See all support groups (APDA)</a>
-          </article>
-        </div>
       </div>
 
       <p class="disclaimer">Programs and services are subject to change. Please visit the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">American Parkinson's Disease Association Rhode Island Chapter's website</a> for the latest information.</p>
@@ -2318,7 +2351,7 @@
         </div>
         <div class="res-card">
           <h3>You Don't Have to Do This Alone</h3>
-          <p>Help in Rhode Island includes support groups, exercise classes, money help, and people you can call. Use the search and the cards above — or start with one phone call to <a href="tel:+14015917890"><strong>401-591-7890</strong></a>.</p>
+          <p>Help in Rhode Island includes support groups, exercise classes, financial help, and people you can call. Use the search and the cards above — or start with one phone call to <a href="tel:+14015917890"><strong>401-591-7890</strong></a>.</p>
         </div>
       </div>
       <p class="fineprint">This page shares general information from APDA resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
@@ -2729,6 +2762,22 @@
     input.addEventListener("search", applyFinder);
     input.addEventListener("keyup", applyFinder);
     input.addEventListener("change", applyFinder);
+    // Promoted panel: the green Search button (and Enter in the field) runs the
+    // same filter, then brings the results — directly beneath the panel — into view.
+    function runSearch() {
+      applyFinder();
+      var results = document.getElementById("finderResults");
+      if (results && results.scrollIntoView) {
+        var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        try { results.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); }
+        catch (e) { results.scrollIntoView(); }
+      }
+    }
+    var searchBtn = document.getElementById("finderSearchBtn");
+    if (searchBtn) { searchBtn.addEventListener("click", runSearch); }
+    input.addEventListener("keydown", function (ev) {
+      if (ev.key === "Enter") { ev.preventDefault(); runSearch(); }
+    });
   })();
   // Impact stats count-up: each green .impact band animates once, the first
   // time it scrolls into view. Static HTML already shows the exact final
