@@ -179,7 +179,7 @@
   .impact-grid-3{grid-template-columns:repeat(3,1fr)}
   .stat{padding:34px 22px;text-align:center}
   .stat + .stat{border-left:1px solid rgba(255,255,255,.22)}
-  .stat .num{font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(1.55rem,3.2vw,2.3rem);line-height:1.05}
+  .stat .num{font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(1.55rem,3.2vw,2.3rem);line-height:1.05;font-variant-numeric:tabular-nums}
   .stat .lbl{margin-top:8px;font-weight:700;font-size:.95rem}
   .stat .sub2{font-size:.86rem;color:#cfe9d8}
   /* Count-up entrance: applied by JS only, just before the band scrolls into view */
@@ -2364,17 +2364,17 @@
     <div class="wrap">
       <div class="impact-grid impact-grid-3">
         <div class="stat">
-          <div class="num">~1 million</div>
+          <div class="num" data-count="1" data-format="tilde-million">~1 million</div>
           <div class="lbl">Americans</div>
           <div class="sub2">living with Parkinson's disease</div>
         </div>
         <div class="stat">
-          <div class="num">10 million+</div>
+          <div class="num" data-count="10" data-format="million-plus">10 million+</div>
           <div class="lbl">people worldwide</div>
           <div class="sub2">living with Parkinson's</div>
         </div>
         <div class="stat">
-          <div class="num">Every 6 min</div>
+          <div class="num" data-count="6" data-format="every-min">Every 6 min</div>
           <div class="lbl">a new diagnosis</div>
           <div class="sub2">someone learns they have Parkinson's</div>
         </div>
@@ -2856,12 +2856,15 @@
     if (reduceMotion || !("IntersectionObserver" in window)) { return; }
     var nums = document.querySelectorAll(".impact .num[data-count]");
     if (!nums.length) { return; }
-    var DURATION = 1400;
+    var DURATION = 1800;
     function format(value, kind) {
       if (kind === "usd-plus") { return "$" + Math.round(value).toLocaleString("en-US") + "+"; }
       if (kind === "usd") { return "$" + value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }); }
       if (kind === "percent") { return Math.round(value) + "%"; }
       if (kind === "years") { return Math.round(value) + " years"; }
+      if (kind === "tilde-million") { return "~" + Math.round(value) + " million"; }
+      if (kind === "million-plus") { return Math.round(value) + " million+"; }
+      if (kind === "every-min") { return "Every " + Math.round(value) + " min"; }
       return String(Math.round(value));
     }
     function animateNum(el) {
