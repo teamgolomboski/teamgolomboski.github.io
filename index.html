@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="color-scheme" content="light dark" />
+<meta name="color-scheme" content="dark" />
 <meta name="description" content="Team Golomboski — Standing Strong Against Parkinson's Disease. Founded in 2014 in honor of Joseph Golomboski Sr., and walking in his memory since 2019. Rhode Island Optimism Walk team supporting the APDA Rhode Island Chapter." />
 <title>Team Golomboski | Rhode Island Parkinson's Fundraising</title>
 <link rel="icon" href="data:," />
@@ -11,66 +11,54 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@1,6..72,500&display=swap" rel="stylesheet">
 <style>
+  /* Pinned navy theme: the dark (navy) palette is the only palette.
+     These are the former dark-scheme values, now unconditional — the
+     site no longer switches with a visitor's light/dark setting. */
   :root{
+    color-scheme: dark;
     --navy:#0a2340; --navy-2:#0e2f56; --navy-deep:#071a30;
-    --orange:#f06423; --orange-dark:#d94f12; --orange-soft:#fff1e8;
-    --green:#1f7a4d; --green-dark:#16603c; --green-soft:#e8f4ec;
-    --blue:#2470b8; --blue-soft:#e9f2fb;
-    --ink:#17222e; --muted:#4c5a68; --line:#dde4ea;
-    --bg:#ffffff; --bg-alt:#f5f7f9; --card:#ffffff;
+    --orange:#f06423; --orange-dark:#d94f12; --orange-soft:#2c1d12;
+    --green:#1f7a4d; --green-dark:#16603c; --green-soft:#122a1e;
+    --blue:#2470b8; --blue-soft:#12283e;
+    --ink:#eef3f8; --muted:#aebccb; --line:#24384f;
+    --bg:#0a1624; --bg-alt:#0d1d31; --card:#102238;
     --footer-text:#c9d6e4;
-    --shadow:0 10px 30px rgba(10,35,64,.10);
+    --shadow:0 10px 30px rgba(0,0,0,.35);
     --radius:14px;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --ink:#eef3f8; --muted:#aebccb; --line:#24384f;
-      --bg:#0a1624; --bg-alt:#0d1d31; --card:#102238;
-      --orange-soft:#2c1d12; --green-soft:#122a1e; --blue-soft:#12283e;
-      --shadow:0 10px 30px rgba(0,0,0,.35);
-      --footer-text:#c9d6e4;
-    }
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth;overflow-x:clip}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-  body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background-color:#ffffff;background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
-  @media (prefers-color-scheme: dark){ body{background-color:#0a1624} }
+  body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background-color:#0a1624;background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
   img{max-width:100%;display:block}
-  a{color:var(--blue)}
-  /* Links on dark surfaces: in dark mode the page, section and card
-     backgrounds are navy/dark, and the standard link blue (#2470b8) only
-     reaches 3.08:1 against the site navy (#0a2340) — it blends in. Plain
-     in-content links therefore switch to light blue #8ec5ff in dark mode:
-     8.72:1 on #0a2340, 9.65:1 on navy-deep #071a30, 10.04:1 on the dark
-     page background #0a1624, 8.85:1 on dark cards #102238 — all well past
-     the 4.5:1 target. Class-styled links (nav, buttons, footer, socials,
+  a{color:#8ec5ff}
+  /* Links on the pinned navy surfaces: the standard link blue (#2470b8)
+     only reaches 3.08:1 against the site navy (#0a2340) — it blends in.
+     Plain in-content links therefore use light blue #8ec5ff everywhere:
+     8.72:1 on #0a2340, 9.65:1 on navy-deep #071a30, 10.04:1 on the page
+     background #0a1624, 8.85:1 on cards #102238 — all well past the
+     4.5:1 target. Class-styled links (nav, buttons, footer, socials,
      crumb) keep their own already-passing colors; underlines are kept,
      and the two bold text-links that normally show an underline only on
-     hover (.more-link, .read-more) gain a permanent underline in dark
-     mode so they stay identifiable as links there. Links on light
-     backgrounds keep #2470b8 (5.14:1 on white, 4.79:1 on #f5f7f9).
+     hover (.more-link, .read-more) keep a permanent underline so they
+     stay identifiable as links on the navy.
      CASCADE WARNING: this block sits near the top of the stylesheet,
      while component base rules (.read-more, .more-link) are defined
      hundreds of lines later. At equal specificity the later rule wins,
-     so a plain .read-more dark override here is silently defeated by
-     the base rule — that is exactly why "Read more" stayed mid-blue on
-     the dark team cards. The overrides below therefore use a.read-more
-     / a.more-link (specificity 0-1-1), which beat the later base rules
+     so a plain .read-more override here is silently defeated by the
+     base rule — that is exactly why "Read more" once stayed mid-blue on
+     the team cards. The rules below therefore use a.read-more /
+     a.more-link (specificity 0-1-1), which beat the later base rules
      (0-1-0) in either source order, and the base .read-more rule no
      longer sets a color of its own. */
-  @media (prefers-color-scheme: dark){
-    a{color:#8ec5ff}
-    a.read-more{color:#8ec5ff}
-    a.more-link,a.read-more{text-decoration:underline}
-  }
+  a.read-more{color:#8ec5ff}
+  a.more-link,a.read-more{text-decoration:underline}
   .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
   h1,h2,h3{font-family:"Archivo",system-ui,sans-serif;line-height:1.12;margin:0;letter-spacing:-.01em}
   h2{font-size:clamp(1.65rem,3.4vw,2.35rem);font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ h2{color:#eaf1f8} }
+  h2{color:#eaf1f8}
   .section{padding:64px 0}
-  .section-alt{background-color:#f5f7f9;background:var(--bg-alt)}
-  @media (prefers-color-scheme: dark){ .section-alt{background-color:#0d1d31;background:var(--bg-alt)} }
+  .section-alt{background-color:#0d1d31;background:var(--bg-alt)}
   .section-head{max-width:680px;margin-bottom:34px}
   .section-head p{color:var(--muted);margin:12px 0 0;font-size:1.05rem}
   .rule{width:56px;height:4px;border-radius:99px;background:var(--orange);margin-bottom:16px}
@@ -81,8 +69,8 @@
      SECONDARY (.btn-outline): transparent with a clear 2px outline and
      matching text — every other action. On dark surfaces (hero, navy
      bands) the outline is white; .btn-outline-surface is the same outline
-     treatment adapted for card surfaces, where it takes navy ink in light
-     mode and white ink in dark mode so it never blends into its card.
+     treatment adapted for card surfaces, where it takes white ink so it
+     never blends into its navy card.
      The old navy-fill and green-fill button styles are retired: a navy
      fill disappeared on navy/dark backgrounds and the green fill was a
      third, competing treatment. Sole exception, kept for platform-brand
@@ -93,8 +81,7 @@
   .btn-orange:hover{background:var(--orange-dark)}
   .btn-outline{--ol-ink:#fff;--ol-bg:rgba(255,255,255,.06);--ol-hover:rgba(255,255,255,.16);border-color:var(--ol-ink);color:var(--ol-ink);background:var(--ol-bg)}
   .btn-outline:hover{background:var(--ol-hover)}
-  .btn-outline-surface{--ol-ink:#0a2340;--ol-bg:transparent;--ol-hover:rgba(10,35,64,.08)}
-  @media (prefers-color-scheme: dark){ .btn-outline-surface{--ol-ink:#fff;--ol-bg:rgba(255,255,255,.06);--ol-hover:rgba(255,255,255,.16)} }
+  .btn-outline-surface{--ol-ink:#fff;--ol-bg:rgba(255,255,255,.06);--ol-hover:rgba(255,255,255,.16)}
   .btn-lg{font-size:1.12rem;padding:17px 36px}
 
   /* ---------- Nav ---------- */
@@ -104,9 +91,17 @@
   .brand-name{font-family:"Archivo",system-ui,sans-serif;font-weight:800;font-size:1.3rem;line-height:1.15;letter-spacing:-.01em;color:#fff;white-space:nowrap}
   .brand-sub{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#9fb8d2;font-weight:600;line-height:1.2;white-space:nowrap}
   .nav-links{display:flex;align-items:center;gap:2px;flex-wrap:nowrap;flex:1 1 auto;min-width:0;justify-content:flex-end}
-  .nav-links a{color:#dbe7f3;text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 8px;border-radius:8px;white-space:nowrap}
+  .nav-links a{position:relative;color:#dbe7f3;text-decoration:none;font-weight:600;font-size:.92rem;padding:8px 8px;border-radius:8px;white-space:nowrap}
   .nav-links a:hover{background:rgba(255,255,255,.10);color:#fff}
   .nav-links a.active{background:rgba(255,255,255,.16);color:#fff}
+  /* Desktop nav dividers: a short, faint vertical rule between each pair
+     of links — not before the first link, not after the last (so nothing
+     sits between Stories and Donate), and never in the mobile menu (that
+     list is .mobile-menu, not .nav-links, and .nav-links is hidden on
+     phones). Drawn as an absolutely-positioned pseudo-element, it adds
+     NO layout width, so the single-row header and its 1150/950/850px
+     tightening steps are unaffected — nothing can be pushed to wrap. */
+  .nav-links a + a::before{content:"";position:absolute;left:-1px;top:50%;transform:translateY(-50%);width:1px;height:14px;background:rgba(255,255,255,.28);pointer-events:none}
   .nav-donate{background:var(--orange);color:#fff;padding:10px 18px;text-decoration:none;font-weight:600;font-size:.96rem;border-radius:8px;display:inline-flex;align-items:center;flex:none;white-space:nowrap}
   .nav-donate:hover{background:var(--orange-dark)}
   /* Header actions (Donate + mobile Menu button): pinned to the far right
@@ -204,10 +199,10 @@
   .goal-fill.is-pending{width:0}
   .goal-fill.is-animating{transition:width 2s cubic-bezier(.22,.61,.21,1)}
   .goal-note{font-size:.9rem;font-weight:700;color:var(--green)}
-  @media (prefers-color-scheme: dark){ .goal-note{color:#7fd6a5} }
+  .goal-note{color:#7fd6a5}
   .thankyou{margin-top:22px;background:var(--green-soft);border-radius:var(--radius);padding:18px 20px;font-size:.98rem}
   .thankyou strong{color:var(--green-dark)}
-  @media (prefers-color-scheme: dark){ .thankyou strong{color:#7fd6a5} }
+  .thankyou strong{color:#7fd6a5}
   .more-link{font-weight:700;text-decoration:none}
   .more-link:hover{text-decoration:underline}
 
@@ -233,7 +228,7 @@
   .gift-figure figcaption{padding:10px 22px 0;font-size:.85rem;color:var(--muted);line-height:1.5}
   .gift-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
   .gift-body h3{font-size:1.18rem;font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .gift-body h3{color:#eaf1f8} }
+  .gift-body h3{color:#eaf1f8}
   .gift-body p{margin:0;color:var(--muted);font-size:.98rem}
   .gift-cta{text-align:center;margin-top:36px}
   .gift-cta p{color:var(--muted);margin:0 0 16px}
@@ -242,7 +237,7 @@
   .involved-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .involved-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px 28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;min-width:0}
   .involved-card h3{font-size:1.2rem;font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .involved-card h3{color:#eaf1f8} }
+  .involved-card h3{color:#eaf1f8}
   .involved-card p{margin:0 0 6px;color:var(--muted);font-size:1rem}
   .involved-card .btn{margin-top:auto;align-self:flex-start;justify-content:center;text-align:center;max-width:100%}
   @media (max-width:900px){ .involved-grid{grid-template-columns:1fr} }
@@ -263,7 +258,7 @@
   img.avatar-a{object-position:50% 50%}
   .person h3{font-size:1.22rem;font-weight:800}
   .person .role{color:var(--orange-dark);font-weight:700;margin:4px 0 8px;font-size:.98rem}
-  @media (prefers-color-scheme: dark){ .person .role{color:#ffb287} }
+  .person .role{color:#ffb287}
   .person p{margin:0;color:var(--muted);font-size:.95rem}
   .photo-note{margin-top:18px;font-size:.88rem;color:var(--muted)}
 
@@ -273,7 +268,7 @@
   .founder .avatar{width:118px;height:118px}
   .founder-name{font-family:"Archivo",sans-serif;font-weight:800;font-size:1.08rem;margin-top:14px;line-height:1.25}
   .founder-role{color:var(--orange-dark);font-weight:700;font-size:.95rem;margin-top:3px}
-  @media (prefers-color-scheme: dark){ .founder-role{color:#ffb287} }
+  .founder-role{color:#ffb287}
   .founder:hover .founder-name{text-decoration:underline}
   @media (max-width:520px){ .founders-row{gap:24px} .founder{max-width:150px} .founder .avatar{width:104px;height:104px} }
 
@@ -328,18 +323,18 @@
   .story-pullquote{margin:30px 0 6px;padding:26px 28px;background:var(--orange-soft);border-radius:var(--radius);max-width:760px}
   .story-pullquote p{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:clamp(1.25rem,2.6vw,1.55rem);line-height:1.45;color:var(--ink);margin:0}
   .story-pullquote p strong{color:var(--orange-dark)}
-  @media (prefers-color-scheme: dark){ .story-pullquote p strong{color:#ffb287} }
+  .story-pullquote p strong{color:#ffb287}
   .story-chapters{list-style:none;margin:30px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:960px}
   .story-chapters li{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px;box-shadow:var(--shadow);min-width:0}
   .story-chapters .ch-year{font-family:"Archivo",sans-serif;font-weight:900;font-size:1.05rem;color:var(--orange-dark);line-height:1.2;display:block}
-  @media (prefers-color-scheme: dark){ .story-chapters .ch-year{color:#ffb287} }
+  .story-chapters .ch-year{color:#ffb287}
   .story-chapters .ch-title{font-weight:800;font-size:.98rem;color:var(--navy);display:block;margin-top:6px;line-height:1.3}
-  @media (prefers-color-scheme: dark){ .story-chapters .ch-title{color:#eaf1f8} }
+  .story-chapters .ch-title{color:#eaf1f8}
   .story-chapters .ch-text{color:var(--muted);font-size:.9rem;display:block;margin-top:6px;line-height:1.5}
   @media (max-width:768px){ .story-chapters{grid-template-columns:1fr 1fr} .story-pullquote{padding:22px 20px} }
   @media (max-width:400px){ .story-chapters{grid-template-columns:1fr} }
   .prose h3.story-subhead{font-size:1.28rem;font-weight:800;color:var(--navy);margin:30px 0 0}
-  @media (prefers-color-scheme: dark){ .prose h3.story-subhead{color:#eaf1f8} }
+  .prose h3.story-subhead{color:#eaf1f8}
   .prose h3.story-subhead + p{margin-top:10px}
 
   /* ---------- Family Memories gallery (inside the memorial panel) ---------- */
@@ -361,7 +356,7 @@
   .values-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
   .value-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 20px;box-shadow:var(--shadow)}
   .value-card h3{font-size:1.05rem;font-weight:800;color:var(--green-dark)}
-  @media (prefers-color-scheme: dark){ .value-card h3{color:#7fd6a5} }
+  .value-card h3{color:#7fd6a5}
   .value-card p{margin:8px 0 0;color:var(--muted);font-size:.92rem}
 
   /* ---------- Events ---------- */
@@ -369,28 +364,28 @@
   .event-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);display:grid;grid-template-columns:150px 1fr;gap:28px}
   .event-when{border-right:1px solid var(--line);padding-right:24px}
   .event-when .mo{font-family:"Archivo",sans-serif;font-weight:900;font-size:1.5rem;color:var(--orange-dark);line-height:1.1}
-  @media (prefers-color-scheme: dark){ .event-when .mo{color:#ffb287} }
+  .event-when .mo{color:#ffb287}
   .event-when .yr{font-weight:700;color:var(--muted);font-size:.95rem;margin-top:4px}
   .event-when .where{font-size:.9rem;color:var(--muted);margin-top:10px}
   .event-body h3{font-size:1.3rem;font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .event-body h3{color:#eaf1f8} }
+  .event-body h3{color:#eaf1f8}
   .event-body p{color:var(--muted);margin:10px 0 0;font-size:1rem}
   .event-body p.walk-total{background:var(--green-soft);border-radius:10px;padding:12px 16px;font-weight:700;color:var(--ink);font-size:1.05rem}
   .event-body p.walk-total strong{color:var(--green-dark);font-family:"Archivo",sans-serif;font-size:1.15rem}
-  @media (prefers-color-scheme: dark){ .event-body p.walk-total strong{color:#7fd6a5} }
+  .event-body p.walk-total strong{color:#7fd6a5}
   /* Team Golomboski goal bar (Events walk entry): final state is a full bar —
      JS stages it at 0 only when motion is allowed, then animates on view. */
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   .team-progress{margin:18px 0 6px}
   .event-body p.team-progress-label{margin:0 0 10px;font-weight:700;color:var(--ink);font-size:1rem}
   .event-body p.team-progress-label strong{color:var(--green-dark)}
-  @media (prefers-color-scheme: dark){ .event-body p.team-progress-label strong{color:#7fd6a5} }
+  .event-body p.team-progress-label strong{color:#7fd6a5}
   .team-progress-track{background:var(--line);border-radius:99px;height:16px;overflow:hidden}
   .team-progress-fill{height:100%;width:100%;border-radius:99px;background:linear-gradient(90deg,var(--green) 0%,var(--blue) 100%)}
   .team-progress-fill.is-pending{width:0}
   .team-progress-fill.is-animating{transition:width 2s cubic-bezier(.22,.61,.21,1)}
   .event-body p.team-progress-caption{margin:8px 0 0;font-size:.9rem;font-weight:700;color:var(--green)}
-  @media (prefers-color-scheme: dark){ .event-body p.team-progress-caption{color:#7fd6a5} }
+  .event-body p.team-progress-caption{color:#7fd6a5}
   @media (prefers-reduced-motion: reduce){
     .team-progress-fill.is-pending{width:100%}
     .team-progress-fill.is-animating{transition:none}
@@ -421,10 +416,10 @@
   .media-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .media-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
   .media-card h3{font-size:1.12rem;font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .media-card h3{color:#eaf1f8} }
+  .media-card h3{color:#eaf1f8}
   .media-card p{margin:0;color:var(--muted);font-size:.95rem;flex:1}
   .tag-todo{align-self:flex-start;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-dark);border:1.5px dashed var(--orange);border-radius:99px;padding:5px 12px}
-  @media (prefers-color-scheme: dark){ .tag-todo{color:#ffb287} }
+  .tag-todo{color:#ffb287}
   /* Featured coverage (Media — real cover story, photo shown whole) */
   .media-feature{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:30px;padding:28px;margin-bottom:30px;align-items:start}
   .media-feature figure{margin:0;min-width:0}
@@ -432,30 +427,27 @@
   .media-feature figcaption{margin-top:12px;font-size:.92rem;color:var(--muted);line-height:1.5}
   .media-feature-body{min-width:0;padding-top:6px}
   .media-feature .source-line{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-dark);margin:0}
-  @media (prefers-color-scheme: dark){ .media-feature .source-line{color:#7fd6a5} }
+  .media-feature .source-line{color:#7fd6a5}
   .media-feature h3{font-family:"Archivo",sans-serif;font-size:clamp(1.45rem,3vw,2rem);font-weight:800;color:var(--navy);line-height:1.2;margin:12px 0 0}
-  @media (prefers-color-scheme: dark){ .media-feature h3{color:#eaf1f8} }
+  .media-feature h3{color:#eaf1f8}
   .media-feature .byline{color:var(--orange-dark);font-weight:700;margin:10px 0 0;font-size:1rem}
-  @media (prefers-color-scheme: dark){ .media-feature .byline{color:#ffb287} }
+  .media-feature .byline{color:#ffb287}
   .media-feature .feature-text{color:var(--muted);margin:14px 0 0;font-size:1.02rem;line-height:1.65}
   @media (max-width:768px){ .media-feature{grid-template-columns:1fr;gap:20px;padding:22px 18px} .media-feature-body{padding-top:0} }
 
   /* ---------- Placeholder templates ---------- */
-  .placeholder-box{border:2px dashed var(--line);border-radius:var(--radius);padding:30px 28px;background-color:#f5f7f9;background:var(--bg-alt)}
-  @media (prefers-color-scheme: dark){ .placeholder-box{background-color:#0d1d31} }
+  .placeholder-box{border:2px dashed var(--line);border-radius:var(--radius);padding:30px 28px;background-color:#0d1d31;background:var(--bg-alt)}
   .placeholder-box h3{font-size:1.15rem;font-weight:800}
   .placeholder-box p{color:var(--muted);margin:10px 0 0;font-size:.98rem}
 
   /* ---------- Find Help (home band) ---------- */
   /* Hardened for weak in-app WebViews (e.g. Facebook Messenger on Android):
-     this band's background used to come only from var(--bg-alt), whose value
-     flips inside a prefers-color-scheme media query. Messenger's WebView
-     mis-reports that scheme, so it painted the light value (near-white)
-     while Chrome painted the dark navy value. The band is now pinned to
-     the site navy with a plain hex — background-color fallback first, then
-     the same solid hex as the background — with no variable and no
-     colour-scheme dependency, and its text is explicitly light so it
-     stays readable on the navy in every browser. */
+     this band's background is pinned to the site navy with a plain hex —
+     background-color fallback first, then the same solid hex as the
+     background — with no variable and no colour-scheme dependency, and
+     its text is explicitly light so it stays readable on the navy in
+     every browser. (The whole site is pinned navy now; this band keeps
+     its own hex pin as a second line of defence.) */
   .start-here{background-color:#0a2340;background:#0a2340;color:#ffffff;border-bottom:1px solid #0e2f56;padding:44px 0}
   .start-here h2{text-align:center;color:#ffffff}
   .start-here .start-sub{text-align:center;color:#c9d6e4;margin:12px auto 0;max-width:560px;font-size:1.05rem}
@@ -472,20 +464,20 @@
   .pathway-card{display:flex;flex-direction:column;gap:10px;background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);min-height:170px}
   .pathway-card:hover{border-color:var(--green)}
   .pathway-card h3{font-size:1.3rem;font-weight:800;color:var(--navy);line-height:1.25}
-  @media (prefers-color-scheme: dark){ .pathway-card h3{color:#eaf1f8} }
+  .pathway-card h3{color:#eaf1f8}
   .pathway-card p{margin:0;color:var(--muted);font-size:1rem;flex:1}
   .pathway-card .go{font-weight:700;color:var(--green-dark);font-size:1.02rem}
-  @media (prefers-color-scheme: dark){ .pathway-card .go{color:#7fd6a5} }
+  .pathway-card .go{color:#7fd6a5}
   .find-search{max-width:720px;margin:0 auto}
   .find-search label{display:block;font-weight:700;font-size:1.12rem;margin-bottom:10px;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .find-search label{color:#eaf1f8} }
+  .find-search label{color:#eaf1f8}
   .find-search input{width:100%;font:inherit;font-size:1.12rem;padding:16px 18px;min-height:60px;border:2px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
   .find-search input:focus{outline:3px solid var(--blue-soft);border-color:var(--blue)}
   .find-search .hint{color:var(--muted);font-size:.95rem;margin:10px 0 0}
   .help-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}
   .help-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
   .help-card h3{font-size:1.28rem;font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .help-card h3{color:#eaf1f8} }
+  .help-card h3{color:#eaf1f8}
   .help-card p{margin:0;color:var(--muted);font-size:1.02rem}
   .help-card p strong{color:var(--ink)}
   .help-card .help-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:auto;padding-top:6px}
@@ -498,14 +490,14 @@
 
   /* ---------- Find Help (program finder & listings) ---------- */
   .group-head{font-size:1.35rem;font-weight:800;color:var(--navy);margin:38px 0 16px}
-  @media (prefers-color-scheme: dark){ .group-head{color:#eaf1f8} }
+  .group-head{color:#eaf1f8}
   .listing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
   .listing-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:7px;box-shadow:var(--shadow)}
   .listing-type{align-self:flex-start;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--blue-soft);color:var(--ink);padding:4px 10px;border-radius:99px}
   .listing-name{font-family:"Archivo",sans-serif;font-size:1.05rem;font-weight:800;color:var(--navy);line-height:1.3;margin:0}
-  @media (prefers-color-scheme: dark){ .listing-name{color:#eaf1f8} }
+  .listing-name{color:#eaf1f8}
   .listing-meta{margin:0;font-weight:700;font-size:.92rem;color:var(--green-dark)}
-  @media (prefers-color-scheme: dark){ .listing-meta{color:#7fd6a5} }
+  .listing-meta{color:#7fd6a5}
   .listing-detail{margin:0;color:var(--muted);font-size:.93rem;flex:1}
   .listing-btn{min-height:48px;padding:10px 16px;font-size:.93rem;justify-content:center;text-align:center;margin-top:8px}
   .finder-note{font-size:.9rem;color:var(--muted);margin-top:26px;max-width:760px}
@@ -545,9 +537,9 @@
   .team-strip-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .team-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
   .team-card h3{font-size:1.25rem;font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .team-card h3{color:#eaf1f8} }
+  .team-card h3{color:#eaf1f8}
   .team-card .role{color:var(--orange-dark);font-weight:700;margin:0;font-size:1rem}
-  @media (prefers-color-scheme: dark){ .team-card .role{color:#ffb287} }
+  .team-card .role{color:#ffb287}
   .team-card p{margin:0;color:var(--muted);font-size:1rem}
   .team-card p strong{color:var(--ink)}
   .team-card .btn{min-height:52px;align-self:flex-start;margin-top:auto}
@@ -557,7 +549,7 @@
   .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .res-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow)}
   .res-card h3{font-size:1.18rem;font-weight:800;color:var(--navy);margin-bottom:10px}
-  @media (prefers-color-scheme: dark){ .res-card h3{color:#eaf1f8} }
+  .res-card h3{color:#eaf1f8}
   .res-card p{color:var(--muted);margin:0 0 12px;font-size:.99rem}
   .res-card p:last-child{margin-bottom:0}
   .res-card ul{margin:0;padding-left:20px;color:var(--muted);font-size:.99rem}
@@ -569,17 +561,17 @@
   .story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
   .story-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
   .story-card .when{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--green-dark)}
-  @media (prefers-color-scheme: dark){ .story-card .when{color:#7fd6a5} }
+  .story-card .when{color:#7fd6a5}
   .story-card h3{font-size:1.15rem;font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .story-card h3{color:#eaf1f8} }
+  .story-card h3{color:#eaf1f8}
   .story-card p{margin:0;color:var(--muted);font-size:.97rem}
   .story-card .amount{font-family:"Archivo",sans-serif;font-weight:900;font-size:1.9rem;color:var(--orange-dark);line-height:1}
-  @media (prefers-color-scheme: dark){ .story-card .amount{color:#ffb287} }
+  .story-card .amount{color:#ffb287}
 
   /* ---------- Info boxes / press kit ---------- */
   .info-box{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow)}
   .info-box h3{font-size:1.2rem;font-weight:800;color:var(--navy);margin-bottom:10px}
-  @media (prefers-color-scheme: dark){ .info-box h3{color:#eaf1f8} }
+  .info-box h3{color:#eaf1f8}
   .info-box p{color:var(--muted);margin:0 0 10px;font-size:1rem}
   .info-box p:last-child{margin-bottom:0}
   .info-box address{font-style:normal;font-size:1.05rem;line-height:1.7;color:var(--ink)}
@@ -589,7 +581,7 @@
   .stat-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
   .stat-list li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;font-size:.99rem;color:var(--muted)}
   .stat-list li strong{display:block;font-family:"Archivo",sans-serif;font-size:1.3rem;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .stat-list li strong{color:#eaf1f8} }
+  .stat-list li strong{color:#eaf1f8}
 
   /* ---------- Joseph & Alicia ---------- */
   .hero-role{font-weight:700;font-size:1rem;letter-spacing:.02em;color:#ffb287;margin-top:14px}
@@ -597,39 +589,39 @@
   .shared-events{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:28px}
   .shared-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow)}
   .shared-card h3{font-size:1.08rem;font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .shared-card h3{color:#eaf1f8} }
+  .shared-card h3{color:#eaf1f8}
   .shared-card p{margin:8px 0 0;color:var(--muted);font-size:.96rem}
   .profile-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:34px 32px;box-shadow:var(--shadow)}
   .profile-head{display:flex;gap:22px;align-items:center}
   .profile-head .avatar{width:92px;height:92px;font-size:1.6rem}
   .profile-head h3{font-size:1.45rem;font-weight:800;color:var(--navy)}
-  @media (prefers-color-scheme: dark){ .profile-head h3{color:#eaf1f8} }
+  .profile-head h3{color:#eaf1f8}
   .profile-head .role{color:var(--orange-dark);font-weight:700;margin:5px 0 0;font-size:1rem}
-  @media (prefers-color-scheme: dark){ .profile-head .role{color:#ffb287} }
+  .profile-head .role{color:#ffb287}
   .profile-bio{margin-top:22px}
   .profile-bio p{color:var(--muted);margin:0 0 14px;font-size:1.03rem;line-height:1.7}
   .profile-bio p strong{color:var(--ink)}
   .profile-bio p:last-child{margin-bottom:0}
   .timeline{margin-top:28px;padding-top:26px;border-top:1px solid var(--line)}
   .timeline h4{font-family:"Archivo",sans-serif;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--green-dark);margin:0 0 18px}
-  @media (prefers-color-scheme: dark){ .timeline h4{color:#7fd6a5} }
+  .timeline h4{color:#7fd6a5}
   .timeline-list{list-style:none;margin:0;padding:0;position:relative}
   .timeline-list::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
   .timeline-list li{position:relative;padding:0 0 20px 34px}
   .timeline-list li:last-child{padding-bottom:0}
   .timeline-list li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--orange);border:3px solid var(--card);box-shadow:0 0 0 1px var(--line)}
   .timeline-year{font-family:"Archivo",sans-serif;font-weight:800;font-size:.95rem;color:var(--navy);display:block}
-  @media (prefers-color-scheme: dark){ .timeline-year{color:#eaf1f8} }
+  .timeline-year{color:#eaf1f8}
   .timeline-desc{color:var(--muted);font-size:.98rem;display:block;margin-top:2px}
   /* Honors & Awards (Joseph profile) */
   .honors{margin-top:28px;padding-top:26px;border-top:1px solid var(--line)}
   .honors h4{font-family:"Archivo",sans-serif;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--green-dark);margin:0 0 18px}
-  @media (prefers-color-scheme: dark){ .honors h4{color:#7fd6a5} }
+  .honors h4{color:#7fd6a5}
   .honor + .honor{margin-top:26px;padding-top:24px;border-top:1px solid var(--line)}
   .honor h5{font-family:"Archivo",sans-serif;font-size:1.12rem;font-weight:800;color:var(--navy);margin:0;line-height:1.3}
-  @media (prefers-color-scheme: dark){ .honor h5{color:#eaf1f8} }
+  .honor h5{color:#eaf1f8}
   .honor .issuer{color:var(--orange-dark);font-weight:700;margin:4px 0 0;font-size:.98rem}
-  @media (prefers-color-scheme: dark){ .honor .issuer{color:#ffb287} }
+  .honor .issuer{color:#ffb287}
   .honor p.desc{color:var(--muted);margin:10px 0 0;font-size:1rem;line-height:1.65}
   .honor-photo{margin:18px 0 0;max-width:640px}
   .honor-photo img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow);display:block}
@@ -644,9 +636,8 @@
   .decade-contact a{color:#fff;font-weight:700;text-decoration:none;border-bottom:1px dotted rgba(255,255,255,.5)}
   .decade-contact a:hover{border-bottom-style:solid}
   /* No color here on purpose: the link color comes from the global link
-     rules (mid-blue #2470b8 on the light cards, bright #8ec5ff on the
-     dark cards). Setting a color in this later rule defeated the
-     dark-scheme bright link color at equal specificity. */
+     rules (bright #8ec5ff on the navy cards). Setting a color in this
+     later rule defeated the bright link color at equal specificity. */
   .read-more{display:inline-block;margin-top:12px;font-weight:700;text-decoration:none}
   .read-more:hover{text-decoration:underline}
 
