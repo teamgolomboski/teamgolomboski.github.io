@@ -34,7 +34,8 @@
   *{box-sizing:border-box}
   html{scroll-behavior:smooth;overflow-x:clip}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
-  body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background-color:#ffffff;background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip}
+  @media (prefers-color-scheme: dark){ body{background-color:#0a1624} }
   img{max-width:100%;display:block}
   a{color:var(--blue)}
   .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
@@ -42,7 +43,8 @@
   h2{font-size:clamp(1.65rem,3.4vw,2.35rem);font-weight:800;color:var(--navy)}
   @media (prefers-color-scheme: dark){ h2{color:#eaf1f8} }
   .section{padding:64px 0}
-  .section-alt{background:var(--bg-alt)}
+  .section-alt{background-color:#f5f7f9;background:var(--bg-alt)}
+  @media (prefers-color-scheme: dark){ .section-alt{background-color:#0d1d31;background:var(--bg-alt)} }
   .section-head{max-width:680px;margin-bottom:34px}
   .section-head p{color:var(--muted);margin:12px 0 0;font-size:1.05rem}
   .rule{width:56px;height:4px;border-radius:99px;background:var(--orange);margin-bottom:16px}
@@ -370,18 +372,30 @@
   @media (max-width:768px){ .media-feature{grid-template-columns:1fr;gap:20px;padding:22px 18px} .media-feature-body{padding-top:0} }
 
   /* ---------- Placeholder templates ---------- */
-  .placeholder-box{border:2px dashed var(--line);border-radius:var(--radius);padding:30px 28px;background:var(--bg-alt)}
+  .placeholder-box{border:2px dashed var(--line);border-radius:var(--radius);padding:30px 28px;background-color:#f5f7f9;background:var(--bg-alt)}
+  @media (prefers-color-scheme: dark){ .placeholder-box{background-color:#0d1d31} }
   .placeholder-box h3{font-size:1.15rem;font-weight:800}
   .placeholder-box p{color:var(--muted);margin:10px 0 0;font-size:.98rem}
 
   /* ---------- Find Help (home band) ---------- */
-  .start-here{background:var(--bg-alt);border-bottom:1px solid var(--line);padding:44px 0}
-  .start-here h2{text-align:center}
-  .start-here .start-sub{text-align:center;color:var(--muted);margin:12px auto 0;max-width:560px;font-size:1.05rem}
+  /* Hardened for weak in-app WebViews (e.g. Facebook Messenger on Android):
+     this band's background used to come only from var(--bg-alt), whose value
+     flips inside a prefers-color-scheme media query. Messenger's WebView
+     mis-reports that scheme, so it painted the light value (near-white)
+     while Chrome painted the dark navy value. The band is now pinned to
+     the site navy with a plain hex — background-color fallback first, then
+     the same solid hex as the background — with no variable and no
+     colour-scheme dependency, and its text is explicitly light so it
+     stays readable on the navy in every browser. */
+  .start-here{background-color:#0a2340;background:#0a2340;color:#ffffff;border-bottom:1px solid #0e2f56;padding:44px 0}
+  .start-here h2{text-align:center;color:#ffffff}
+  .start-here .start-sub{text-align:center;color:#c9d6e4;margin:12px auto 0;max-width:560px;font-size:1.05rem}
+  .start-here .start-btn{border:1.5px solid rgba(255,255,255,.45)}
+  .start-here .start-btn:hover{border-color:#ffffff}
   .start-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
-  .start-btn{display:flex;align-items:center;justify-content:center;text-align:center;min-height:64px;padding:18px 20px;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:1.08rem;border-radius:12px;line-height:1.3}
+  .start-btn{display:flex;align-items:center;justify-content:center;text-align:center;min-height:64px;padding:18px 20px;background-color:#0a2340;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;font-size:1.08rem;border-radius:12px;line-height:1.3}
   .start-btn:hover{background:var(--navy-2)}
-  .start-btn.alt{background:var(--green)}
+  .start-btn.alt{background-color:#1f7a4d;background:var(--green)}
   .start-btn.alt:hover{background:var(--green-dark)}
 
   /* ---------- Find Help (pathways, search, cards) ---------- */
