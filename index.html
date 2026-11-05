@@ -525,9 +525,6 @@
   .uniform-gallery .photo-open img{transition:filter .18s ease}
   .uniform-gallery .photo-open:hover img{filter:brightness(1.07)}
   .uniform-gallery .photo-open:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
-  .uniform-gallery a.tile-link{display:block;text-decoration:none;-webkit-tap-highlight-color:transparent}
-  .uniform-gallery a.tile-link:hover img{filter:brightness(1.07)}
-  .uniform-gallery a.tile-link:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
   @media (prefers-reduced-motion: reduce){ .uniform-gallery .photo-open img{transition:none} }
   @media (max-width:640px){ .uniform-gallery{grid-template-columns:1fr;gap:18px} }
   /* Our Story inline pair: same uniform tiles, inside the prose column */
@@ -585,24 +582,26 @@
 
   /* ---------- Events ---------- */
   .event-list{display:flex;flex-direction:column;gap:24px;max-width:880px}
-  /* Event ownership badges: solid green = chapter-run event; green
-     outline = team-run event benefiting the chapter. Styled after the
-     site's existing pill tags (.tag-todo); orange stays donation-only. */
+  /* Event ownership badges: BOTH types share one identical treatment —
+     solid slate gray (#64748b) with white text — and the label text
+     alone distinguishes a chapter event from a team event. Styled
+     after the site's existing pill tags (.tag-todo); no green on
+     either badge, and orange stays donation-only. */
   .event-badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:5px 12px;line-height:1.4;margin-bottom:12px}
-  .event-badge-chapter{background:var(--green);border:1.5px solid var(--green);color:#fff}
-  .event-badge-team{background:transparent;border:1.5px solid var(--green);color:#7fd6a5}
+  .event-badge-chapter{background:#64748b;border:1.5px solid #64748b;color:#fff}
+  .event-badge-team{background:#64748b;border:1.5px solid #64748b;color:#fff}
   .page-hero p.events-note{font-family:"Public Sans",system-ui,sans-serif;font-style:normal;font-size:.98rem}
   /* Events filter (Events page only): three pill toggles directly under
      the explainer line. Unselected = outline treatment (site secondary
-     style on the navy hero); selected = solid green treatment, matching
-     the event badges / help-green family (orange stays donation-only).
+     style on the navy hero); selected = the same solid slate gray
+     (#64748b) as the event badges (orange stays donation-only).
      All buttons are >=48px tall for touch and keyboard use. */
   .event-filter{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
   .event-filter-btn{font:inherit;font-weight:700;font-size:.98rem;line-height:1.3;min-height:48px;padding:11px 20px;border-radius:99px;border:2px solid rgba(255,255,255,.65);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
   .event-filter-btn:hover{background:rgba(255,255,255,.16)}
   .event-filter-btn:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
-  .event-filter-btn[aria-pressed="true"]{background:#15803d;border-color:#15803d;color:#fff}
-  .event-filter-btn[aria-pressed="true"]:hover{background:#126e34}
+  .event-filter-btn[aria-pressed="true"]{background:#64748b;border-color:#64748b;color:#fff}
+  .event-filter-btn[aria-pressed="true"]:hover{background:#475569;border-color:#475569}
   .event-filter-empty{max-width:880px;color:var(--muted);font-size:1.02rem;margin:0 0 24px}
   @media (max-width:640px){ .event-filter-btn{flex:1 1 auto;text-align:center} }
   .event-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);display:grid;grid-template-columns:150px 1fr;gap:28px}
@@ -720,7 +719,7 @@
   /* Galleries page hint line (above each gallery where used) */
   .gallery-hint{font-size:.95rem;color:var(--muted);margin:10px 0 0}
 
-  /* ---------- Photo viewer (Galleries page — all galleries) ----------
+  /* ---------- Photo viewer (all galleries, incl. Our Story inline) ----------
      Full-screen overlay in the site navy, mirroring the Media page
      flipbook viewer above: it reuses the flipbook's bar, close button,
      tap zones and prev/next controls, and shows one photo at a time,
@@ -1433,17 +1432,18 @@
         <div class="first-walk">
           <h3 class="story-subhead">The First Walk — 2014</h3>
           <p>Scenes from the 2014 Rhode Island Optimism Walk — Team Golomboski's first walk, the year Alicia and Joseph Jr. founded the team in their dad's honor.</p>
-          <div class="uniform-gallery story-inline-gallery">
+          <p class="gallery-hint">Tap any photo to see it larger.</p>
+          <div class="uniform-gallery story-inline-gallery" data-gallery="first-walk-2014" data-gallery-title="The First Walk — 2014">
             <figure class="gallery-tile">
-              <a class="tile-link" href="#/galleries#gallery-first-walk-2014" aria-label="See the full First Walk 2014 gallery — Alicia Golomboski with her dad, Joseph P. Golomboski Sr., at the first Optimism Walk, 2014">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Alicia Golomboski with her dad, Joseph P. Golomboski Sr., at the first Optimism Walk, 2014.">
                 <span class="tile-frame"><img class="focal-alicia-dad" src="assets/walk2014-alicia-dad.jpg" alt="Alicia Golomboski standing beside her dad, Joseph P. Golomboski Sr., in his wheelchair at the 2014 Optimism Walk, giving a thumbs-up" width="720" height="960" /></span>
-              </a>
+              </button>
               <figcaption>Alicia Golomboski with her dad, Joseph P. Golomboski Sr., at the first Optimism Walk, 2014.</figcaption>
             </figure>
             <figure class="gallery-tile">
-              <a class="tile-link" href="#/galleries#gallery-first-walk-2014" aria-label="See the full First Walk 2014 gallery — The first Team Golomboski, gathered under the team tent">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The first Team Golomboski, gathered under the team tent.">
                 <span class="tile-frame"><img src="assets/walk2014-team-group.jpg" alt="The first Team Golomboski gathered under the team tent at the 2014 Optimism Walk." width="960" height="720" /></span>
-              </a>
+              </button>
               <figcaption>The first Team Golomboski, gathered under the team tent.</figcaption>
             </figure>
           </div>
@@ -3198,7 +3198,7 @@
 
 </main>
 
-<!-- Photo viewer (Galleries page): tapping any gallery photo opens
+<!-- Photo viewer (Galleries page + the Our Story inline First Walk grid): tapping any gallery photo opens
      this full-screen viewer on that photo, with its caption and a
      "Photo X of N" counter scoped to the gallery being viewed.
      Prev/Next buttons (>=48px), tap zones, arrow keys, Esc / x close.
@@ -3670,7 +3670,7 @@
     }
   })();
 
-  // Photo viewer (Galleries page — every gallery): every gallery
+  // Photo viewer (every gallery, incl. the Our Story inline grid): every gallery
   // photo is a button inside a [data-gallery] group; tapping one opens
   // a full-screen viewer on that photo, large, with the photo's own
   // gallery caption beneath it and a "Photo X of N" counter scoped to
@@ -3691,28 +3691,38 @@
     var img = document.getElementById("photoViewerImg");
     var caption = document.getElementById("photoViewerCaption");
     var titleEl = document.getElementById("photoViewerTitle");
-    // Build one photo list per gallery group.
+    // Build one photo list per gallery group. Containers that share a
+    // data-gallery key feed the SAME list (photos de-duplicated by src,
+    // in first-seen order): the two First Walk photos inline in Our
+    // Story are the full First Walk gallery's first two photos, so
+    // tapping either one opens the viewer on that photo within the
+    // complete seven-photo set, and Prev/Next walks the whole set.
     var groups = {};
     var galleries = document.querySelectorAll("[data-gallery]");
     for (var g = 0; g < galleries.length; g++) {
       var key = galleries[g].getAttribute("data-gallery");
       var title = galleries[g].getAttribute("data-gallery-title") || "Photo Gallery";
+      if (!groups[key]) { groups[key] = { title: title, photos: [] }; }
+      var group = groups[key];
       var openers = galleries[g].querySelectorAll(".photo-open");
-      var photos = [];
       for (var b = 0; b < openers.length; b++) {
-        (function (btn, idx) {
-          btn.addEventListener("click", function () { openViewer(key, idx, btn); });
-        })(openers[b], b);
         var oImg = openers[b].querySelector("img");
         var fig = openers[b].closest ? openers[b].closest("figure") : openers[b].parentNode;
         var cap = fig ? fig.querySelector("figcaption") : null;
-        photos.push({
+        var photo = {
           src: oImg ? oImg.getAttribute("src") : "",
           alt: oImg ? (oImg.getAttribute("alt") || "") : "",
           caption: cap ? cap.textContent : ""
-        });
+        };
+        var idx = -1;
+        for (var e = 0; e < group.photos.length; e++) {
+          if (group.photos[e].src === photo.src) { idx = e; break; }
+        }
+        if (idx === -1) { idx = group.photos.length; group.photos.push(photo); }
+        (function (btn, openIdx, groupKey) {
+          btn.addEventListener("click", function () { openViewer(groupKey, openIdx, btn); });
+        })(openers[b], idx, key);
       }
-      groups[key] = { title: title, photos: photos };
     }
     var currentGroup = null;
     var current = 0;
