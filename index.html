@@ -535,6 +535,13 @@
 
   /* ---------- Events ---------- */
   .event-list{display:flex;flex-direction:column;gap:24px;max-width:880px}
+  /* Event ownership badges: solid green = chapter-run event; green
+     outline = team-run event benefiting the chapter. Styled after the
+     site's existing pill tags (.tag-todo); orange stays donation-only. */
+  .event-badge{display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:99px;padding:5px 12px;line-height:1.4;margin-bottom:12px}
+  .event-badge-chapter{background:var(--green);border:1.5px solid var(--green);color:#fff}
+  .event-badge-team{background:transparent;border:1.5px solid var(--green);color:#7fd6a5}
+  .page-hero p.events-note{font-family:"Public Sans",system-ui,sans-serif;font-style:normal;font-size:.98rem}
   .event-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);display:grid;grid-template-columns:150px 1fr;gap:28px}
   .event-when{border-right:1px solid var(--line);padding-right:24px}
   .event-when .mo{font-family:"Archivo",sans-serif;font-weight:900;font-size:1.5rem;color:var(--orange-dark);line-height:1.1}
@@ -1120,6 +1127,7 @@
       <div class="recap-grid recap-photo-grid">
         <div class="recap-copy">
           <div class="rule" aria-hidden="true"></div>
+          <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
           <h2>2026 Was Our Biggest Year Yet</h2>
           <p style="margin-top:14px">On <strong>October 3, 2026</strong>, Team Golomboski took to the path for the <strong>Rhode Island Optimism Walk</strong> — and this community showed up in a big way.</p>
           <p>Our team raised <strong>$7,273.75</strong>, passing our <strong>$7,000 goal</strong> and finishing at <strong>103% of goal</strong>. Every dollar supports the APDA Rhode Island Chapter and the local families it serves.</p>
@@ -1143,6 +1151,7 @@
       <div class="recap-grid recap-photo-grid recap-photo-grid-flip">
         <div class="recap-copy">
           <div class="rule" aria-hidden="true"></div>
+          <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
           <h2>Rock the Resort</h2>
           <p style="margin-top:14px">Our annual <strong>Concert for a Cure</strong> — a night of live music for APDA Rhode Island, with Joseph Sr.'s portrait watching over the show.</p>
           <p>The first concert packed <strong>The Last Resort</strong> in Smithfield on <strong>April 26, 2026</strong>. Next date to be announced.</p>
@@ -1592,14 +1601,17 @@
 
       <div class="shared-events" aria-label="Events Joseph and Alicia have shared">
         <article class="shared-card">
+          <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
           <h3>Rhode Island Optimism Walk</h3>
           <p>The team's anchor event since 2014. Joseph and Alicia have walked and fundraised in the annual walk every year, building Team Golomboski into a familiar and dependable presence on walk day.</p>
         </article>
         <article class="shared-card">
+          <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
           <h3>Funny 4 Funds</h3>
           <p>Comedy fundraisers that turned a night of laughter into support for Rhode Island families — one of the ways the siblings have made fundraising welcoming and community-driven.</p>
         </article>
         <article class="shared-card">
+          <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
           <h3>Rock the Resort: Concert for a Cure</h3>
           <p>A benefit concert at The Last Resort. The inaugural concert on April 26, 2026 was so well received that Rock the Resort is now an annual Team Golomboski tradition.</p>
         </article>
@@ -1785,6 +1797,7 @@
       <div class="recap-grid">
         <div class="recap-copy">
           <div class="rule" aria-hidden="true"></div>
+          <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
           <h2>2026: The Goal, Beaten</h2>
           <p style="margin-top:14px">For the <strong>2026 Rhode Island Optimism Walk</strong>, Team Golomboski set a goal of <strong>$7,000</strong> — and this community pushed past it. The team finished with <strong>$7,273.75</strong>, or <strong>103% of goal</strong>.</p>
           <div class="goal-bar" data-bar role="img" aria-label="Fundraising goal bar filled past 100 percent: $7,273.75 raised of a $7,000 goal"><div class="goal-fill" data-bar-fill></div></div>
@@ -1890,6 +1903,7 @@
       <div class="crumb"><a href="#/">Home</a> · Events</div>
       <h1>Events</h1>
       <p>A look back at the walks, concerts, and community nights this team has shared — and the people who made each one happen.</p>
+      <p class="events-note">Some events are run by the APDA Rhode Island Chapter. Others are run by Team Golomboski to benefit the chapter — each event is labeled so you know which is which.</p>
     </div>
   </section>
 
@@ -1904,6 +1918,7 @@
             <div class="where">Warwick, Rhode Island</div>
           </div>
           <div class="event-body">
+            <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
             <h3>2026 Rhode Island Optimism Walk &amp; 5K</h3>
             <p>Team Golomboski's biggest walk yet. The team raised <strong>$7,273.75</strong>, finishing at <strong>103% of its $7,000 goal</strong> for the APDA Rhode Island Chapter.</p>
             <div class="team-progress" data-bar>
@@ -1934,6 +1949,7 @@
             <div class="where">The Last Resort</div>
           </div>
           <div class="event-body">
+            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
             <h3>Rock the Resort: Concert for a Cure</h3>
             <p>A night of live music in support of the Parkinson's community, hosted at The Last Resort — proof that a fundraiser can sound as good as it feels.</p>
             <ul class="lineup" aria-label="Concert lineup">
@@ -1954,6 +1970,7 @@
             <div class="where">Funny 4 Funds</div>
           </div>
           <div class="event-body">
+            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
             <h3>Funny 4 Funds</h3>
             <p>Team Golomboski has also raised support the funny way — a <strong>Funny 4 Funds</strong> comedy fundraiser, turning a night of laughs into help for Rhode Island families living with Parkinson's. Thank you to everyone who came out and laughed for the cause.</p>
             <figure class="event-photo">
@@ -1974,6 +1991,7 @@
             <div class="where">Lake Taco · Coventry</div>
           </div>
           <div class="event-body">
+            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
             <h3>Taco Tuesday at Lake Taco</h3>
             <p>Team Golomboski's Taco Tuesday fundraiser with trivia at Lake Taco in Coventry — 10% of every sale benefited APDA Rhode Island. April 16, 2024.</p>
             <figure class="event-photo" style="max-width:420px">
@@ -2043,6 +2061,7 @@
       <div class="crumb"><a href="#/">Home</a> · Rock the Resort</div>
       <h1>Rock the Resort</h1>
       <p>Concert for a Cure — a night of live music at The Last Resort, and now an annual Team Golomboski tradition.</p>
+      <span class="event-badge event-badge-team" style="margin:18px 0 0">Team Golomboski Event · Benefits APDA Rhode Island</span>
     </div>
   </section>
 
