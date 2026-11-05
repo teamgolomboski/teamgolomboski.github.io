@@ -616,6 +616,40 @@
   @media (prefers-reduced-motion: reduce){ .album-cover img{transition:none} }
   .album-panel{margin-top:30px}
   .album-panel[hidden]{display:none}
+  /* Galleries album shelf: the twelve album covers sit in a grid so
+     the page stays manageable as albums are added. One column on
+     phones (stacked exactly as before); two columns at 700px and up,
+     which halves the scroll. The grid gap replaces the stacked
+     sections' 56px top margins inside the shelf. An OPEN album spans
+     both columns: its cover keeps the centered 700px template and its
+     photo grid opens full-width beneath it, exactly like the original
+     single-column expansion. Dense flow backfills the cell an opened
+     second-column album leaves behind, so the shelf never shows a
+     hole. Covers themselves are unchanged — just smaller. */
+  .album-shelf{display:grid;grid-template-columns:1fr;gap:56px}
+  .album-shelf .gallery-section + .gallery-section{margin-top:0}
+  @media (min-width:700px){
+    .album-shelf{grid-template-columns:1fr 1fr;gap:38px 28px;grid-auto-flow:dense}
+    .album-shelf .album.open{grid-column:1 / -1}
+  }
+  /* Galleries filter bar: two pill rows (Year, Event) above the shelf,
+     styled exactly like the Events page filter — outline pills,
+     selected pill solid slate gray #64748b with white text (the same
+     slate as the event badges; orange stays donation-only). The two
+     rows combine: an album shows only when it matches both. Albums
+     carry data-year / data-event-type; PawSox 2017 and Christmas Card
+     Contest 2016 are data-event-type="other" (Cherry Hill Manor days,
+     neither chapter nor team), so they appear only under All Events. */
+  .gallery-filter{display:flex;flex-direction:column;gap:12px;margin:0 0 36px}
+  .gallery-filter-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .gallery-filter-label{flex:none;width:58px;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9fb8d2}
+  .gal-filter-btn{font:inherit;font-weight:700;font-size:.98rem;line-height:1.3;min-height:48px;padding:11px 20px;border-radius:99px;border:2px solid rgba(255,255,255,.65);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .gal-filter-btn:hover{background:rgba(255,255,255,.16)}
+  .gal-filter-btn:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
+  .gal-filter-btn[aria-pressed="true"]{background:#64748b;border-color:#64748b;color:#fff}
+  .gal-filter-btn[aria-pressed="true"]:hover{background:#475569;border-color:#475569}
+  .gallery-filter-empty{color:var(--muted);font-size:1.02rem;margin:26px 0 0}
+  @media (max-width:640px){ .gal-filter-btn{flex:1 1 auto;text-align:center} .gallery-filter-label{width:100%} }
 
   /* ---------- Our Story — pull quote & chapter timeline ---------- */
   .story-pullquote{margin:30px 0 6px;padding:26px 28px;background:var(--orange-soft);border-radius:var(--radius);max-width:760px}
@@ -2470,7 +2504,10 @@
      uniform tiles. No new CSS or JS is needed — covers toggle their
      own panels, deep links to a gallery anchor auto-expand that
      album, and the photo viewer scopes itself to the tapped photo's
-     gallery.
+     gallery. Also set data-year and data-event-type ("chapter",
+     "team", or "other") on the new section so the Year / Event
+     filter pills above the shelf can find it; the covers sit two
+     across in the .album-shelf grid at 700px and up.
      ============================================================ -->
 <div class="page" data-page="galleries">
 
@@ -2485,7 +2522,26 @@
   <section class="section">
     <div class="wrap">
 
-      <section class="gallery-section album" id="gallery-optimism-walk-2026" aria-label="Rhode Island Optimism Walk 2026 gallery">
+      <div class="gallery-filter" aria-label="Filter photo albums">
+        <div class="gallery-filter-row" role="group" aria-label="Filter albums by year">
+          <span class="gallery-filter-label" aria-hidden="true">Year</span>
+          <button type="button" class="gal-filter-btn" data-gal-year="all" aria-pressed="true">All Years</button>
+          <button type="button" class="gal-filter-btn" data-gal-year="2026" aria-pressed="false">2026</button>
+          <button type="button" class="gal-filter-btn" data-gal-year="2019" aria-pressed="false">2019</button>
+          <button type="button" class="gal-filter-btn" data-gal-year="2017" aria-pressed="false">2017</button>
+          <button type="button" class="gal-filter-btn" data-gal-year="2016" aria-pressed="false">2016</button>
+          <button type="button" class="gal-filter-btn" data-gal-year="2014" aria-pressed="false">2014</button>
+        </div>
+        <div class="gallery-filter-row" role="group" aria-label="Filter albums by who ran the event">
+          <span class="gallery-filter-label" aria-hidden="true">Event</span>
+          <button type="button" class="gal-filter-btn" data-gal-event="all" aria-pressed="true">All Events</button>
+          <button type="button" class="gal-filter-btn" data-gal-event="chapter" aria-pressed="false">APDA Rhode Island Chapter Events</button>
+          <button type="button" class="gal-filter-btn" data-gal-event="team" aria-pressed="false">Team Golomboski Events</button>
+        </div>
+      </div>
+
+      <div class="album-shelf">
+      <section class="gallery-section album" id="gallery-optimism-walk-2026" data-year="2026" data-event-type="chapter" aria-label="Rhode Island Optimism Walk 2026 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2026">
           <img src="assets/hero-walk-2026.jpg" alt="" />
           <span class="album-cover-text">
@@ -2528,7 +2584,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-rock-the-resort-2026" aria-label="Rock the Resort 2026 gallery">
+      <section class="gallery-section album" id="gallery-rock-the-resort-2026" data-year="2026" data-event-type="team" aria-label="Rock the Resort 2026 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-rock-the-resort-2026">
           <img src="assets/rock-resort-crowd.jpg" alt="" />
           <span class="album-cover-text">
@@ -2605,7 +2661,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-optimism-walk-2019" aria-label="Rhode Island Optimism Walk 2019 gallery">
+      <section class="gallery-section album" id="gallery-optimism-walk-2019" data-year="2019" data-event-type="chapter" aria-label="Rhode Island Optimism Walk 2019 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2019">
           <img src="assets/walk2019-course-group.jpg" alt="" />
           <span class="album-cover-text">
@@ -2799,7 +2855,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-yard-sale-2019" aria-label="Yard Sale Fundraiser 2019 gallery">
+      <section class="gallery-section album" id="gallery-yard-sale-2019" data-year="2019" data-event-type="team" aria-label="Yard Sale Fundraiser 2019 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-yard-sale-2019">
           <img src="assets/yard-table.jpg" alt="" />
           <span class="album-cover-text">
@@ -2861,7 +2917,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-run-for-the-roses-2019" aria-label="Run for the Roses Gala 2019 gallery">
+      <section class="gallery-section album" id="gallery-run-for-the-roses-2019" data-year="2019" data-event-type="chapter" aria-label="Run for the Roses Gala 2019 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-run-for-the-roses-2019">
           <img class="focal-gala-group" src="assets/gala-group.jpg" alt="" />
           <span class="album-cover-text">
@@ -2935,7 +2991,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-optimism-walk-2017" aria-label="Rhode Island Optimism Walk 2017 gallery">
+      <section class="gallery-section album" id="gallery-optimism-walk-2017" data-year="2017" data-event-type="chapter" aria-label="Rhode Island Optimism Walk 2017 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2017">
           <img src="assets/walk2017-team-group-wide.jpg" alt="" />
           <span class="album-cover-text">
@@ -3123,7 +3179,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-raffle-2017" aria-label="Team Golomboski Raffle 2017 gallery">
+      <section class="gallery-section album" id="gallery-raffle-2017" data-year="2017" data-event-type="team" aria-label="Team Golomboski Raffle 2017 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-raffle-2017">
           <img src="assets/raffle2017-dad-cover.jpg" alt="" />
           <span class="album-cover-text">
@@ -3197,7 +3253,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-pawsox-2017" aria-label="Pawtucket Red Sox 2017 gallery">
+      <section class="gallery-section album" id="gallery-pawsox-2017" data-year="2017" data-event-type="other" aria-label="Pawtucket Red Sox 2017 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-pawsox-2017">
           <img src="assets/pawsox-group.jpg" alt="" />
           <span class="album-cover-text">
@@ -3271,7 +3327,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-bake-sale-2017" aria-label="Cherry Hill Bake Sale 2017 gallery">
+      <section class="gallery-section album" id="gallery-bake-sale-2017" data-year="2017" data-event-type="team" aria-label="Cherry Hill Bake Sale 2017 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-bake-sale-2017">
           <img class="focal-sale-wide" src="assets/sale-table-wide.jpg" alt="" />
           <span class="album-cover-text">
@@ -3411,7 +3467,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-christmas-card-2016" aria-label="Christmas Card Contest 2016 gallery">
+      <section class="gallery-section album" id="gallery-christmas-card-2016" data-year="2016" data-event-type="other" aria-label="Christmas Card Contest 2016 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-christmas-card-2016">
           <img src="assets/xmas2016-group.jpg" alt="" />
           <span class="album-cover-text">
@@ -3467,7 +3523,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-optimism-walk-2016" aria-label="Rhode Island Optimism Walk 2016 gallery">
+      <section class="gallery-section album" id="gallery-optimism-walk-2016" data-year="2016" data-event-type="chapter" aria-label="Rhode Island Optimism Walk 2016 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2016">
           <img src="assets/walk2016-team-group.jpg" alt="" />
           <span class="album-cover-text">
@@ -3577,7 +3633,7 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-first-walk-2014" aria-label="The First Walk 2014 gallery">
+      <section class="gallery-section album" id="gallery-first-walk-2014" data-year="2014" data-event-type="chapter" aria-label="The First Walk 2014 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-first-walk-2014">
           <img src="assets/walk2014-team-group.jpg" alt="" />
           <span class="album-cover-text">
@@ -3638,6 +3694,8 @@
         <p class="gallery-closing">Photos from the Golomboski family collection.</p>
         </div>
       </section>
+      </div><!-- /album-shelf -->
+      <p class="gallery-filter-empty" id="galleryFilterEmpty" hidden>No albums match that filter right now.</p>
     </div>
   </section>
 
@@ -4826,6 +4884,14 @@
   // listener is registered after the router's, and the expansion
   // happens synchronously during the hashchange — before the
   // router's jump measures where the cover sits.
+  //
+  // Album filters: the Year and Event pill rows above the shelf
+  // combine — an album shows only when its data-year matches the
+  // Year selection AND its data-event-type matches the Event
+  // selection ("all" matches everything; the two data-event-type=
+  // "other" albums match only "all"). Instant show/hide, like the
+  // Events page filter. A deep link first resets both rows to All
+  // so its album is guaranteed visible, then expands it.
   (function () {
     var albums = document.querySelectorAll(".gallery-section.album");
     if (!albums.length) { return; }
@@ -4846,12 +4912,54 @@
         }
       })(albums[i]);
     }
+    var yearBtns = document.querySelectorAll(".gal-filter-btn[data-gal-year]");
+    var eventBtns = document.querySelectorAll(".gal-filter-btn[data-gal-event]");
+    var filterEmpty = document.getElementById("galleryFilterEmpty");
+    var yearSel = "all";
+    var eventSel = "all";
+    function applyFilters() {
+      var shown = 0;
+      for (var i = 0; i < albums.length; i++) {
+        var show = (yearSel === "all" || albums[i].getAttribute("data-year") === yearSel) &&
+                   (eventSel === "all" || albums[i].getAttribute("data-event-type") === eventSel);
+        albums[i].style.display = show ? "" : "none";
+        if (show) { shown++; }
+      }
+      if (filterEmpty) { filterEmpty.hidden = shown !== 0; }
+      for (var b = 0; b < yearBtns.length; b++) {
+        yearBtns[b].setAttribute("aria-pressed", yearBtns[b].getAttribute("data-gal-year") === yearSel ? "true" : "false");
+      }
+      for (var e = 0; e < eventBtns.length; e++) {
+        eventBtns[e].setAttribute("aria-pressed", eventBtns[e].getAttribute("data-gal-event") === eventSel ? "true" : "false");
+      }
+    }
+    for (var y = 0; y < yearBtns.length; y++) {
+      (function (btn) {
+        btn.addEventListener("click", function () {
+          yearSel = btn.getAttribute("data-gal-year");
+          applyFilters();
+        });
+      })(yearBtns[y]);
+    }
+    for (var v = 0; v < eventBtns.length; v++) {
+      (function (btn) {
+        btn.addEventListener("click", function () {
+          eventSel = btn.getAttribute("data-gal-event");
+          applyFilters();
+        });
+      })(eventBtns[v]);
+    }
     function syncFromHash() {
       var parts = window.location.hash.split("#");
       var anchor = parts[2] || "";
       if (!anchor) { return; }
       var target = document.getElementById(anchor);
-      if (target && target.classList.contains("album")) { setOpen(target, true); }
+      if (target && target.classList.contains("album")) {
+        yearSel = "all";
+        eventSel = "all";
+        applyFilters();
+        setOpen(target, true);
+      }
     }
     window.addEventListener("hashchange", syncFromHash);
     syncFromHash();
