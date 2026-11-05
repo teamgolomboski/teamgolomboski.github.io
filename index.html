@@ -546,6 +546,11 @@
   .uniform-gallery .tile-frame img.focal-w16-selfie-cap{object-position:50% 25%}
   .uniform-gallery .tile-frame img.focal-w16-selfie-a{object-position:50% 26%}
   .uniform-gallery .tile-frame img.focal-w16-selfie-b{object-position:50% 40%}
+  .uniform-gallery .tile-frame img.focal-raffle-dad{object-position:50% 20%}
+  .uniform-gallery .tile-frame img.focal-raffle-flyer{object-position:50% 22%}
+  .uniform-gallery .tile-frame img.focal-raffle-flyers{object-position:50% 26%}
+  .uniform-gallery .tile-frame img.focal-raffle-laundry{object-position:50% 40%}
+  .uniform-gallery .tile-frame img.focal-raffle-avon-close{object-position:50% 28%}
   .uniform-gallery figcaption{padding:14px 18px 16px;font-size:.92rem;color:var(--muted);line-height:1.5}
   .uniform-gallery .photo-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;-webkit-tap-highlight-color:transparent;text-align:left}
   .uniform-gallery .photo-open img{transition:filter .18s ease}
@@ -573,6 +578,7 @@
      the cover toggles that album's photo grid open beneath it. */
   .album-cover{position:relative;display:block;width:100%;max-width:700px;margin:0 auto;aspect-ratio:4/3;padding:0;background:var(--navy-deep);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);cursor:pointer;font:inherit;color:#fff;text-align:left;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent}
   .album-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:filter .18s ease}
+  .album-cover img.focal-raffle-dad{object-position:50% 20%}
   .album-cover:hover img{filter:brightness(1.07)}
   .album-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,48,.95) 0%,rgba(7,26,48,.60) 44%,rgba(7,26,48,.06) 74%,rgba(7,26,48,0) 100%)}
   .album-cover-text{position:absolute;left:0;right:0;bottom:0;z-index:1;display:block;padding:24px 26px}
@@ -2586,19 +2592,93 @@
         </div>
       </section>
 
+      <section class="gallery-section album" id="gallery-raffle-2017" aria-label="Team Golomboski Raffle 2017 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-raffle-2017">
+          <img class="focal-raffle-dad" src="assets/raffle2017-dad.jpg" alt="" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Team Golomboski Raffle — 2017</span>
+            <span class="album-cover-date">Cherry Hill Manor, Johnston · August 2017</span>
+            <span class="album-cover-meta">9 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-raffle-2017" hidden>
+        <div class="gallery-head">
+          <h2>Team Golomboski Raffle — 2017</h2>
+          <p>Cherry Hill Manor, Johnston · August 2017</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="raffle-2017" data-gallery-title="Team Golomboski Raffle — 2017">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph P. Golomboski Sr. at the Team Golomboski raffle table — Cherry Hill Manor Nursing and Rehabilitation Center, Johnston, 2017.">
+                <span class="tile-frame"><img class="focal-raffle-dad" src="assets/raffle2017-dad.jpg" alt="Joseph P. Golomboski Sr. at the Team Golomboski raffle table — Cherry Hill Manor Nursing and Rehabilitation Center, Johnston, 2017" width="1600" height="2880" /></span>
+              </button>
+              <figcaption>Joseph P. Golomboski Sr. at the Team Golomboski raffle table — Cherry Hill Manor Nursing and Rehabilitation Center, Johnston, 2017.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The full raffle table at Cherry Hill Manor, August 2017.">
+                <span class="tile-frame"><img src="assets/raffle2017-table-wide.jpg" alt="The full raffle table at Cherry Hill Manor, August 2017" width="4096" height="2304" /></span>
+              </button>
+              <figcaption>The full raffle table at Cherry Hill Manor, August 2017.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Raffle baskets and ticket boxes, with framed family photos, 2017.">
+                <span class="tile-frame"><img src="assets/raffle2017-baskets.jpg" alt="Raffle baskets and ticket boxes, with framed family photos, 2017" width="4096" height="2304" /></span>
+              </button>
+              <figcaption>Raffle baskets and ticket boxes, with framed family photos, 2017.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The 2017 walk flyer and Team Golomboski cards at the raffle table.">
+                <span class="tile-frame"><img class="focal-raffle-flyer" src="assets/raffle2017-flyer.jpg" alt="The 2017 walk flyer and Team Golomboski cards at the raffle table" width="2304" height="4096" /></span>
+              </button>
+              <figcaption>The 2017 walk flyer and Team Golomboski cards at the raffle table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Team flyers at the raffle table, including a thank-you to the 2017 sponsors.">
+                <span class="tile-frame"><img class="focal-raffle-flyers" src="assets/raffle2017-flyers.jpg" alt="Team flyers at the raffle table, including a thank-you to the 2017 sponsors" width="2304" height="4096" /></span>
+              </button>
+              <figcaption>Team flyers at the raffle table, including a thank-you to the 2017 sponsors.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The cleaning gift basket and its ticket box, 2017.">
+                <span class="tile-frame"><img src="assets/raffle2017-basket-cleaning.jpg" alt="The cleaning gift basket and its ticket box, 2017" width="2304" height="4096" /></span>
+              </button>
+              <figcaption>The cleaning gift basket and its ticket box, 2017.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A laundry gift basket up for raffle, 2017.">
+                <span class="tile-frame"><img class="focal-raffle-laundry" src="assets/raffle2017-basket-laundry.jpg" alt="A laundry gift basket up for raffle, 2017" width="2304" height="4096" /></span>
+              </button>
+              <figcaption>A laundry gift basket up for raffle, 2017.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Avon and Zumba gift basket, 2017.">
+                <span class="tile-frame"><img src="assets/raffle2017-basket-avon.jpg" alt="The Avon and Zumba gift basket, 2017" width="4096" height="2304" /></span>
+              </button>
+              <figcaption>The Avon and Zumba gift basket, 2017.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Close-up of the Avon and Zumba basket, beside the framed family photo, 2017.">
+                <span class="tile-frame"><img class="focal-raffle-avon-close" src="assets/raffle2017-basket-avon-close.jpg" alt="Close-up of the Avon and Zumba basket, beside the framed family photo, 2017" width="2304" height="4096" /></span>
+              </button>
+              <figcaption>Close-up of the Avon and Zumba basket, beside the framed family photo, 2017.</figcaption>
+            </figure>
+        </div>
+        <p class="gallery-closing">Photos from the Golomboski family collection.</p>
+        </div>
+      </section>
+
       <section class="gallery-section album" id="gallery-optimism-walk-2016" aria-label="Rhode Island Optimism Walk 2016 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2016">
           <img src="assets/walk2016-team-group.jpg" alt="" />
           <span class="album-cover-text">
             <span class="album-cover-name">Rhode Island Optimism Walk — 2016</span>
-            <span class="album-cover-date">Rhode Island Optimism Walk · 2016</span>
+            <span class="album-cover-date">Goddard Memorial State Park · 2016</span>
             <span class="album-cover-meta">15 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
           </span>
         </button>
         <div class="album-panel" id="album-panel-optimism-walk-2016" hidden>
         <div class="gallery-head">
           <h2>Rhode Island Optimism Walk — 2016</h2>
-          <p>Rhode Island Optimism Walk · 2016</p>
+          <p>Goddard Memorial State Park · 2016</p>
         </div>
         <div class="uniform-gallery" data-gallery="optimism-walk-2016" data-gallery-title="Rhode Island Optimism Walk — 2016">
             <figure class="gallery-tile">
@@ -2701,14 +2781,14 @@
           <img src="assets/walk2014-team-group.jpg" alt="" />
           <span class="album-cover-text">
             <span class="album-cover-name">The First Walk — 2014</span>
-            <span class="album-cover-date">Rhode Island Optimism Walk · 2014</span>
+            <span class="album-cover-date">Goddard Memorial State Park · 2014</span>
             <span class="album-cover-meta">7 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
           </span>
         </button>
         <div class="album-panel" id="album-panel-first-walk-2014" hidden>
         <div class="gallery-head">
           <h2>The First Walk — 2014</h2>
-          <p>Rhode Island Optimism Walk · 2014</p>
+          <p>Goddard Memorial State Park · 2014</p>
         </div>
         <div class="uniform-gallery" data-gallery="first-walk-2014" data-gallery-title="The First Walk — 2014">
             <figure class="gallery-tile">
