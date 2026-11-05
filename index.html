@@ -304,8 +304,8 @@
     .family-band .family-band-copy{grid-column:2;grid-row:1}
   }
   .family-band-photo{margin:0;min-width:0}
-  .family-band-photo img{width:100%;height:auto;border-radius:12px;border:3px solid rgba(255,255,255,.18);box-shadow:0 12px 30px rgba(0,0,0,.28);display:block}
-  .family-band-photo figcaption{margin-top:12px;font-size:.92rem;color:#c9d6e4;line-height:1.5}
+  .family-band-photo img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow);display:block}
+  .family-band-photo figcaption{margin-top:12px;font-size:.92rem;color:var(--muted);line-height:1.5}
   .family-band .join-actions{justify-content:flex-start;margin-top:24px}
   /* More Than Family text block is fully left-aligned: heading, orange
      rule, paragraph and button row share one left edge in the copy
@@ -313,7 +313,7 @@
      higher specificity than the .cta-band rules — pin this band's copy
      to the left, including the paragraph's auto side margins.) */
   .family-band-copy{text-align:left}
-  .family-band .family-band-copy p{margin-left:0;margin-right:0;text-align:left}
+  .family-band .family-band-copy p{margin-left:0;margin-right:0;text-align:left;color:var(--muted)}
   @media (max-width:900px){ .family-band{grid-template-columns:1fr;gap:26px} .family-band-photo{max-width:560px} }
   .prose{max-width:760px}
   .prose p{color:var(--muted);margin:0 0 16px;font-size:1.05rem}
@@ -348,14 +348,21 @@
   .story-teaser{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
   @media (min-width:901px){
     .story-teaser .story-copy{grid-column:1;grid-row:1}
-    .story-teaser .story-photo{grid-column:2;grid-row:1}
+    .story-teaser .story-figure{grid-column:2;grid-row:1}
   }
-  .story-photo{position:relative;border-radius:var(--radius);overflow:hidden;background:var(--navy-deep);color:#fff;min-height:460px;display:flex;flex-direction:column;justify-content:flex-end;box-shadow:var(--shadow)}
-  .story-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 40%}
-  .story-photo .story-caption{position:relative;z-index:1;padding:40px 26px 26px;background:linear-gradient(to top,rgba(7,26,48,.95) 0%,rgba(7,26,48,.85) 46%,rgba(7,26,48,.42) 74%,rgba(7,26,48,0) 100%)}
-  @media (max-width:900px){ .story-photo{min-height:520px} .story-photo img{object-position:62% 38%} }
-  .story-photo .quote{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.25rem;line-height:1.45;margin:0}
-  .story-photo .attrib{margin-top:12px;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;color:#bcd2ea;font-weight:700}
+  /* Homepage consistency pass: the Our Story teaser photo now uses the
+     SAME standard photo-with-caption treatment as the other homepage
+     photo bands (.recap-photo / .family-band-photo) — shown whole at
+     its natural ratio, 12px radius, 1px line border, shared shadow,
+     caption beneath in muted text. The designed quote-card (photo with
+     baked-in overlay text) is retired from the homepage only; the
+     memorial panel's card on the Our Story page is unchanged. The
+     quote itself moved into the teaser copy as a styled pull-quote
+     line (.story-teaser-quote). */
+  .story-figure{margin:0;min-width:0}
+  .story-figure img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow);display:block}
+  .story-figure figcaption{margin-top:12px;font-size:.92rem;color:var(--muted);line-height:1.5}
+  .story-teaser-quote{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.22rem;line-height:1.5;color:var(--ink);margin:0 0 20px}
   .story-copy p{color:var(--muted);font-size:1.05rem;margin:0 0 16px}
   .story-copy p strong{color:var(--ink)}
 
@@ -405,6 +412,11 @@
   img.avatar{object-fit:cover;object-position:50% 18%;display:block;padding:0}
   img.avatar-j{object-position:50% 50%}
   img.avatar-a{object-position:50% 50%}
+  /* Homepage Meet the Team: the two profile cards join the Start Here
+     pathway-card family — same card background, same 2px line border,
+     same radius, shadow and padding language. Scoped to .team-grid so
+     .person cards on other pages keep their existing treatment. */
+  .team-grid .person{border:2px solid var(--line);padding:30px 26px}
   .person h3{font-size:1.22rem;font-weight:800}
   .person .role{color:var(--orange-dark);font-weight:700;margin:4px 0 8px;font-size:.98rem}
   .person .role{color:#ffb287}
@@ -422,9 +434,13 @@
   @media (max-width:520px){ .founders-row{gap:24px} .founder{max-width:150px} .founder .avatar{width:104px;height:104px} }
 
   /* ---------- Stay connected ---------- */
-  .connect{background:var(--navy);color:#fff;border-radius:20px;padding:44px 40px;display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
-  .connect h2{color:#fff}
-  .connect p{color:#c9d6e4;margin:12px 0 22px;max-width:520px}
+  /* Homepage consistency pass: Stay Connected is an OPEN band now —
+     no contained navy panel, no radius, no panel padding; it sits on
+     its section's shade in the alternating sequence like every other
+     homepage band, keeping the same two-column grid (copy left,
+     social buttons right). */
+  .connect{display:grid;grid-template-columns:1.2fr .8fr;gap:36px;align-items:center}
+  .connect p{color:var(--muted);margin:12px 0 22px;max-width:520px}
   /* Quiet email line under the news button: same soft band text, a
      touch smaller, no bottom margin; the address itself is a standard
      link (light blue on navy, per the site-wide link rule). */
@@ -1051,7 +1067,7 @@
     .event-when{border-right:none;border-bottom:1px solid var(--line);padding:0 0 14px}
     .foot-grid{grid-template-columns:1fr 1fr}
     .hero .hero-inner{padding:64px 0 68px}
-    .connect{padding:34px 24px}
+    .connect{gap:26px}
     .cta-band,.memorial{padding:34px 24px}
     .section{padding:48px 0}
   }
@@ -1096,7 +1112,7 @@
     .hero img.hero-bg{object-position:center}
     .hero .hero-inner{padding:44px 0 48px;max-width:100%}
     .page-hero{padding:42px 0 36px}
-    .connect,.cta-band,.memorial{padding:26px 20px}
+    .cta-band,.memorial{padding:26px 20px}
     .decade-band{padding:26px 20px}
     /* Stats: 2-up, tighter */
     .stat{padding:24px 14px;min-width:0}
@@ -1275,27 +1291,25 @@
   <section class="section">
     <div class="wrap">
       <div class="story-teaser">
-        <div class="story-photo">
+        <figure class="story-figure">
           <img src="assets/dad-frame-hd.jpg" alt="Joseph Golomboski Sr. with Alicia and Joseph Golomboski Jr. at an Optimism Walk." width="1616" height="1568" />
-          <div class="story-caption">
-            <p class="quote">Walking in memory of Joseph Golomboski Sr. — and for every Rhode Island family living with Parkinson's today.</p>
-            <p class="attrib">Team Golomboski · Est. 2014</p>
-          </div>
-        </div>
+          <figcaption>Joseph Golomboski Sr. with Alicia and Joseph Jr. at an Optimism Walk.</figcaption>
+        </figure>
         <div class="story-copy">
           <div class="rule" aria-hidden="true"></div>
           <h2>Our Story</h2>
           <p style="margin-top:14px">Team Golomboski began in <strong>2014</strong>, when our family rallied around Joseph Golomboski Sr. — walking to support him and standing with every Rhode Island family living with Parkinson's disease.</p>
           <p>Twelve years on, the team is still walking and still fundraising — because the need hasn't gone away, and neither have we.</p>
+          <p class="story-teaser-quote">Walking in memory of Joseph Golomboski Sr. — and for every Rhode Island family living with Parkinson's today.</p>
           <a class="btn btn-outline btn-outline-surface" href="#/our-story">Read Our Full Story</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section" aria-label="More Than Family — join Team Golomboski">
+  <section class="section section-alt" aria-label="More Than Family — join Team Golomboski">
     <div class="wrap">
-      <div class="cta-band family-band">
+      <div class="family-band">
         <div class="family-band-copy">
           <div class="rule" aria-hidden="true"></div>
           <h2>More Than Family</h2>
@@ -1390,10 +1404,11 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top:8px">
+  <section class="section">
     <div class="wrap">
       <div class="connect">
         <div>
+          <div class="rule" aria-hidden="true"></div>
           <h2>Stay Connected</h2>
           <p>While we don't send a newsletter of our own, the APDA Rhode Island Chapter does — and it's a good one. Join their mailing list for Parkinson's news, program updates, and event announcements.</p>
           <a class="btn btn-outline" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Get APDA Rhode Island News</a>
