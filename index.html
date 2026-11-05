@@ -539,6 +539,27 @@
   .gallery-closing{margin:20px 0 0;font-size:.95rem;color:var(--muted);line-height:1.5}
   .gallery-credit{margin:22px 0 0;font-size:.95rem;color:var(--muted)}
   .gallery-actions{margin-top:14px}
+  /* Galleries page: album covers + expandable albums. One cover
+     template for every album — a uniform 4:3 card, the cover photo
+     filling it, a navy gradient rising from the bottom (the homepage
+     hero's treatment), the event name in Archivo over the gradient,
+     a date line, and a "N photos · View album ↓" meta line. Tapping
+     the cover toggles that album's photo grid open beneath it. */
+  .album-cover{position:relative;display:block;width:100%;max-width:700px;margin:0 auto;aspect-ratio:4/3;padding:0;background:var(--navy-deep);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);cursor:pointer;font:inherit;color:#fff;text-align:left;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent}
+  .album-cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:filter .18s ease}
+  .album-cover:hover img{filter:brightness(1.07)}
+  .album-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(7,26,48,.95) 0%,rgba(7,26,48,.60) 44%,rgba(7,26,48,.06) 74%,rgba(7,26,48,0) 100%)}
+  .album-cover-text{position:absolute;left:0;right:0;bottom:0;z-index:1;display:block;padding:24px 26px}
+  .album-cover-name{display:block;font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(1.45rem,4.2vw,2.05rem);line-height:1.12;letter-spacing:-.01em;color:#fff}
+  .album-cover-date{display:block;margin-top:7px;font-size:1rem;line-height:1.4;color:#d7e5f2}
+  .album-cover-meta{display:block;margin-top:13px;font-size:.84rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#ffb287}
+  .album-cover .when-open{display:none}
+  .album.open .album-cover .when-open{display:inline}
+  .album.open .album-cover .when-closed{display:none}
+  .album-cover:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
+  @media (prefers-reduced-motion: reduce){ .album-cover img{transition:none} }
+  .album-panel{margin-top:30px}
+  .album-panel[hidden]{display:none}
 
   /* ---------- Our Story — pull quote & chapter timeline ---------- */
   .story-pullquote{margin:30px 0 6px;padding:26px 28px;background:var(--orange-soft);border-radius:var(--radius);max-width:760px}
@@ -2372,11 +2393,17 @@
 
 <!-- ============================================================
      PAGE: PHOTO GALLERIES
-     Expandable framework: to add a new event gallery, copy one
-     .gallery-section block below, give it a new id="gallery-...",
-     a new data-gallery / data-gallery-title on its .uniform-gallery,
-     and drop in uniform tiles. No new CSS or JS is needed — the
-     photo viewer scopes itself to the tapped photo's gallery.
+     Expandable framework: each gallery is an album — a
+     .gallery-section.album holding one .album-cover (the shared
+     cover template) and a collapsed .album-panel with the uniform
+     tile grid. To add a new event gallery, copy one album below,
+     give it a new id="gallery-...", a new data-gallery /
+     data-gallery-title on its .uniform-gallery, a new aria-controls /
+     panel id pair, a cover photo from its own set, and drop in
+     uniform tiles. No new CSS or JS is needed — covers toggle their
+     own panels, deep links to a gallery anchor auto-expand that
+     album, and the photo viewer scopes itself to the tapped photo's
+     gallery.
      ============================================================ -->
 <div class="page" data-page="galleries">
 
@@ -2391,12 +2418,19 @@
   <section class="section">
     <div class="wrap">
 
-      <section class="gallery-section" id="gallery-optimism-walk-2026" aria-label="Rhode Island Optimism Walk 2026 gallery">
+      <section class="gallery-section album" id="gallery-optimism-walk-2026" aria-label="Rhode Island Optimism Walk 2026 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2026">
+          <img src="assets/hero-walk-2026.jpg" alt="" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Rhode Island Optimism Walk — 2026</span>
+            <span class="album-cover-date">Warwick City Park · October 3, 2026</span>
+            <span class="album-cover-meta">4 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-optimism-walk-2026" hidden>
         <div class="gallery-head">
-          <div class="rule" aria-hidden="true"></div>
-          <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
           <h2>Rhode Island Optimism Walk — 2026</h2>
-          <p>Warwick City Park — October 3, 2026.</p>
+          <p>Warwick City Park · October 3, 2026</p>
         </div>
         <div class="uniform-gallery" data-gallery="optimism-walk-2026" data-gallery-title="Rhode Island Optimism Walk — 2026">
             <figure class="gallery-tile">
@@ -2424,14 +2458,22 @@
               <figcaption>Team Golomboski on walk day at the Rhode Island Optimism Walk &amp; 5K.</figcaption>
             </figure>
         </div>
+        </div>
       </section>
 
-      <section class="gallery-section" id="gallery-rock-the-resort-2026" aria-label="Rock the Resort 2026 gallery">
+      <section class="gallery-section album" id="gallery-rock-the-resort-2026" aria-label="Rock the Resort 2026 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-rock-the-resort-2026">
+          <img src="assets/rock-resort-crowd.jpg" alt="" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Rock the Resort — 2026</span>
+            <span class="album-cover-date">The Last Resort, Smithfield · April 26, 2026</span>
+            <span class="album-cover-meta">9 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-rock-the-resort-2026" hidden>
         <div class="gallery-head">
-          <div class="rule" aria-hidden="true"></div>
-          <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
           <h2>Rock the Resort — 2026</h2>
-          <p>The Last Resort, Smithfield — April 26, 2026.</p>
+          <p>The Last Resort, Smithfield · April 26, 2026</p>
         </div>
         <div class="uniform-gallery" data-gallery="rock-the-resort-2026" data-gallery-title="Rock the Resort — 2026">
             <figure class="gallery-tile">
@@ -2493,14 +2535,22 @@
         <div class="gallery-actions">
           <a class="btn btn-green" href="https://kurtstickelphotography.pixieset.com/tgrocktheresort2026/" target="_blank" rel="noopener">View the Full Gallery →</a>
         </div>
+        </div>
       </section>
 
-      <section class="gallery-section" id="gallery-first-walk-2014" aria-label="The First Walk 2014 gallery">
+      <section class="gallery-section album" id="gallery-first-walk-2014" aria-label="The First Walk 2014 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-first-walk-2014">
+          <img src="assets/walk2014-team-group.jpg" alt="" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">The First Walk — 2014</span>
+            <span class="album-cover-date">Rhode Island Optimism Walk · 2014</span>
+            <span class="album-cover-meta">7 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-first-walk-2014" hidden>
         <div class="gallery-head">
-          <div class="rule" aria-hidden="true"></div>
-          <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
           <h2>The First Walk — 2014</h2>
-          <p>Team Golomboski's first Rhode Island Optimism Walk — the year the team was founded.</p>
+          <p>Rhode Island Optimism Walk · 2014</p>
         </div>
         <div class="uniform-gallery" data-gallery="first-walk-2014" data-gallery-title="The First Walk — 2014">
             <figure class="gallery-tile">
@@ -2547,8 +2597,8 @@
             </figure>
         </div>
         <p class="gallery-closing">Photos from the Golomboski family collection.</p>
+        </div>
       </section>
-
     </div>
   </section>
 
@@ -3343,9 +3393,28 @@
       closeMenu();
       if (anchor) {
         var target = document.getElementById(anchor);
-        if (target && target.scrollIntoView) {
+        if (target) {
+          // Land ON the anchored section, clear of the sticky header:
+          // jump straight to the section's top minus the header offset
+          // (96px — the same offset as the sections' scroll-margin-top).
+          // The old scrollIntoView() + immediate scrollTo() pairing raced
+          // the smooth-scroll animation and could strand the visitor a
+          // whole section early (the First Walk anchor landing up in
+          // Rock the Resort). This jump is instant, and it re-asserts
+          // once the page has fully loaded, so a late layout shift
+          // above the target can't move the landing spot afterwards.
+          var jumpToAnchor = function () {
+            if (parseHash().anchor !== anchor) { return; }
+            var y = target.getBoundingClientRect().top + window.pageYOffset - 96;
+            window.scrollTo({ top: Math.max(0, y), behavior: "instant" });
+          };
           // Defer so the newly activated page is laid out first.
-          setTimeout(function () { target.scrollIntoView(); window.scrollTo(0, Math.max(0, window.scrollY)); }, 30);
+          setTimeout(jumpToAnchor, 30);
+          if (document.readyState === "complete") {
+            setTimeout(jumpToAnchor, 300);
+          } else {
+            window.addEventListener("load", function () { setTimeout(jumpToAnchor, 30); });
+          }
         }
       }
     }
@@ -3783,6 +3852,45 @@
       else if (ev.key === "ArrowLeft") { ev.preventDefault(); show(current - 1, -1); }
     });
     window.addEventListener("hashchange", closeViewer);
+  })();
+
+  // Galleries page albums: each cover toggles its own photo grid
+  // (independent accordions — opening one never closes another).
+  // Arriving on a deep link that names a gallery anchor
+  // (#/galleries#gallery-...) auto-expands that album, and the
+  // router's deferred anchor jump then lands on its cover. This
+  // listener is registered after the router's, and the expansion
+  // happens synchronously during the hashchange — before the
+  // router's jump measures where the cover sits.
+  (function () {
+    var albums = document.querySelectorAll(".gallery-section.album");
+    if (!albums.length) { return; }
+    function setOpen(album, open) {
+      album.classList.toggle("open", open);
+      var btn = album.querySelector(".album-cover");
+      var panel = album.querySelector(".album-panel");
+      if (btn) { btn.setAttribute("aria-expanded", open ? "true" : "false"); }
+      if (panel) { panel.hidden = !open; }
+    }
+    for (var i = 0; i < albums.length; i++) {
+      (function (album) {
+        var btn = album.querySelector(".album-cover");
+        if (btn) {
+          btn.addEventListener("click", function () {
+            setOpen(album, !album.classList.contains("open"));
+          });
+        }
+      })(albums[i]);
+    }
+    function syncFromHash() {
+      var parts = window.location.hash.split("#");
+      var anchor = parts[2] || "";
+      if (!anchor) { return; }
+      var target = document.getElementById(anchor);
+      if (target && target.classList.contains("album")) { setOpen(target, true); }
+    }
+    window.addEventListener("hashchange", syncFromHash);
+    syncFromHash();
   })();
 
 </script>
