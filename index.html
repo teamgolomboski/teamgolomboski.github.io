@@ -839,7 +839,12 @@
   .group-head{font-size:1.35rem;font-weight:800;color:var(--navy);margin:38px 0 16px}
   .group-head{color:#eaf1f8}
   .listing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .listing-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;display:flex;flex-direction:column;gap:7px;box-shadow:var(--shadow)}
+  /* Find Help consistency pass: listing cards join the pathway-card
+     family — same card background, same 2px line border, same radius
+     and shadow; padding stays a touch tighter (24px/22px) for the
+     dense 3-up results grid. CSS only — finder markup and behaviour
+     are untouched. */
+  .listing-card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:24px 22px;display:flex;flex-direction:column;gap:7px;box-shadow:var(--shadow)}
   .listing-type{align-self:flex-start;font-size:.75rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--blue-soft);color:var(--ink);padding:4px 10px;border-radius:99px}
   .listing-name{font-family:"Archivo",sans-serif;font-size:1.05rem;font-weight:800;color:var(--navy);line-height:1.3;margin:0}
   .listing-name{color:#eaf1f8}
@@ -856,9 +861,17 @@
      with an explicit background-color fallback and no colour-scheme-dependent
      variable, so weak in-app WebViews (e.g. Messenger) still paint solid navy.
      Heading, supporting line and labels are explicitly light for the navy. */
-  .finder-section{padding:36px 0 4px}
+  /* Find Help consistency pass: the finder sits in an OPEN band on the
+     base shade (#0a1624) with the standard section padding (64px,
+     matching .section), so the page alternates base / alt / base /
+     alt down its sections like the homepage. The finder panel itself
+     (the search tool) keeps its navy fill; only the band changed. */
+  .finder-section{padding:64px 0;background:var(--bg)}
   .finder-panel{background-color:#0a2340;background:#0a2340;color:#ffffff;border-radius:16px;padding:36px 32px 32px;box-shadow:0 12px 32px rgba(10,35,64,.22)}
   .finder-panel h2{color:#ffffff}
+  /* Standard heading treatment: the same orange rule (.rule metrics)
+     above the finder heading as every other section heading. */
+  .finder-panel h2::before{content:"";display:block;width:56px;height:4px;border-radius:99px;background:var(--orange);margin-bottom:16px}
   .finder-panel .finder-sub{color:#c9d6e4;margin:12px 0 0;font-size:1.08rem;max-width:640px;line-height:1.55}
   .finder-search{margin-top:24px}
   .finder-search label{display:block;font-weight:700;font-size:1.12rem;margin-bottom:10px;color:#ffffff}
@@ -883,7 +896,7 @@
   .finder-results{margin-top:30px;scroll-margin-top:84px}
   .finder-results .listing-group:first-child .group-head{margin-top:0}
   @media (max-width:640px){
-    .finder-section{padding:24px 0 0}
+    .finder-section{padding:42px 0}
     .finder-panel{padding:26px 20px 24px}
     .finder-row{flex-direction:column}
     .finder-btn{width:100%;justify-content:center}
@@ -899,7 +912,10 @@
   /* National APDA card (directly under the finder panel): compact card
      in the site's standard card treatment — card navy, 1px line border,
      shared radius and shadow — for visitors outside Rhode Island. */
-  .national-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px 26px;box-shadow:var(--shadow);margin-top:20px}
+  /* Find Help consistency pass: the national card joins the
+     pathway-card family — same card background, 2px line border,
+     radius, shadow and 30px/26px padding. */
+  .national-card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow);margin-top:20px}
   .national-card h3{font-size:1.25rem;font-weight:800;color:#eaf1f8;margin:0;line-height:1.25}
   .national-card p{margin:10px 0 0;color:var(--muted);font-size:1rem;line-height:1.6}
   .national-card .btn{margin-top:16px}
@@ -908,7 +924,11 @@
 
   /* ---------- Find Help (APDA RI team strip) ---------- */
   .team-strip-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .team-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
+  /* Find Help consistency pass: the APDA RI team cards join the
+     pathway-card family — same card background, 2px line border,
+     radius, shadow and 30px/26px padding. Names, role lines, contact
+     lines and the green call buttons are unchanged. */
+  .team-card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
   .team-card h3{font-size:1.25rem;font-weight:800;color:var(--navy)}
   .team-card h3{color:#eaf1f8}
   .team-card .role{color:var(--orange-dark);font-weight:700;margin:0;font-size:1rem}
@@ -924,7 +944,10 @@
 
   /* ---------- Resources ---------- */
   .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .res-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px 26px;box-shadow:var(--shadow)}
+  /* Find Help consistency pass: the four "What Is Parkinson's?" cards
+     join the pathway-card family — same card background, 2px line
+     border, radius, shadow and 30px/26px padding. */
+  .res-card{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow)}
   .res-card h3{font-size:1.18rem;font-weight:800;color:var(--navy);margin-bottom:10px}
   .res-card h3{color:#eaf1f8}
   .res-card p{color:var(--muted);margin:0 0 12px;font-size:.99rem}
@@ -2978,7 +3001,7 @@
   </section>
 
 
-  <section class="section" aria-label="Choose where to start">
+  <section class="section section-alt" aria-label="Choose where to start">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
