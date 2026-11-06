@@ -744,30 +744,24 @@
     .album-shelf{grid-template-columns:1fr 1fr;gap:38px 28px;grid-auto-flow:dense}
     .album-shelf .album.open{grid-column:1 / -1}
   }
-  /* Galleries filter bar: three pill rows (Year, Event, Event Name)
-     above the shelf, styled like the Events page filter — outline
-     pills, selected pill solid slate gray #64748b with white text
-     (the same slate as the event badges; orange stays donation-only).
-     The three rows combine: an album shows only when it matches all
-     three. Albums carry data-year / data-event-type / data-series;
-     PawSox 2017 and Christmas Card Contest 2016 are
-     data-event-type="other" (Cherry Hill Manor days, neither chapter
-     nor team), so they appear only under All Events. Galleries pills
-     run one step smaller than the Events page filter (deliberate: two
-     rows there became three here) — text shrinks, tap height stays
-     comfortable at 42px. */
-  .gallery-filter{display:flex;flex-direction:column;gap:12px;margin:0 0 36px}
-  .gallery-filter .gal-filter-btn{font-size:.85rem;min-height:42px;padding:8px 15px}
-  @media (min-width:641px){ .gallery-filter-label.gal-label-wide{width:96px} }
-  .gallery-filter-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
-  .gallery-filter-label{flex:none;width:58px;font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9fb8d2}
-  .gal-filter-btn{font:inherit;font-weight:700;font-size:.98rem;line-height:1.3;min-height:48px;padding:11px 20px;border-radius:99px;border:2px solid rgba(255,255,255,.65);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
-  .gal-filter-btn:hover{background:rgba(255,255,255,.16)}
-  .gal-filter-btn:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
-  .gal-filter-btn[aria-pressed="true"]{background:#64748b;border-color:#64748b;color:#fff}
-  .gal-filter-btn[aria-pressed="true"]:hover{background:#475569;border-color:#475569}
+  /* Galleries filter bar: one row of three labeled dropdowns
+     (Year, Event, Event Name) above the shelf. The three selections
+     combine: an album shows only when it matches all three. Albums
+     carry data-year / data-event-type / data-series; PawSox 2017
+     and Christmas Card Contest 2016 are data-event-type="other"
+     (Cherry Hill Manor days, neither chapter nor team), so they
+     appear only under All Events. Labels keep the pill rows' label
+     style; selects use the navy card background, a slate border and
+     white text, at least 48px tall for touch. On narrow widths the
+     three dropdowns stack full-width, one per line. */
+  .gallery-filter{display:flex;flex-wrap:wrap;gap:18px 22px;margin:0 0 36px}
+  .gallery-filter-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+  .gallery-filter-label{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9fb8d2}
+  .gal-filter-select{font:inherit;font-weight:700;font-size:.95rem;line-height:1.3;min-height:48px;padding:11px 40px 11px 16px;border-radius:var(--radius);border:2px solid #64748b;background:var(--card);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%239fb8d2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center}
+  .gal-filter-select:hover{border-color:#94a3b8}
+  .gal-filter-select:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
   .gallery-filter-empty{color:var(--muted);font-size:1.02rem;margin:26px 0 0}
-  @media (max-width:640px){ .gal-filter-btn{flex:1 1 auto;text-align:center} .gallery-filter-label{width:100%} }
+  @media (max-width:640px){ .gallery-filter{flex-direction:column;flex-wrap:nowrap} .gallery-filter-field{width:100%} .gal-filter-select{width:100%} }
 
   /* ---------- Our Story — pull quote & chapter timeline ---------- */
   .story-pullquote{margin:30px 0 6px;padding:26px 28px;background:var(--orange-soft);border-radius:var(--radius);max-width:760px}
@@ -2918,12 +2912,12 @@
      album, and the photo viewer scopes itself to the tapped photo's
      gallery. Also set data-year and data-event-type ("chapter",
      "team", or "other") on the new section so the Year / Event
-     filter pills above the shelf can find it; also set data-series
+     filter dropdowns above the shelf can find it; also set data-series
      ("optimism-walk", "rock-the-resort", "funny4funds",
      "run-for-the-roses", "yard-sale", "raffle", "bake-sale",
      "pawsox", "christmas-card")
-     so the Event Name row can find it — a brand-new series needs a
-     matching pill added to that row. The covers sit two across in
+     so the Event Name dropdown can find it — a brand-new series needs a
+     matching option added to that dropdown. The covers sit two across in
      the .album-shelf grid at 700px and up.
      ============================================================ -->
 <div class="page" data-page="galleries">
@@ -2945,35 +2939,41 @@
     <div class="wrap">
 
       <div class="gallery-filter" aria-label="Filter photo albums">
-        <div class="gallery-filter-row" role="group" aria-label="Filter albums by year">
-          <span class="gallery-filter-label" aria-hidden="true">Year</span>
-          <button type="button" class="gal-filter-btn" data-gal-year="all" aria-pressed="true">All Years</button>
-          <button type="button" class="gal-filter-btn" data-gal-year="2026" aria-pressed="false">2026</button>
-          <button type="button" class="gal-filter-btn" data-gal-year="2024" aria-pressed="false">2024</button>
-          <button type="button" class="gal-filter-btn" data-gal-year="2023" aria-pressed="false">2023</button>
-          <button type="button" class="gal-filter-btn" data-gal-year="2019" aria-pressed="false">2019</button>
-          <button type="button" class="gal-filter-btn" data-gal-year="2017" aria-pressed="false">2017</button>
-          <button type="button" class="gal-filter-btn" data-gal-year="2016" aria-pressed="false">2016</button>
-          <button type="button" class="gal-filter-btn" data-gal-year="2014" aria-pressed="false">2014</button>
+        <div class="gallery-filter-field">
+          <label class="gallery-filter-label" for="galYearSelect">Year</label>
+          <select class="gal-filter-select" id="galYearSelect">
+            <option value="all" selected>All Years</option>
+            <option value="2026">2026</option>
+            <option value="2024">2024</option>
+            <option value="2023">2023</option>
+            <option value="2019">2019</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+            <option value="2014">2014</option>
+          </select>
         </div>
-        <div class="gallery-filter-row" role="group" aria-label="Filter albums by who ran the event">
-          <span class="gallery-filter-label" aria-hidden="true">Event</span>
-          <button type="button" class="gal-filter-btn" data-gal-event="all" aria-pressed="true">All Events</button>
-          <button type="button" class="gal-filter-btn" data-gal-event="chapter" aria-pressed="false">APDA Rhode Island Chapter Events</button>
-          <button type="button" class="gal-filter-btn" data-gal-event="team" aria-pressed="false">Team Golomboski Events</button>
+        <div class="gallery-filter-field">
+          <label class="gallery-filter-label" for="galEventSelect">Event</label>
+          <select class="gal-filter-select" id="galEventSelect">
+            <option value="all" selected>All Events</option>
+            <option value="chapter">APDA Rhode Island Chapter Events</option>
+            <option value="team">Team Golomboski Events</option>
+          </select>
         </div>
-        <div class="gallery-filter-row" role="group" aria-label="Filter albums by event name">
-          <span class="gallery-filter-label gal-label-wide" aria-hidden="true">Event Name</span>
-          <button type="button" class="gal-filter-btn" data-gal-series="all" aria-pressed="true">All Events</button>
-          <button type="button" class="gal-filter-btn" data-gal-series="optimism-walk" aria-pressed="false">Optimism Walk</button>
-          <button type="button" class="gal-filter-btn" data-gal-series="rock-the-resort" aria-pressed="false">Rock the Resort</button>
-          <button type="button" class="gal-filter-btn" data-gal-series="funny4funds" aria-pressed="false">Funny 4 Funds</button>
-          <button type="button" class="gal-filter-btn" data-gal-series="run-for-the-roses" aria-pressed="false">Run for the Roses</button>
-          <button type="button" class="gal-filter-btn" data-gal-series="yard-sale" aria-pressed="false">Yard Sale</button>
-          <button type="button" class="gal-filter-btn" data-gal-series="raffle" aria-pressed="false">Raffle</button>
-          <button type="button" class="gal-filter-btn" data-gal-series="bake-sale" aria-pressed="false">Bake Sale</button>
-          <button type="button" class="gal-filter-btn" data-gal-series="pawsox" aria-pressed="false">PawSox</button>
-          <button type="button" class="gal-filter-btn" data-gal-series="christmas-card" aria-pressed="false">Christmas Card</button>
+        <div class="gallery-filter-field">
+          <label class="gallery-filter-label" for="galSeriesSelect">Event Name</label>
+          <select class="gal-filter-select" id="galSeriesSelect">
+            <option value="all" selected>All Events</option>
+            <option value="optimism-walk">Optimism Walk</option>
+            <option value="rock-the-resort">Rock the Resort</option>
+            <option value="funny4funds">Funny 4 Funds</option>
+            <option value="run-for-the-roses">Run for the Roses</option>
+            <option value="yard-sale">Yard Sale</option>
+            <option value="raffle">Raffle</option>
+            <option value="bake-sale">Bake Sale</option>
+            <option value="pawsox">PawSox</option>
+            <option value="christmas-card">Christmas Card</option>
+          </select>
         </div>
       </div>
 
@@ -6285,14 +6285,14 @@
   // happens synchronously during the hashchange — before the
   // router's jump measures where the cover sits.
   //
-  // Album filters: the Year, Event and Event Name pill rows above
+  // Album filters: the Year, Event and Event Name dropdowns above
   // the shelf combine — an album shows only when its data-year
   // matches the Year selection AND its data-event-type matches the
   // Event selection AND its data-series matches the Event Name
   // selection ("all" matches everything; the two data-event-type=
-  // "other" albums match only "all" in the Event row). Instant
+  // "other" albums match only "all" in the Event dropdown). Instant
   // show/hide, like the Events page filter. A deep link first
-  // resets all three rows to All so its album is guaranteed
+  // resets all three dropdowns to All so its album is guaranteed
   // visible, then expands it.
   (function () {
     var albums = document.querySelectorAll(".gallery-section.album");
@@ -6314,14 +6314,14 @@
         }
       })(albums[i]);
     }
-    var yearBtns = document.querySelectorAll(".gal-filter-btn[data-gal-year]");
-    var eventBtns = document.querySelectorAll(".gal-filter-btn[data-gal-event]");
-    var seriesBtns = document.querySelectorAll(".gal-filter-btn[data-gal-series]");
+    var yearSelect = document.getElementById("galYearSelect");
+    var eventSelect = document.getElementById("galEventSelect");
+    var seriesSelect = document.getElementById("galSeriesSelect");
     var filterEmpty = document.getElementById("galleryFilterEmpty");
-    var yearSel = "all";
-    var eventSel = "all";
-    var seriesSel = "all";
     function applyFilters() {
+      var yearSel = yearSelect ? yearSelect.value : "all";
+      var eventSel = eventSelect ? eventSelect.value : "all";
+      var seriesSel = seriesSelect ? seriesSelect.value : "all";
       var shown = 0;
       for (var i = 0; i < albums.length; i++) {
         var show = (yearSel === "all" || albums[i].getAttribute("data-year") === yearSel) &&
@@ -6331,49 +6331,19 @@
         if (show) { shown++; }
       }
       if (filterEmpty) { filterEmpty.hidden = shown !== 0; }
-      for (var b = 0; b < yearBtns.length; b++) {
-        yearBtns[b].setAttribute("aria-pressed", yearBtns[b].getAttribute("data-gal-year") === yearSel ? "true" : "false");
-      }
-      for (var e = 0; e < eventBtns.length; e++) {
-        eventBtns[e].setAttribute("aria-pressed", eventBtns[e].getAttribute("data-gal-event") === eventSel ? "true" : "false");
-      }
-      for (var s = 0; s < seriesBtns.length; s++) {
-        seriesBtns[s].setAttribute("aria-pressed", seriesBtns[s].getAttribute("data-gal-series") === seriesSel ? "true" : "false");
-      }
     }
-    for (var y = 0; y < yearBtns.length; y++) {
-      (function (btn) {
-        btn.addEventListener("click", function () {
-          yearSel = btn.getAttribute("data-gal-year");
-          applyFilters();
-        });
-      })(yearBtns[y]);
-    }
-    for (var v = 0; v < eventBtns.length; v++) {
-      (function (btn) {
-        btn.addEventListener("click", function () {
-          eventSel = btn.getAttribute("data-gal-event");
-          applyFilters();
-        });
-      })(eventBtns[v]);
-    }
-    for (var n = 0; n < seriesBtns.length; n++) {
-      (function (btn) {
-        btn.addEventListener("click", function () {
-          seriesSel = btn.getAttribute("data-gal-series");
-          applyFilters();
-        });
-      })(seriesBtns[n]);
-    }
+    if (yearSelect) { yearSelect.addEventListener("change", applyFilters); }
+    if (eventSelect) { eventSelect.addEventListener("change", applyFilters); }
+    if (seriesSelect) { seriesSelect.addEventListener("change", applyFilters); }
     function syncFromHash() {
       var parts = window.location.hash.split("#");
       var anchor = parts[2] || "";
       if (!anchor) { return; }
       var target = document.getElementById(anchor);
       if (target && target.classList.contains("album")) {
-        yearSel = "all";
-        eventSel = "all";
-        seriesSel = "all";
+        if (yearSelect) { yearSelect.value = "all"; }
+        if (eventSelect) { eventSelect.value = "all"; }
+        if (seriesSelect) { seriesSelect.value = "all"; }
         applyFilters();
         setOpen(target, true);
       }
