@@ -290,6 +290,10 @@
   .page-hero-photo img{width:100%;height:100%;aspect-ratio:4/3;object-fit:cover;object-position:center;border-radius:var(--radius);border:1px solid rgba(255,255,255,.25);box-shadow:var(--shadow);display:block}
   .page-hero-photo img.ph-upper{object-position:center 22%}
   .page-hero-photo img.ph-cover{object-position:center 32%}
+  /* Impact 2025 team photo: faces span 9%–72% of the frame height, so
+     the crop window is centered on that band (23%) — at the default
+     center the phone 16:9 crop would cut the back row's heads. */
+  .page-hero-photo img.ph-faces{object-position:center 23%}
   @media (max-width:980px){
     .page-hero .wrap{grid-template-columns:minmax(0,1fr) 300px;gap:28px}
   }
@@ -2226,7 +2230,7 @@
       <p>Twelve years of showing up — measured in dollars raised, goals beaten, and a community that keeps answering the call.</p>
       </div>
       <figure class="page-hero-photo">
-        <img src="assets/walk2017-team-group.jpg" alt="Team Golomboski gathered behind the APDA banner at the 2017 Rhode Island Optimism Walk" width="4096" height="2304" />
+        <img class="ph-faces" src="assets/impact-team-2025.jpg" alt="Team Golomboski at the 2025 Rhode Island Optimism Walk, holding their 2nd Place Top Fundraising Team certificate" width="1548" height="1366" />
       </figure>
     </div>
   </section>
