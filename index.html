@@ -189,6 +189,17 @@
   @media (max-width:850px) and (min-width:769px){ .nav-links a.nav-resources{font-size:.82rem;padding:8px 11px} }
   .nav-donate{background:var(--orange);color:#fff;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.88rem;border-radius:8px;display:inline-flex;align-items:center;flex:none;white-space:nowrap}
   .nav-donate:hover{background:var(--orange-dark)}
+  /* Resources & Support pinned in the header beside Donate — narrow
+     (hamburger) layout ONLY. Hidden on desktop, where the link already
+     sits in the full nav row as .nav-links a.nav-resources. When shown
+     it wears that same squared green box: solid #15803d, white text,
+     8px radius, Donate-matching padding / font-size / weight, so the
+     two pinned buttons render at the same height side by side. Like
+     Donate, it lives OUTSIDE the dropdown menu (the menu carries no
+     Resources & Support entry), so it is tappable without opening it. */
+  .nav-resources-pinned{display:none;background:#15803d;color:#fff;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.88rem;line-height:1.6;border-radius:8px;align-items:center;justify-content:center;flex:none;white-space:nowrap}
+  .nav-resources-pinned:hover{background:#126e34;color:#fff}
+  .nav-resources-pinned.active{background:#0e6330;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
   /* Header actions (Donate + mobile Menu button): pinned to the far right
      of the header bar on the SAME row as the wordmark and nav links, on
      every width. The row never wraps: the nav links take the available
@@ -252,6 +263,7 @@
     .brand{margin-right:auto}
     .nav-links{display:none}
     .nav-donate{min-height:48px}
+    .nav-resources-pinned{display:inline-flex;min-height:48px;font-size:.9rem;padding:9px 14px}
     .menu-btn{display:inline-flex}
   }
 
@@ -1305,6 +1317,28 @@
      lines from wrapping, and never exceeds 2.05rem. From 381px up the
      mobile size is exactly 2.05rem. */
   @media (max-width:380px){ .hero h1{font-size:min(2.05rem,8.4vw)} }
+  /* ---------- Narrow header: pinned Resources & Support sizing ----------
+     At phone widths the pinned green button takes the same compact
+     metrics as Donate in the ≤768px block above (48px tall, 10px 11px,
+     .9rem), so the two stay one height on the row. */
+  @media (max-width:768px){
+    .nav-resources-pinned{min-height:48px;padding:10px 11px;font-size:.9rem}
+  }
+  /* Narrowest phones (≤540px, covering the 320–390px range): brand +
+     Resources + Donate + Menu cannot share one row without truncating
+     the wordmark, so the header deliberately reflows to two rows —
+     wordmark and Menu on the first, the two pinned buttons side by
+     side full-width on the second. Nothing overflows, the wordmark
+     keeps its full width, and both buttons stay compact while holding
+     a 44px+ tap height. */
+  @media (max-width:540px){
+    .nav-inner{flex-wrap:wrap;row-gap:8px}
+    .brand{order:1}
+    .menu-btn{order:2;min-height:44px;padding:8px 12px;font-size:.9rem}
+    .nav-actions{order:3;flex:1 1 100%;margin-left:0;gap:8px}
+    .nav-resources-pinned{flex:1 1 0;min-height:44px;padding:10px 6px;font-size:.8rem;letter-spacing:-.01em}
+    .nav-donate{flex:1 1 0;justify-content:center;min-height:44px;padding:10px 6px;font-size:.88rem}
+  }
 </style>
 </head>
 <body>
@@ -1329,9 +1363,10 @@
       <a class="nav-resources" href="#/pd-resources" data-route="pd-resources">Resources &amp; Support</a>
     </nav>
     <div class="nav-actions">
+      <a class="nav-resources-pinned" href="#/pd-resources" data-route="pd-resources">Resources &amp; Support</a>
       <a class="nav-donate" href="https://www.apdaparkinson.org/community/rhode-island/ways-donate/donate/" target="_blank" rel="noopener">Donate</a>
-      <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span aria-hidden="true">☰</span> Menu</button>
     </div>
+    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span aria-hidden="true">☰</span> Menu</button>
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <div class="wrap">
@@ -1343,7 +1378,6 @@
         <a href="#/events" data-route="events">Events</a>
         <a href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
         <a href="#/media" data-route="media">Media</a>
-        <a class="nav-resources" href="#/pd-resources" data-route="pd-resources">Resources &amp; Support</a>
       </nav>
     </div>
   </div>
