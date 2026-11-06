@@ -439,6 +439,14 @@
   .gift-body h3{font-size:1.18rem;font-weight:800;color:var(--navy)}
   .gift-body h3{color:#eaf1f8}
   .gift-body p{margin:0;color:var(--muted);font-size:.98rem}
+  /* Upcoming Events (homepage): the gift-card family without photos —
+     the badge sits as a small pill at the top of the card body, not
+     stretched across it, and the TBA line keeps the card's text rhythm. */
+  .gift-body .event-badge{align-self:flex-start;margin-bottom:2px}
+  .upcoming-tba{font-weight:700;color:var(--ink)}
+  /* Events page upcoming cards: the "when" column carries the TBA
+     phrase itself in place of a date, sized to fit its 150px column. */
+  .event-when .mo.tba{font-size:1.08rem;line-height:1.35}
   .gift-cta{text-align:center;margin-top:36px}
   .gift-cta p{color:var(--muted);margin:0 0 16px}
 
@@ -1487,7 +1495,47 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" aria-label="Upcoming Events">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Upcoming Events</h2>
+      </div>
+      <div class="gift-grid gift-grid-2">
+        <article class="gift-card">
+          <div class="gift-body">
+            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <h3>Taco Tuesday</h3>
+            <p class="upcoming-tba">Date to be announced</p>
+          </div>
+        </article>
+        <article class="gift-card">
+          <div class="gift-body">
+            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <h3>Rock the Resort — Concert for a Cure</h3>
+            <p>Our annual Concert for a Cure. <span class="upcoming-tba">Date to be announced</span></p>
+          </div>
+        </article>
+        <article class="gift-card">
+          <div class="gift-body">
+            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <h3>Funny 4 Funds</h3>
+            <p>Our comedy night fundraiser. <span class="upcoming-tba">Date to be announced</span></p>
+          </div>
+        </article>
+        <article class="gift-card">
+          <div class="gift-body">
+            <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
+            <h3>2027 Rhode Island Optimism Walk &amp; 5K Fun Run</h3>
+            <p class="upcoming-tba">Date to be announced</p>
+          </div>
+        </article>
+      </div>
+      <p style="margin-top:24px"><a class="more-link" href="#/events">See all events →</a></p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
     <div class="wrap">
       <div class="story-teaser">
         <figure class="story-figure">
@@ -1506,7 +1554,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="More Than Family — join Team Golomboski">
+  <section class="section" aria-label="More Than Family — join Team Golomboski">
     <div class="wrap">
       <div class="family-band">
         <div class="family-band-copy">
@@ -1526,7 +1574,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -1573,7 +1621,7 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -1603,7 +1651,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt">
     <div class="wrap">
       <div class="connect">
         <div>
@@ -2310,6 +2358,50 @@
     <div class="wrap">
       <p class="event-filter-empty" id="eventFilterEmpty" hidden>No events of this type are listed right now.</p>
       <div class="event-list" id="eventsList">
+
+        <article class="event-card" data-event-type="team">
+          <div class="event-when">
+            <div class="mo tba">Date to be announced</div>
+          </div>
+          <div class="event-body">
+            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <h3>Taco Tuesday</h3>
+            <p>Date to be announced</p>
+          </div>
+        </article>
+
+        <article class="event-card" data-event-type="team">
+          <div class="event-when">
+            <div class="mo tba">Date to be announced</div>
+          </div>
+          <div class="event-body">
+            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <h3>Rock the Resort — Concert for a Cure</h3>
+            <p>Our annual Concert for a Cure. Date to be announced</p>
+          </div>
+        </article>
+
+        <article class="event-card" data-event-type="team">
+          <div class="event-when">
+            <div class="mo tba">Date to be announced</div>
+          </div>
+          <div class="event-body">
+            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <h3>Funny 4 Funds</h3>
+            <p>Our comedy night fundraiser. Date to be announced</p>
+          </div>
+        </article>
+
+        <article class="event-card" data-event-type="chapter">
+          <div class="event-when">
+            <div class="mo tba">Date to be announced</div>
+          </div>
+          <div class="event-body">
+            <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
+            <h3>2027 Rhode Island Optimism Walk &amp; 5K Fun Run</h3>
+            <p>Date to be announced</p>
+          </div>
+        </article>
 
         <article class="event-card" data-event-type="chapter">
           <div class="event-when">
