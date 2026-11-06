@@ -164,12 +164,12 @@
 
   /* ---------- Nav ---------- */
   .site-nav{position:sticky;top:0;z-index:50;background:var(--navy);color:#fff;box-shadow:0 2px 14px rgba(0,0,0,.25)}
-  .nav-inner{display:flex;align-items:center;gap:10px;min-height:68px;flex-wrap:nowrap;padding-top:8px;padding-bottom:8px}
+  .nav-inner{display:flex;align-items:center;gap:12px;min-height:68px;flex-wrap:nowrap;padding-top:8px;padding-bottom:8px}
   .brand{display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-decoration:none;color:#fff;margin-right:0;flex:none;min-width:0}
   .brand-name{font-family:"Archivo",system-ui,sans-serif;font-weight:800;font-size:1.3rem;line-height:1.15;letter-spacing:-.01em;color:#fff;white-space:nowrap}
   .brand-sub{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#9fb8d2;font-weight:600;line-height:1.2;white-space:nowrap}
-  .nav-links{display:flex;align-items:center;gap:0;flex-wrap:nowrap;flex:1 1 auto;min-width:0;justify-content:flex-end}
-  .nav-links a{position:relative;color:#dbe7f3;text-decoration:none;font-weight:600;font-size:.84rem;padding:8px 4px;border-radius:8px;white-space:nowrap}
+  .nav-links{display:flex;align-items:center;gap:4px;flex-wrap:nowrap;flex:1 1 auto;min-width:0;justify-content:flex-end}
+  .nav-links a{position:relative;color:#dbe7f3;text-decoration:none;font-weight:600;font-size:.94rem;padding:10px 6px;border-radius:8px;white-space:nowrap}
   .nav-links a:hover{background:rgba(255,255,255,.10);color:#fff}
   .nav-links a.active{background:rgba(255,255,255,.16);color:#fff}
   /* Resources & Support: the one highlighted nav link — a green box
@@ -181,13 +181,13 @@
      Donate are the fill — green (green = help/resources, kept clearly
      distinct from Donate's orange = money) — and the label. White
      text on #15803d (the stats-band green) is ~5.0:1. */
-  .nav-links a.nav-resources{background:#15803d;color:#fff;font-weight:600;font-size:.88rem;line-height:1.6;border-radius:8px;padding:10px 14px;margin-left:2px}
+  .nav-links a.nav-resources{background:#15803d;color:#fff;font-weight:600;font-size:.92rem;line-height:1.6;border-radius:8px;padding:11px 16px;margin-left:2px}
   .nav-links a.nav-resources:hover{background:#126e34;color:#fff}
   .nav-links a.nav-resources.active{background:#0e6330;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
   @media (max-width:1150px){ .nav-links a.nav-resources{font-size:.9rem;padding:9px 14px;margin-left:2px} }
   @media (max-width:950px) and (min-width:769px){ .nav-links a.nav-resources{font-size:.85rem;padding:8px 12px} }
   @media (max-width:850px) and (min-width:769px){ .nav-links a.nav-resources{font-size:.82rem;padding:8px 11px} }
-  .nav-donate{background:var(--orange);color:#fff;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.88rem;border-radius:8px;display:inline-flex;align-items:center;flex:none;white-space:nowrap}
+  .nav-donate{background:var(--orange);color:#fff;padding:11px 16px;text-decoration:none;font-weight:600;font-size:.92rem;border-radius:8px;display:inline-flex;align-items:center;flex:none;white-space:nowrap}
   .nav-donate:hover{background:var(--orange-dark)}
   /* Resources & Support pinned in the header beside Donate — narrow
      (hamburger) layout ONLY. Hidden on desktop, where the link already
