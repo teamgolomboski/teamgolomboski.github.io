@@ -4779,23 +4779,69 @@
       if (ev.key === "Enter") { ev.preventDefault(); runSearch(); }
     });
   })();
-  // Impact stats: the numbers are final in the static HTML and stay
-  // final in the DOM and accessibility tree at all times — crawlers,
-  // screen readers, print, and visitors who never scroll all see the
-  // real values ($40,000+ / 12 years / $7,273.75 / 103% on the Impact
-  // bands; ~1 million / 10 million+ / Every 6 min on Resources &
-  // Support). This script NEVER rewrites the numbers and never stages
-  // a zero or hidden state. Its only enhancement is a brief fade/slide
-  // entrance, applied through the Web Animations API the first time a
-  // band scrolls into view; the animation touches opacity/transform
-  // only, so the text content always carries the final values, and
-  // with no JavaScript (or reduced motion) the bands simply show
-  // as-is.
+  // Impact stats — count-up as pure decoration. The numbers are final
+  // in the static HTML ($40,000+ / 12 years / $7,273.75 / 103% on the
+  // homepage and Impact bands; ~1 million / 10 million+ / Every 6 min
+  // on Resources & Support), and that static markup is the only state
+  // the page source ever holds — there is no $0 / 0 placeholder text
+  // anywhere in it. The first time a band scrolls into view, this
+  // script plays a one-time count-up over each number and lands on
+  // exactly the value already in the markup (the original text is
+  // restored verbatim on the final frame). If JavaScript is off, the
+  // visitor prefers reduced motion, or the band is never scrolled to,
+  // nothing is rewritten and the real values simply remain displayed.
+  // The fade/slide entrance on each stat is unchanged.
   (function () {
     var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion || !("IntersectionObserver" in window)) { return; }
     var bands = document.querySelectorAll(".impact");
     if (!bands.length) { return; }
+    function formatCount(value, format) {
+      switch (format) {
+        case "usd":
+          return "$" + value.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        case "usd-plus":
+          return "$" + Math.round(value).toLocaleString("en-US") + "+";
+        case "years":
+          return Math.round(value) + " years";
+        case "percent":
+          return Math.round(value) + "%";
+        case "tilde-million":
+          return "~" + (Math.round(value * 10) / 10).toLocaleString("en-US", { maximumFractionDigits: 1 }) + " million";
+        case "million-plus":
+          return Math.round(value) + " million+";
+        case "every-min":
+          return "Every " + Math.round(value) + " min";
+        default:
+          return Math.round(value).toLocaleString("en-US");
+      }
+    }
+    function countUp(el, delay) {
+      var target = parseFloat(el.getAttribute("data-count"));
+      if (!isFinite(target)) { return; }
+      var format = el.getAttribute("data-format") || "";
+      var finalText = el.textContent;
+      var duration = 1600;
+      var startTime = null;
+      // The counting face is decoration only: hide the transient values
+      // from assistive tech while the count runs, then restore.
+      el.setAttribute("aria-hidden", "true");
+      function frame(now) {
+        if (startTime === null) { startTime = now; }
+        var elapsed = now - startTime - delay;
+        if (elapsed < 0) { requestAnimationFrame(frame); return; }
+        var t = Math.min(elapsed / duration, 1);
+        var eased = 1 - Math.pow(1 - t, 3); // ease-out cubic
+        if (t >= 1) {
+          el.textContent = finalText; // land on the exact static value
+          el.removeAttribute("aria-hidden");
+          return;
+        }
+        el.textContent = formatCount(target * eased, format);
+        requestAnimationFrame(frame);
+      }
+      requestAnimationFrame(frame);
+    }
     bands.forEach(function (band) {
       var stats = band.querySelectorAll(".stat");
       if (!stats.length) { return; }
@@ -4810,6 +4856,8 @@
                 { duration: 700, delay: idx * 90, easing: "ease" }
               );
             }
+            var num = stat.querySelector(".num[data-count]");
+            if (num) { countUp(num, idx * 90); }
           });
         }
       }, { threshold: 0.25 });
