@@ -1274,7 +1274,12 @@
      their card's content area and render at one uniform size instead
      of fitting their different-length labels. */
   .team-card .btn{min-height:52px;align-self:stretch;margin-top:auto}
+  /* Headshot header row: avatar beside name and role, mirroring the
+     .person leadership-bio cards. */
+  .team-card .team-head{display:flex;gap:20px;align-items:flex-start}
+  .team-card .team-head .role{margin-top:4px}
   .chapter-address{margin-top:22px;color:var(--muted);font-size:.98rem}
+  .regional-label{font-size:1.35rem;font-weight:800;color:#eaf1f8;margin:34px 0 18px}
 
   /* ---------- Resources ---------- */
   .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
@@ -1436,6 +1441,7 @@
     .brand-sub{display:none}
     .hero-actions .btn{width:100%;justify-content:center}
     .person{flex-direction:column}
+    .team-card .team-head{flex-direction:column}
     .values-grid{grid-template-columns:1fr}
     .foot-grid{grid-template-columns:1fr}
   }
@@ -1995,21 +2001,52 @@
       </div>
       <div class="team-strip-grid">
         <article class="team-card">
-          <h3>Fatima Tobar</h3>
-          <p class="role">Program Director, APDA Rhode Island</p>
+          <div class="team-head">
+            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, Program Director, APDA Rhode Island" width="84" height="84">
+            <div>
+              <h3>Fatima Tobar</h3>
+              <p class="role">Program Director, APDA Rhode Island</p>
+            </div>
+          </div>
           <p>For Parkinson's resources, support groups, and local referrals.</p>
           <p>Call <a href="tel:+14015917890"><strong>401-591-7890</strong></a><br>Email <a href="mailto:ftobar@apdaparkinson.org">ftobar@apdaparkinson.org</a></p>
           <a class="btn btn-green" href="tel:+14015917890">Call Fatima Tobar</a>
         </article>
         <article class="team-card">
-          <h3>Michelle Mach</h3>
-          <p class="role">Executive Director, APDA Rhode Island</p>
+          <div class="team-head">
+            <img class="avatar" src="assets/michelle-headshot.jpg" alt="Michelle Mach, Executive Director, APDA Rhode Island" width="84" height="84">
+            <div>
+              <h3>Michelle Mach</h3>
+              <p class="role">Executive Director, APDA Rhode Island</p>
+            </div>
+          </div>
           <p>Reach Michelle through the APDA Rhode Island chapter office:</p>
           <p>Chapter office: <a href="tel:+14014398435"><strong>401-439-8435</strong></a><br>Chapter email: <a href="mailto:apdari@apdaparkinson.org">apdari@apdaparkinson.org</a></p>
           <a class="btn btn-green" href="tel:+14014398435">Call the Chapter Office</a>
         </article>
       </div>
       <p class="chapter-address">Chapter mailing address: <strong>APDA Rhode Island, PO Box 114098, North Providence, RI 02911</strong></p>
+      <h3 class="regional-label">APDA Regional Team</h3>
+      <div class="team-strip-grid">
+        <article class="team-card">
+          <div class="team-head">
+            <img class="avatar" src="assets/bill-headshot.jpg" alt="Bill Patjane, Regional Director, APDA" width="84" height="84">
+            <div>
+              <h3>Bill Patjane, MS</h3>
+              <p class="role">Regional Director</p>
+            </div>
+          </div>
+        </article>
+        <article class="team-card">
+          <div class="team-head">
+            <img class="avatar" src="assets/ronnie-headshot.jpg" alt="Ronnie Dooley, Regional Administrative Coordinator, APDA" width="84" height="84">
+            <div>
+              <h3>Ronnie Dooley</h3>
+              <p class="role">Regional Administrative Coordinator – Northeast Region</p>
+            </div>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
