@@ -1307,6 +1307,64 @@
   .national-card .national-helpline{margin-top:14px;font-size:1rem;color:var(--muted)}
   @media (max-width:640px){ .national-card{padding:22px 18px} .national-card .btn{align-self:stretch;width:100%;justify-content:center;text-align:center} }
 
+  /* ---------- Find Help (Parkinson's News & Research) ---------- */
+  /* Closing content section of the Find Help page: three APDA article
+     cards. The cards join the pathway-card family (the markup carries
+     .pathway-card, so the card background, 2px line border, radius,
+     shadow, padding and green hover border all come from that rule);
+     only the date line and the headline underline on hover/focus are
+     new. The date takes the finder cards' meta treatment
+     (.listing-meta: bold, #7fd6a5 green). The grid reuses
+     .pathway-grid, so the cards sit three-across on desktop and stack
+     at ≤900px with the rest of the page's card grids. The section
+     itself is .section-alt: the finder band above it sits on the
+     base shade, so the alt shade continues the page's base / alt
+     alternation. */
+  .pd-news-date{font-weight:700;font-size:.92rem;color:#7fd6a5}
+  .pd-news-card:hover h3,.pd-news-card:focus-visible h3{text-decoration:underline}
+  .pd-news-more{margin:26px 0 0;color:var(--muted);font-size:1rem}
+  /* Companion note under the news cards: a single wide note card for
+     the hereditary question families ask. It shares the news cards'
+     card family (card navy, 2px line border, radius, shadow, same
+     padding language) but is a plain note — heading, one paragraph,
+     one APDA link — not a whole-card link, so it reads as a companion
+     piece beside the news section, not a fourth news item. Its link
+     is a standard in-copy link (bold light blue from the site-wide
+     rule). */
+  .pd-family-note{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow);margin-top:30px;max-width:860px}
+  .pd-family-note h3{font-size:1.25rem;font-weight:800;color:#eaf1f8;margin:0;line-height:1.3}
+  .pd-family-note p{margin:12px 0 0;color:var(--muted);font-size:1rem;line-height:1.65}
+  .pd-family-note .pd-family-note-link{margin-top:16px}
+  @media (max-width:768px){ .pd-family-note{padding:22px 18px} }
+  /* More Parkinson's Resources (same foot-of-page section, after the
+     genetics note): the two APDA entries lead as full pathway cards
+     in the two-up .news-grid — the prominent home-base pair — while
+     the other national organizations sit in a plainly secondary text
+     list (bold blue link label, muted description), and the
+     "Families Like Ours" entry closes the block in the same list
+     treatment under its own sub-heading. */
+  .pd-resources-block{margin-top:56px}
+  .pd-resources-list{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;max-width:860px}
+  .pd-resources-list li{color:var(--muted);font-size:1rem;line-height:1.6}
+  .pd-resources-list-tight{margin-top:16px}
+  .pd-resources-subhead{font-size:1.35rem;font-weight:800;color:#eaf1f8;margin:38px 0 0;line-height:1.25}
+  /* Non-APDA national organizations: deliberately quiet — a framing
+     line, one compact line of plain-text name links (no cards, no
+     descriptions), and a routing line that sends local needs back to
+     the APDA Rhode Island Chapter. Smaller type than the APDA cards
+     above so the hierarchy is unmistakable. */
+  .pd-resources-framing{margin:30px 0 0;color:var(--muted);font-size:1rem;line-height:1.6;max-width:860px}
+  .pd-resources-compact{margin:10px 0 0;color:var(--muted);font-size:.93rem;line-height:1.7;max-width:860px}
+  .pd-resources-routing{margin:16px 0 0;color:var(--muted);font-size:1rem;line-height:1.6;max-width:860px}
+  /* Page-foot disclaimers (Find Help): the page's two closing lines
+     sit in their own base-shade band after the news section, so they
+     stay the last thing on the page. The band's top padding is
+     trimmed because .disclaimer and .fineprint already carry their
+     own top margins. */
+  .page-foot{padding:8px 0 64px;background:var(--bg)}
+  @media (max-width:900px){ .page-foot{padding-bottom:48px} }
+  @media (max-width:640px){ .page-foot{padding-bottom:42px} }
+
   /* ---------- Find Help (APDA RI team strip) ---------- */
   .team-strip-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   /* Find Help consistency pass: the APDA RI team cards join the
@@ -7748,10 +7806,73 @@
           </div>
         </div>
 
-        <p class="disclaimer">Programs and services are subject to change. Please visit the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">American Parkinson's Disease Association Rhode Island Chapter's website</a> for the latest information.</p>
-        <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
       </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Parkinson's News & Research">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Parkinson's News &amp; Research</h2>
+        <p>The latest from the American Parkinson Disease Association — research updates and news for the Parkinson's community.</p>
+      </div>
+      <div class="pathway-grid">
+        <a class="pathway-card pd-news-card" href="https://www.apdaparkinson.org/article/fda-approves-tavapadon-a-new-treatment-option-for-parkinsons/" target="_blank" rel="noopener">
+          <h3>FDA Approves Tavapadon: A New Treatment Option for Parkinson's</h3>
+          <span class="pd-news-date">September 29, 2026</span>
+          <p>The US Food and Drug Administration (FDA) has approved JUVMO (tavapadon) for PD treatment in adults.</p>
+        </a>
+        <a class="pathway-card pd-news-card" href="https://www.apdaparkinson.org/article/apda-advances-parkinsons-priorities/" target="_blank" rel="noopener">
+          <h3>APDA Advances Parkinson's Priorities</h3>
+          <span class="pd-news-date">August 24, 2026</span>
+          <p>Key takeaways from the second Advisory Council on Parkinson's Research, Care, and Services, and ways to inform the National Plan to End Parkinson's.</p>
+        </a>
+        <a class="pathway-card pd-news-card" href="https://www.apdaparkinson.org/article/california-moves-to-phase-out-paraquat/" target="_blank" rel="noopener">
+          <h3>California moves to phase out paraquat</h3>
+          <span class="pd-news-date">August 11, 2026</span>
+          <p>Momentum builds to end paraquat use and protect the Parkinson's community.</p>
+        </a>
+      </div>
+      <p class="pd-news-more"><a href="https://www.apdaparkinson.org/news/breaking-news/" target="_blank" rel="noopener">More news &amp; research at APDA</a></p>
+      <div class="pd-family-note">
+        <h3>Is Parkinson's Hereditary? What Families Ask</h3>
+        <p>This question is personal for our family — our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44, so 'does it run in the family?' is one we've asked ourselves. Here's what APDA wants families to know:</p>
+        <p>When a parent has Parkinson's, it's natural for sons and daughters to wonder about their own risk. In most cases, Parkinson's is not directly inherited. APDA notes that about 10%–15% of people with Parkinson's carry an inherited genetic mutation known to increase PD risk — and most people with Parkinson's, even with a family history, do not carry one of these abnormal genes. Even when a mutation is present, it raises risk rather than deciding the outcome: many people who carry one never develop the disease. So a parent having Parkinson's does not mean a child will get it, and families thinking about genetic testing should talk it through with a neurologist or a genetic counselor first.</p>
+        <p class="pd-family-note-link"><a href="https://www.apdaparkinson.org/article/genetic-testing-for-parkinsons-disease/" target="_blank" rel="noopener">APDA on genetic testing for Parkinson's</a></p>
+      </div>
+      <div class="pd-resources-block">
+        <div class="section-head">
+          <div class="rule" aria-hidden="true"></div>
+          <h2>More Parkinson's Resources</h2>
+          <p>Team Golomboski's home organization is the American Parkinson Disease Association — start there.</p>
+        </div>
+        <div class="news-grid">
+          <a class="pathway-card" href="https://www.apdaparkinson.org/" target="_blank" rel="noopener">
+            <h3>American Parkinson Disease Association (APDA)</h3>
+            <p>Our home organization: research funding, education, and support for the Parkinson's community nationwide.</p>
+          </a>
+          <a class="pathway-card" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">
+            <h3>APDA Rhode Island Chapter</h3>
+            <p>Our local chapter: Rhode Island support groups, exercise and wellness classes, programs, and referrals.</p>
+          </a>
+        </div>
+        <p class="pd-resources-framing">For national research news and background reading, these organizations also publish helpful material:</p>
+        <p class="pd-resources-compact"><a href="https://www.michaeljfox.org/" target="_blank" rel="noopener">The Michael J. Fox Foundation</a> · <a href="https://www.parkinson.org/" target="_blank" rel="noopener">Parkinson's Foundation</a> · <a href="https://davisphinneyfoundation.org/" target="_blank" rel="noopener">Davis Phinney Foundation</a> · <a href="https://briangrant.org/" target="_blank" rel="noopener">Brian Grant Foundation</a> · <a href="https://www.pmdalliance.org/" target="_blank" rel="noopener">PMD Alliance</a></p>
+        <p class="pd-resources-routing">For anything local — support groups, exercise programs, education, or help — <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island</a> is the place, and the chapter contacts are right here on this page.</p>
+        <h3 class="pd-resources-subhead">Families Like Ours</h3>
+        <ul class="pd-resources-list pd-resources-list-tight">
+          <li><a href="https://togetherforsharon.com/" target="_blank" rel="noopener">Together for Sharon</a> — Another family's Parkinson's story: a son's tribute to his mother, Sharon, grown into a community sharing family interviews and hope.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-foot" aria-label="Page notes">
+    <div class="wrap">
+      <p class="disclaimer">Programs and services are subject to change. Please visit the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">American Parkinson's Disease Association Rhode Island Chapter's website</a> for the latest information.</p>
+      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
     </div>
   </section>
 
