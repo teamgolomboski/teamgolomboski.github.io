@@ -4,15 +4,15 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="dark" />
-<meta name="description" content="Team Golomboski is a Rhode Island family team walking, fundraising, and building community for the APDA Rhode Island Chapter since 2014 — founded in honor of Joseph Golomboski Sr." />
+<meta name="description" content="Team Golomboski is a Rhode Island family team founded in 2014 in honor of Joseph Golomboski Sr., walking the Rhode Island Optimism Walk for APDA Rhode Island." />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://teamgolomboski.github.io/" />
 <meta property="og:title" content="Team Golomboski | Rhode Island Parkinson's Fundraising" />
-<meta property="og:description" content="A Rhode Island family team walking, fundraising, and building community for the APDA Rhode Island Chapter since 2014 — in honor of Joseph Golomboski Sr." />
+<meta property="og:description" content="Team Golomboski is a Rhode Island family team founded in 2014 in honor of Joseph Golomboski Sr., walking the Rhode Island Optimism Walk for APDA Rhode Island." />
 <meta property="og:image" content="https://teamgolomboski.github.io/assets/hero-walk-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Team Golomboski | Rhode Island Parkinson's Fundraising" />
-<meta name="twitter:description" content="A Rhode Island family team walking, fundraising, and building community for the APDA Rhode Island Chapter since 2014 — in honor of Joseph Golomboski Sr." />
+<meta name="twitter:description" content="Team Golomboski is a Rhode Island family team founded in 2014 in honor of Joseph Golomboski Sr., walking the Rhode Island Optimism Walk for APDA Rhode Island." />
 <meta name="twitter:image" content="https://teamgolomboski.github.io/assets/hero-walk-2026.jpg" />
 <title>Team Golomboski | Rhode Island Parkinson's Fundraising</title>
 <link rel="icon" type="image/png" href="assets/apda-ri-logo.png" />
@@ -280,6 +280,11 @@
   .page-hero .crumb{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#9fb8d2;margin-bottom:14px}
   .page-hero .crumb a{color:#9fb8d2;text-decoration:none}
   .page-hero .crumb a:hover{color:#fff}
+  /* Galleries "Share Your Photos" note: sits under the green form
+     button in the hero, but reads as the page's normal muted body
+     text (Public Sans, regular weight) rather than the hero's
+     italic serif intro line. */
+  .page-hero p.share-photos-note{font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;font-style:normal;font-size:.95rem;color:var(--muted);margin:12px 0 0;max-width:520px;line-height:1.55}
   /* Page-hero photo (inner pages): title/intro text on the left, one
      photo on the right in the site's standard rounded frame. Text stays
      left-aligned. Object positions are face-safe per photo so the 4:3
@@ -915,6 +920,16 @@
   .media-card h3{font-size:1.12rem;font-weight:800;color:var(--navy)}
   .media-card h3{color:#eaf1f8}
   .media-card p{margin:0;color:var(--muted);font-size:.95rem;flex:1}
+  /* ---------- Our Sponsors (Impact) & In the News (Home) ---------- */
+  .sponsor-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+  .sponsor-tile{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 14px;display:flex;align-items:center;justify-content:center;text-align:center;font-family:"Archivo",sans-serif;font-weight:700;font-size:1.02rem;color:#eaf1f8;line-height:1.3;box-shadow:var(--shadow);min-height:76px}
+  @media (max-width:900px){ .sponsor-grid{grid-template-columns:repeat(3,1fr)} }
+  @media (max-width:520px){ .sponsor-grid{grid-template-columns:repeat(2,1fr)} .sponsor-tile{font-size:.95rem;padding:18px 10px;min-height:68px} }
+  .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .news-more{margin:26px 0 0;color:var(--muted);font-size:1rem}
+  @media (max-width:900px){ .news-grid{grid-template-columns:1fr;gap:18px} }
+  /* Speaking invitation line (Joseph & Alicia — plain closing line) */
+  .speaking-line{color:var(--muted);font-size:1rem;line-height:1.6;margin:22px auto 0;text-align:center;max-width:760px}
   .tag-todo{align-self:flex-start;font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-dark);border:1.5px dashed var(--orange);border-radius:99px;padding:5px 12px}
   .tag-todo{color:#ffb287}
   /* Featured coverage (Media — real cover story, photo shown whole) */
@@ -1757,6 +1772,39 @@
     </div>
   </section>
 
+  <section class="section" aria-label="In the News">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>In the News</h2>
+        <p>Team Golomboski and the Rhode Island Parkinson's community, as covered by local and national outlets.</p>
+      </div>
+      <div class="news-grid">
+        <article class="media-card">
+          <h3>American Parkinson Disease Association remote walk raises funds and awareness</h3>
+          <p><strong>NBC 10 News (WJAR) · September 16, 2026.</strong> Barbara Morse reports on Cherry Hill Manor's remote Optimism Walk in Johnston and speaks with Joseph Golomboski about how the money raised stays in Rhode Island for local programs.</p>
+          <a class="more-link" href="https://turnto10.com/features/health-landing-page/american-parkinson-disease-association-remote-walk-raises-funds-and-awareness-partner-smoothie-sweets-september-16-2026" target="_blank" rel="noopener">Read the article →</a>
+        </article>
+        <article class="media-card">
+          <h3>Optimism Walk for Parkinson's: Spreading Awareness and Raising Funds</h3>
+          <p><strong>The Rhode Island Wave · September 2023.</strong> Joseph Golomboski Jr. and Sandi McLeod talk about the Rhode Island Optimism Walk &amp; 5K Fun Run in this Spotlight Series interview.</p>
+          <a class="more-link" href="https://youtu.be/K_rGNyVhfUk" target="_blank" rel="noopener">Watch the interview →</a>
+        </article>
+        <article class="media-card">
+          <h3>Joseph Golomboski from Team Golomboski</h3>
+          <p><strong>Together for Sharon · July 2023.</strong> George Ackerman interviews Joseph about his father's early-onset diagnosis and founding Team Golomboski with Alicia in 2014.</p>
+          <a class="more-link" href="https://togetherforsharon.com/joseph-golomboski-from-team-golomboski/" target="_blank" rel="noopener">Read the interview →</a>
+        </article>
+        <article class="media-card">
+          <h3>Team Golomboski set to raise funds to fight Parkinson's Disease</h3>
+          <p><strong>Johnston Sun Rise · August 9, 2017.</strong> An early profile of the team as Alicia and Joseph Jr. led Team Golomboski into the September 2017 Optimism Walk at Goddard Park.</p>
+          <a class="more-link" href="https://www.johnstonsunrise.net/archives/local-news/team-golomboski-set-to-raise-funds-to-fight-parkinsons-disease/article_b86f7594-6e8a-52b5-aa2c-43bb531c0cac.html" target="_blank" rel="noopener">Read the article →</a>
+        </article>
+      </div>
+      <p class="news-more">See the full list of coverage on our <a href="#/media">Media page →</a></p>
+    </div>
+  </section>
+
 </div><!-- /page home -->
 
 <!-- ============================================================
@@ -2253,6 +2301,7 @@
         </div>
         <p class="decade-contact">Contact the team: <a href="mailto:teamgolomboski@gmail.com">teamgolomboski@gmail.com</a> · <a href="tel:+14012584957">(401) 258-4957</a></p>
       </div>
+      <p class="speaking-line">Invite Joseph to speak about Parkinson's advocacy and community fundraising: <a href="mailto:teamgolomboski@gmail.com">teamgolomboski@gmail.com</a></p>
     </div>
   </section>
 
@@ -2398,6 +2447,28 @@
         <p>See exactly where your gift goes — and join the people making it happen.</p>
         <a class="btn btn-orange" href="https://www.apdaparkinson.org/community/rhode-island/ways-donate/donate/" target="_blank" rel="noopener">Donate to APDA Rhode Island</a>
         <p style="margin-top:14px"><a class="more-link" href="#/donate">More ways to give →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Our Sponsors">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Our Sponsors</h2>
+        <p>Thank you to the businesses and organizations that sponsor Team Golomboski and the walk — your support stands with Rhode Island families living with Parkinson's.</p>
+      </div>
+      <div class="sponsor-grid">
+        <div class="sponsor-tile">Home Instead</div>
+        <div class="sponsor-tile">Medtronic</div>
+        <div class="sponsor-tile">Spaulding</div>
+        <div class="sponsor-tile">Encompass Health</div>
+        <div class="sponsor-tile">Supernus</div>
+        <div class="sponsor-tile">Boston Scientific</div>
+        <div class="sponsor-tile">CND Life Sciences</div>
+        <div class="sponsor-tile">RI Elder Info</div>
+        <div class="sponsor-tile">United Way RI</div>
+        <div class="sponsor-tile">St. Johns Lodge #1 Providence</div>
       </div>
     </div>
   </section>
@@ -2928,6 +2999,8 @@
       <div class="crumb"><a href="#/">Home</a> · Photo Galleries</div>
       <h1>Photo Galleries</h1>
       <p>Photos from the days that built this team. Pick an event and look around — tap any photo to see it larger.</p>
+      <p style="margin-top:20px"><a class="btn btn-green" href="https://docs.google.com/forms/d/1_N_JHip9MBmxFSo-G_uxVvmnk9a6cCn0f6lwMW2hR4Q/viewform" target="_blank" rel="noopener">Share Your Photos</a></p>
+      <p class="share-photos-note">Have photos from a walk year or team event we're missing? Send them in — every submission is reviewed by the team before anything is posted.</p>
       </div>
       <figure class="page-hero-photo">
         <img class="ph-faces" src="assets/walk2017-team-group-wide.jpg" alt="The whole Team Golomboski at Goddard Memorial State Park — 2017 Rhode Island Optimism Walk" width="1500" height="1450" />
@@ -5737,6 +5810,53 @@
   // Routes: #/ (home), #/our-story, #/joseph-and-alicia, #/impact, #/events,
   //         #/rock-the-resort, #/media, #/galleries, #/donate, #/pd-resources, #/press-kit
   // A route may carry a gallery anchor: #/galleries#gallery-first-walk-2014
+
+  // ================================================================
+  // PAGE META + SOCIAL SHARE CARDS — the one mapping for the site.
+  // For every page: its PRETTY URL (SITE_BASE + path), its share
+  // title, its share/meta description, and its share image (the
+  // photo already associated with that page; filename only — the
+  // file lives in assets/).
+  //
+  //   route             pretty URL                     share image
+  //   home              /                              hero-walk-2026.jpg
+  //   our-story         /our-story                     dad-frame-hd.jpg
+  //   joseph-and-alicia /joseph-and-alicia             biggest-year-2026.jpg
+  //   impact            /impact                        impact-team-2025.jpg
+  //   events            /events                        events-walk-day.jpg
+  //   rock-the-resort   /rock-the-resort               rock-the-resort-team.jpg
+  //   media             /media                         rocky-point-cover.jpg
+  //   galleries         /galleries                     walk2017-team-group-wide.jpg
+  //   donate            /donate                        funny4funds-check.jpg
+  //   pd-resources      /pd-resources                  support.jpg
+  //   press-kit         /press-kit                     joseph-profile.jpg
+  //
+  // Social scrapers don't run JavaScript or read hash fragments,
+  // so per-page cards can't ride on this file alone: at publish
+  // time, a static stub page is created at each pretty URL above
+  // carrying that page's Open Graph / Twitter tags (title,
+  // description, and SITE_BASE + "assets/" + image from this
+  // table) and an instant redirect into the matching hash view
+  // (e.g. /events -> /#/events). The footer Share control below
+  // already shares these pretty URLs, so a shared link lands on
+  // the stub, renders that page's card, and forwards the visitor
+  // here. The router also reads this table to keep the tab's meta
+  // description and OG/Twitter tags in step with the page shown.
+  // ================================================================
+  var SITE_BASE = "https://teamgolomboski.github.io/";
+  var PAGE_META = {
+    "home": { path: "", title: "Team Golomboski | Rhode Island Parkinson's Fundraising", description: "Team Golomboski is a Rhode Island family team founded in 2014 in honor of Joseph Golomboski Sr., walking the Rhode Island Optimism Walk for APDA Rhode Island.", image: "hero-walk-2026.jpg" },
+    "our-story": { path: "our-story", title: "Our Story | Team Golomboski", description: "How Team Golomboski began in 2014 around Joseph Golomboski Sr. — diagnosed at 44, the first Optimism Walk, and the family still walking in his memory today.", image: "dad-frame-hd.jpg" },
+    "joseph-and-alicia": { path: "joseph-and-alicia", title: "Joseph & Alicia | Team Golomboski", description: "Meet Joseph Golomboski Jr. and Alicia Golomboski, the brother-and-sister leaders of Team Golomboski and members of the APDA Rhode Island Chapter board.", image: "biggest-year-2026.jpg" },
+    "impact": { path: "impact", title: "Impact | Team Golomboski", description: "Team Golomboski's impact since 2014: over $40,000 raised for APDA Rhode Island, a record $7,273.75 in 2026, and the local programs every dollar supports.", image: "impact-team-2025.jpg" },
+    "events": { path: "events", title: "Events | Team Golomboski", description: "Team Golomboski and APDA Rhode Island events: the Optimism Walk & 5K, the Magic of Hope Gala, Rock the Resort, Funny 4 Funds, trivia and bingo nights.", image: "events-walk-day.jpg" },
+    "rock-the-resort": { path: "rock-the-resort", title: "Rock the Resort | Team Golomboski", description: "Rock the Resort is Team Golomboski's annual Concert for a Cure — live music at The Last Resort in Smithfield, benefiting the APDA Rhode Island Chapter.", image: "rock-the-resort-team.jpg" },
+    "media": { path: "media", title: "Media | Team Golomboski", description: "Team Golomboski in the news: coverage and interviews from NBC 10, The Rhode Island Wave, Together for Sharon, and the Johnston Sun Rise.", image: "rocky-point-cover.jpg" },
+    "galleries": { path: "galleries", title: "Photo Galleries | Team Golomboski", description: "Photo galleries from the days that built Team Golomboski: Optimism Walks from 2014 to 2026, Rock the Resort, Funny 4 Funds, and more team events.", image: "walk2017-team-group-wide.jpg" },
+    "donate": { path: "donate", title: "Donate | Team Golomboski", description: "Donate through Team Golomboski to the APDA Rhode Island Chapter. Every gift stays in Rhode Island, funding local programs, support, and research.", image: "funny4funds-check.jpg" },
+    "pd-resources": { path: "pd-resources", title: "Resources & Support | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
+    "press-kit": { path: "press-kit", title: "Press Kit | Team Golomboski", description: "The Team Golomboski press kit: who the team is, the numbers that back it up, and who to contact — for reporters, producers, and partners.", image: "joseph-profile.jpg" }
+  };
   (function () {
     var TITLES = {
       "home": "Team Golomboski | Rhode Island Parkinson's Fundraising",
@@ -5794,6 +5914,29 @@
         else { links[j].removeAttribute("aria-current"); }
       }
       document.title = TITLES[route];
+      // Keep the meta description and the OG/Twitter tags in step
+      // with the page on screen, from the PAGE_META table above —
+      // so a copied tab, a browser preview, or any script-driven
+      // share sheet describes this page, not just the homepage.
+      var pageMeta = PAGE_META[route];
+      if (pageMeta) {
+        var pageUrl = SITE_BASE + pageMeta.path;
+        var pageImage = SITE_BASE + "assets/" + pageMeta.image;
+        var metaTags = [
+          ['meta[name="description"]', pageMeta.description],
+          ['meta[property="og:title"]', pageMeta.title],
+          ['meta[property="og:description"]', pageMeta.description],
+          ['meta[property="og:url"]', pageUrl],
+          ['meta[property="og:image"]', pageImage],
+          ['meta[name="twitter:title"]', pageMeta.title],
+          ['meta[name="twitter:description"]', pageMeta.description],
+          ['meta[name="twitter:image"]', pageImage]
+        ];
+        for (var m = 0; m < metaTags.length; m++) {
+          var metaEl = document.querySelector(metaTags[m][0]);
+          if (metaEl) { metaEl.setAttribute("content", metaTags[m][1]); }
+        }
+      }
       window.scrollTo(0, 0);
       closeMenu();
       if (anchor) {
@@ -6352,18 +6495,30 @@
     syncFromHash();
   })();
 
-  // Share This Page (footer): shares the page the visitor is on — the
-  // live URL (hash route included) and the current document title.
-  // Uses the native Web Share sheet where the browser offers one;
-  // otherwise toggles a small popover whose five links are rebuilt
-  // from the live URL and title every time it opens and again at
-  // click time. No tracking, no third-party scripts.
+  // Share This Page (footer): shares the page the visitor is on —
+  // by its PRETTY URL from the PAGE_META table (site base + page
+  // slug, e.g. https://teamgolomboski.github.io/events), never the
+  // hash URL. At publish time each pretty URL is a static stub
+  // carrying that page's share card (title, description, image)
+  // and redirecting into the matching hash view, so a link shared
+  // from here renders that page's own card on social media. The
+  // shared title is the current page's document title. Uses the
+  // native Web Share sheet where the browser offers one; otherwise
+  // toggles a small popover whose five links are rebuilt from the
+  // pretty URL and title every time it opens and again at click
+  // time. No tracking, no third-party scripts.
   (function () {
     var btn = document.getElementById("shareBtn");
     var menu = document.getElementById("shareMenu");
     if (!btn || !menu) { return; }
+    function shareUrl() {
+      var parts = window.location.hash.split("#");
+      var routePart = (parts[1] || "").replace(/^\//, "").replace(/\/$/, "");
+      var meta = PAGE_META.hasOwnProperty(routePart) ? PAGE_META[routePart] : PAGE_META.home;
+      return SITE_BASE + meta.path;
+    }
     function buildLinks() {
-      var url = encodeURIComponent(window.location.href);
+      var url = encodeURIComponent(shareUrl());
       var title = encodeURIComponent(document.title);
       var links = menu.querySelectorAll("a[data-share]");
       for (var i = 0; i < links.length; i++) {
@@ -6388,7 +6543,7 @@
     btn.addEventListener("click", function (event) {
       event.stopPropagation();
       if (navigator.share) {
-        navigator.share({ title: document.title, url: window.location.href }).catch(function () {});
+        navigator.share({ title: document.title, url: shareUrl() }).catch(function () {});
         return;
       }
       if (isOpen()) { closeMenu(); } else { openMenu(); }
