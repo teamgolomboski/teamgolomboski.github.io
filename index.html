@@ -692,6 +692,21 @@
   .uniform-gallery .tile-frame img.focal-f4f24-food-buffet{object-position:50% 25%}
   .uniform-gallery .tile-frame img.focal-f4f24-friends-pair{object-position:50% 15%}
   .uniform-gallery .tile-frame img.focal-f4f24-friends-watch{object-position:50% 25%}
+  /* Optimism Walk 2021 portrait tiles: these 2:3 photos show only the
+     middle 50% of the frame in the centered 4:3 crop (25%–75%), which
+     cut off or grazed the heads in each photo below — face bands were
+     measured per photo and each crop window is shifted up just enough
+     to hold every face whole. The other 2021 portraits (frame-trio,
+     balloon-arch, celebration-trio, finish-trio, finish-group) already
+     frame their faces comfortably and keep the centered crop. These
+     classes apply only inside .tile-frame, so the tap-to-enlarge
+     viewer still shows each full, uncropped photo. */
+  .uniform-gallery .tile-frame img.focal-w21-memorial-shirt{object-position:50% 10%}
+  .uniform-gallery .tile-frame img.focal-w21-joseph-pair{object-position:50% 12%}
+  .uniform-gallery .tile-frame img.focal-w21-joseph-pair2{object-position:50% 16%}
+  .uniform-gallery .tile-frame img.focal-w21-pavilion-pair{object-position:50% 16%}
+  .uniform-gallery .tile-frame img.focal-w21-course-pair{object-position:50% 25%}
+  .uniform-gallery .tile-frame img.focal-w21-celebration-pair{object-position:50% 20%}
   .uniform-gallery figcaption{padding:14px 18px 16px;font-size:.92rem;color:var(--muted);line-height:1.5}
   .uniform-gallery .photo-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;-webkit-tap-highlight-color:transparent;text-align:left}
   .uniform-gallery .photo-open img{transition:filter .18s ease}
@@ -4147,19 +4162,19 @@
             </figure>
             <figure class="gallery-tile">
               <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Walkers on the course at Goddard.">
-                <span class="tile-frame"><img src="assets/walk2021-course-pair.jpg" alt="Walkers on the course at Goddard." width="1345" height="2017" /></span>
+                <span class="tile-frame"><img class="focal-w21-course-pair" src="assets/walk2021-course-pair.jpg" alt="Walkers on the course at Goddard." width="1345" height="2017" /></span>
               </button>
               <figcaption>Walkers on the course at Goddard.</figcaption>
             </figure>
             <figure class="gallery-tile">
               <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at the 2021 Optimism Walk.">
-                <span class="tile-frame"><img src="assets/walk2021-joseph-pair.jpg" alt="Joseph Golomboski at the 2021 Optimism Walk." width="1345" height="2017" /></span>
+                <span class="tile-frame"><img class="focal-w21-joseph-pair" src="assets/walk2021-joseph-pair.jpg" alt="Joseph Golomboski at the 2021 Optimism Walk." width="1345" height="2017" /></span>
               </button>
               <figcaption>Joseph Golomboski at the 2021 Optimism Walk.</figcaption>
             </figure>
             <figure class="gallery-tile">
               <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with a walk leader at Goddard.">
-                <span class="tile-frame"><img src="assets/walk2021-joseph-pair2.jpg" alt="Joseph Golomboski with a walk leader at Goddard." width="1345" height="2017" /></span>
+                <span class="tile-frame"><img class="focal-w21-joseph-pair2" src="assets/walk2021-joseph-pair2.jpg" alt="Joseph Golomboski with a walk leader at Goddard." width="1345" height="2017" /></span>
               </button>
               <figcaption>Joseph Golomboski with a walk leader at Goddard.</figcaption>
             </figure>
@@ -4213,13 +4228,13 @@
             </figure>
             <figure class="gallery-tile">
               <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Friends in the pavilion — one in the family&#x27;s memorial shirt.">
-                <span class="tile-frame"><img src="assets/walk2021-pavilion-pair.jpg" alt="Friends in the pavilion — one in the family&#x27;s memorial shirt." width="1345" height="2017" /></span>
+                <span class="tile-frame"><img class="focal-w21-pavilion-pair" src="assets/walk2021-pavilion-pair.jpg" alt="Friends in the pavilion — one in the family&#x27;s memorial shirt." width="1345" height="2017" /></span>
               </button>
               <figcaption>Friends in the pavilion — one in the family's memorial shirt.</figcaption>
             </figure>
             <figure class="gallery-tile">
               <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The family&#x27;s memorial shirt, printed with a favorite photo of Joseph Golomboski Sr.">
-                <span class="tile-frame"><img src="assets/walk2021-memorial-shirt.jpg" alt="The family&#x27;s memorial shirt, printed with a favorite photo of Joseph Golomboski Sr." width="1345" height="2017" /></span>
+                <span class="tile-frame"><img class="focal-w21-memorial-shirt" src="assets/walk2021-memorial-shirt.jpg" alt="The family&#x27;s memorial shirt, printed with a favorite photo of Joseph Golomboski Sr." width="1345" height="2017" /></span>
               </button>
               <figcaption>The family's memorial shirt, printed with a favorite photo of Joseph Golomboski Sr.</figcaption>
             </figure>
@@ -4243,7 +4258,7 @@
             </figure>
             <figure class="gallery-tile">
               <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Arms up on the course.">
-                <span class="tile-frame"><img src="assets/walk2021-celebration-pair.jpg" alt="Arms up on the course." width="1345" height="2017" /></span>
+                <span class="tile-frame"><img class="focal-w21-celebration-pair" src="assets/walk2021-celebration-pair.jpg" alt="Arms up on the course." width="1345" height="2017" /></span>
               </button>
               <figcaption>Arms up on the course.</figcaption>
             </figure>
