@@ -707,6 +707,70 @@
   .uniform-gallery .tile-frame img.focal-w21-pavilion-pair{object-position:50% 16%}
   .uniform-gallery .tile-frame img.focal-w21-course-pair{object-position:50% 25%}
   .uniform-gallery .tile-frame img.focal-w21-celebration-pair{object-position:50% 20%}
+  /* Optimism Walk 2020 portrait tiles: same check as 2021 — these 3:4
+     photos show only the middle ~56% of the frame in the centered 4:3
+     crop (22%–78%), which cut off or grazed the heads in each photo
+     below. Face bands were measured per photo and each crop window is
+     shifted up just enough to hold every face whole; the cover photo
+     (joseph-dog) carries the same anchor on the album cover so both
+     people and the dog's head stay whole. The other 2020 portraits
+     (selfie-group, banner-pair, family-selfie, waterside-trio,
+     road-selfie, virtual-joe) already frame their faces
+     comfortably and keep the centered crop — sign-closeup too: its
+     centered window is the only one that holds both the face and the
+     sign's "Joseph Golomboski Sr." line. */
+  .uniform-gallery .tile-frame img.focal-w20-joseph-dog{object-position:50% 30%}
+  .album-cover img.focal-w20-joseph-dog{object-position:50% 30%}
+  .uniform-gallery .tile-frame img.focal-w20-banner-wide{object-position:50% 30%}
+  .uniform-gallery .tile-frame img.focal-w20-sign-family{object-position:50% 20%}
+  .uniform-gallery .tile-frame img.focal-w20-signs-water{object-position:50% 25%}
+  .uniform-gallery .tile-frame img.focal-w20-signs-pair{object-position:50% 30%}
+  .uniform-gallery .tile-frame img.focal-w20-cure-sign{object-position:50% 30%}
+  .uniform-gallery .tile-frame img.focal-w20-grass-pair{object-position:50% 5%}
+  .uniform-gallery .tile-frame img.focal-w20-dog-sit{object-position:50% 35%}
+  .uniform-gallery .tile-frame img.focal-w20-toddler{object-position:50% 18%}
+  /* Optimism Walk 2025 portrait tile: the mascot photo is 2:3, so the
+     centered 4:3 crop shows only the middle 50% of the frame (25%–75%)
+     and cuts Joseph Golomboski's face at the top and the mascot's
+     head. Shifting the crop window up holds Joseph's face, the
+     mascot's head, and the teammate's face whole. This class applies
+     only inside .tile-frame, so the tap-to-enlarge viewer still
+     shows the full, uncropped photo. The seven 2025 landscape photos
+     crop horizontally only and keep every face whole at the centered
+     crop, so they need no anchor. */
+  .uniform-gallery .tile-frame img.focal-w25-mascot{object-position:50% 15%}
+  /* Optimism Walk 2018 portrait tile: the Joseph-and-dog photo is
+     2:3, so the centered 4:3 crop shows only the middle 50% of the
+     frame (25%–75%) and leaves Joseph Golomboski's face almost on
+     the crop edge, with his hair touching it. Shifting the crop
+     window up holds his face whole with headroom. This class
+     applies only inside .tile-frame, so the tap-to-enlarge viewer
+     still shows the full, uncropped photo. The two 2018 landscape
+     photos crop horizontally only and keep every face whole at the
+     centered crop, so they need no anchor. */
+  .uniform-gallery .tile-frame img.focal-w18-joseph-dog{object-position:50% 35%}
+  /* Optimism Walk 2026 portrait tiles: the 2:3 photos show only the
+     middle 50% of the frame in the centered 4:3 crop (25%–75%), which
+     cut off or grazed the heads in each photo below. Face bands were
+     measured per photo and each crop window is shifted up just enough
+     to hold every face whole. These classes apply only inside
+     .tile-frame, so the tap-to-enlarge viewer still shows each full,
+     uncropped photo. The other 2026 portraits (colorguard-flags,
+     anthem, blue-polo-pair, wristband-table, raffle-basket) and all
+     sixteen 2026 landscape photos already frame their faces
+     comfortably and keep the centered crop. */
+  .uniform-gallery .tile-frame img.focal-w26-joseph-speech{object-position:50% 30%}
+  .uniform-gallery .tile-frame img.focal-w26-sign-trio{object-position:50% 20%}
+  .uniform-gallery .tile-frame img.focal-w26-medtronic-pair{object-position:50% 10%}
+  .uniform-gallery .tile-frame img.focal-w26-encompass-pair{object-position:50% 5%}
+  .uniform-gallery .tile-frame img.focal-w26-brochure-table{object-position:50% 15%}
+  .uniform-gallery .tile-frame img.focal-w26-green-table{object-position:50% 5%}
+  .uniform-gallery .tile-frame img.focal-w26-vendor-pair{object-position:50% 10%}
+  .uniform-gallery .tile-frame img.focal-w26-scrubs-pair{object-position:50% 15%}
+  .uniform-gallery .tile-frame img.focal-w26-cap-pair{object-position:50% 15%}
+  .uniform-gallery .tile-frame img.focal-w26-blue-shirt-pair{object-position:50% 5%}
+  .uniform-gallery .tile-frame img.focal-w26-thumbs-up{object-position:50% 15%}
+  .uniform-gallery .tile-frame img.focal-w26-mach-group{object-position:50% 40%}
   .uniform-gallery figcaption{padding:14px 18px 16px;font-size:.92rem;color:var(--muted);line-height:1.5}
   .uniform-gallery .photo-open{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;-webkit-tap-highlight-color:transparent;text-align:left}
   .uniform-gallery .photo-open img{transition:filter .18s ease}
@@ -1020,6 +1084,32 @@
   @media (prefers-reduced-motion: reduce){ .walk-viewer-img.turn-next,.walk-viewer-img.turn-prev{animation:walk-fade .3s ease} }
   .walk-viewer-caption{margin:16px auto 0;max-width:640px;text-align:center;font-size:.98rem;color:#dbe7f3;line-height:1.5}
   body.walk-viewer-lock{overflow:hidden}
+  /* Photo viewer bottom bar: the Prev / counter / Next cluster sits on
+     one side and the per-photo Like / Share / Download actions on the
+     other. The bar wraps on narrow widths — it grows downward inside
+     the viewer's own flex column, so it never covers or shrinks the
+     photo above it. Every button in the bar shares ONE treatment: the
+     same 56px height, 2px white border, 10px radius, translucent fill,
+     1rem/700 type and centred inline-flex layout, so Prev, Next, Like,
+     Share and Download all render at exactly the same size. (Scoped to
+     .photo-viewer-controls so the Media flipbook, which reuses
+     .flipbook-nav with its own sizing, is untouched.) */
+  .photo-viewer-controls{flex-wrap:wrap;justify-content:space-between}
+  .pv-nav-group{display:flex;align-items:center;gap:18px}
+  .pv-action-group{display:flex;align-items:center;gap:12px;flex-wrap:wrap;flex:1 1 320px;max-width:480px}
+  .photo-viewer-controls .flipbook-nav,
+  .photo-viewer-controls .btn{height:56px;min-height:56px;padding:0 20px;border:2px solid #fff;border-radius:10px;background:rgba(255,255,255,.06);color:#fff;font-family:inherit;font-weight:700;font-size:1rem;line-height:1.2;display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;text-decoration:none;cursor:pointer}
+  .photo-viewer-controls .flipbook-nav{flex:none}
+  .photo-viewer-controls .flipbook-nav:hover,
+  .photo-viewer-controls .btn:hover{background:rgba(255,255,255,.16)}
+  .photo-viewer-controls .flipbook-nav:disabled{opacity:.35;cursor:default;background:transparent}
+  .photo-viewer-controls .flipbook-nav:disabled:hover{background:transparent}
+  .pv-action-group>*{flex:1 1 0;min-width:0}
+  /* Liked state: the filled heart (and the button's border) take the
+     site's peach accent; the "Like" label itself stays as-is. */
+  .photo-viewer-controls .pv-like[aria-pressed="true"]{border-color:#ffb287}
+  .photo-viewer-controls .pv-like[aria-pressed="true"] .pv-heart{color:#ffb287}
+  .pv-heart{font-size:1.15rem;line-height:1}
 
   /* ---------- Placeholder templates ---------- */
   .placeholder-box{border:2px dashed var(--line);border-radius:var(--radius);padding:30px 28px;background-color:#0d1d31;background:var(--bg-alt)}
@@ -3032,11 +3122,14 @@
           <select class="gal-filter-select" id="galYearSelect">
             <option value="all" selected>All Years</option>
             <option value="2026">2026</option>
+            <option value="2025">2025</option>
             <option value="2024">2024</option>
             <option value="2023">2023</option>
             <option value="2022">2022</option>
             <option value="2021">2021</option>
+            <option value="2020">2020</option>
             <option value="2019">2019</option>
+            <option value="2018">2018</option>
             <option value="2017">2017</option>
             <option value="2016">2016</option>
             <option value="2014">2014</option>
@@ -3074,7 +3167,7 @@
           <span class="album-cover-text">
             <span class="album-cover-name">Rhode Island Optimism Walk — 2026</span>
             <span class="album-cover-date">Warwick City Park · October 3, 2026</span>
-            <span class="album-cover-meta">4 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+            <span class="album-cover-meta">37 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
           </span>
         </button>
         <div class="album-panel" id="album-panel-optimism-walk-2026" hidden>
@@ -3106,6 +3199,204 @@
                 <span class="tile-frame"><img class="focal-walk-day" src="assets/events-walk-day.jpg" alt="Joseph Golomboski Jr. with Team Golomboski members at the Optimism Walk." width="1280" height="1130" /></span>
               </button>
               <figcaption>Team Golomboski on walk day at the Rhode Island Optimism Walk &amp; 5K.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski and Fatima Tobar with the color guard.">
+                <span class="tile-frame"><img src="assets/walk2026-colorguard-group.jpg" alt="Joseph Golomboski and Fatima Tobar standing on the grass with the uniformed color guard and its flags at the 2026 Optimism Walk" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski and Fatima Tobar with the color guard.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The color guard presents the colors.">
+                <span class="tile-frame"><img src="assets/walk2026-colorguard-flags.jpg" alt="The color guard presenting the American flag and the Rhode Island state flag on the grass at Warwick City Park" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>The color guard presents the colors.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The national anthem opens the walk.">
+                <span class="tile-frame"><img src="assets/walk2026-anthem.jpg" alt="A singer performing the national anthem into a microphone while the color guard presents the flags behind her" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>The national anthem opens the walk.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski addresses the walkers.">
+                <span class="tile-frame"><img class="focal-w26-joseph-speech" src="assets/walk2026-joseph-speech.jpg" alt="Joseph Golomboski speaking into a microphone and reading from a sheet of paper as he addresses the walkers" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski addresses the walkers.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The whole crew behind the APDA RI sign.">
+                <span class="tile-frame"><img src="assets/walk2026-sign-group.jpg" alt="A large group of chapter members and friends standing behind the APDA RI yard sign with its sunflower decorations" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>The whole crew behind the APDA RI sign.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with Miss Rhode Island Teen at the APDA RI sign.">
+                <span class="tile-frame"><img src="assets/walk2026-apdari-sign.jpg" alt="Joseph Golomboski at one end of the APDA RI yard sign and Miss Rhode Island Teen, wearing her crown and sash, at the other, with rows of white chairs behind them" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with Miss Rhode Island Teen at the APDA RI sign.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with two teammates at the APDA RI sign.">
+                <span class="tile-frame"><img class="focal-w26-sign-trio" src="assets/walk2026-sign-trio.jpg" alt="Joseph Golomboski with two teammates in 2026 Optimism Walk shirts, standing in front of the APDA RI yard sign" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with two teammates at the APDA RI sign.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with Michelle Mach and Fatima Tobar.">
+                <span class="tile-frame"><img src="assets/walk2026-flowers-trio.jpg" alt="Joseph Golomboski standing between Michelle Mach and Fatima Tobar, who hold bouquets of white flowers" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with Michelle Mach and Fatima Tobar.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Top Fundraiser honoree with Fatima Tobar, Joseph Golomboski, and Michelle Mach.">
+                <span class="tile-frame"><img src="assets/walk2026-top-fundraiser.jpg" alt="The Top Fundraiser honoree holding a framed certificate, standing with Fatima Tobar, Joseph Golomboski, and Michelle Mach" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>The Top Fundraiser honoree with Fatima Tobar, Joseph Golomboski, and Michelle Mach.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski and Fatima Tobar with Team Terry.">
+                <span class="tile-frame"><img src="assets/walk2026-team-terry.jpg" alt="Joseph Golomboski and Fatima Tobar posing with members of Team Terry, one of them holding a framed certificate" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski and Fatima Tobar with Team Terry.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Michelle Mach and Joseph Golomboski with The Jitter Bobs.">
+                <span class="tile-frame"><img src="assets/walk2026-jitter-bobs-award.jpg" alt="Michelle Mach and Joseph Golomboski with members of The Jitter Bobs team, one holding a framed award plaque" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Michelle Mach and Joseph Golomboski with The Jitter Bobs.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A team celebrates under the pavilion with its framed certificate.">
+                <span class="tile-frame"><img src="assets/walk2026-pavilion-group-cert.jpg" alt="A walk team posing under the pavilion, with one member holding up a framed certificate" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>A team celebrates under the pavilion with its framed certificate.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with a family team in maroon.">
+                <span class="tile-frame"><img src="assets/walk2026-maroon-family.jpg" alt="Joseph Golomboski standing behind a family team in maroon shirts, with the kids in front" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with a family team in maroon.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Eight strong under the canopy.">
+                <span class="tile-frame"><img src="assets/walk2026-canopy-group.jpg" alt="Eight walkers and team members posing together under the event canopy" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Eight strong under the canopy.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with walkers on the path.">
+                <span class="tile-frame"><img src="assets/walk2026-path-group.jpg" alt="Joseph Golomboski with three walkers beside the chain-link fence along the path" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with walkers on the path.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski, clipboard in hand, with two teammates.">
+                <span class="tile-frame"><img src="assets/walk2026-clipboard-trio.jpg" alt="Joseph Golomboski holding his walk clipboard, standing with two teammates on the path by the pavilion" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski, clipboard in hand, with two teammates.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with Stitch and Bluey.">
+                <span class="tile-frame"><img src="assets/walk2026-mascots.jpg" alt="Joseph Golomboski smiling between the Stitch and Bluey mascots on the walk path" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with Stitch and Bluey.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at the Medtronic booth.">
+                <span class="tile-frame"><img class="focal-w26-medtronic-pair" src="assets/walk2026-medtronic-pair.jpg" alt="Joseph Golomboski standing with a representative under the tent at the Medtronic booth" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski at the Medtronic booth.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at the Encompass Health table.">
+                <span class="tile-frame"><img class="focal-w26-encompass-pair" src="assets/walk2026-encompass-pair.jpg" alt="Joseph Golomboski with an Encompass Health representative wearing a blue shirt with a white heart" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski at the Encompass Health table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at the Rock Steady Boxing table.">
+                <span class="tile-frame"><img src="assets/walk2026-ymca-group.jpg" alt="Joseph Golomboski standing with three people behind the Rock Steady Boxing table, with boxing gloves and flyers on display" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski at the Rock Steady Boxing table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at the information table.">
+                <span class="tile-frame"><img class="focal-w26-brochure-table" src="assets/walk2026-brochure-table.jpg" alt="Joseph Golomboski at the information table with brochures and a laptop, a teammate beside him" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski at the information table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski visiting the vendor tables.">
+                <span class="tile-frame"><img class="focal-w26-green-table" src="assets/walk2026-green-table.jpg" alt="Joseph Golomboski visiting a vendor table, standing beside the representative with a printer and materials on the table" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski visiting the vendor tables.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at a vendor table.">
+                <span class="tile-frame"><img class="focal-w26-vendor-pair" src="assets/walk2026-vendor-pair.jpg" alt="Joseph Golomboski standing outdoors with the representative from a vendor table" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski at a vendor table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Ready at the vendor table.">
+                <span class="tile-frame"><img src="assets/walk2026-vendor-table-solo.jpg" alt="A vendor table representative standing behind the table outdoors, ready for walkers" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Ready at the vendor table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski under the canopy.">
+                <span class="tile-frame"><img class="focal-w26-scrubs-pair" src="assets/walk2026-scrubs-pair.jpg" alt="Joseph Golomboski standing with a health care representative in gray scrubs by the vendor tents" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski under the canopy.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at the tables.">
+                <span class="tile-frame"><img class="focal-w26-cap-pair" src="assets/walk2026-cap-pair.jpg" alt="Joseph Golomboski with a walk attendee wearing a cap, standing by the vendor tables" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski at the tables.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with a walk-day friend.">
+                <span class="tile-frame"><img src="assets/walk2026-blue-polo-pair.jpg" alt="Joseph Golomboski smiling with a walk-day friend in a blue polo shirt near the parked cars" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with a walk-day friend.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with a Boston Scientific volunteer.">
+                <span class="tile-frame"><img class="focal-w26-blue-shirt-pair" src="assets/walk2026-blue-shirt-pair.jpg" alt="Joseph Golomboski standing with a Boston Scientific volunteer in a blue shirt and sunglasses" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with a Boston Scientific volunteer.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski gets a thumbs-up.">
+                <span class="tile-frame"><img class="focal-w26-thumbs-up" src="assets/walk2026-thumbs-up.jpg" alt="Joseph Golomboski standing under the pavilion with a walk friend who gives a thumbs-up" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski gets a thumbs-up.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at the wristband table.">
+                <span class="tile-frame"><img src="assets/walk2026-wristband-table.jpg" alt="Joseph Golomboski at the wristband table with a volunteer in a hoodie and cap" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Joseph Golomboski at the wristband table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski takes a breather at the tables.">
+                <span class="tile-frame"><img src="assets/walk2026-seated-pair.jpg" alt="Joseph Golomboski seated at a table with a blue tablecloth, taking a breather with a walk attendee" width="2048" height="1365" /></span>
+              </button>
+              <figcaption>Joseph Golomboski takes a breather at the tables.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A raffle basket, wrapped and ready.">
+                <span class="tile-frame"><img src="assets/walk2026-raffle-basket.jpg" alt="A walk volunteer holding a raffle basket wrapped in clear cellophane and tied with a bow" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>A raffle basket, wrapped and ready.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Michelle Mach and Joseph Golomboski with friends.">
+                <span class="tile-frame"><img class="focal-w26-mach-group" src="assets/walk2026-mach-group.jpg" alt="Michelle Mach and Joseph Golomboski posing with two friends on the walk path" width="2730" height="4096" /></span>
+              </button>
+              <figcaption>Michelle Mach and Joseph Golomboski with friends.</figcaption>
             </figure>
         </div>
         </div>
@@ -3185,6 +3476,74 @@
         <div class="gallery-actions">
           <a class="btn btn-green" href="https://kurtstickelphotography.pixieset.com/tgrocktheresort2026/" target="_blank" rel="noopener">View the Full Gallery →</a>
         </div>
+        </div>
+      </section>
+
+      <section class="gallery-section album" id="gallery-optimism-walk-2025" data-year="2025" data-event-type="chapter" data-series="optimism-walk" aria-label="Rhode Island Optimism Walk 2025 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2025">
+          <img src="assets/walk2025-start.jpg" alt="Rhode Island Optimism Walk — 2025" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Rhode Island Optimism Walk — 2025</span>
+            <span class="album-cover-date">Warwick City Park · September 27, 2025</span>
+            <span class="album-cover-meta">8 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-optimism-walk-2025" hidden>
+        <div class="gallery-head">
+          <h2>Rhode Island Optimism Walk — 2025</h2>
+          <p>Warwick City Park · September 27, 2025</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="optimism-walk-2025" data-gallery-title="Rhode Island Optimism Walk — 2025">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Walkers pour under the balloon arch at the start.">
+                <span class="tile-frame"><img src="assets/walk2025-start.jpg" alt="A crowd of walkers in purple 2025 Optimism Walk shirts streaming under the green, white and blue balloon arch at the start of the walk, Warwick City Park" width="2048" height="1366" /></span>
+              </button>
+              <figcaption>Walkers pour under the balloon arch at the start.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Under the pavilion before the walk — Beverly Brindle front and center.">
+                <span class="tile-frame"><img src="assets/walk2025-pavilion-group.jpg" alt="Eight people posing under the pavilion at the 2025 Rhode Island Optimism Walk — Beverly Brindle front and center in her purple walk shirt and finisher medals, Joseph Golomboski standing behind her" width="2048" height="1366" /></span>
+              </button>
+              <figcaption>Under the pavilion before the walk — Beverly Brindle front and center.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Volunteers at the registration table.">
+                <span class="tile-frame"><img src="assets/walk2025-registration.jpg" alt="Three volunteers in green Optimism Walk shirts seated behind the registration table with tablets, sign-in sheets and wristbands" width="2048" height="1366" /></span>
+              </button>
+              <figcaption>Volunteers at the registration table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Sandie&#x27;s Strollers head out under the balloon arch.">
+                <span class="tile-frame"><img src="assets/walk2025-sandies-strollers.jpg" alt="The Sandie&#x27;s Strollers team in matching green shirts gathered under the balloon arch with their team sign — Beverly Brindle in purple at the center, Joseph Golomboski standing at the back" width="2048" height="1366" /></span>
+              </button>
+              <figcaption>Sandie's Strollers head out under the balloon arch.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with the Breeze mascot.">
+                <span class="tile-frame"><img class="focal-w25-mascot" src="assets/walk2025-mascot.jpg" alt="Joseph Golomboski holding his walk clipboard beside the Breeze soccer mascot, a gray cat wearing a &#x27;Wicked Good Soccer&#x27; headband, and a teammate in a purple 2025 Optimism Walk shirt" width="2048" height="3072" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with the Breeze mascot.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with Beverly Brindle and friends on the grass.">
+                <span class="tile-frame"><img src="assets/walk2025-mayor-honoree.jpg" alt="Joseph Golomboski on the grass at Warwick City Park with Beverly Brindle — wearing her finisher medals and holding her walking stick — and two friends" width="2048" height="1366" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with Beverly Brindle and friends on the grass.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski presents Beverly Brindle with her Top Fundraiser &amp; Honoree certificate.">
+                <span class="tile-frame"><img src="assets/walk2025-beverly-brindle.jpg" alt="Joseph Golomboski holding the framed 2025 Top Fundraiser &amp; Honoree certificate beside Beverly Brindle, who holds a glass award and wears her finisher medals under the pavilion" width="2048" height="1366" /></span>
+              </button>
+              <figcaption>Joseph Golomboski presents Beverly Brindle with her Top Fundraiser &amp; Honoree certificate.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Team Golomboski with its Top Fundraising Team — 3rd Place certificate.">
+                <span class="tile-frame"><img src="assets/walk2025-third-place.jpg" alt="Team Golomboski members under the pavilion holding the framed Top Fundraising Team — 3rd Place certificate, with two crowned pageant titleholders at the edges" width="2048" height="1366" /></span>
+              </button>
+              <figcaption>Team Golomboski with its Top Fundraising Team — 3rd Place certificate.</figcaption>
+            </figure>
+        </div>
+        <p class="gallery-credit">Photos by Kurt Stickel.</p>
         </div>
       </section>
 
@@ -4342,6 +4701,140 @@
         </div>
       </section>
 
+      <section class="gallery-section album" id="gallery-optimism-walk-2020" data-year="2020" data-event-type="chapter" data-series="optimism-walk" aria-label="Rhode Island Optimism Walk 2020 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2020">
+          <img class="focal-w20-joseph-dog" src="assets/walk2020-joseph-dog.jpg" alt="Rhode Island Optimism Walk — 2020" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Rhode Island Optimism Walk — 2020</span>
+            <span class="album-cover-date">Rocky Point State Park · September 12, 2020</span>
+            <span class="album-cover-meta">19 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-optimism-walk-2020" hidden>
+        <div class="gallery-head">
+          <h2>Rhode Island Optimism Walk — 2020</h2>
+          <p>Rocky Point State Park · September 12, 2020</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="optimism-walk-2020" data-gallery-title="Rhode Island Optimism Walk — 2020">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski with a teammate — and the team&#x27;s four-legged walker — at Rocky Point.">
+                <span class="tile-frame"><img class="focal-w20-joseph-dog" src="assets/walk2020-joseph-dog.jpg" alt="Joseph Golomboski with a teammate — and the team&#x27;s four-legged walker — at Rocky Point." width="2158" height="2884" /></span>
+              </button>
+              <figcaption>Joseph Golomboski with a teammate — and the team's four-legged walker — at Rocky Point.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski (front) with teammates on the path at Rocky Point.">
+                <span class="tile-frame"><img src="assets/walk2020-selfie-group.jpg" alt="Joseph Golomboski (front) with teammates on the path at Rocky Point." width="2158" height="2880" /></span>
+              </button>
+              <figcaption>Joseph Golomboski (front) with teammates on the path at Rocky Point.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski holding the team&#x27;s thank-you banner: &#x27;Together we make a difference.&#x27;">
+                <span class="tile-frame"><img src="assets/walk2020-banner-pair.jpg" alt="Joseph Golomboski holding the team&#x27;s thank-you banner: &#x27;Together we make a difference.&#x27;" width="2158" height="2878" /></span>
+              </button>
+              <figcaption>Joseph Golomboski holding the team's thank-you banner: 'Together we make a difference.'</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The thank-you banner by the water at Rocky Point.">
+                <span class="tile-frame"><img class="focal-w20-banner-wide" src="assets/walk2020-banner-wide.jpg" alt="The thank-you banner by the water at Rocky Point." width="2158" height="2886" /></span>
+              </button>
+              <figcaption>The thank-you banner by the water at Rocky Point.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Team Golomboski was the honoree team for the 2020 virtual walk — &#x27;Virtual Joe&#x27; shared photos of everyone walking with the team.">
+                <span class="tile-frame"><img src="assets/walk2020-virtual-joe-card.jpg" alt="Team Golomboski was the honoree team for the 2020 virtual walk — &#x27;Virtual Joe&#x27; shared photos of everyone walking with the team." width="2158" height="1798" /></span>
+              </button>
+              <figcaption>Team Golomboski was the honoree team for the 2020 virtual walk — 'Virtual Joe' shared photos of everyone walking with the team.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Virtual Joe, the team&#x27;s 2020 virtual walk avatar.">
+                <span class="tile-frame"><img src="assets/walk2020-virtual-joe.jpg" alt="Virtual Joe, the team&#x27;s 2020 virtual walk avatar." width="2158" height="2160" /></span>
+              </button>
+              <figcaption>Virtual Joe, the team's 2020 virtual walk avatar.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A teammate&#x27;s family, walking on their own by the water.">
+                <span class="tile-frame"><img src="assets/walk2020-family-selfie.jpg" alt="A teammate&#x27;s family, walking on their own by the water." width="2158" height="2160" /></span>
+              </button>
+              <figcaption>A teammate's family, walking on their own by the water.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Walking for Joseph Golomboski Sr. — his name on the family&#x27;s walk sign.">
+                <span class="tile-frame"><img class="focal-w20-sign-family" src="assets/walk2020-sign-family.jpg" alt="Walking for Joseph Golomboski Sr. — his name on the family&#x27;s walk sign." width="2158" height="2052" /></span>
+              </button>
+              <figcaption>Walking for Joseph Golomboski Sr. — his name on the family's walk sign.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The walk sign, up close: in memory of Joseph Golomboski Sr.">
+                <span class="tile-frame"><img src="assets/walk2020-sign-closeup.jpg" alt="The walk sign, up close: in memory of Joseph Golomboski Sr." width="2158" height="2946" /></span>
+              </button>
+              <figcaption>The walk sign, up close: in memory of Joseph Golomboski Sr.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Teammates with their walk signs by the water.">
+                <span class="tile-frame"><img class="focal-w20-signs-water" src="assets/walk2020-signs-water.jpg" alt="Teammates with their walk signs by the water." width="2158" height="2884" /></span>
+              </button>
+              <figcaption>Teammates with their walk signs by the water.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Two teammates, two walk signs — one for Joseph Golomboski Sr., one for a cure.">
+                <span class="tile-frame"><img class="focal-w20-signs-pair" src="assets/walk2020-signs-pair.jpg" alt="Two teammates, two walk signs — one for Joseph Golomboski Sr., one for a cure." width="2158" height="2880" /></span>
+              </button>
+              <figcaption>Two teammates, two walk signs — one for Joseph Golomboski Sr., one for a cure.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: &#x27;A cure&#x27; — one teammate&#x27;s walk sign.">
+                <span class="tile-frame"><img class="focal-w20-cure-sign" src="assets/walk2020-cure-sign.jpg" alt="&#x27;A cure&#x27; — one teammate&#x27;s walk sign." width="2158" height="2880" /></span>
+              </button>
+              <figcaption>'A cure' — one teammate's walk sign.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Teammates in the memorial shirts by the water.">
+                <span class="tile-frame"><img src="assets/walk2020-waterside-trio.jpg" alt="Teammates in the memorial shirts by the water." width="2158" height="2878" /></span>
+              </button>
+              <figcaption>Teammates in the memorial shirts by the water.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Teammates in the memorial shirts, taking a breather on the grass.">
+                <span class="tile-frame"><img class="focal-w20-grass-pair" src="assets/walk2020-grass-pair.jpg" alt="Teammates in the memorial shirts, taking a breather on the grass." width="2158" height="2886" /></span>
+              </button>
+              <figcaption>Teammates in the memorial shirts, taking a breather on the grass.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Even the youngest walkers got in on it.">
+                <span class="tile-frame"><img class="focal-w20-toddler" src="assets/walk2020-toddler.jpg" alt="Even the youngest walkers got in on it." width="2158" height="2880" /></span>
+              </button>
+              <figcaption>Even the youngest walkers got in on it.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Walking her own route — the 2020 walk happened wherever you were.">
+                <span class="tile-frame"><img src="assets/walk2020-road-selfie.jpg" alt="Walking her own route — the 2020 walk happened wherever you were." width="2158" height="2880" /></span>
+              </button>
+              <figcaption>Walking her own route — the 2020 walk happened wherever you were.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: 7,304 steps, 3.13 miles — the virtual walk, walked for real.">
+                <span class="tile-frame"><img src="assets/walk2020-fitbit.jpg" alt="7,304 steps, 3.13 miles — the virtual walk, walked for real." width="2158" height="2878" /></span>
+              </button>
+              <figcaption>7,304 steps, 3.13 miles — the virtual walk, walked for real.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The team&#x27;s four-legged walker, in his official shirt.">
+                <span class="tile-frame"><img class="focal-w20-dog-sit" src="assets/walk2020-dog-sit.jpg" alt="The team&#x27;s four-legged walker, in his official shirt." width="2158" height="2880" /></span>
+              </button>
+              <figcaption>The team's four-legged walker, in his official shirt.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The team&#x27;s virtual walk page at the finish: $2,176 raised, past the $2,020 goal.">
+                <span class="tile-frame"><img src="assets/walk2020-results.jpg" alt="The team&#x27;s virtual walk page at the finish: $2,176 raised, past the $2,020 goal." width="2160" height="1774" /></span>
+              </button>
+              <figcaption>The team's virtual walk page at the finish: $2,176 raised, past the $2,020 goal.</figcaption>
+            </figure>
+        </div>
+        <p class="gallery-closing">Photos from the Golomboski family collection.</p>
+        </div>
+      </section>
+
       <section class="gallery-section album" id="gallery-optimism-walk-2019" data-year="2019" data-event-type="chapter" data-series="optimism-walk" aria-label="Rhode Island Optimism Walk 2019 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2019">
           <img src="assets/walk2019-course-group.jpg" alt="Rhode Island Optimism Walk — 2019" />
@@ -4533,6 +5026,43 @@
             </figure>
         </div>
         <p class="gallery-closing">Photos from the Golomboski family collection.</p>
+        </div>
+      </section>
+
+      <section class="gallery-section album" id="gallery-optimism-walk-2018" data-year="2018" data-event-type="chapter" data-series="optimism-walk" aria-label="Rhode Island Optimism Walk 2018 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2018">
+          <img src="assets/walk2018-banner.jpg" alt="Rhode Island Optimism Walk — 2018" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Rhode Island Optimism Walk — 2018</span>
+            <span class="album-cover-date">Goddard Memorial State Park · September 8, 2018</span>
+            <span class="album-cover-meta">3 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-optimism-walk-2018" hidden>
+        <div class="gallery-head">
+          <h2>Rhode Island Optimism Walk — 2018</h2>
+          <p>Goddard Memorial State Park · September 8, 2018</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="optimism-walk-2018" data-gallery-title="Rhode Island Optimism Walk — 2018">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Carrying the Team Golomboski 2018 banner down the course.">
+                <span class="tile-frame"><img src="assets/walk2018-banner.jpg" alt="Three walkers in white Optimism Walk shirts carrying the large &#x27;Team Golomboski 2018 — Fights Against Parkinson&#x27;s Disease&#x27; banner along a tree-lined park road at Goddard Memorial State Park" width="1875" height="1250" /></span>
+              </button>
+              <figcaption>Carrying the Team Golomboski 2018 banner down the course.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Walkers on the course at Goddard Memorial State Park.">
+                <span class="tile-frame"><img src="assets/walk2018-course-group.jpg" alt="A group of walkers coming down the paved course at Goddard Memorial State Park — a man in a wheelchair at the front of the group, with families, strollers and a second wheelchair user behind" width="1875" height="1250" /></span>
+              </button>
+              <figcaption>Walkers on the course at Goddard Memorial State Park.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski on the course with the team's four-legged walker.">
+                <span class="tile-frame"><img class="focal-w18-joseph-dog" src="assets/walk2018-joseph-dog.jpg" alt="Joseph Golomboski in a blue Optimism Walks shirt walking the team&#x27;s black dog, wearing its white walk shirt, down a wooded park road" width="2500" height="3750" /></span>
+              </button>
+              <figcaption>Joseph Golomboski on the course with the team's four-legged walker.</figcaption>
+            </figure>
+        </div>
         </div>
       </section>
 
@@ -5974,7 +6504,10 @@
 <!-- Photo viewer (Galleries page + the Our Story inline First Walk grid): tapping any gallery photo opens
      this full-screen viewer on that photo, with its caption and a
      "Photo X of N" counter scoped to the gallery being viewed.
-     Prev/Next buttons (>=48px), tap zones, arrow keys, Esc / x close.
+     Prev/Next buttons (56px), tap zones, arrow keys, Esc / x close.
+     The bottom bar also carries per-photo Like / Share / Download
+     actions for whichever photo is on screen; Like is remembered on
+     this device only (localStorage), with no count shown anywhere.
      Nothing auto-plays; reduced-motion visitors get a plain fade. -->
 <div class="walk-viewer" id="photoViewer" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
   <div class="flipbook-bar">
@@ -5989,10 +6522,17 @@
     </div>
     <p class="walk-viewer-caption" id="photoViewerCaption"></p>
   </div>
-  <div class="flipbook-controls">
-    <button type="button" class="flipbook-nav" id="photoViewerPrev">← Prev</button>
-    <span class="flipbook-count" id="photoViewerCount" aria-live="polite">Photo 1 of 1</span>
-    <button type="button" class="flipbook-nav" id="photoViewerNext">Next →</button>
+  <div class="flipbook-controls photo-viewer-controls">
+    <div class="pv-nav-group">
+      <button type="button" class="flipbook-nav" id="photoViewerPrev">← Prev</button>
+      <span class="flipbook-count" id="photoViewerCount" aria-live="polite">Photo 1 of 1</span>
+      <button type="button" class="flipbook-nav" id="photoViewerNext">Next →</button>
+    </div>
+    <div class="pv-action-group">
+      <button type="button" class="btn btn-outline pv-like" id="photoViewerLike" aria-pressed="false"><span class="pv-heart" aria-hidden="true">♡</span> Like</button>
+      <button type="button" class="btn btn-outline" id="photoViewerShare">Share</button>
+      <a class="btn btn-outline" id="photoViewerDownload" href="assets/walk2014-alicia-dad.jpg" download="walk2014-alicia-dad.jpg">Download</a>
+    </div>
   </div>
 </div>
 
@@ -6577,6 +7117,9 @@
     var zonePrev = document.getElementById("photoViewerZonePrev");
     var zoneNext = document.getElementById("photoViewerZoneNext");
     var count = document.getElementById("photoViewerCount");
+    var likeBtn = document.getElementById("photoViewerLike");
+    var shareBtn = document.getElementById("photoViewerShare");
+    var downloadLink = document.getElementById("photoViewerDownload");
     var img = document.getElementById("photoViewerImg");
     var caption = document.getElementById("photoViewerCaption");
     var titleEl = document.getElementById("photoViewerTitle");
@@ -6618,6 +7161,30 @@
     var isOpen = false;
     var lastOpener = null;
     function photos() { return currentGroup ? currentGroup.photos : []; }
+    // Like state: device-local only — one JSON object in localStorage
+    // under a single key, mapping each liked photo's file path to true.
+    // There is deliberately no counter and no count display anywhere.
+    // Every access is wrapped in try/catch so a private-mode or
+    // storage-disabled browser simply loses persistence, never the
+    // viewer itself.
+    var LIKE_KEY = "tg-liked-photos";
+    function loadLikes() {
+      try {
+        var raw = window.localStorage.getItem(LIKE_KEY);
+        var parsed = raw ? JSON.parse(raw) : null;
+        return (parsed && typeof parsed === "object" && !Array.isArray(parsed)) ? parsed : {};
+      } catch (err) { return {}; }
+    }
+    function saveLikes(map) {
+      try { window.localStorage.setItem(LIKE_KEY, JSON.stringify(map)); } catch (err) { /* persistence unavailable — viewer keeps working */ }
+    }
+    function refreshLike(src) {
+      if (!likeBtn) { return; }
+      var liked = !!loadLikes()[src];
+      likeBtn.setAttribute("aria-pressed", liked ? "true" : "false");
+      var heart = likeBtn.querySelector(".pv-heart");
+      if (heart) { heart.textContent = liked ? "♥" : "♡"; }
+    }
     function show(idx, dir) {
       var list = photos();
       if (!list.length) { return; }
@@ -6634,6 +7201,16 @@
       }
       if (caption) { caption.textContent = p.caption; }
       if (count) { count.textContent = "Photo " + (current + 1) + " of " + list.length; }
+      // The Download action always points at the photo on screen, so it
+      // is refreshed here — every path that changes the photo (open,
+      // Prev/Next, tap zones, arrow keys) funnels through show().
+      if (downloadLink) {
+        downloadLink.setAttribute("href", p.src);
+        downloadLink.setAttribute("download", p.src.split("/").pop() || "photo.jpg");
+      }
+      // The Like button reflects the photo on screen too, refreshed
+      // here through the same central path as the Download href.
+      refreshLike(p.src);
       if (prevBtn) { prevBtn.disabled = current === 0; }
       if (nextBtn) { nextBtn.disabled = current === list.length - 1; }
       if (zonePrev) { zonePrev.disabled = current === 0; }
@@ -6661,6 +7238,43 @@
       if (lastOpener && lastOpener.focus) { lastOpener.focus(); }
     }
     if (closeBtn) { closeBtn.addEventListener("click", closeViewer); }
+    // Like / unlike the photo on screen, keyed by its file path.
+    if (likeBtn) {
+      likeBtn.addEventListener("click", function () {
+        var p = photos()[current];
+        if (!p || !p.src) { return; }
+        var map = loadLikes();
+        if (map[p.src]) { delete map[p.src]; } else { map[p.src] = true; }
+        saveLikes(map);
+        refreshLike(p.src);
+      });
+    }
+    // Share the photo on screen: the native share sheet where the
+    // browser offers one, otherwise copy the photo's absolute URL and
+    // say so on the button for a couple of seconds. Cancelling the
+    // share sheet (AbortError) is not an error, and any failure is
+    // swallowed so sharing can never break the viewer.
+    var shareResetTimer = null;
+    if (shareBtn) {
+      shareBtn.addEventListener("click", function () {
+        var p = photos()[current];
+        if (!p || !p.src) { return; }
+        try {
+          var shareUrl = new URL(p.src, document.baseURI).href;
+          var shareText = (p.caption || "").replace(/^\s+|\s+$/g, "") || (currentGroup ? currentGroup.title : "Photo Gallery");
+          if (navigator.share) {
+            var shared = navigator.share({ title: "Team Golomboski — Photo Galleries", text: shareText, url: shareUrl });
+            if (shared && shared.catch) { shared.catch(function () { /* share sheet dismissed or refused */ }); }
+          } else if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(shareUrl).then(function () {
+              shareBtn.textContent = "Link copied ✓";
+              if (shareResetTimer) { clearTimeout(shareResetTimer); }
+              shareResetTimer = setTimeout(function () { shareBtn.textContent = "Share"; }, 2000);
+            }, function () { /* clipboard refused — leave the button as-is */ });
+          }
+        } catch (err) { /* never break the viewer */ }
+      });
+    }
     if (prevBtn) { prevBtn.addEventListener("click", function () { show(current - 1, -1); }); }
     if (nextBtn) { nextBtn.addEventListener("click", function () { show(current + 1, 1); }); }
     if (zonePrev) { zonePrev.addEventListener("click", function () { show(current - 1, -1); }); }
