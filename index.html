@@ -2045,6 +2045,12 @@
 .memorial .years,.section .memorial .years{color:#7fb3e0}
 .circle-amount{background:rgba(36,112,184,.18);border-color:rgba(127,179,224,.5);color:#a8cbe9}
 .circle-panel{border-top-color:#2470b8}
+.section .event-filters{margin:0 0 28px}
+.section .event-filter-clear{border-color:#0a2340;background:#fff;color:#0a2340}
+.section .event-filter-clear:hover{background:#eef3f8}
+.page-hero .founder-role{color:#7fb3e0}
+.founders-row .founder-role{color:#005eb8}
+#built-together,#service-beyond-the-walk,#joseph,#alicia,#decade-of-service{scroll-margin-top:96px}
   .section .memorial figcaption{color:#c9d6e4}
   .section .cta-band h2{color:#fff}
   .section .cta-band p{color:#c9d6e4}
@@ -3069,7 +3075,21 @@
     </div>
   </section>
 
-  <section class="section">
+  <nav class="page-jump" aria-label="On this page">
+    <div class="wrap page-jump-inner">
+      <label class="page-jump-label" for="foundersJumpSelect">On this page</label>
+      <select class="page-jump-select" id="foundersJumpSelect">
+        <option value="" selected>Choose a section…</option>
+        <option value="built-together">What We’ve Built Together</option>
+        <option value="service-beyond-the-walk">Service Beyond the Walk</option>
+        <option value="joseph">Joseph Golomboski Jr.</option>
+        <option value="alicia">Alicia Golomboski</option>
+        <option value="decade-of-service">A Decade of Service</option>
+      </select>
+    </div>
+  </nav>
+
+  <section class="section" id="built-together">
     <div class="wrap">
       <div class="prose">
         <div class="rule" aria-hidden="true"></div>
@@ -3103,14 +3123,14 @@
       </figure>
 
       <div class="prose" style="margin-top:44px">
-        <h2 style="font-size:1.45rem">Service Beyond the Walk</h2>
+        <h2 id="service-beyond-the-walk" style="font-size:1.45rem">Service Beyond the Walk</h2>
         <p style="margin-top:12px">In 2020, as Rhode Island faced the early months of the pandemic, Joseph and Alicia extended Team Golomboski's giving beyond Parkinson's programs to neighbors in need. That spring and summer, the team donated <strong>$113.30 to the Rhode Island Community Food Bank</strong> (April 2020), delivered <strong>8 extra-large pizzas to the staff at Cherry Hill Manor</strong> (April 2020) — the care community where their father spent his final days — and donated to the <strong>Potter League for Animals</strong> (July 2020).</p>
         <p>That same instinct — to show up where help is needed — has defined their work together from the beginning.</p>
       </div>
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section section-alt" id="joseph">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -3186,7 +3206,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="alicia">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -3215,7 +3235,7 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section" style="padding-top:0" id="decade-of-service">
     <div class="wrap">
       <div class="decade-band">
         <h2>A Decade of Service</h2>
@@ -3587,6 +3607,16 @@
       <p class="events-note">Some events are run by the APDA Rhode Island Chapter. Others are run by Team Golomboski to benefit the chapter — each event is labeled so you know which is which.</p>
       <p class="events-note" style="margin-top:14px">Dates are still being set — leave your email and we&rsquo;ll send a note when a date is announced. No newsletter, just event announcements.</p>
       <p style="margin-top:16px"><a class="btn btn-green" href="https://docs.google.com/forms/d/e/1FAIpQLSc4xazZ-3OW2oWdp5_9vxeTJaGT3rVONodd4uWya2_wjun0_w/viewform" target="_blank" rel="noopener">Get Event Notifications →</a></p>
+      
+      </div>
+      <figure class="page-hero-photo">
+        <img class="ph-upper" src="assets/events-walk-day.jpg" alt="Joseph Golomboski Jr. with Team Golomboski members at the Optimism Walk" width="1280" height="1130" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
       <div class="gallery-filter event-filters" aria-label="Filter events">
         <div class="gallery-filter-field">
           <label class="gallery-filter-label" for="eventStatusSelect">Status</label>
@@ -3631,15 +3661,6 @@
         </div>
         <button type="button" class="event-filter-clear" id="eventFilterClear" hidden>Clear filters</button>
       </div>
-      </div>
-      <figure class="page-hero-photo">
-        <img class="ph-upper" src="assets/events-walk-day.jpg" alt="Joseph Golomboski Jr. with Team Golomboski members at the Optimism Walk" width="1280" height="1130" />
-      </figure>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
       <p class="event-filter-empty" id="eventFilterEmpty" hidden>No events match those filters — try clearing one.</p>
       <div class="event-list" id="eventsList">
 
@@ -9431,6 +9452,25 @@
     select.addEventListener("change", function () {
       if (!select.value) { return; }
       var hash = "#/our-story#" + select.value;
+      if (window.location.hash === hash) {
+        // Already at this anchor: no hashchange will fire, so
+        // re-run the router's jump directly.
+        var target = document.getElementById(select.value);
+        if (target) {
+          var y = target.getBoundingClientRect().top + window.pageYOffset - 96;
+          window.scrollTo({ top: Math.max(0, y), behavior: "instant" });
+        }
+      } else {
+        window.location.hash = hash;
+      }
+    });
+  })();
+  (function () {
+    var select = document.getElementById("foundersJumpSelect");
+    if (!select) { return; }
+    select.addEventListener("change", function () {
+      if (!select.value) { return; }
+      var hash = "#/joseph-and-alicia#" + select.value;
       if (window.location.hash === hash) {
         // Already at this anchor: no hashchange will fire, so
         // re-run the router's jump directly.
