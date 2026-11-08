@@ -335,7 +335,7 @@
      into a fourth line. Headline size itself is unchanged. */
   .hero .hero-inner{position:relative;z-index:1;max-width:690px;padding:84px 0 88px}
   .hero h1{font-size:clamp(2.3rem,5.6vw,3.9rem);font-weight:900;color:#fff}
-  .hero h1 .accent{color:#ffb287}
+  .hero h1 .accent{color:#fff}
   .hero p.sub{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:clamp(1.15rem,2.4vw,1.45rem);color:#e6eef7;margin:20px 0 32px;line-height:1.45}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
   .hero h1,.hero p.sub{text-shadow:0 1px 14px rgba(7,26,48,.45)}
@@ -403,18 +403,15 @@
   .prose p{color:var(--muted);margin:0 0 16px;font-size:1.05rem}
   .prose p strong{color:var(--ink)}
   .goal-bar{background:var(--line);border-radius:99px;height:16px;overflow:hidden;margin:22px 0 8px}
-  .goal-fill{background:var(--orange);height:100%;width:100%;border-radius:99px}
-  /* Impact lifetime proof bar ONLY (the bar in the Impact page's
-     "2026: The Goal, Beaten" spotlight, under the $40,000+ lifetime
-     proof figures): its fill is Team Golomboski deep navy, scoped to
-     the Impact page so the identical .goal-fill bar on the homepage
-     keeps its orange fill, and the Events .team-progress-fill bar is
-     likewise unchanged. In the Impact page's navy context the deep
-     navy would nearly vanish against the section-alt ground
-     (#0d1d31) once the bar is full, so this instance's track is
-     lightened to a steel blue-gray with a matching outer ring that
-     keeps the full bar's extent defined against the dark ground. */
-  [data-page="impact"] .goal-fill{background:var(--navy)}
+  .goal-fill{background:linear-gradient(90deg,var(--green) 0%,var(--blue) 100%);height:100%;width:100%;border-radius:99px}
+  /* ALL fundraising goal bars use the Events page's green-to-blue
+     gradient fill as the site standard (same as the Events
+     .team-progress-fill bar), including the Impact page's
+     "2026: The Goal, Beaten" spotlight bar. In the Impact page's
+     navy context the track is lightened to a steel blue-gray with
+     a matching outer ring that keeps the full bar's extent
+     defined against the dark ground. */
+  [data-page="impact"] .goal-fill{background:linear-gradient(90deg,var(--green) 0%,var(--blue) 100%)}
   [data-page="impact"] .goal-bar{background:#7d99b5;box-shadow:0 0 0 2px #7d99b5}
   .goal-fill.is-pending{width:0}
   .goal-fill.is-animating{transition:width 2s cubic-bezier(.22,.61,.21,1)}
@@ -565,7 +562,7 @@
   /* ---------- Memorial ---------- */
   .memorial{background:var(--navy-deep);color:#fff;border-radius:20px;padding:48px 40px;text-align:center;box-shadow:var(--shadow)}
   .memorial .in-memory{font-size:.82rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:#9fb8d2}
-  .memorial h3{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:900;color:#fff;margin-top:12px}
+  .memorial h2,.memorial h3{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:900;color:#fff;margin-top:12px}
   .memorial .years{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.2rem;color:#ffb287;margin-top:6px}
   .memorial p{color:#c9d6e4;max-width:620px;margin:18px auto 0;font-size:1.02rem}
   .memorial-photo{margin:28px auto 0;max-width:520px}
@@ -593,6 +590,18 @@
   .event-photo{margin:20px 0 0;max-width:720px}
   .event-photo img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow);display:block}
   .event-photo figcaption{margin-top:12px;font-size:.92rem;color:var(--muted);line-height:1.5}
+  /* Events page only: one compact thumbnail per event, floated
+     beside the event's text near the top of its card and linked
+     to the event's own page or the Photo Galleries. The card
+     body forms a formatting context so the float stays inside
+     the card. (Other pages — e.g. Rock the Resort — keep the
+     large .event-photo treatment above.) */
+  [data-page="events"] .event-body{overflow:hidden}
+  [data-page="events"] .event-photo{float:right;width:210px;max-width:46%;margin:4px 0 12px 20px}
+  [data-page="events"] .event-photo a{display:block;border-radius:12px}
+  [data-page="events"] .event-photo a:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
+  [data-page="events"] .event-photo figcaption{margin-top:8px;font-size:.8rem}
+  @media (max-width:640px){ [data-page="events"] .event-photo{width:150px;margin-left:14px} }
 
   /* ---------- Story section photo (Our Story — shown whole) ---------- */
   .story-section-photo{margin:30px 0 0;max-width:760px}
@@ -900,6 +909,15 @@
   .prose h3.story-subhead{font-size:1.28rem;font-weight:800;color:var(--navy);margin:30px 0 0}
   .prose h3.story-subhead{color:#eaf1f8}
   .prose h3.story-subhead + p{margin-top:10px}
+  /* Our Story chapter eyebrows: a small-caps label above each chapter
+     title (Chapters One-Four in the narrative, Chapter Five above the
+     memorial heading). Base color is the dark-scheme peach accent;
+     the light-scheme block below recolors the narrative labels to
+     team navy and the memorial label to the panel's muted blue. */
+  .chapter-eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#ffb287;margin:28px 0 0}
+  .chapter-eyebrow + h3.story-subhead{margin-top:6px}
+  .memorial .chapter-eyebrow{color:#9fb8d2;margin-top:10px}
+  .memorial .chapter-eyebrow + h2{margin-top:6px}
 
   /* ---------- Our Story — "The Story So Far" timeline ----------
      Reuses the site's timeline treatment (vertical rule + orange dots
@@ -967,14 +985,15 @@
      style on the navy hero); selected = the same solid slate gray
      (#64748b) as the event badges (orange stays donation-only).
      All buttons are >=48px tall for touch and keyboard use. */
-  .event-filter{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
-  .event-filter-btn{font:inherit;font-weight:700;font-size:.98rem;line-height:1.3;min-height:48px;padding:11px 20px;border-radius:99px;border:2px solid rgba(255,255,255,.65);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
-  .event-filter-btn:hover{background:rgba(255,255,255,.16)}
-  .event-filter-btn:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
-  .event-filter-btn[aria-pressed="true"]{background:#64748b;border-color:#64748b;color:#fff}
-  .event-filter-btn[aria-pressed="true"]:hover{background:#475569;border-color:#475569}
   .event-filter-empty{max-width:880px;color:var(--muted);font-size:1.02rem;margin:0 0 24px}
-  @media (max-width:640px){ .event-filter-btn{flex:1 1 auto;text-align:center} }
+  /* Events dropdown filters: the Galleries page's styled select
+     component (.gallery-filter / .gal-filter-select), sitting in
+     the navy hero, plus a pill Clear filters reset that appears
+     once any dropdown changes. */
+  .event-filters{margin:22px 0 0;align-items:end}
+  .event-filter-clear{font:inherit;font-weight:700;font-size:.95rem;line-height:1.3;min-height:48px;padding:11px 20px;border-radius:99px;border:2px solid rgba(255,255,255,.65);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .event-filter-clear:hover{background:rgba(255,255,255,.16)}
+  .event-filter-clear:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
   .event-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);display:grid;grid-template-columns:150px 1fr;gap:28px}
   .event-when{border-right:1px solid var(--line);padding-right:24px}
   .event-when .mo{font-family:"Archivo",sans-serif;font-weight:900;font-size:1.5rem;color:var(--orange-dark);line-height:1.1}
@@ -1468,6 +1487,7 @@
   .page-jump-links a:hover{text-decoration:underline}
   .page-jump-chev{flex:none;color:#ffb287;font-weight:800;font-size:1.05rem;line-height:1}
   #find-a-program,#news-research,#genetics-questions,#more-resources,#virtual-programs,#financial-help,#recommended-reading{scroll-margin-top:96px}
+  #golomboski-family,#in-memory-joseph-sr,#story-so-far,#whole-family,#what-we-stand-for,#siblings-who-started-it,#memory-wall,#walk-with-us,#chapter-one,#chapter-two,#chapter-three,#chapter-four{scroll-margin-top:96px}
   /* Page-foot disclaimers (Find Help): the page's two closing lines
      sit in their own base-shade band after the news section, so they
      stay the last thing on the page. The band's top padding is
@@ -1686,7 +1706,7 @@
     .hero p.sub{font-size:1.08rem;margin:14px 0 24px}
     .page-hero h1{font-size:1.85rem}
     .page-hero p{margin-top:12px}
-    .memorial h3{font-size:1.55rem}
+    .memorial h2,.memorial h3{font-size:1.55rem}
     .group-head{font-size:1.22rem;margin:30px 0 14px}
     /* Vertical rhythm: roughly a third less air */
     .section{padding:42px 0}
@@ -1929,10 +1949,9 @@
   .section .thankyou{background:#fff;border:1px solid #d3dde7;border-top:4px solid var(--orange);color:#33475c;box-shadow:0 8px 24px rgba(19,36,51,.08)}
   .section .thankyou strong{color:#0a2340}
   /* Goal lines on light: dark words, Team-navy amount, light
-     track. The homepage bar's orange fill is unchanged; the
-     Impact bar keeps its navy fill, which now reads clearly
-     on the light track, so the dark-scheme steel track and
-     ring are dropped. */
+     track. All goal bars keep the standard green-to-blue
+     gradient fill, which reads clearly on the light track, so
+     the dark-scheme steel track and ring are dropped. */
   .section .goal-bar{background:#d3dde7}
   [data-page="impact"] .goal-bar{background:#d3dde7;box-shadow:none}
   .section .goal-note{color:#132433}
@@ -1941,6 +1960,18 @@
   .section .event-body p.team-progress-label{color:#132433}
   .section .event-body p.team-progress-label strong{color:#005eb8}
   .section .event-body p.team-progress-caption{color:#132433}
+  /* Events page only: the orange-family accents on the event
+     cards take Team navy #0a2340 — the date-block month labels,
+     the team-progress label's raised figure, and the "Date to be
+     announced" tag text (the tag's dashed border treatment is
+     unchanged). Event badges, the page hero, and the Donate
+     button keep their colors; no other page is affected. */
+  [data-page="events"] .event-when .mo,
+  [data-page="events"] .section .event-when .mo{color:#0a2340}
+  [data-page="events"] .event-body p.team-progress-label strong,
+  [data-page="events"] .section .event-body p.team-progress-label strong{color:#0a2340}
+  [data-page="events"] .tag-todo,
+  [data-page="events"] .section .tag-todo{color:#0a2340}
   .section .event-body p.walk-total{background:#e8f4ec;color:#132433}
   .section .event-body p.walk-total strong{color:#16603c}
   .section .impact-chapter-line{background:#e8f4ec;border-color:rgba(21,128,61,.35)}
@@ -1981,9 +2012,11 @@
      generic inline-style flip above would darken — inside the
      navy quote box it keeps its original light muted tone. */
   .section .story-pullquote p[style*="--muted"]{color:#aebccb !important}
-  .section .memorial h3{color:#fff}
+  .section .memorial h2,.section .memorial h3{color:#fff}
   .section .memorial p{color:#c9d6e4}
   .section .memorial .in-memory{color:#9fb8d2}
+  .section .chapter-eyebrow{color:#0a2340}
+  .section .memorial .chapter-eyebrow{color:#9fb8d2}
   .section .memorial .years{color:#ffb287}
   .section .memorial figcaption{color:#c9d6e4}
   .section .cta-band h2{color:#fff}
@@ -2026,7 +2059,7 @@
      gradient (strongest behind the text column on the left) —
      so the hero reads as a navy anchor at the top of the light
      page. The headline is light text as in the original navy
-     design: white with its accent words in peach #ffb287, and
+     design: white throughout, including the accent words, and
      the sub-line takes the original light ink #e6eef7 with
      the original dark text-shadow. The Donate button stays
      solid orange; the outline button keeps the white outline
@@ -2035,7 +2068,7 @@
   [data-page="home"] .hero{background:var(--navy-deep);color:#fff}
   [data-page="home"] .hero::after{background:linear-gradient(90deg,rgba(6,24,48,.84) 0%,rgba(6,24,48,.68) 48%,rgba(6,24,48,.48) 100%)}
   [data-page="home"] .hero h1{color:#fff}
-  [data-page="home"] .hero h1 .accent{color:#ffb287}
+  [data-page="home"] .hero h1 .accent{color:#fff}
   [data-page="home"] .hero p.sub{color:#e6eef7}
   [data-page="home"] .hero h1,[data-page="home"] .hero p.sub{text-shadow:0 1px 14px rgba(7,26,48,.45)}
   [data-page="home"] .hero .btn-outline{--ol-ink:#fff;--ol-bg:rgba(255,255,255,.06);--ol-hover:rgba(255,255,255,.16);border-color:#fff;color:#fff}
@@ -2628,14 +2661,34 @@
     </div>
   </section>
 
-  <section class="section">
+  <nav class="page-jump" aria-label="On this page">
+    <div class="wrap page-jump-inner">
+      <span class="page-jump-label">On this page</span>
+      <div class="page-jump-links">
+      <a href="#/our-story#chapter-one">Chapter One — A Family Decides Not to Carry It Quietly <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#chapter-two">Chapter Two — The First Walk — 2014 <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#chapter-three">Chapter Three — When “In Honor Of” Became “In Memory Of” <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#chapter-four">Chapter Four — Carrying His Name Forward — Together <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#in-memory-joseph-sr">Chapter Five — Joseph P. Golomboski Sr. <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#story-so-far">The Story So Far <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#whole-family">The Whole Family <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#what-we-stand-for">What We Stand For <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#siblings-who-started-it">The Siblings Who Started It <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#walk-with-us">Walk With Us <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#memory-wall">The Memory Wall <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="section" id="golomboski-family">
     <div class="wrap">
       <div class="prose">
         <div class="rule" aria-hidden="true"></div>
         <h2>It Begins With the Golomboski Family</h2>
         <p style="margin-top:14px">This is a family story before it is a team story. Before there was a team name, a tent, or a fundraising goal, there was the <strong>Golomboski family</strong> — <strong>Joseph P. Golomboski Sr.</strong>, his children <strong>Alicia</strong> and <strong>Joseph Jr.</strong>, their mom, <strong>Donna Harrison Lerch</strong>, his brother <strong>Anthony Golomboski</strong> — Uncle Tony to Alicia and Joseph Jr. — and Anthony's wife, <strong>Gayle Golomboski</strong> — Aunt Gayle — his sister <strong>Maria Francis</strong> — Aunt Maria to the family — and the family around them. Everything Team Golomboski has become started with them, at home, long before the first walk.</p>
         <p>Then Parkinson's entered that family's life — early, and without asking. Joseph Sr. was diagnosed with <strong>early-onset Parkinson's at age 44</strong>. Forty-four is young. It is a time when most people expect many working years, family years, and ordinary days still ahead of them. Instead, the years that followed were lived with Parkinson's — and not by him alone. His children watched what the disease takes, year after year. The whole family learned how much has to be carried alongside the person who is ill: the appointments, the changes, the worry, and the love that has to get louder than all of it.</p>
-        <h3 class="story-subhead">A Family Decides Not to Carry It Quietly</h3>
+        <p class="chapter-eyebrow">Chapter One</p>
+        <h3 class="story-subhead" id="chapter-one">A Family Decides Not to Carry It Quietly</h3>
         <p>In <strong>2014</strong>, Alicia and Joseph Jr. did something simple and stubborn with that love and worry: they founded <strong>Team Golomboski</strong> in honor of their father, who was living with Parkinson's disease. They put his name on the team — the family name — and invited other people to stand with them. The team walks and fundraises for the <strong>American Parkinson Disease Association Rhode Island Chapter</strong>, so that other Rhode Island families facing Parkinson's have programs, support, and a community to lean on — the kind of community they wanted around their own dad.</p>
         <p>The walk began as a way to honor their father. What deepened it into a lasting commitment was the family's relationship with the APDA Rhode Island Chapter — and especially with Mary Ellen Thibodeau, the chapter's executive director at the time. As Joseph Sr.'s Parkinson's advanced, the family turned to the chapter for help, and Mary Ellen became their guide — the person who showed two teenagers, and later two young caregivers, that they were not carrying this alone.</p>
         <p>The family's other constant was their father's neurologist, Dr. Joseph Friedman — the APDA Rhode Island Chapter's medical director, then and now. He cared for Joseph Sr. from diagnosis to the very end, and he was the doctor the family could always reach, with the latest on medications and research always at hand. That relationship did not end in 2019 — Joseph Jr. still counts Dr. Friedman as a trusted guide today.</p>
@@ -2645,7 +2698,8 @@
           <p>He is not off to the side in these photos. <strong>He is in the middle of it</strong> — with his children beside him, and his name on every shirt around him.</p>
         </div>
         <div class="first-walk">
-          <h3 class="story-subhead">The First Walk — 2014</h3>
+          <p class="chapter-eyebrow">Chapter Two</p>
+          <h3 class="story-subhead" id="chapter-two">The First Walk — 2014</h3>
           <p>Scenes from the 2014 Rhode Island Optimism Walk — Team Golomboski's first walk, the year Alicia and Joseph Jr. founded the team in their dad's honor.</p>
           <p class="gallery-hint">Tap any photo to see it larger.</p>
           <div class="uniform-gallery story-inline-gallery" data-gallery="first-walk-2014" data-gallery-title="The First Walk — 2014">
@@ -2666,12 +2720,14 @@
             <a class="btn btn-outline btn-outline-surface" href="#/galleries#gallery-first-walk-2014">See the Full First-Walk Gallery →</a>
           </div>
         </div>
-        <h3 class="story-subhead">When “In Honor Of” Became “In Memory Of”</h3>
+        <p class="chapter-eyebrow">Chapter Three</p>
+        <h3 class="story-subhead" id="chapter-three">When “In Honor Of” Became “In Memory Of”</h3>
         <p>In the summer of <strong>2019</strong>, as Joseph Sr.'s battle with Parkinson's was nearing its end, the family learned he would not make it to Joseph and Kirby's wedding, planned for <strong>August 10</strong>. So they brought the wedding to him. On <strong>July 14, 2019</strong>, Joseph and Kirby married at <strong>Cherry Hill Manor Nursing and Rehabilitation Center in Johnston</strong>, so his dad could be there.</p>
         <p>Looking back on that day, Joseph said: <em>“He was more alert than he had been in a while.”</em> His dad was there for his wedding — and that is what the family holds onto from that day.</p>
         <p>Then everything changed. Joseph Sr. passed away on <strong>August 9, 2019</strong> — the day before the wedding date the family had originally planned. The words the family had used since 2014 had to change with him: <strong>“in honor of” became “in memory of.”</strong> Same name. Same family. One word different — and it said everything about what they had lost.</p>
         <p>It would have been understandable to stop there — to let the team be something they had done while he was here. They didn't stop. Grief could have ended this story. In this family, it became the reason the story continued.</p>
-        <h3 class="story-subhead">Carrying His Name Forward — Together</h3>
+        <p class="chapter-eyebrow">Chapter Four</p>
+        <h3 class="story-subhead" id="chapter-four">Carrying His Name Forward — Together</h3>
         <p>The team has never stopped walking. Since 2014, Team Golomboski has raised <strong>over $40,000 for APDA Rhode Island</strong>, and the walk around it has grown, too — in 2026, the Rhode Island Optimism Walk as a whole raised <strong>$193,430.95</strong> for the chapter. Those are two different numbers, and both matter: the first is what this family team has raised in his name; the second is what the whole Rhode Island community raised together on walk day.</p>
         <p>What began as a family effort now helps lead the chapter. Joseph Jr. serves as <strong>President of the APDA Rhode Island Chapter's Board of Directors</strong>, and Alicia serves alongside him on that board — the same brother and sister who started a walk team for their dad in 2014. And in 2026, the family started something new in his name: <strong>Rock the Resort</strong>, an annual Concert for a Cure, where Joseph Sr.'s portrait sits on a memorial table and watches over the show — the music, the crowd, and the cause he is the reason for.</p>
         <p>Twelve years on, the heart of it has never changed: this is the Golomboski family honoring its dad — now joined by everyone who believes no one should face Parkinson's alone.</p>
@@ -2701,11 +2757,12 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top:0">
+  <section class="section section-alt" id="in-memory-joseph-sr">
     <div class="wrap">
       <div class="memorial">
         <div class="in-memory">In Loving Memory</div>
-        <h3>Joseph P. Golomboski Sr.</h3>
+        <p class="chapter-eyebrow">Chapter Five</p>
+        <h2>Joseph P. Golomboski Sr.</h2>
         <div class="years">1960 – 2019</div>
         <figure class="memorial-portrait">
           <img src="assets/joseph-sr-portrait.png" alt="Portrait of Joseph P. Golomboski Sr." width="1080" height="1350" />
@@ -2713,7 +2770,7 @@
         </figure>
         <p>Diagnosed with early-onset Parkinson's disease at 44, Joseph Sr. faced the disease with the same strength his family now walks with. He passed away on <strong>August 9, 2019</strong>, at Cherry Hill Manor. Every step Team Golomboski takes is taken in his name.</p>
         <h4 class="memorial-gallery-head" style="margin-top:34px">The Man Behind the Team</h4>
-        <p style="margin-top:16px">Everything on this site starts with him — and with the family who loved him. Joseph P. Golomboski Sr. was a father — Alicia and Joseph Jr.'s dad — and when Parkinson's came into his life at just 44, it came into his whole family's life, too. Early-onset Parkinson's meant the disease was not a brief chapter at the end of a long life. It was something he lived with for the long years that followed, and something his children saw up close — what it asks of a person, and of everyone who loves them.</p>
+
         <p>What the photos on this page tell you — and what his family wants you to know — is that he showed up. He was at the walks. He was under the team tent, front and center, with Alicia and Joseph Jr. holding the frame around him and the team gathered behind him. The team that carried his name did not carry it without him; for its first years, it carried it <em>with</em> him, walk after walk. When visitors see him in these pictures, right in the middle of the crowd, they are seeing the team exactly as it began.</p>
         <p>Joseph Sr. passed away on August 9, 2019. Since that day, Team Golomboski has walked in his memory — and that word, memory, is active for this family. It is not a plaque they walk past once a year. It is the reason the team still sets a goal, still asks neighbors and sponsors to give, and still shows up on walk day every year.</p>
         <p>He is still present at everything the team does. At <strong>Rock the Resort</strong>, the annual Concert for a Cure the team founded in 2026, his portrait sits on a memorial table and watches over the night — the music, the crowd, and the cause he is the reason for. His name is on the team itself, so every dollar raised carries his name with it: over $40,000 raised for APDA Rhode Island since 2014, every bit of it in honor of him first, and in his memory now.</p>
@@ -2773,24 +2830,9 @@
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="rule" aria-hidden="true"></div>
-        <h2>The Memory Wall</h2>
-        <p>This wall belongs to everyone who knew Joseph Sr. — and to everyone walking for someone they love. Share a memory of him, or tell us who you walk for, and the family will add it here.</p>
-      </div>
-      <p class="memory-note">Messages are reviewed by the family before they appear.</p>
-      <p class="memory-actions"><a class="btn btn-green" href="https://docs.google.com/forms/d/e/1FAIpQLSdjHv9eUEOq7wfk1Er-96TKc7smLyWDAgPWt9ShCN8ipa4GxA/viewform" target="_blank" rel="noopener">Share a Memory →</a></p>
-      <!-- Memory Wall entries: approved messages go here as
-           .memory-card tiles inside a .memory-grid (styles ready in
-           the Memory Wall CSS block). Remove the empty-state line
-           when the first entry is added. -->
-      <p class="memory-empty">Share the first memory.</p>
-    </div>
-  </section>
 
-  <section class="section section-alt">
+
+  <section class="section" id="story-so-far">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2831,7 +2873,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt" id="whole-family">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2856,7 +2898,7 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section" id="what-we-stand-for">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2888,7 +2930,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt" id="siblings-who-started-it">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2913,7 +2955,12 @@
           </div>
         </article>
       </div>
-      <div class="cta-band" style="margin-top:40px">
+    </div>
+  </section>
+
+  <section class="section" id="walk-with-us">
+    <div class="wrap">
+      <div class="cta-band">
         <h2>Walk With Us — From Wherever You Are</h2>
         <p>Every gift to APDA Rhode Island honors Joseph Sr. and helps a Rhode Island family living with Parkinson's today.</p>
         <a class="btn btn-orange btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/ways-donate/donate/" target="_blank" rel="noopener">Donate to APDA Rhode Island</a>
@@ -2922,6 +2969,23 @@
           <a class="btn btn-outline" href="mailto:teamgolomboski@gmail.com?subject=Join%20Team%20Golomboski">Join the Team</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="memory-wall">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>The Memory Wall</h2>
+        <p>This wall belongs to everyone who knew Joseph Sr. — and to everyone walking for someone they love. Share a memory of him, or tell us who you walk for, and the family will add it here.</p>
+      </div>
+      <p class="memory-note">Messages are reviewed by the family before they appear.</p>
+      <p class="memory-actions"><a class="btn btn-green" href="https://docs.google.com/forms/d/e/1FAIpQLSdjHv9eUEOq7wfk1Er-96TKc7smLyWDAgPWt9ShCN8ipa4GxA/viewform" target="_blank" rel="noopener">Share a Memory →</a></p>
+      <!-- Memory Wall entries: approved messages go here as
+           .memory-card tiles inside a .memory-grid (styles ready in
+           the Memory Wall CSS block). Remove the empty-state line
+           when the first entry is added. -->
+      <p class="memory-empty">Share the first memory.</p>
     </div>
   </section>
 
@@ -3464,10 +3528,49 @@
       <p class="events-note">Some events are run by the APDA Rhode Island Chapter. Others are run by Team Golomboski to benefit the chapter — each event is labeled so you know which is which.</p>
       <p class="events-note" style="margin-top:14px">Dates are still being set — leave your email and we&rsquo;ll send a note when a date is announced. No newsletter, just event announcements.</p>
       <p style="margin-top:16px"><a class="btn btn-green" href="https://docs.google.com/forms/d/e/1FAIpQLSc4xazZ-3OW2oWdp5_9vxeTJaGT3rVONodd4uWya2_wjun0_w/viewform" target="_blank" rel="noopener">Get Event Notifications →</a></p>
-      <div class="event-filter" role="group" aria-label="Filter events by who runs them">
-        <button type="button" class="event-filter-btn" data-event-filter="all" aria-pressed="true">All Events</button>
-        <button type="button" class="event-filter-btn" data-event-filter="chapter" aria-pressed="false">APDA Rhode Island Chapter Events</button>
-        <button type="button" class="event-filter-btn" data-event-filter="team" aria-pressed="false">Team Golomboski Events</button>
+      <div class="gallery-filter event-filters" aria-label="Filter events">
+        <div class="gallery-filter-field">
+          <label class="gallery-filter-label" for="eventStatusSelect">Status</label>
+          <select class="gal-filter-select" id="eventStatusSelect">
+            <option value="all">All events</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="past">Past</option>
+          </select>
+        </div>
+        <div class="gallery-filter-field">
+          <label class="gallery-filter-label" for="eventMonthSelect">Month</label>
+          <select class="gal-filter-select" id="eventMonthSelect">
+            <option value="all">All months</option>
+            <option value="tba">Date to be announced</option>
+            <option value="march">March</option>
+            <option value="april">April</option>
+            <option value="may">May</option>
+            <option value="october">October</option>
+          </select>
+        </div>
+        <div class="gallery-filter-field">
+          <label class="gallery-filter-label" for="eventHostSelect">Host</label>
+          <select class="gal-filter-select" id="eventHostSelect">
+            <option value="all">All hosts</option>
+            <option value="chapter">APDA Rhode Island Chapter</option>
+            <option value="team">Team Golomboski</option>
+          </select>
+        </div>
+        <div class="gallery-filter-field">
+          <label class="gallery-filter-label" for="eventTypeSelect">Event Type</label>
+          <select class="gal-filter-select" id="eventTypeSelect">
+            <option value="all">All types</option>
+            <option value="gala">Gala</option>
+            <option value="walk">Walk &amp; 5K</option>
+            <option value="concert">Concert</option>
+            <option value="golf">Golf Tournament</option>
+            <option value="trivia">Trivia</option>
+            <option value="bingo">Bingo</option>
+            <option value="fundraiser">Fundraiser</option>
+            <option value="awareness">Awareness Month</option>
+          </select>
+        </div>
+        <button type="button" class="event-filter-clear" id="eventFilterClear" hidden>Clear filters</button>
       </div>
       </div>
       <figure class="page-hero-photo">
@@ -3478,10 +3581,10 @@
 
   <section class="section">
     <div class="wrap">
-      <p class="event-filter-empty" id="eventFilterEmpty" hidden>No events of this type are listed right now.</p>
+      <p class="event-filter-empty" id="eventFilterEmpty" hidden>No events match those filters — try clearing one.</p>
       <div class="event-list" id="eventsList">
 
-        <article class="event-card" data-event-type="chapter">
+        <article class="event-card" data-event-type="chapter" data-event-status="upcoming" data-event-month="march" data-event-category="gala">
           <div class="event-when">
             <div class="mo">Mar 12</div>
             <div class="yr">2027</div>
@@ -3495,7 +3598,7 @@
           </div>
         </article>
 
-        <article class="event-card" data-event-type="team">
+        <article class="event-card" data-event-type="team" data-event-status="upcoming" data-event-month="tba" data-event-category="trivia">
           <div class="event-when">
             <div class="mo tba">Date to be announced</div>
           </div>
@@ -3506,7 +3609,7 @@
           </div>
         </article>
 
-        <article class="event-card" data-event-type="team">
+        <article class="event-card" data-event-type="team" data-event-status="upcoming" data-event-month="tba" data-event-category="concert">
           <div class="event-when">
             <div class="mo tba">Date to be announced</div>
           </div>
@@ -3517,7 +3620,7 @@
           </div>
         </article>
 
-        <article class="event-card" data-event-type="team">
+        <article class="event-card" data-event-type="team" data-event-status="upcoming" data-event-month="tba" data-event-category="fundraiser">
           <div class="event-when">
             <div class="mo tba">Date to be announced</div>
           </div>
@@ -3528,7 +3631,7 @@
           </div>
         </article>
 
-        <article class="event-card" data-event-type="team">
+        <article class="event-card" data-event-type="team" data-event-status="upcoming" data-event-month="tba" data-event-category="bingo">
           <div class="event-when">
             <div class="mo tba">Date to be announced</div>
           </div>
@@ -3539,7 +3642,7 @@
           </div>
         </article>
 
-        <article class="event-card" data-event-type="chapter">
+        <article class="event-card" data-event-type="chapter" data-event-status="upcoming" data-event-month="tba" data-event-category="walk">
           <div class="event-when">
             <div class="mo tba">Date to be announced</div>
           </div>
@@ -3550,7 +3653,7 @@
           </div>
         </article>
 
-        <article class="event-card" data-event-type="chapter">
+        <article class="event-card" data-event-type="chapter" data-event-status="upcoming" data-event-month="tba" data-event-category="golf">
           <div class="event-when">
             <div class="mo tba">Date to be announced</div>
           </div>
@@ -3561,7 +3664,7 @@
           </div>
         </article>
 
-        <article class="event-card" data-event-type="chapter">
+        <article class="event-card" data-event-type="chapter" data-event-status="upcoming" data-event-month="tba" data-event-category="awareness">
           <div class="event-when">
             <div class="mo tba">Date to be announced</div>
           </div>
@@ -3572,7 +3675,7 @@
           </div>
         </article>
 
-        <article class="event-card" data-event-type="chapter">
+        <article class="event-card" data-event-type="chapter" data-event-status="past" data-event-month="october" data-event-category="walk">
           <div class="event-when">
             <div class="mo">Oct 3</div>
             <div class="yr">2026</div>
@@ -3582,6 +3685,10 @@
             <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
             <h3>2026 Rhode Island Optimism Walk &amp; 5K</h3>
             <p>Team Golomboski's biggest walk yet. The team raised <strong>$7,273.75</strong>, finishing at <strong>103% of its $7,000 goal</strong> for the APDA Rhode Island Chapter.</p>
+            <figure class="event-photo">
+              <a href="#/galleries" aria-label="See photos from the 2026 Rhode Island Optimism Walk and 5K in the Photo Galleries"><img src="assets/walk-ribbon-cutting-thumb.jpg" alt="Joseph Golomboski Jr. at the left with a group holding a ceremonial ribbon outdoors under balloons at the Optimism Walk, with the walk crowd behind them, including the walk honoree, APDA RI Executive Director Michelle Mach, and Warwick Mayor Frank Picozzi" width="640" height="427" loading="lazy" /></a>
+              <figcaption>Ribbon cutting at the 28th Annual APDA Rhode Island Optimism Walk &amp; 5K Fun Run — with the walk honoree, APDA RI Executive Director Michelle Mach, and Warwick Mayor Frank Picozzi. Warwick City Park, October 3, 2026.</figcaption>
+            </figure>
             <div class="team-progress" data-bar>
               <p class="team-progress-label" id="teamProgressLabel">Team Golomboski raised <strong>$7,273.75</strong> — 103% of its $7,000 goal.</p>
               <div class="team-progress-track" role="progressbar" aria-labelledby="teamProgressLabel" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100" aria-valuetext="103% of the $7,000 goal — $7,273.75 raised">
@@ -3593,18 +3700,10 @@
             <p class="walk-total">The 2026 walk raised <strong>$193,430.95</strong> for APDA Rhode Island.</p>
             <p><strong>Thank you</strong> to every donor who gave, every sponsor who stood with us, and every volunteer and walker who gave their time — this result belongs to all of you.</p>
             <p style="margin-top:14px"><a class="more-link" href="#/galleries#gallery-optimism-walk-2026">View photos →</a></p>
-            <figure class="event-photo">
-              <img src="assets/walk-ribbon-cutting.jpg" alt="Joseph Golomboski Jr. at the left with a group holding a ceremonial ribbon outdoors under balloons at the Optimism Walk, with the walk crowd behind them, including the walk honoree, APDA RI Executive Director Michelle Mach, and Warwick Mayor Frank Picozzi" width="2048" height="1365" />
-              <figcaption>Ribbon cutting at the 28th Annual APDA Rhode Island Optimism Walk &amp; 5K Fun Run — with the walk honoree, APDA RI Executive Director Michelle Mach, and Warwick Mayor Frank Picozzi. Warwick City Park, October 3, 2026.</figcaption>
-            </figure>
-            <figure class="event-photo">
-              <img src="assets/events-walk-day.jpg" alt="Joseph Golomboski Jr. with Team Golomboski members at the Optimism Walk." width="1280" height="1130" />
-              <figcaption>Team Golomboski on walk day at the Rhode Island Optimism Walk &amp; 5K.</figcaption>
-            </figure>
           </div>
         </article>
 
-        <article class="event-card" data-event-type="team">
+        <article class="event-card" data-event-type="team" data-event-status="past" data-event-month="april" data-event-category="concert">
           <div class="event-when">
             <div class="mo">Apr 26</div>
             <div class="yr">2026</div>
@@ -3614,6 +3713,10 @@
             <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
             <h3>Rock the Resort: Concert for a Cure</h3>
             <p>A night of live music in support of the Parkinson's community, hosted at The Last Resort — proof that a fundraiser can sound as good as it feels.</p>
+            <figure class="event-photo">
+              <a href="#/rock-the-resort" aria-label="Visit the Rock the Resort page"><img src="assets/rock-the-resort-team-thumb.jpg" alt="Joseph Golomboski with Team Golomboski members and friends at a table at Rock the Resort, The Last Resort, Smithfield" width="640" height="427" loading="lazy" /></a>
+              <figcaption>Team Golomboski and friends at Rock the Resort — The Last Resort, Smithfield, April 26, 2026.</figcaption>
+            </figure>
             <ul class="lineup" aria-label="Concert lineup">
               <li class="headliner">21 Guns Band RI — Headliner</li>
               <li>Project Alice</li>
@@ -3626,7 +3729,7 @@
           </div>
         </article>
 
-        <article class="event-card" data-event-type="team">
+        <article class="event-card" data-event-type="team" data-event-status="past" data-event-month="may" data-event-category="fundraiser">
           <div class="event-when">
             <div class="mo">Comedy</div>
             <div class="yr">Fundraiser</div>
@@ -3637,17 +3740,13 @@
             <h3>Funny 4 Funds</h3>
             <p>Team Golomboski has also raised support the funny way — a <strong>Funny 4 Funds</strong> comedy fundraiser, turning a night of laughs into help for Rhode Island families living with Parkinson's. Thank you to everyone who came out and laughed for the cause.</p>
             <figure class="event-photo">
-              <img src="assets/funny4funds-check.jpg" alt="Group of eight people holding an oversized Funny 4 Funds check for $4,455 payable to APDA-RI at the Team Golomboski comedy night fundraiser" width="1400" height="940" />
+              <a href="#/galleries" aria-label="See photos from Funny 4 Funds in the Photo Galleries"><img src="assets/funny4funds-check-thumb.jpg" alt="Group of eight people holding an oversized Funny 4 Funds check for $4,455 payable to APDA-RI at the Team Golomboski comedy night fundraiser" width="640" height="430" loading="lazy" /></a>
               <figcaption>Team Golomboski's Funny 4 Funds comedy night presented $4,455 to APDA Rhode Island — May 11, 2024.</figcaption>
-            </figure>
-            <figure class="event-photo">
-              <img src="assets/funny4funds-table.jpg" alt="Joseph Golomboski Jr. seated at the Funny 4 Funds comedy fundraiser table, May 11, 2024." width="2000" height="1333" />
-              <figcaption>Joseph Golomboski Jr. at the 3rd Annual Team Golomboski Comedy Fundraiser — Funny 4 Funds, Smithfield Elks Lodge, May 11, 2024.</figcaption>
             </figure>
           </div>
         </article>
 
-        <article class="event-card" data-event-type="team">
+        <article class="event-card" data-event-type="team" data-event-status="past" data-event-month="april" data-event-category="fundraiser">
           <div class="event-when">
             <div class="mo">Apr 16</div>
             <div class="yr">2024</div>
@@ -3657,8 +3756,8 @@
             <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
             <h3>Taco Tuesday at Lake Taco</h3>
             <p>Team Golomboski's Taco Tuesday fundraiser with trivia at Lake Taco in Coventry — 10% of every sale benefited APDA Rhode Island. April 16, 2024.</p>
-            <figure class="event-photo" style="max-width:420px">
-              <img src="assets/taco-tuesday-flyer.jpg" alt="Team Golomboski Taco Tuesday fundraiser flyer — Lake Taco, Coventry, April 16, 2024." width="1545" height="2000" />
+            <figure class="event-photo">
+              <a href="#/galleries" aria-label="See photos from Taco Tuesday at Lake Taco in the Photo Galleries"><img src="assets/taco-tuesday-flyer-thumb.jpg" alt="Team Golomboski Taco Tuesday fundraiser flyer — Lake Taco, Coventry, April 16, 2024." width="494" height="640" loading="lazy" /></a>
             </figure>
           </div>
         </article>
@@ -9177,34 +9276,57 @@
     window.addEventListener("hashchange", closeModal);
   })();
 
-  // Events filter (Events page only): the three pills under the
-  // explainer line show only the cards whose badge classification
-  // (data-event-type, set from each card's ownership badge) matches
-  // the selected type; "all" restores every card. Instant, no reload.
-  // Scoped to #eventsList so no other page's cards are affected.
+  // Events filters (Events page only): four dropdowns in the hero
+  // — Status, Month, Host, Event Type — using the Galleries page's
+  // styled select component. A card in #eventsList shows only when
+  // it matches every dropdown: host from the card's badge
+  // (data-event-type), and status / month / category from the
+  // data-event-* attributes taken from what each card prints
+  // (dated cards carry their month; "Date to be announced" cards
+  // carry month "tba" and count as Upcoming). The Clear filters
+  // reset appears once any dropdown changes. Instant, no reload.
   (function () {
-    var btns = document.querySelectorAll(".event-filter-btn[data-event-filter]");
     var list = document.getElementById("eventsList");
-    if (!btns.length || !list) { return; }
+    if (!list) { return; }
+    var selects = {
+      status: document.getElementById("eventStatusSelect"),
+      month: document.getElementById("eventMonthSelect"),
+      host: document.getElementById("eventHostSelect"),
+      category: document.getElementById("eventTypeSelect")
+    };
+    if (!selects.status || !selects.month || !selects.host || !selects.category) { return; }
     var empty = document.getElementById("eventFilterEmpty");
+    var clearBtn = document.getElementById("eventFilterClear");
     var cards = list.querySelectorAll(".event-card[data-event-type]");
-    function applyFilter(type) {
+    function applyFilters() {
+      var status = selects.status.value;
+      var month = selects.month.value;
+      var host = selects.host.value;
+      var category = selects.category.value;
       var shown = 0;
       for (var i = 0; i < cards.length; i++) {
-        var show = type === "all" || cards[i].getAttribute("data-event-type") === type;
+        var show =
+          (status === "all" || cards[i].getAttribute("data-event-status") === status) &&
+          (month === "all" || cards[i].getAttribute("data-event-month") === month) &&
+          (host === "all" || cards[i].getAttribute("data-event-type") === host) &&
+          (category === "all" || cards[i].getAttribute("data-event-category") === category);
         cards[i].style.display = show ? "" : "none";
         if (show) { shown++; }
       }
       if (empty) { empty.hidden = shown !== 0; }
-      for (var b = 0; b < btns.length; b++) {
-        var on = btns[b].getAttribute("data-event-filter") === type;
-        btns[b].setAttribute("aria-pressed", on ? "true" : "false");
+      if (clearBtn) {
+        clearBtn.hidden = status === "all" && month === "all" && host === "all" && category === "all";
       }
     }
-    for (var b = 0; b < btns.length; b++) {
-      (function (btn) {
-        btn.addEventListener("click", function () { applyFilter(btn.getAttribute("data-event-filter")); });
-      })(btns[b]);
+    var keys = ["status", "month", "host", "category"];
+    for (var k = 0; k < keys.length; k++) {
+      selects[keys[k]].addEventListener("change", applyFilters);
+    }
+    if (clearBtn) {
+      clearBtn.addEventListener("click", function () {
+        for (var k = 0; k < keys.length; k++) { selects[keys[k]].value = "all"; }
+        applyFilters();
+      });
     }
   })();
 
