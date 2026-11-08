@@ -335,7 +335,7 @@
      into a fourth line. Headline size itself is unchanged. */
   .hero .hero-inner{position:relative;z-index:1;max-width:690px;padding:84px 0 88px}
   .hero h1{font-size:clamp(2.3rem,5.6vw,3.9rem);font-weight:900;color:#fff}
-  .hero h1 .accent{color:#fff}
+  .hero h1 .accent{color:#bcc3ca}
   .hero p.sub{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:clamp(1.15rem,2.4vw,1.45rem);color:#e6eef7;margin:20px 0 32px;line-height:1.45}
   .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
   .hero h1,.hero p.sub{text-shadow:0 1px 14px rgba(7,26,48,.45)}
@@ -1946,7 +1946,7 @@
   .section .book-title{color:#0a2340}
   /* Thank-you box joins the white-card family; its orange top
      rule stays, and the lead-in takes the Team navy */
-  .section .thankyou{background:#fff;border:1px solid #d3dde7;border-top:4px solid var(--orange);color:#33475c;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  .section .thankyou{background:#fff;border:1px solid #d3dde7;border-top:4px solid #0a2340;color:#33475c;box-shadow:0 8px 24px rgba(19,36,51,.08)}
   .section .thankyou strong{color:#0a2340}
   /* Goal lines on light: dark words, Team-navy amount, light
      track. All goal bars keep the standard green-to-blue
@@ -1993,6 +1993,10 @@
   /* Outline buttons on light: navy outline, navy text */
   .section .btn-outline,
   .section .btn-outline-surface{--ol-ink:#0a2340;--ol-bg:rgba(10,35,64,.05);--ol-hover:rgba(10,35,64,.12);border-color:#0a2340;color:#0a2340}
+  .section .btn-outline,
+  .section .btn-outline-surface{--ol-ink:#0a2340;--ol-bg:#fff;--ol-hover:#eef3f8;background:#fff;border-color:#0a2340;color:#0a2340;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  .section .btn-outline:hover,
+  .section .btn-outline-surface:hover{background:#eef3f8}
   /* Start Here tiles: white cards with navy outlines and ink */
   .start-here a.start-btn{background-color:#fff;background:#fff;border:2px solid #0a2340;color:#132433;box-shadow:0 8px 24px rgba(19,36,51,.08)}
   .start-here a.start-btn:hover{background:#eef3f8}
@@ -2068,10 +2072,10 @@
   [data-page="home"] .hero{background:var(--navy-deep);color:#fff}
   [data-page="home"] .hero::after{background:linear-gradient(90deg,rgba(6,24,48,.84) 0%,rgba(6,24,48,.68) 48%,rgba(6,24,48,.48) 100%)}
   [data-page="home"] .hero h1{color:#fff}
-  [data-page="home"] .hero h1 .accent{color:#fff}
+  [data-page="home"] .hero h1 .accent{color:#bcc3ca}
   [data-page="home"] .hero p.sub{color:#e6eef7}
   [data-page="home"] .hero h1,[data-page="home"] .hero p.sub{text-shadow:0 1px 14px rgba(7,26,48,.45)}
-  [data-page="home"] .hero .btn-outline{--ol-ink:#fff;--ol-bg:rgba(255,255,255,.06);--ol-hover:rgba(255,255,255,.16);border-color:#fff;color:#fff}
+  [data-page="home"] .hero .btn-outline{--ol-ink:#132433;--ol-bg:#fff;--ol-hover:#eef3f8;border-color:#0a2340;color:#132433;background:#fff}
   @media (max-width:768px){
     [data-page="home"] .hero::after{background:linear-gradient(180deg,rgba(6,24,48,.78) 0%,rgba(6,24,48,.72) 55%,rgba(6,24,48,.62) 100%)}
   }
@@ -2222,7 +2226,7 @@
       <div class="recap-grid recap-photo-grid recap-photo-grid-flip">
         <div class="recap-copy">
           <div class="rule" aria-hidden="true"></div>
-          <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+          <span class="event-badge event-badge-team">Team Golomboski Event</span>
           <h2>Rock the Resort</h2>
           <p style="margin-top:14px">Our annual <strong>Concert for a Cure</strong> — a night of live music for APDA Rhode Island, with Joseph Sr.'s portrait watching over the show.</p>
           <p>The first concert packed <strong>The Last Resort</strong> in Smithfield on <strong>April 26, 2026</strong>. Next date to be announced.</p>
@@ -2253,28 +2257,28 @@
         </article>
         <article class="gift-card">
           <div class="gift-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Team Trivia Night</h3>
             <p>Our trivia night fundraiser. <span class="upcoming-tba">Date to be announced</span></p>
           </div>
         </article>
         <article class="gift-card">
           <div class="gift-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Rock the Resort — Concert for a Cure</h3>
             <p>Our annual Concert for a Cure. <span class="upcoming-tba">Date to be announced</span></p>
           </div>
         </article>
         <article class="gift-card">
           <div class="gift-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Funny 4 Funds</h3>
             <p>Our comedy night fundraiser. <span class="upcoming-tba">Date to be announced</span></p>
           </div>
         </article>
         <article class="gift-card">
           <div class="gift-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Community Bingo Night</h3>
             <p>Our bingo night fundraiser. <span class="upcoming-tba">Date to be announced</span></p>
           </div>
@@ -3027,12 +3031,12 @@
           <p>The team's anchor event since 2014. Joseph and Alicia have walked and fundraised in the annual walk every year, building Team Golomboski into a familiar and dependable presence on walk day.</p>
         </article>
         <article class="shared-card">
-          <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+          <span class="event-badge event-badge-team">Team Golomboski Event</span>
           <h3>Funny 4 Funds</h3>
           <p>Comedy fundraisers that turned a night of laughter into support for Rhode Island families — one of the ways the siblings have made fundraising welcoming and community-driven.</p>
         </article>
         <article class="shared-card">
-          <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+          <span class="event-badge event-badge-team">Team Golomboski Event</span>
           <h3>Rock the Resort: Concert for a Cure</h3>
           <p>A benefit concert at The Last Resort. The inaugural concert on April 26, 2026 was so well received that Rock the Resort is now an annual Team Golomboski tradition.</p>
         </article>
@@ -3603,7 +3607,7 @@
             <div class="mo tba">Date to be announced</div>
           </div>
           <div class="event-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Team Trivia Night</h3>
             <p>Our trivia night fundraiser. Date to be announced</p>
           </div>
@@ -3614,7 +3618,7 @@
             <div class="mo tba">Date to be announced</div>
           </div>
           <div class="event-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Rock the Resort — Concert for a Cure</h3>
             <p>Our annual Concert for a Cure. Date to be announced</p>
           </div>
@@ -3625,7 +3629,7 @@
             <div class="mo tba">Date to be announced</div>
           </div>
           <div class="event-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Funny 4 Funds</h3>
             <p>Our comedy night fundraiser. Date to be announced</p>
           </div>
@@ -3636,7 +3640,7 @@
             <div class="mo tba">Date to be announced</div>
           </div>
           <div class="event-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Community Bingo Night</h3>
             <p>Our bingo night fundraiser. Date to be announced</p>
           </div>
@@ -3710,7 +3714,7 @@
             <div class="where">The Last Resort</div>
           </div>
           <div class="event-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Rock the Resort: Concert for a Cure</h3>
             <p>A night of live music in support of the Parkinson's community, hosted at The Last Resort — proof that a fundraiser can sound as good as it feels.</p>
             <figure class="event-photo">
@@ -3736,7 +3740,7 @@
             <div class="where">Funny 4 Funds</div>
           </div>
           <div class="event-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Funny 4 Funds</h3>
             <p>Team Golomboski has also raised support the funny way — a <strong>Funny 4 Funds</strong> comedy fundraiser, turning a night of laughs into help for Rhode Island families living with Parkinson's. Thank you to everyone who came out and laughed for the cause.</p>
             <figure class="event-photo">
@@ -3753,7 +3757,7 @@
             <div class="where">Lake Taco · Coventry</div>
           </div>
           <div class="event-body">
-            <span class="event-badge event-badge-team">Team Golomboski Event · Benefits APDA Rhode Island</span>
+            <span class="event-badge event-badge-team">Team Golomboski Event</span>
             <h3>Taco Tuesday at Lake Taco</h3>
             <p>Team Golomboski's Taco Tuesday fundraiser with trivia at Lake Taco in Coventry — 10% of every sale benefited APDA Rhode Island. April 16, 2024.</p>
             <figure class="event-photo">
@@ -3828,7 +3832,7 @@
       <div class="crumb"><a href="#/">Home</a> · Rock the Resort</div>
       <h1>Rock the Resort</h1>
       <p>Concert for a Cure — a night of live music at The Last Resort, and now an annual Team Golomboski tradition.</p>
-      <span class="event-badge event-badge-team" style="margin:18px 0 0">Team Golomboski Event · Benefits APDA Rhode Island</span>
+      <span class="event-badge event-badge-team" style="margin:18px 0 0">Team Golomboski Event</span>
       </div>
       <figure class="page-hero-photo">
         <img src="assets/rock-the-resort-team.jpg" alt="Joseph Golomboski with Team Golomboski members and friends at a table at Rock the Resort, The Last Resort, Smithfield" width="1600" height="1067" />
