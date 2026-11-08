@@ -489,6 +489,27 @@
   .event-when .mo.tba{font-size:1.08rem;line-height:1.35}
   .gift-cta{text-align:center;margin-top:36px}
   .gift-cta p{color:var(--muted);margin:0 0 16px}
+  /* "What Your Gift Does" (homepage only — the .gift-grid-align grid):
+     the three cards share one grid row, and each card spans two
+     subgrid rows — photo + caption, then the card body — so the
+     photo + caption row is as tall as the longest caption in the row
+     and all three titles start on the same line, whatever the
+     caption lengths. row-gap is 0 on this grid because the parent
+     row gutter would otherwise land inside each card, between the
+     caption and the title. At ≤900px the grid stacks to one column
+     (the responsive rule below), cross-card alignment no longer
+     applies, and the cards return to their natural flex heights
+     with the standard stacked gap restored. Browsers without
+     subgrid keep the current in-card stacking — nothing breaks. */
+  .gift-grid.gift-grid-align{row-gap:0}
+  .gift-grid-align .gift-card{display:grid;grid-template-rows:subgrid;grid-row:span 2}
+  @media (max-width:900px){
+    .gift-grid.gift-grid-align{row-gap:24px}
+    .gift-grid-align .gift-card{display:flex;grid-row:auto}
+  }
+  @media (max-width:768px){
+    .gift-grid.gift-grid-align{row-gap:18px}
+  }
 
   /* ---------- Get Involved (Events closing section) ---------- */
   .involved-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
@@ -1470,21 +1491,34 @@
   .reading-modal .book-grid{grid-template-columns:1fr;max-width:none}
   body.reading-modal-lock{overflow:hidden}
   @media (max-width:640px){ .reading-modal{padding:10px} .reading-modal-panel{padding:20px 16px;max-height:calc(100dvh - 20px)} }
-  /* "On this page" jump strip (Find Help): sits directly under the
-     page hero and before the program finder, linking to the page's
-     seven stops via the router's #/pd-resources#anchor form. The
-     links render as a two-column grid of boxed tap rows at every
-     width — each cell carries the card background, a 2px line-color
-     border, and a peach chevron at its right edge — capped at 820px
-     wide on desktop. Anchored targets carry the same 96px scroll
-     margin as the gallery sections so they land clear of the
-     sticky header. */
+  /* "On this page" menu (Our Story): sits directly under the page
+     hero as a light, editorial table of contents rather than a
+     grid of boxed buttons. The five chapters lead as full-width
+     rows — a small "Chapter One" eyebrow above the chapter title,
+     a peach chevron at the right edge, hairline dividers between
+     rows — so they read as the story's contents. The six remaining
+     stops follow as a quieter divider-separated list of plain
+     text links (two columns on wider screens), clearly secondary
+     to the chapters. Rows size to their content, and every row
+     keeps a 48px minimum tap height. Links use the router's
+     #/our-story#anchor form, and anchored targets carry the same
+     96px scroll margin as the gallery sections so they land clear
+     of the sticky header. */
   .page-jump{border-bottom:1px solid var(--line)}
-  .page-jump-inner{display:block;padding-top:16px;padding-bottom:18px}
-  .page-jump-label{display:block;font-weight:800;color:var(--ink);font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
-  .page-jump-links{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:10px;align-items:stretch;max-width:820px}
-  .page-jump-links a{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:10px 14px;background:var(--card);border:2px solid var(--line);border-radius:10px;color:var(--ink);font-size:.98rem;text-decoration:none;line-height:1.35;text-align:left}
-  .page-jump-links a:hover{text-decoration:underline}
+  .page-jump-inner{display:block;padding-top:18px;padding-bottom:22px}
+  .page-jump-label{display:block;font-weight:800;color:var(--ink);font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+  .page-jump-chapters{display:flex;flex-direction:column;max-width:720px}
+  .page-jump-chapters a{display:flex;align-items:center;gap:14px;min-height:56px;padding:11px 8px;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none}
+  .page-jump-chapters a:hover{background:rgba(255,255,255,.04)}
+  .page-jump-chapters a:hover .page-jump-ch-title{text-decoration:underline}
+  .page-jump-ch-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+  .page-jump-eyebrow{font-size:.74rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#ffb287;line-height:1.3}
+  .page-jump-ch-title{font-size:1.06rem;font-weight:700;line-height:1.32;color:var(--ink)}
+  .page-jump-more{display:grid;grid-template-columns:1fr;max-width:720px;margin-top:14px}
+  .page-jump-more a{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:48px;padding:9px 8px;border-bottom:1px solid var(--line);color:var(--ink);font-size:.97rem;font-weight:600;text-decoration:none;line-height:1.35}
+  .page-jump-more a:hover{text-decoration:underline}
+  .page-jump-more .page-jump-chev{font-size:.95rem}
+  @media (min-width:720px){ .page-jump-more{grid-template-columns:1fr 1fr;column-gap:40px} }
   .page-jump-chev{flex:none;color:#ffb287;font-weight:800;font-size:1.05rem;line-height:1}
   #find-a-program,#news-research,#genetics-questions,#more-resources,#virtual-programs,#financial-help,#recommended-reading{scroll-margin-top:96px}
   #golomboski-family,#in-memory-joseph-sr,#story-so-far,#whole-family,#what-we-stand-for,#siblings-who-started-it,#memory-wall,#walk-with-us,#chapter-one,#chapter-two,#chapter-three,#chapter-four{scroll-margin-top:96px}
@@ -1990,13 +2024,10 @@
      decade band's contact links. */
   #app .sponsor-card a:not(.btn){color:#8ec5ff}
   #app .decade-contact a{color:#fff}
-  /* Outline buttons on light: navy outline, navy text */
+  /* Outline buttons on light: white fill (the Start Here treatment),
+     navy outline, navy text, soft card shadow */
   .section .btn-outline,
-  .section .btn-outline-surface{--ol-ink:#0a2340;--ol-bg:rgba(10,35,64,.05);--ol-hover:rgba(10,35,64,.12);border-color:#0a2340;color:#0a2340}
-  .section .btn-outline,
-  .section .btn-outline-surface{--ol-ink:#0a2340;--ol-bg:#fff;--ol-hover:#eef3f8;background:#fff;border-color:#0a2340;color:#0a2340;box-shadow:0 8px 24px rgba(19,36,51,.08)}
-  .section .btn-outline:hover,
-  .section .btn-outline-surface:hover{background:#eef3f8}
+  .section .btn-outline-surface{--ol-ink:#0a2340;--ol-bg:#fff;--ol-hover:#eef3f8;border-color:#0a2340;color:#0a2340;box-shadow:0 8px 24px rgba(19,36,51,.08)}
   /* Start Here tiles: white cards with navy outlines and ink */
   .start-here a.start-btn{background-color:#fff;background:#fff;border:2px solid #0a2340;color:#132433;box-shadow:0 8px 24px rgba(19,36,51,.08)}
   .start-here a.start-btn:hover{background:#eef3f8}
@@ -2034,14 +2065,20 @@
   .section .sponsor-card p{color:#c9d6e4}
   .section .cta-band strong,.section .decade-band strong,.section .memorial strong,.section .sponsor-card strong{color:#fff}
   .section .cta-band .btn-outline,
-  .section .circle-panel .btn-outline{--ol-ink:#fff;--ol-bg:rgba(255,255,255,.06);--ol-hover:rgba(255,255,255,.16);border-color:#fff;color:#fff}
-  /* ---------- Find Help jump strip & Galleries filter ----------
-     The jump-strip tap rows keep their ink (not blue) labels
-     on white cards; the filter selects go white with dark
-     text and a dark chevron. */
+  .section .circle-panel .btn-outline{--ol-ink:#fff;--ol-bg:rgba(255,255,255,.06);--ol-hover:rgba(255,255,255,.16);border-color:#fff;color:#fff;box-shadow:none}
+  /* ---------- Our Story jump menu & Galleries filter ----------
+     The menu rows keep their ink (not blue) labels over
+     hairline dividers; the chapter eyebrows go navy like the
+     in-story chapter eyebrows on light sections, and the
+     chevrons use the darkened peach for contrast. The filter
+     selects go white with dark text and a dark chevron. */
   .page-jump{border-bottom-color:#d3dde7}
   .page-jump-label{color:#132433}
-  .page-jump-links a{background:#fff;border-color:#d3dde7;color:#132433}
+  .page-jump-chapters a{border-bottom-color:#d3dde7;color:#132433}
+  .page-jump-chapters a:hover{background:#eef3f8}
+  .page-jump-eyebrow{color:#0a2340}
+  .page-jump-ch-title{color:#132433}
+  .page-jump-more a{border-bottom-color:#d3dde7;color:#132433}
   .page-jump-chev{color:#b34a12}
   .gallery-filter-label{color:#33475c}
   .gal-filter-select{background-color:#fff;color:#132433;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%2333475c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
@@ -2066,16 +2103,16 @@
      design: white throughout, including the accent words, and
      the sub-line takes the original light ink #e6eef7 with
      the original dark text-shadow. The Donate button stays
-     solid orange; the outline button keeps the white outline
-     treatment used on dark surfaces so it stays high-contrast
-     against the navy-tinted photo. */
+     solid orange; the outline button takes the white Start
+     Here treatment (solid white fill, navy outline, ink text)
+     so it stays high-contrast against the navy-tinted photo. */
   [data-page="home"] .hero{background:var(--navy-deep);color:#fff}
   [data-page="home"] .hero::after{background:linear-gradient(90deg,rgba(6,24,48,.84) 0%,rgba(6,24,48,.68) 48%,rgba(6,24,48,.48) 100%)}
   [data-page="home"] .hero h1{color:#fff}
   [data-page="home"] .hero h1 .accent{color:#bcc3ca}
   [data-page="home"] .hero p.sub{color:#e6eef7}
   [data-page="home"] .hero h1,[data-page="home"] .hero p.sub{text-shadow:0 1px 14px rgba(7,26,48,.45)}
-  [data-page="home"] .hero .btn-outline{--ol-ink:#132433;--ol-bg:#fff;--ol-hover:#eef3f8;border-color:#0a2340;color:#132433;background:#fff}
+  [data-page="home"] .hero .btn-outline{--ol-ink:#0a2340;--ol-bg:#fff;--ol-hover:#eef3f8;border-color:#0a2340;color:#132433;box-shadow:0 8px 24px rgba(19,36,51,.08)}
   @media (max-width:768px){
     [data-page="home"] .hero::after{background:linear-gradient(180deg,rgba(6,24,48,.78) 0%,rgba(6,24,48,.72) 55%,rgba(6,24,48,.62) 100%)}
   }
@@ -2092,6 +2129,48 @@
      page background. The Share This Page control is not
      restyled by this block. */
   body.is-home footer{margin-top:0}
+
+  /* ---------- Resources & Support hub + subpages ----------
+     The hub's four topic cards reuse the pathway-card treatment in a
+     two-by-two grid (stacking on phones); each subpage's lead block
+     drops the 56px top margin it carried mid-page on the old single
+     page, since the section padding now provides that space. */
+  .hub-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .hub-card{min-height:0}
+  .hub-card-cta{font-weight:700;color:#005eb8;margin-top:auto}
+  .hub-card:hover .hub-card-cta{text-decoration:underline}
+  @media (max-width:768px){ .hub-grid{grid-template-columns:1fr} }
+  .res-back-wrap{margin:34px 0 0}
+  .res-back{font-weight:700}
+  [data-page="pd-resources/programs"] .virtual-programs-block{margin-top:0}
+  [data-page="pd-resources/help"] .financial-help-block{margin-top:0}
+  [data-page="pd-resources/reading"] .reading-block{margin-top:0}
+
+  /* ---------- Homepage finder feature (search box only) ----------
+     A white card in a standard .section on the homepage, between
+     Start Here and Biggest Year. It carries ONLY the search box —
+     the finder and its listings live solely on the Programs &
+     Support Groups page; submitting here hands the term to that
+     finder (see the home-finder script). Card treatment matches
+     the site's light card family: white fill, #d3dde7 border,
+     shared radius and soft shadow. Heading stays team navy and
+     body text slate via the .section rules above; the Search
+     button is the solid green help action (.btn-green). */
+  .home-finder-card{background:#fff;border:1px solid #d3dde7;border-radius:var(--radius);box-shadow:0 8px 24px rgba(19,36,51,.08);padding:36px 32px 32px}
+  .home-finder-card h2{color:#0a2340}
+  .home-finder-sub{color:#33475c;margin:12px 0 0;font-size:1.08rem;max-width:640px;line-height:1.55}
+  .home-finder-form{margin-top:24px}
+  .home-finder-form label{display:block;font-weight:700;font-size:1.12rem;margin-bottom:10px;color:#132433}
+  .home-finder-row{display:flex;gap:12px;align-items:stretch}
+  .home-finder-row input{flex:1 1 auto;min-width:0;width:100%;font:inherit;font-size:1.12rem;padding:16px 18px;min-height:60px;border:2px solid #d3dde7;border-radius:12px;background:#fff;color:#17222e}
+  .home-finder-row input:focus{outline:3px solid #9fd3b4;outline-offset:2px;border-color:#1f7a4d}
+  .home-finder-btn{flex:none;min-height:60px;padding:14px 34px;font-size:1.1rem;justify-content:center}
+  .home-finder-browse{margin:16px 0 0;font-size:1rem}
+  @media (max-width:640px){
+    .home-finder-card{padding:26px 20px 24px}
+    .home-finder-row{flex-direction:column}
+    .home-finder-btn{width:100%}
+  }
 </style>
 </head>
 <body>
@@ -2197,7 +2276,25 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" aria-label="Find programs and support groups near you">
+    <div class="wrap">
+      <div class="home-finder-card">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Find Programs &amp; Support Groups Near You</h2>
+        <p class="home-finder-sub">Enter your ZIP code or town to see exercise classes and support groups close to home.</p>
+        <form class="home-finder-form" id="homeFinderForm">
+          <label for="homeNearSearch">Enter your ZIP code or town</label>
+          <div class="home-finder-row">
+            <input type="search" id="homeNearSearch" autocomplete="off" placeholder="Enter your ZIP code or town — try: Warwick, Providence, 02886" />
+            <button type="submit" class="btn btn-green home-finder-btn">Search</button>
+          </div>
+        </form>
+        <p class="home-finder-browse"><a href="#/pd-resources/programs">Browse all programs &amp; support groups</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
     <div class="wrap">
       <div class="recap-grid recap-photo-grid">
         <div class="recap-copy">
@@ -2221,7 +2318,7 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section">
     <div class="wrap">
       <div class="recap-grid recap-photo-grid recap-photo-grid-flip">
         <div class="recap-copy">
@@ -2240,7 +2337,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="Upcoming Events">
+  <section class="section section-alt" aria-label="Upcoming Events">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2297,7 +2394,7 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section">
     <div class="wrap">
       <div class="story-teaser">
         <figure class="story-figure">
@@ -2316,7 +2413,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="More Than Family — join Team Golomboski">
+  <section class="section section-alt" aria-label="More Than Family — join Team Golomboski">
     <div class="wrap">
       <div class="family-band">
         <div class="family-band-copy">
@@ -2336,14 +2433,14 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
         <h2>What Your Gift Does</h2>
         <p>Donations through Team Golomboski go to the APDA Rhode Island Chapter — and stay to work right here in Rhode Island.</p>
       </div>
-      <div class="gift-grid">
+      <div class="gift-grid gift-grid-align">
         <article class="gift-card">
           <figure class="gift-figure">
             <img src="assets/capitol-ridge-symposium.jpg" alt="Audience seated at tables listening to a speaker at a podium during APDA Rhode Island's Parkinson's &amp; Alzheimer's Disease Symposium at Capitol Ridge at Providence — October 28, 2026" width="1600" height="1200" />
@@ -2383,7 +2480,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2413,7 +2510,7 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section">
     <div class="wrap">
       <div class="connect">
         <div>
@@ -2445,7 +2542,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="A National Plan to End Parkinson's">
+  <section class="section section-alt" aria-label="A National Plan to End Parkinson's">
     <div class="wrap">
       <div class="recap-grid recap-photo-grid">
       <div class="recap-copy prose">
@@ -2470,7 +2567,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="In the News">
+  <section class="section" aria-label="In the News">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2503,7 +2600,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="Your APDA Rhode Island team">
+  <section class="section section-alt" aria-label="Your APDA Rhode Island team">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2668,12 +2765,14 @@
   <nav class="page-jump" aria-label="On this page">
     <div class="wrap page-jump-inner">
       <span class="page-jump-label">On this page</span>
-      <div class="page-jump-links">
-      <a href="#/our-story#chapter-one">Chapter One — A Family Decides Not to Carry It Quietly <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/our-story#chapter-two">Chapter Two — The First Walk — 2014 <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/our-story#chapter-three">Chapter Three — When “In Honor Of” Became “In Memory Of” <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/our-story#chapter-four">Chapter Four — Carrying His Name Forward — Together <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/our-story#in-memory-joseph-sr">Chapter Five — Joseph P. Golomboski Sr. <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <div class="page-jump-chapters">
+      <a href="#/our-story#chapter-one"><span class="page-jump-ch-text"><span class="page-jump-eyebrow">Chapter One</span><span class="page-jump-ch-title">A Family Decides Not to Carry It Quietly</span></span> <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#chapter-two"><span class="page-jump-ch-text"><span class="page-jump-eyebrow">Chapter Two</span><span class="page-jump-ch-title">The First Walk — 2014</span></span> <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#chapter-three"><span class="page-jump-ch-text"><span class="page-jump-eyebrow">Chapter Three</span><span class="page-jump-ch-title">When “In Honor Of” Became “In Memory Of”</span></span> <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#chapter-four"><span class="page-jump-ch-text"><span class="page-jump-eyebrow">Chapter Four</span><span class="page-jump-ch-title">Carrying His Name Forward — Together</span></span> <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      <a href="#/our-story#in-memory-joseph-sr"><span class="page-jump-ch-text"><span class="page-jump-eyebrow">Chapter Five</span><span class="page-jump-ch-title">Joseph P. Golomboski Sr.</span></span> <span class="page-jump-chev" aria-hidden="true">›</span></a>
+      </div>
+      <div class="page-jump-more">
       <a href="#/our-story#story-so-far">The Story So Far <span class="page-jump-chev" aria-hidden="true">›</span></a>
       <a href="#/our-story#whole-family">The Whole Family <span class="page-jump-chev" aria-hidden="true">›</span></a>
       <a href="#/our-story#what-we-stand-for">What We Stand For <span class="page-jump-chev" aria-hidden="true">›</span></a>
@@ -8105,7 +8204,7 @@
      ============================================================ -->
 <div class="page" data-page="pd-resources">
 
-  <section class="page-hero" aria-label="Find Parkinson's help introduction">
+<section class="page-hero" aria-label="Find Parkinson's help introduction">
     <div class="wrap">
       <div class="page-hero-text">
       <div class="crumb"><a href="#/">Home</a> · Resources &amp; Support</div>
@@ -8118,22 +8217,110 @@
     </div>
   </section>
 
-  <nav class="page-jump" aria-label="On this page">
-    <div class="wrap page-jump-inner">
-      <span class="page-jump-label">On this page</span>
-      <div class="page-jump-links">
-      <a href="#/pd-resources#find-a-program">Find a Program <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/pd-resources#news-research">News &amp; Research <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/pd-resources#genetics-questions">Genetics Questions <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/pd-resources#more-resources">More Resources <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/pd-resources#virtual-programs">Virtual Programs <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/pd-resources#financial-help">Financial Help <span class="page-jump-chev" aria-hidden="true">›</span></a>
-      <a href="#/pd-resources#recommended-reading">Recommended Reading <span class="page-jump-chev" aria-hidden="true">›</span></a>
+  <section class="section" aria-label="Your APDA Rhode Island team">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Your APDA Rhode Island Team</h2>
+        <p>Real people, right here in Rhode Island. If you're not sure where to start, start with a phone call.</p>
+      </div>
+      <div class="team-strip-grid">
+        <article class="team-card">
+          <div class="team-head">
+            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, Program Director, APDA Rhode Island" width="84" height="84">
+            <div>
+              <h3>Fatima Tobar</h3>
+              <p class="role">Program Director, APDA Rhode Island</p>
+            </div>
+          </div>
+          <p>For Parkinson's resources, support groups, and local referrals.</p>
+          <p>Call <a href="tel:+14015917890"><strong>401-591-7890</strong></a><br>Email <a href="mailto:ftobar@apdaparkinson.org">ftobar@apdaparkinson.org</a></p>
+          <a class="btn btn-green" href="tel:+14015917890">Call Fatima Tobar</a>
+        </article>
+        <article class="team-card">
+          <div class="team-head">
+            <img class="avatar" src="assets/michelle-headshot.jpg" alt="Michelle Mach, Executive Director, APDA Rhode Island" width="84" height="84">
+            <div>
+              <h3>Michelle Mach</h3>
+              <p class="role">Executive Director, APDA Rhode Island</p>
+            </div>
+          </div>
+          <p>Reach Michelle through the APDA Rhode Island chapter office:</p>
+          <p>Chapter office: <a href="tel:+14014398435"><strong>401-439-8435</strong></a><br>Chapter email: <a href="mailto:apdari@apdaparkinson.org">apdari@apdaparkinson.org</a></p>
+          <a class="btn btn-green" href="tel:+14014398435">Call the Chapter Office</a>
+        </article>
+      </div>
+      <div class="team-strip-grid" style="margin-top:24px">
+        <article class="team-card">
+          <h3>APDA National Helpline</h3>
+          <p>For questions from anywhere, the APDA national helpline is <a href="tel:+18002232732"><strong>800-223-2732</strong></a>.</p>
+          <a class="btn btn-green" href="tel:+18002232732">Call the APDA Helpline</a>
+        </article>
+      </div>
+      <p class="chapter-address" style="margin-top:24px">Chapter mailing address: <strong>APDA Rhode Island, PO Box 114098, North Providence, RI 02911</strong></p>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Explore Resources &amp; Support">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Explore Resources &amp; Support</h2>
+        <p>Programs, news, financial help, and reading — pick a topic to get started.</p>
+      </div>
+      <div class="hub-grid">
+        <a class="pathway-card hub-card" href="#/pd-resources/programs">
+          <h3>Programs &amp; Support Groups</h3>
+          <p>Enter your ZIP code or town to see exercise classes and support groups close to home.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="pathway-card hub-card" href="#/pd-resources/news">
+          <h3>News &amp; Research</h3>
+          <p>The latest from the American Parkinson Disease Association — research updates and news for the Parkinson's community.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="pathway-card hub-card" href="#/pd-resources/help">
+          <h3>Financial Help &amp; Rhode Island Resources</h3>
+          <p>For needs beyond Parkinson's — aging, disability, and help at home — these Rhode Island resources are a good place to start.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="pathway-card hub-card" href="#/pd-resources/reading">
+          <h3>Recommended Reading</h3>
+          <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
       </div>
     </div>
-  </nav>
+  </section>
 
-  <section class="finder-section" id="find-a-program" aria-label="Find programs near you">
+<section class="page-foot" aria-label="Page notes">
+    <div class="wrap">
+      <p class="disclaimer">Programs and services are subject to change. Please visit the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">American Parkinson's Disease Association Rhode Island Chapter's website</a> for the latest information.</p>
+      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
+    </div>
+  </section>
+
+</div><!-- /page pd-resources -->
+
+<!-- ============================================================
+     PAGE: RESOURCES & SUPPORT — PROGRAMS & SUPPORT GROUPS
+     ============================================================ -->
+<div class="page" data-page="pd-resources/programs">
+
+  <section class="page-hero" aria-label="Programs and Support Groups introduction">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> &middot; <a href="#/pd-resources">Resources &amp; Support</a> &middot; Programs &amp; Support Groups</div>
+      <h1>Programs &amp; Support Groups</h1>
+      <p>Enter your ZIP code or town to see exercise classes and support groups close to home.</p>
+      </div>
+      <figure class="page-hero-photo">
+        <img src="assets/on-the-ropes.jpg" alt="Butch Nappa, Joseph Golomboski Jr., and Amy Cham in boxing stances in the ring at On the Ropes in Warwick." width="2048" height="1536" />
+      </figure>
+    </div>
+  </section>
+
+<section class="finder-section" id="find-a-program" aria-label="Find programs near you">
     <div class="wrap">
       <div class="finder-panel">
         <h2>Find Programs &amp; Support Groups Near You</h2>
@@ -8382,7 +8569,42 @@
     </div>
   </section>
 
-  <section class="section section-alt" id="news-research" aria-label="Parkinson's News & Research">
+  <section class="section section-alt" aria-label="Virtual Programs from APDA">
+    <div class="wrap">
+<div class="virtual-programs-block" id="virtual-programs">
+        <h2 class="pd-resources-subhead">Virtual Programs from APDA</h2>
+        <ul class="pd-resources-list pd-resources-list-tight">
+          <li><strong>PRESS Program</strong> — an 8-week support series for people diagnosed with Parkinson’s in the last five years.</li>
+          <li><strong>Connecting Through Art</strong> — a creative arts workshop for people with Parkinson’s and their care partners.</li>
+          <li><strong>Dr. Gilbert Hosts</strong> — a monthly online program with Dr. Rebecca Gilbert and guest experts, with time for questions.</li>
+        </ul>
+        <p class="pd-resources-routing">Schedules and sign-ups are on the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island website</a>.</p>
+      </div>
+      <p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
+    </div>
+  </section>
+
+</div><!-- /page pd-resources/programs -->
+
+<!-- ============================================================
+     PAGE: RESOURCES & SUPPORT — NEWS & RESEARCH
+     ============================================================ -->
+<div class="page" data-page="pd-resources/news">
+
+  <section class="page-hero" aria-label="News and Research introduction">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> &middot; <a href="#/pd-resources">Resources &amp; Support</a> &middot; News &amp; Research</div>
+      <h1>News &amp; Research</h1>
+      <p>The latest from the American Parkinson Disease Association — research updates and news for the Parkinson's community.</p>
+      </div>
+      <figure class="page-hero-photo">
+        <img src="assets/walk2026-sign-group.jpg" alt="A large group of chapter members and friends standing behind the APDA RI yard sign with its sunflower decorations" width="2048" height="1365" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="news-research" aria-label="Parkinson's News &amp; Research">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -8407,13 +8629,57 @@
         </a>
       </div>
       <p class="pd-news-more"><a href="https://www.apdaparkinson.org/news/breaking-news/" target="_blank" rel="noopener">More news &amp; research at APDA</a></p>
-      <div class="pd-family-note" id="genetics-questions">
+<div class="pd-family-note" id="genetics-questions">
         <h3>Is Parkinson's Hereditary? What Families Ask</h3>
         <p>This question is personal for our family — our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44, so 'does it run in the family?' is one we've asked ourselves. Here's what APDA wants families to know:</p>
         <p>When a parent has Parkinson's, it's natural for sons and daughters to wonder about their own risk. In most cases, Parkinson's is not directly inherited. APDA notes that about 10%–15% of people with Parkinson's carry an inherited genetic mutation known to increase PD risk — and most people with Parkinson's, even with a family history, do not carry one of these abnormal genes. Even when a mutation is present, it raises risk rather than deciding the outcome: many people who carry one never develop the disease. So a parent having Parkinson's does not mean a child will get it, and families thinking about genetic testing should talk it through with a neurologist or a genetic counselor first.</p>
         <p class="pd-family-note-link"><a href="https://www.apdaparkinson.org/article/genetic-testing-for-parkinsons-disease/" target="_blank" rel="noopener">APDA on genetic testing for Parkinson's</a></p>
       </div>
-      <div class="pd-resources-block" id="more-resources">
+      <p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
+    </div>
+  </section>
+
+</div><!-- /page pd-resources/news -->
+
+<!-- ============================================================
+     PAGE: RESOURCES & SUPPORT — FINANCIAL HELP & RHODE ISLAND RESOURCES
+     ============================================================ -->
+<div class="page" data-page="pd-resources/help">
+
+  <section class="page-hero" aria-label="Financial Help and Rhode Island Resources introduction">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> &middot; <a href="#/pd-resources">Resources &amp; Support</a> &middot; Financial Help &amp; Rhode Island Resources</div>
+      <h1>Financial Help &amp; Rhode Island Resources</h1>
+      <p>For needs beyond Parkinson's — aging, disability, and help at home — these Rhode Island resources are a good place to start.</p>
+      </div>
+      <figure class="page-hero-photo">
+        <img src="assets/support.jpg" alt="A support group seated in a circle, talking and laughing together" width="1024" height="421" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Financial Help &amp; Rhode Island Resources">
+    <div class="wrap">
+<div class="financial-help-block" id="financial-help">
+        <h2 class="pd-resources-subhead">Financial Help</h2>
+        <ul class="pd-resources-list pd-resources-list-tight">
+          <li><strong>Financial Hardship Fund</strong> — APDA Rhode Island offers $300 per person to people with Parkinson’s facing financial hardship. Funds are limited; applications are on the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island website</a>.</li>
+          <li><strong>Community Grants</strong> — APDA grants help launch and expand Parkinson’s programs in our region. <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Contact the chapter</a> to learn more.</li>
+          <li><strong>Help paying for medication</strong> — many drug makers run patient assistance programs. Two free directories list them by medication: <a href="https://www.needymeds.org/" target="_blank" rel="noopener">NeedyMeds</a> and <a href="https://www.panfoundation.org/" target="_blank" rel="noopener">the PAN Foundation</a>.</li>
+        </ul>
+      </div>
+      <div class="pd-resources-block">
+        <h3 class="pd-resources-subhead">Rhode Island Resources</h3>
+        <p class="pd-resources-routing">For needs beyond Parkinson's — aging, disability, and help at home — these Rhode Island resources are a good place to start. For anything Parkinson's, start with APDA Rhode Island above.</p>
+        <ul class="pd-resources-list pd-resources-list-tight">
+          <li><a href="https://rielderinfo.com/" target="_blank" rel="noopener">Rhode Island Elder Info</a> — One-stop information for older Rhode Islanders, families, and caregivers — housing, transportation, care, and benefits.</li>
+          <li><a href="https://oha.ri.gov/get-help" target="_blank" rel="noopener">The Point — Rhode Island's Aging &amp; Disability Resource Center</a> — A free, confidential first call for aging and disability services in Rhode Island: 401-462-4444.</li>
+          <li><a href="https://www.oscil.org/" target="_blank" rel="noopener">Ocean State Center for Independent Living (OSCIL)</a> — Independent living help from Warwick — peer support, advocacy, skills training, and home accessibility.</li>
+          <li><a href="https://gcd.ri.gov/ri-livable-homes-modification-grant/frequently-asked-questions" target="_blank" rel="noopener">RI Livable Home Modification Grant</a> — State grant (Governor's Commission on Disabilities) that pays 50% of home safety changes — ramps, wider doorways, bathroom safety — up to $4,500.</li>
+        </ul>
+      </div>
+<div class="pd-resources-block" id="more-resources">
         <div class="section-head">
           <div class="rule" aria-hidden="true"></div>
           <h2>More Parkinson's Resources</h2>
@@ -8432,37 +8698,38 @@
         <p class="pd-resources-framing">For national research news and background reading, these organizations also publish helpful material:</p>
         <p class="pd-resources-compact"><a href="https://www.michaeljfox.org/" target="_blank" rel="noopener">The Michael J. Fox Foundation</a> · <a href="https://www.parkinson.org/" target="_blank" rel="noopener">Parkinson's Foundation</a> · <a href="https://davisphinneyfoundation.org/" target="_blank" rel="noopener">Davis Phinney Foundation</a> · <a href="https://briangrant.org/" target="_blank" rel="noopener">Brian Grant Foundation</a> · <a href="https://www.pmdalliance.org/" target="_blank" rel="noopener">PMD Alliance</a></p>
         <p class="pd-resources-routing">For anything local — support groups, exercise programs, education, or help — <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island</a> is the place, and the chapter contacts are right here on this page.</p>
-        <h3 class="pd-resources-subhead">Rhode Island Resources</h3>
-        <p class="pd-resources-routing">For needs beyond Parkinson's — aging, disability, and help at home — these Rhode Island resources are a good place to start. For anything Parkinson's, start with APDA Rhode Island above.</p>
-        <ul class="pd-resources-list pd-resources-list-tight">
-          <li><a href="https://rielderinfo.com/" target="_blank" rel="noopener">Rhode Island Elder Info</a> — One-stop information for older Rhode Islanders, families, and caregivers — housing, transportation, care, and benefits.</li>
-          <li><a href="https://oha.ri.gov/get-help" target="_blank" rel="noopener">The Point — Rhode Island's Aging &amp; Disability Resource Center</a> — A free, confidential first call for aging and disability services in Rhode Island: 401-462-4444.</li>
-          <li><a href="https://www.oscil.org/" target="_blank" rel="noopener">Ocean State Center for Independent Living (OSCIL)</a> — Independent living help from Warwick — peer support, advocacy, skills training, and home accessibility.</li>
-          <li><a href="https://gcd.ri.gov/ri-livable-homes-modification-grant/frequently-asked-questions" target="_blank" rel="noopener">RI Livable Home Modification Grant</a> — State grant (Governor's Commission on Disabilities) that pays 50% of home safety changes — ramps, wider doorways, bathroom safety — up to $4,500.</li>
-        </ul>
         <h3 class="pd-resources-subhead">Families Like Ours</h3>
         <ul class="pd-resources-list pd-resources-list-tight">
           <li><a href="https://togetherforsharon.com/" target="_blank" rel="noopener">Together for Sharon</a> — Another family's Parkinson's story: a son's tribute to his mother, Sharon, grown into a community sharing family interviews and hope.</li>
         </ul>
       </div>
-      <div class="virtual-programs-block" id="virtual-programs">
-        <h2 class="pd-resources-subhead">Virtual Programs from APDA</h2>
-        <ul class="pd-resources-list pd-resources-list-tight">
-          <li><strong>PRESS Program</strong> — an 8-week support series for people diagnosed with Parkinson’s in the last five years.</li>
-          <li><strong>Connecting Through Art</strong> — a creative arts workshop for people with Parkinson’s and their care partners.</li>
-          <li><strong>Dr. Gilbert Hosts</strong> — a monthly online program with Dr. Rebecca Gilbert and guest experts, with time for questions.</li>
-        </ul>
-        <p class="pd-resources-routing">Schedules and sign-ups are on the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island website</a>.</p>
+      <p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
+    </div>
+  </section>
+
+</div><!-- /page pd-resources/help -->
+
+<!-- ============================================================
+     PAGE: RESOURCES & SUPPORT — RECOMMENDED READING
+     ============================================================ -->
+<div class="page" data-page="pd-resources/reading">
+
+  <section class="page-hero" aria-label="Recommended Reading introduction">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> &middot; <a href="#/pd-resources">Resources &amp; Support</a> &middot; Recommended Reading</div>
+      <h1>Recommended Reading</h1>
+      <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
       </div>
-      <div class="financial-help-block" id="financial-help">
-        <h2 class="pd-resources-subhead">Financial Help</h2>
-        <ul class="pd-resources-list pd-resources-list-tight">
-          <li><strong>Financial Hardship Fund</strong> — APDA Rhode Island offers $300 per person to people with Parkinson’s facing financial hardship. Funds are limited; applications are on the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island website</a>.</li>
-          <li><strong>Community Grants</strong> — APDA grants help launch and expand Parkinson’s programs in our region. <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Contact the chapter</a> to learn more.</li>
-          <li><strong>Help paying for medication</strong> — many drug makers run patient assistance programs. Two free directories list them by medication: <a href="https://www.needymeds.org/" target="_blank" rel="noopener">NeedyMeds</a> and <a href="https://www.panfoundation.org/" target="_blank" rel="noopener">the PAN Foundation</a>.</li>
-        </ul>
-      </div>
-      <div class="reading-block" id="recommended-reading">
+      <figure class="page-hero-photo">
+        <img src="assets/capitol-ridge-symposium.jpg" alt="Audience seated at tables listening to a speaker at a podium during APDA Rhode Island's Parkinson's &amp; Alzheimer's Disease Symposium at Capitol Ridge at Providence, October 28, 2026, with a screen reading 'APDA RI Chapter — A Closer Look'" width="1600" height="1200" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Recommended Reading">
+    <div class="wrap">
+<div class="reading-block" id="recommended-reading">
         <div class="section-head">
           <div class="rule" aria-hidden="true"></div>
           <h2>Recommended Reading</h2>
@@ -8505,20 +8772,11 @@
         </div>
         <p class="reading-actions reading-actions-below"><button type="button" class="btn btn-outline" id="readingMoreOpen" aria-haspopup="dialog" aria-controls="readingModal">More Books to Explore</button></p>
       </div>
+      <p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
     </div>
   </section>
 
-  <section class="page-foot" aria-label="Page notes">
-    <div class="wrap">
-      <p class="disclaimer">Programs and services are subject to change. Please visit the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">American Parkinson's Disease Association Rhode Island Chapter's website</a> for the latest information.</p>
-      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
-    </div>
-  </section>
-
-
-  
-
-</div><!-- /page pd-resources -->
+</div><!-- /page pd-resources/reading -->
 
 <!-- ============================================================
      PAGE: PRESS KIT
@@ -8821,6 +9079,10 @@
     "galleries": { path: "galleries", title: "Photo Galleries | Team Golomboski", description: "Photo galleries from the days that built Team Golomboski: Optimism Walks from 2014 to 2026, Rock the Resort, Funny 4 Funds, and more team events.", image: "walk2017-team-group-wide.jpg" },
     "donate": { path: "donate", title: "Donate | Team Golomboski", description: "Donate through Team Golomboski to the APDA Rhode Island Chapter. Every gift stays in Rhode Island, funding local programs, support, and research.", image: "funny4funds-check.jpg" },
     "pd-resources": { path: "pd-resources", title: "Resources & Support | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
+    "pd-resources/programs": { path: "pd-resources", title: "Programs & Support Groups | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
+    "pd-resources/news": { path: "pd-resources", title: "News & Research | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
+    "pd-resources/help": { path: "pd-resources", title: "Financial Help & Rhode Island Resources | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
+    "pd-resources/reading": { path: "pd-resources", title: "Recommended Reading | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
     "press-kit": { path: "press-kit", title: "Press Kit | Team Golomboski", description: "The Team Golomboski press kit: who the team is, the numbers that back it up, and who to contact — for reporters, producers, and partners.", image: "joseph-profile.jpg" }
   };
   (function () {
@@ -8835,6 +9097,10 @@
       "galleries": "Photo Galleries | Team Golomboski",
       "donate": "Donate | Team Golomboski",
       "pd-resources": "Resources & Support | Team Golomboski",
+      "pd-resources/programs": "Programs & Support Groups | Team Golomboski",
+      "pd-resources/news": "News & Research | Team Golomboski",
+      "pd-resources/help": "Financial Help & Rhode Island Resources | Team Golomboski",
+      "pd-resources/reading": "Recommended Reading | Team Golomboski",
       "press-kit": "Press Kit | Team Golomboski"
     };
     function parseHash() {
@@ -8877,8 +9143,11 @@
         pages[i].classList.toggle("active", pages[i].getAttribute("data-page") === route);
       }
       var links = document.querySelectorAll("a[data-route]");
+      // Resources & Support subpages (pd-resources/…) keep the hub's
+      // nav entry highlighted.
+      var navRoute = route.indexOf("pd-resources/") === 0 ? "pd-resources" : route;
       for (var j = 0; j < links.length; j++) {
-        var on = links[j].getAttribute("data-route") === route;
+        var on = links[j].getAttribute("data-route") === navRoute;
         links[j].classList.toggle("active", on);
         if (on) { links[j].setAttribute("aria-current", "page"); }
         else { links[j].removeAttribute("aria-current"); }
@@ -9056,6 +9325,48 @@
     if (searchBtn) { searchBtn.addEventListener("click", runSearch); }
     input.addEventListener("keydown", function (ev) {
       if (ev.key === "Enter") { ev.preventDefault(); runSearch(); }
+    });
+  })();
+
+  // Homepage finder feature: the homepage carries ONLY the search box.
+  // Submitting hands the entered term to the one real finder on the
+  // Programs & Support Groups page — it sets that finder's input and
+  // fires its filter, then routes there (to the results when a term
+  // was entered; to the top of the page when the box was empty).
+  (function () {
+    var form = document.getElementById("homeFinderForm");
+    if (!form) { return; }
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var homeInput = document.getElementById("homeNearSearch");
+      var term = homeInput ? homeInput.value.replace(/^\s+|\s+$/g, "") : "";
+      var finderInput = document.getElementById("nearSearch");
+      if (finderInput) {
+        finderInput.value = term;
+        var evt;
+        try { evt = new Event("input", { bubbles: true }); }
+        catch (e) {
+          evt = document.createEvent("Event");
+          evt.initEvent("input", true, false);
+        }
+        finderInput.dispatchEvent(evt);
+      }
+      if (term) {
+        window.location.hash = "#/pd-resources/programs#finderResults";
+        // Back-up landing: after the router's own anchor jump, re-assert
+        // the results position once filtering has settled the layout.
+        setTimeout(function () {
+          if (window.location.hash.indexOf("pd-resources/programs") === -1) { return; }
+          var results = document.getElementById("finderResults");
+          if (results && results.scrollIntoView) {
+            var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            try { results.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); }
+            catch (e) { results.scrollIntoView(); }
+          }
+        }, 420);
+      } else {
+        window.location.hash = "#/pd-resources/programs";
+      }
     });
   })();
   // Impact stats — count-up as pure decoration. The numbers are final
