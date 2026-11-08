@@ -302,6 +302,26 @@
   @media (max-width:980px){
     .page-hero .wrap{grid-template-columns:minmax(0,1fr) 300px;gap:28px}
   }
+  /* Find Help hero — tidy title stack (this page only): the crumb,
+     title and italic intro share one even rhythm matching the other
+     inner pages (16px between each step on desktop, 14px on phones),
+     with the grid gap carrying the step down to the title photo.
+     Margins are zeroed here because the flex gap now owns the
+     spacing, so no step can drift. On phones the H1 breaks
+     deliberately after "&" — "Resources &" / "Support" — via the
+     two .fh-line spans, sized so the longer first line fits the
+     phone column on one line without wrapping again. */
+  [data-page="pd-resources"] .page-hero-text{display:flex;flex-direction:column;gap:16px}
+  [data-page="pd-resources"] .page-hero .crumb{margin-bottom:0}
+  [data-page="pd-resources"] .page-hero h1{margin:0}
+  [data-page="pd-resources"] .page-hero p{margin:0}
+  @media (max-width:768px){
+    [data-page="pd-resources"] .page-hero-text{gap:14px}
+    [data-page="pd-resources"] .page-hero .wrap{gap:24px}
+    .page-hero h1.find-help-title{font-size:clamp(1.6rem,7.3vw,1.85rem);line-height:1.14}
+    .find-help-title .fh-line{display:block}
+    .find-help-title .fh-line:first-child{white-space:nowrap}
+  }
 
   /* ---------- Hero (home) ---------- */
   .hero{position:relative;color:#fff;background:var(--navy-deep);overflow:hidden}
@@ -1356,6 +1376,84 @@
   .pd-resources-framing{margin:30px 0 0;color:var(--muted);font-size:1rem;line-height:1.6;max-width:860px}
   .pd-resources-compact{margin:10px 0 0;color:var(--muted);font-size:.93rem;line-height:1.7;max-width:860px}
   .pd-resources-routing{margin:16px 0 0;color:var(--muted);font-size:1rem;line-height:1.6;max-width:860px}
+  /* Virtual Programs from APDA (same foot-of-page section, after
+     Recommended Reading): a closing resource block in the exact
+     treatment of the neighboring resource blocks above — same
+     subhead, tight list and routing line from the More Parkinson's
+     Resources block, spaced from the block above like the other
+     foot blocks (56px). The subhead's own top margin is removed
+     because the block wrapper already carries that spacing. */
+  .virtual-programs-block{margin-top:56px}
+  .virtual-programs-block .pd-resources-subhead{margin-top:0}
+  /* Financial Help (same foot-of-page section, after Virtual
+     Programs from APDA): a closing resource block in the exact
+     treatment of the neighboring resource blocks above — same
+     subhead and tight list from the More Parkinson's Resources
+     block, spaced from the block above like the other foot
+     blocks (56px). The subhead's own top margin is removed
+     because the block wrapper already carries that spacing.
+     Medication help is plain text links only — no logos or
+     buttons — matching the request. */
+  .financial-help-block{margin-top:56px}
+  .financial-help-block .pd-resources-subhead{margin-top:0}
+  /* Recommended Reading (last block in the foot-of-page resource
+     cluster, after Financial Help and before the page-foot
+     disclaimer): APDA's free educational booklets lead, then four
+     compact book cards — real published cover, title, author, one
+     line — and a "More Books to Explore" button that opens the
+     reading modal below with four more. Covers are display only:
+     no purchase or retailer links anywhere in the block. */
+  .reading-block{margin-top:56px}
+  .reading-block .section-head{margin-bottom:22px}
+  .reading-actions{margin:0 0 22px}
+  .reading-actions-below{margin:22px 0 0}
+  .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:960px}
+  .book-card{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+  .book-cover{flex:none;width:100px;height:150px;object-fit:cover;border-radius:6px;border:1px solid var(--line);background:var(--navy-deep)}
+  /* Wider-format covers (the Every Victory Counts manual and the
+     For Dummies guide are nearer 4:5 than 2:3): shown whole with
+     contain so no cover text is cropped; the navy-deep plate
+     behind them matches the standard cover background. */
+  .book-cover-contain{object-fit:contain}
+  .book-cover-tile{flex:none;width:100px;height:150px;border-radius:6px;border:1px solid var(--line);background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-family:"Archivo",sans-serif;font-weight:800;font-size:.82rem;line-height:1.35}
+  .book-info{min-width:0}
+  .book-title{font-family:"Archivo",sans-serif;font-size:1.02rem;font-weight:800;color:#eaf1f8;line-height:1.3;margin:0}
+  .book-author{margin:5px 0 0;font-weight:700;font-size:.9rem;color:#7fd6a5}
+  .book-line{margin:6px 0 0;color:var(--muted);font-size:.93rem;line-height:1.55}
+  @media (max-width:900px){ .book-grid{grid-template-columns:1fr} }
+  @media (max-width:480px){ .book-card{padding:14px;gap:12px} .book-cover,.book-cover-tile{width:90px;height:135px} }
+  /* More Books to Explore modal: same visual family as the Galleries
+     photo viewer — a dimmed navy backdrop with a centered panel. The
+     panel scrolls internally (max-height + overflow), so opening it
+     never changes the page's length; it closes on the ×, on a backdrop
+     click, and on Escape. */
+  .reading-modal{position:fixed;inset:0;z-index:130;display:none;align-items:center;justify-content:center;background:rgba(7,26,48,.88);padding:18px}
+  .reading-modal.open{display:flex}
+  .reading-modal-panel{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);width:100%;max-width:760px;max-height:calc(100dvh - 36px);overflow-y:auto;padding:26px}
+  .reading-modal-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
+  .reading-modal-head h2{flex:1;min-width:0;font-size:clamp(1.35rem,3vw,1.8rem);color:#eaf1f8}
+  .reading-modal .book-grid{grid-template-columns:1fr;max-width:none}
+  body.reading-modal-lock{overflow:hidden}
+  @media (max-width:640px){ .reading-modal{padding:10px} .reading-modal-panel{padding:20px 16px;max-height:calc(100dvh - 20px)} }
+  /* "On this page" jump strip (Find Help): a single row directly
+     under the page hero and before the program finder, linking to
+     the page's seven stops via the router's #/pd-resources#anchor
+     form. Wraps onto a second line at phone width. Anchored targets
+     carry the same 96px scroll margin as the gallery sections so
+     they land clear of the sticky header. */
+  .page-jump{border-bottom:1px solid var(--line)}
+  .page-jump-inner{display:block;padding-top:16px;padding-bottom:18px}
+  .page-jump-label{display:block;font-weight:800;color:var(--ink);font-size:.88rem;letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px}
+  .page-jump-links{display:flex;flex-wrap:wrap;gap:10px 24px;align-items:center}
+  .page-jump a{font-size:.98rem;text-decoration:none;line-height:1.35}
+  .page-jump a:hover{text-decoration:underline}
+  @media (max-width:768px){
+    .page-jump-inner{padding-top:16px;padding-bottom:18px}
+    .page-jump-label{margin-bottom:10px}
+    .page-jump-links{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:6px 20px;align-items:stretch}
+    .page-jump-links a{display:flex;align-items:center;min-height:44px;padding:6px 0;text-align:left;justify-self:stretch}
+  }
+  #find-a-program,#news-research,#genetics-questions,#more-resources,#virtual-programs,#financial-help,#recommended-reading{scroll-margin-top:96px}
   /* Page-foot disclaimers (Find Help): the page's two closing lines
      sit in their own base-shade band after the news section, so they
      stay the last thing on the page. The band's top padding is
@@ -2025,7 +2123,32 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="Choose where to start">
+  <section class="section section-alt" aria-label="A National Plan to End Parkinson's">
+    <div class="wrap">
+      <div class="recap-grid recap-photo-grid">
+      <div class="recap-copy prose">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>A National Plan to End Parkinson's</h2>
+        <p style="margin-top:14px">In July 2024, the National Plan to End Parkinson's Act became federal law — the first law of its kind. It directs a coordinated national effort, led by the National Institutes of Health, to prevent, diagnose, treat, and ultimately cure Parkinson's, guided by a federal Advisory Council that seats people living with Parkinson's, family care partners, clinicians, and researchers alongside government officials.</p>
+        <p>The American Parkinson Disease Association is at the table: APDA partners Cathi Ann Thomas and Dr. David Standaert serve on the Council, as does APDA national board member Dr. Sara Whittingham, who lives with Parkinson's — and APDA has submitted its priorities for the plan.</p>
+        <p>The Council meets Monday, November 9, 2026, with time set aside to hear from the public.</p>
+        <div class="story-pullquote" role="note">
+          <p>&ldquo;Families here feel Parkinson's at the kitchen table — in work missed, care given, and bills paid. A real national plan means faster research and real support for the people doing the caring. Our chapter will keep Rhode Island families posted on what this means for them.&rdquo;</p>
+          <p style="font-family:'Public Sans',system-ui,sans-serif;font-style:normal;font-size:.98rem;line-height:1.5;margin-top:14px;color:var(--muted)">— Joseph Golomboski, President, APDA Rhode Island Chapter</p>
+        </div>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:24px">
+          <a class="btn btn-outline" href="https://www.ninds.nih.gov/current-research/trans-agency-activities/national-plan-end-parkinsons" target="_blank" rel="noopener">The National Plan at NIH</a>
+          <a class="btn btn-outline" href="https://www.apdaparkinson.org/article/apda-applauds-seating-of-the-national-parkinsons-planadvisory-council/" target="_blank" rel="noopener">APDA on the National Plan</a>
+        </div>
+      </div>
+        <figure class="recap-photo">
+          <img src="assets/walk2026-joseph-speech.jpg" alt="Joseph Golomboski speaking at the 2026 Rhode Island Optimism Walk" width="2730" height="4096" />
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Choose where to start">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2055,7 +2178,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="What Parkinson's is, in plain words">
+  <section class="section section-alt" aria-label="What Parkinson's is, in plain words">
     <div class="wrap">
       <div class="prose">
         <div class="rule" aria-hidden="true"></div>
@@ -2101,7 +2224,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="Your APDA Rhode Island team">
+  <section class="section" aria-label="Your APDA Rhode Island team">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2154,6 +2277,38 @@
               <p class="role">Regional Administrative Coordinator – Northeast Region</p>
             </div>
           </div>
+        </article>
+      </div>
+      <h3 class="regional-label">APDA Rhode Island Chapter Board</h3>
+      <p style="color:var(--muted);margin:0 0 18px;font-size:1rem">Team Golomboski thanks the volunteer board of the APDA Rhode Island Chapter, who give their time to Rhode Island families living with Parkinson's.</p>
+      <div class="team-strip-grid">
+        <article class="team-card">
+          <h3>Joseph Golomboski</h3>
+          <p class="role">President</p>
+        </article>
+        <article class="team-card">
+          <h3>Lucas Davis</h3>
+          <p class="role">Secretary</p>
+        </article>
+        <article class="team-card">
+          <h3>Cristian Dersidan</h3>
+          <p class="role">Treasurer</p>
+        </article>
+        <article class="team-card">
+          <h3>Alicia Golomboski</h3>
+          <p class="role">Board Member</p>
+        </article>
+        <article class="team-card">
+          <h3>Brandon King</h3>
+          <p class="role">Board Member</p>
+        </article>
+        <article class="team-card">
+          <h3>Taiwo Sodipo-Kuforiji</h3>
+          <p class="role">Board Member</p>
+        </article>
+        <article class="team-card">
+          <h3>Geena Goyette</h3>
+          <p class="role">Board Member</p>
         </article>
       </div>
     </div>
@@ -2741,6 +2896,10 @@
       </div>
       <div class="gift-grid gift-grid-2">
         <article class="gift-card">
+          <figure class="gift-figure">
+            <img src="assets/support.jpg" alt="A support group seated in a circle, talking and laughing together." width="1024" height="421" />
+            <figcaption>Support groups meet all across Rhode Island — there's a circle of people who understand what you're going through.</figcaption>
+          </figure>
           <div class="gift-body">
             <h3>Support Groups Across Rhode Island</h3>
             <p>Free groups for people with Parkinson&rsquo;s and their care partners, including one for teens and one just for care partners, so no family faces this alone.</p>
@@ -3116,6 +3275,28 @@
             <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
             <h3>2027 Rhode Island Optimism Walk &amp; 5K Fun Run</h3>
             <p>Date to be announced</p>
+          </div>
+        </article>
+
+        <article class="event-card" data-event-type="chapter">
+          <div class="event-when">
+            <div class="mo tba">Date to be announced</div>
+          </div>
+          <div class="event-body">
+            <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
+            <h3>Driving Away Parkinson&rsquo;s Golf Tournament</h3>
+            <p>An APDA Rhode Island Chapter golf tournament held each spring. Date to be announced.</p>
+          </div>
+        </article>
+
+        <article class="event-card" data-event-type="chapter">
+          <div class="event-when">
+            <div class="mo tba">Date to be announced</div>
+          </div>
+          <div class="event-body">
+            <span class="event-badge event-badge-chapter">APDA Rhode Island Chapter Event</span>
+            <h3>April PD Awareness Month</h3>
+            <p>Each April, the chapter marks Parkinson&rsquo;s Awareness Month with special events across Rhode Island. Details to be announced.</p>
           </div>
         </article>
 
@@ -7552,8 +7733,8 @@
   <section class="page-hero" aria-label="Find Parkinson's help introduction">
     <div class="wrap">
       <div class="page-hero-text">
-      <div class="crumb"><a href="#/">Home</a> · Find Help</div>
-      <h1>Find Parkinson's Help in Rhode Island</h1>
+      <div class="crumb"><a href="#/">Home</a> · Resources &amp; Support</div>
+      <h1 class="find-help-title"><span class="fh-line">Resources &amp;</span> <span class="fh-line">Support</span></h1>
       <p>Newly diagnosed, living with Parkinson's, or caring for someone who is — start here. You are not alone.</p>
       </div>
       <figure class="page-hero-photo">
@@ -7562,7 +7743,22 @@
     </div>
   </section>
 
-  <section class="finder-section" aria-label="Find programs near you">
+  <nav class="page-jump" aria-label="On this page">
+    <div class="wrap page-jump-inner">
+      <span class="page-jump-label">On this page</span>
+      <div class="page-jump-links">
+      <a href="#/pd-resources#find-a-program">Find a Program</a>
+      <a href="#/pd-resources#news-research">News &amp; Research</a>
+      <a href="#/pd-resources#genetics-questions">Genetics Questions</a>
+      <a href="#/pd-resources#more-resources">More Resources</a>
+      <a href="#/pd-resources#virtual-programs">Virtual Programs</a>
+      <a href="#/pd-resources#financial-help">Financial Help</a>
+      <a href="#/pd-resources#recommended-reading">Recommended Reading</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="finder-section" id="find-a-program" aria-label="Find programs near you">
     <div class="wrap">
       <div class="finder-panel">
         <h2>Find Programs &amp; Support Groups Near You</h2>
@@ -7574,6 +7770,7 @@
             <button type="button" class="btn finder-btn" id="finderSearchBtn">Search</button>
           </div>
           <p class="finder-hint">Groups that meet on Zoom (online) always stay on the list — you can join those from anywhere.</p>
+          <p class="finder-hint"><a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA</a> also offers free virtual exercise classes — yoga, boxing, dance, singing, and drumming — you can join from home.</p>
         </div>
         <div class="help-noresults" id="finderNoResults" role="status">
           <p>Nothing matched that search — Rhode Island is small, so try a nearby town, or call Fatima Tobar at <a href="tel:+14015917890"><strong>401-591-7890</strong></a> and she will point you to the closest program. Outside Rhode Island? Find your local chapter on the <a href="https://www.apdaparkinson.org/" target="_blank" rel="noopener">national APDA site</a>.</p>
@@ -7811,7 +8008,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="Parkinson's News & Research">
+  <section class="section section-alt" id="news-research" aria-label="Parkinson's News & Research">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -7836,13 +8033,13 @@
         </a>
       </div>
       <p class="pd-news-more"><a href="https://www.apdaparkinson.org/news/breaking-news/" target="_blank" rel="noopener">More news &amp; research at APDA</a></p>
-      <div class="pd-family-note">
+      <div class="pd-family-note" id="genetics-questions">
         <h3>Is Parkinson's Hereditary? What Families Ask</h3>
         <p>This question is personal for our family — our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44, so 'does it run in the family?' is one we've asked ourselves. Here's what APDA wants families to know:</p>
         <p>When a parent has Parkinson's, it's natural for sons and daughters to wonder about their own risk. In most cases, Parkinson's is not directly inherited. APDA notes that about 10%–15% of people with Parkinson's carry an inherited genetic mutation known to increase PD risk — and most people with Parkinson's, even with a family history, do not carry one of these abnormal genes. Even when a mutation is present, it raises risk rather than deciding the outcome: many people who carry one never develop the disease. So a parent having Parkinson's does not mean a child will get it, and families thinking about genetic testing should talk it through with a neurologist or a genetic counselor first.</p>
         <p class="pd-family-note-link"><a href="https://www.apdaparkinson.org/article/genetic-testing-for-parkinsons-disease/" target="_blank" rel="noopener">APDA on genetic testing for Parkinson's</a></p>
       </div>
-      <div class="pd-resources-block">
+      <div class="pd-resources-block" id="more-resources">
         <div class="section-head">
           <div class="rule" aria-hidden="true"></div>
           <h2>More Parkinson's Resources</h2>
@@ -7861,10 +8058,78 @@
         <p class="pd-resources-framing">For national research news and background reading, these organizations also publish helpful material:</p>
         <p class="pd-resources-compact"><a href="https://www.michaeljfox.org/" target="_blank" rel="noopener">The Michael J. Fox Foundation</a> · <a href="https://www.parkinson.org/" target="_blank" rel="noopener">Parkinson's Foundation</a> · <a href="https://davisphinneyfoundation.org/" target="_blank" rel="noopener">Davis Phinney Foundation</a> · <a href="https://briangrant.org/" target="_blank" rel="noopener">Brian Grant Foundation</a> · <a href="https://www.pmdalliance.org/" target="_blank" rel="noopener">PMD Alliance</a></p>
         <p class="pd-resources-routing">For anything local — support groups, exercise programs, education, or help — <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island</a> is the place, and the chapter contacts are right here on this page.</p>
+        <h3 class="pd-resources-subhead">Rhode Island Resources</h3>
+        <p class="pd-resources-routing">For needs beyond Parkinson's — aging, disability, and help at home — these Rhode Island resources are a good place to start. For anything Parkinson's, start with APDA Rhode Island above.</p>
+        <ul class="pd-resources-list pd-resources-list-tight">
+          <li><a href="https://rielderinfo.com/" target="_blank" rel="noopener">Rhode Island Elder Info</a> — One-stop information for older Rhode Islanders, families, and caregivers — housing, transportation, care, and benefits.</li>
+          <li><a href="https://oha.ri.gov/get-help" target="_blank" rel="noopener">The Point — Rhode Island's Aging &amp; Disability Resource Center</a> — A free, confidential first call for aging and disability services in Rhode Island: 401-462-4444.</li>
+          <li><a href="https://www.oscil.org/" target="_blank" rel="noopener">Ocean State Center for Independent Living (OSCIL)</a> — Independent living help from Warwick — peer support, advocacy, skills training, and home accessibility.</li>
+          <li><a href="https://gcd.ri.gov/ri-livable-homes-modification-grant/frequently-asked-questions" target="_blank" rel="noopener">RI Livable Home Modification Grant</a> — State grant (Governor's Commission on Disabilities) that pays 50% of home safety changes — ramps, wider doorways, bathroom safety — up to $4,500.</li>
+        </ul>
         <h3 class="pd-resources-subhead">Families Like Ours</h3>
         <ul class="pd-resources-list pd-resources-list-tight">
           <li><a href="https://togetherforsharon.com/" target="_blank" rel="noopener">Together for Sharon</a> — Another family's Parkinson's story: a son's tribute to his mother, Sharon, grown into a community sharing family interviews and hope.</li>
         </ul>
+      </div>
+      <div class="virtual-programs-block" id="virtual-programs">
+        <h2 class="pd-resources-subhead">Virtual Programs from APDA</h2>
+        <ul class="pd-resources-list pd-resources-list-tight">
+          <li><strong>PRESS Program</strong> — an 8-week support series for people diagnosed with Parkinson’s in the last five years.</li>
+          <li><strong>Connecting Through Art</strong> — a creative arts workshop for people with Parkinson’s and their care partners.</li>
+          <li><strong>Dr. Gilbert Hosts</strong> — a monthly online program with Dr. Rebecca Gilbert and guest experts, with time for questions.</li>
+        </ul>
+        <p class="pd-resources-routing">Schedules and sign-ups are on the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island website</a>.</p>
+      </div>
+      <div class="financial-help-block" id="financial-help">
+        <h2 class="pd-resources-subhead">Financial Help</h2>
+        <ul class="pd-resources-list pd-resources-list-tight">
+          <li><strong>Financial Hardship Fund</strong> — APDA Rhode Island offers $300 per person to people with Parkinson’s facing financial hardship. Funds are limited; applications are on the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island website</a>.</li>
+          <li><strong>Community Grants</strong> — APDA grants help launch and expand Parkinson’s programs in our region. <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Contact the chapter</a> to learn more.</li>
+          <li><strong>Help paying for medication</strong> — many drug makers run patient assistance programs. Two free directories list them by medication: <a href="https://www.needymeds.org/" target="_blank" rel="noopener">NeedyMeds</a> and <a href="https://www.panfoundation.org/" target="_blank" rel="noopener">the PAN Foundation</a>.</li>
+        </ul>
+      </div>
+      <div class="reading-block" id="recommended-reading">
+        <div class="section-head">
+          <div class="rule" aria-hidden="true"></div>
+          <h2>Recommended Reading</h2>
+          <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
+        </div>
+        <p class="reading-actions"><a class="btn btn-outline" href="https://www.apdaparkinson.org/resources-support" target="_blank" rel="noopener">APDA Educational Publications</a></p>
+        <div class="book-grid">
+          <article class="book-card">
+            <img class="book-cover" src="assets/book-cover-ending-parkinsons.jpg" alt="Ending Parkinson's Disease book cover" width="323" height="500" loading="lazy" />
+            <div class="book-info">
+              <h3 class="book-title">Ending Parkinson's Disease</h3>
+              <p class="book-author">Ray Dorsey, Todd Sherer, Michael S. Okun &amp; Bastiaan R. Bloem</p>
+              <p class="book-line">A bold plan to prevent, treat, and end Parkinson's, from four leading experts.</p>
+            </div>
+          </article>
+          <article class="book-card">
+            <img class="book-cover book-cover-contain" src="assets/book-cover-every-victory-counts.jpg" alt="Every Victory Counts book cover" width="308" height="400" loading="lazy" />
+            <div class="book-info">
+              <h3 class="book-title">Every Victory Counts</h3>
+              <p class="book-author">Davis Phinney Foundation</p>
+              <p class="book-line">A practical manual for living well with Parkinson's, from the Davis Phinney Foundation.</p>
+            </div>
+          </article>
+          <article class="book-card">
+            <img class="book-cover book-cover-contain" src="assets/book-cover-parkinsons-for-dummies.jpg" alt="Parkinson's Disease For Dummies book cover" width="500" height="628" loading="lazy" />
+            <div class="book-info">
+              <h3 class="book-title">Parkinson's Disease For Dummies</h3>
+              <p class="book-author">Michele Tagliati &amp; Jo Horne</p>
+              <p class="book-line">A plain-language primer for the newly diagnosed and their families.</p>
+            </div>
+          </article>
+          <article class="book-card">
+            <img class="book-cover" src="assets/book-cover-10-secrets.jpg" alt="Parkinson's Treatment: 10 Secrets to a Happier Life book cover" width="333" height="500" loading="lazy" />
+            <div class="book-info">
+              <h3 class="book-title">Parkinson's Treatment: 10 Secrets to a Happier Life</h3>
+              <p class="book-author">Michael S. Okun, MD</p>
+              <p class="book-line">Everyday guidance on living well, from a leading movement-disorders neurologist.</p>
+            </div>
+          </article>
+        </div>
+        <p class="reading-actions reading-actions-below"><button type="button" class="btn btn-outline" id="readingMoreOpen" aria-haspopup="dialog" aria-controls="readingModal">More Books to Explore</button></p>
       </div>
     </div>
   </section>
@@ -8020,6 +8285,55 @@
   </div>
 </div>
 
+<!-- More Books to Explore modal (Find Help — Recommended Reading):
+     opened by the "More Books to Explore" button under the four
+     featured books. Same visual family as the photo viewer above —
+     a dimmed navy backdrop with a centered panel and a × close
+     control; it also closes on a backdrop click and on Escape, and
+     the panel scrolls internally so the page never grows. -->
+<div class="reading-modal" id="readingModal" role="dialog" aria-modal="true" aria-labelledby="readingModalTitle" hidden>
+  <div class="reading-modal-panel">
+    <div class="reading-modal-head">
+      <h2 id="readingModalTitle">More Books to Explore</h2>
+      <button type="button" class="flipbook-close" id="readingModalClose" aria-label="Close the book list">&times;</button>
+    </div>
+    <div class="book-grid">
+      <article class="book-card">
+        <img class="book-cover" src="assets/book-cover-brain-storms.jpg" alt="Brain Storms book cover" width="300" height="500" loading="lazy" />
+        <div class="book-info">
+          <h3 class="book-title">Brain Storms</h3>
+          <p class="book-author">Jon Palfreman</p>
+          <p class="book-line">A journalist's investigation into Parkinson's science and the search for a cure.</p>
+        </div>
+      </article>
+      <article class="book-card">
+        <img class="book-cover" src="assets/book-cover-parkinsons-plan.jpg" alt="The Parkinson's Plan book cover" width="258" height="400" loading="lazy" />
+        <div class="book-info">
+          <h3 class="book-title">The Parkinson's Plan</h3>
+          <p class="book-author">Ray Dorsey &amp; Michael S. Okun</p>
+          <p class="book-line">The authors' newest book: a plan to prevent and end Parkinson's.</p>
+        </div>
+      </article>
+      <article class="book-card">
+        <img class="book-cover" src="assets/book-cover-young-onset.jpg" alt="You Have Young Onset Parkinson's book cover" width="333" height="500" loading="lazy" />
+        <div class="book-info">
+          <h3 class="book-title">You Have Young Onset Parkinson's</h3>
+          <p class="book-author">Blake L. Bookstaff</p>
+          <p class="book-line">A first-person guide for people diagnosed young, and the families beside them.</p>
+        </div>
+      </article>
+      <article class="book-card">
+        <img class="book-cover" src="assets/book-cover-no-time-like-the-future.jpg" alt="No Time Like the Future book cover" width="329" height="500" loading="lazy" />
+        <div class="book-info">
+          <h3 class="book-title">No Time Like the Future</h3>
+          <p class="book-author">Michael J. Fox</p>
+          <p class="book-line">Michael J. Fox's memoir of optimism, gratitude, and mortality.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>
+
 <!-- ============================================================
      FOOTER — shared by every page
      ============================================================ -->
@@ -8147,7 +8461,7 @@
       "media": "Media | Team Golomboski",
       "galleries": "Photo Galleries | Team Golomboski",
       "donate": "Donate | Team Golomboski",
-      "pd-resources": "Find Help | Team Golomboski",
+      "pd-resources": "Resources & Support | Team Golomboski",
       "press-kit": "Press Kit | Team Golomboski"
     };
     function parseHash() {
@@ -8550,6 +8864,43 @@
     });
     // Navigating to another page of the site closes the viewer.
     window.addEventListener("hashchange", closeFlipbook);
+  })();
+
+  // More Books to Explore modal (Find Help — Recommended Reading):
+  // the button under the four featured books opens a centered overlay
+  // with four more titles. It closes on the × button, on a click on
+  // the dimmed backdrop, and on Escape, and returns focus to the
+  // button; the panel scrolls internally, so the page never grows.
+  (function () {
+    var overlay = document.getElementById("readingModal");
+    var openBtn = document.getElementById("readingMoreOpen");
+    if (!overlay || !openBtn) { return; }
+    var closeBtn = document.getElementById("readingModalClose");
+    var isOpen = false;
+    function openModal() {
+      isOpen = true;
+      overlay.hidden = false;
+      overlay.classList.add("open");
+      document.body.classList.add("reading-modal-lock");
+      if (closeBtn && closeBtn.focus) { closeBtn.focus(); }
+    }
+    function closeModal() {
+      if (!isOpen) { return; }
+      isOpen = false;
+      overlay.classList.remove("open");
+      overlay.hidden = true;
+      document.body.classList.remove("reading-modal-lock");
+      if (openBtn.focus) { openBtn.focus(); }
+    }
+    openBtn.addEventListener("click", openModal);
+    if (closeBtn) { closeBtn.addEventListener("click", closeModal); }
+    overlay.addEventListener("click", function (ev) { if (ev.target === overlay) { closeModal(); } });
+    document.addEventListener("keydown", function (ev) {
+      if (!isOpen) { return; }
+      if (ev.key === "Escape") { closeModal(); }
+    });
+    // Navigating to another page of the site closes the modal.
+    window.addEventListener("hashchange", closeModal);
   })();
 
   // Events filter (Events page only): the three pills under the
