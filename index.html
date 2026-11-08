@@ -2146,18 +2146,28 @@
   [data-page="pd-resources/help"] .financial-help-block{margin-top:0}
   [data-page="pd-resources/reading"] .reading-block{margin-top:0}
 
-  /* ---------- Homepage finder feature (search box only) ----------
-     A white card in a standard .section on the homepage, between
-     Start Here and Biggest Year. It carries ONLY the search box —
-     the finder and its listings live solely on the Programs &
-     Support Groups page; submitting here hands the term to that
-     finder (see the home-finder script). Card treatment matches
-     the site's light card family: white fill, #d3dde7 border,
-     shared radius and soft shadow. Heading stays team navy and
-     body text slate via the .section rules above; the Search
-     button is the solid green help action (.btn-green). */
+  /* ---------- Homepage Start Here + finder (combined, side by side) ----------
+     The Start Here band and the homepage finder now share ONE section:
+     the band keeps its alt shade, its heading and intro sit full width
+     on top, and below them a two-column layout puts the three Start
+     Here buttons (stacked vertically) in the left column and the
+     finder as a white inner panel in the right column. The medical
+     disclaimer stays at the foot of the section, full width. The
+     panel carries ONLY the search box — the finder and its listings
+     live solely on the Programs & Support Groups page; submitting
+     here hands the term to that finder (see the home-finder script).
+     Card treatment matches the site's light card family: white fill,
+     #d3dde7 border, shared radius and soft shadow. Heading stays
+     team navy and body text slate; the Search button is the solid
+     green help action (.btn-green). On phones the columns stack —
+     buttons first, panel below — and the input/Search row stays on
+     one line. */
+  .start-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:28px;margin-top:28px;align-items:stretch}
+  .start-stack{display:flex;flex-direction:column;gap:16px}
+  .start-stack .start-btn{flex:1 1 auto}
   .home-finder-card{background:#fff;border:1px solid #d3dde7;border-radius:var(--radius);box-shadow:0 8px 24px rgba(19,36,51,.08);padding:36px 32px 32px}
-  .home-finder-card h2{color:#0a2340}
+  .home-finder-card h2{color:#0a2340;text-align:left}
+  .start-here .home-finder-card .rule{background:#0a2340}
   .home-finder-sub{color:#33475c;margin:12px 0 0;font-size:1.08rem;max-width:640px;line-height:1.55}
   .home-finder-form{margin-top:24px}
   .home-finder-form label{display:block;font-weight:700;font-size:1.12rem;margin-bottom:10px;color:#132433}
@@ -2166,10 +2176,12 @@
   .home-finder-row input:focus{outline:3px solid #9fd3b4;outline-offset:2px;border-color:#1f7a4d}
   .home-finder-btn{flex:none;min-height:60px;padding:14px 34px;font-size:1.1rem;justify-content:center}
   .home-finder-browse{margin:16px 0 0;font-size:1rem}
+  @media (max-width:900px){
+    .start-layout{grid-template-columns:1fr}
+  }
   @media (max-width:640px){
     .home-finder-card{padding:26px 20px 24px}
-    .home-finder-row{flex-direction:column}
-    .home-finder-btn{width:100%}
+    .home-finder-btn{padding:14px 22px}
   }
 </style>
 </head>
@@ -2267,34 +2279,31 @@
     <div class="wrap">
       <h2>New to Parkinson's? Start Here.</h2>
       <p class="start-sub">Plain-language help for people living with Parkinson's — and for the family and caregivers who stand with them.</p>
-      <div class="start-grid">
-        <a class="start-btn" href="#/pd-resources">Just Diagnosed</a>
-        <a class="start-btn" href="#/pd-resources">Caregivers</a>
-        <a class="start-btn" href="#/pd-resources">Local Programs &amp; Support Groups</a>
+      <div class="start-layout">
+        <div class="start-stack">
+          <a class="start-btn" href="#/pd-resources">Just Diagnosed</a>
+          <a class="start-btn" href="#/pd-resources">Caregivers</a>
+          <a class="start-btn" href="#/pd-resources">Local Programs &amp; Support Groups</a>
+        </div>
+        <div class="home-finder-card">
+          <div class="rule" aria-hidden="true"></div>
+          <h2>Find Programs &amp; Support Groups Near You</h2>
+          <p class="home-finder-sub">Enter your ZIP code or town to see exercise classes and support groups close to home.</p>
+          <form class="home-finder-form" id="homeFinderForm">
+            <label for="homeNearSearch">Enter your ZIP code or town</label>
+            <div class="home-finder-row">
+              <input type="search" id="homeNearSearch" autocomplete="off" placeholder="Enter your ZIP code or town — try: Warwick, Providence, 02886" />
+              <button type="submit" class="btn btn-green home-finder-btn">Search</button>
+            </div>
+          </form>
+          <p class="home-finder-browse"><a href="#/pd-resources/programs">Browse all programs &amp; support groups</a></p>
+        </div>
       </div>
       <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
     </div>
   </section>
 
-  <section class="section" aria-label="Find programs and support groups near you">
-    <div class="wrap">
-      <div class="home-finder-card">
-        <div class="rule" aria-hidden="true"></div>
-        <h2>Find Programs &amp; Support Groups Near You</h2>
-        <p class="home-finder-sub">Enter your ZIP code or town to see exercise classes and support groups close to home.</p>
-        <form class="home-finder-form" id="homeFinderForm">
-          <label for="homeNearSearch">Enter your ZIP code or town</label>
-          <div class="home-finder-row">
-            <input type="search" id="homeNearSearch" autocomplete="off" placeholder="Enter your ZIP code or town — try: Warwick, Providence, 02886" />
-            <button type="submit" class="btn btn-green home-finder-btn">Search</button>
-          </div>
-        </form>
-        <p class="home-finder-browse"><a href="#/pd-resources/programs">Browse all programs &amp; support groups</a></p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-alt">
+  <section class="section">
     <div class="wrap">
       <div class="recap-grid recap-photo-grid">
         <div class="recap-copy">
@@ -2318,7 +2327,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt">
     <div class="wrap">
       <div class="recap-grid recap-photo-grid recap-photo-grid-flip">
         <div class="recap-copy">
@@ -2337,7 +2346,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="Upcoming Events">
+  <section class="section" aria-label="Upcoming Events">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2394,7 +2403,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt">
     <div class="wrap">
       <div class="story-teaser">
         <figure class="story-figure">
@@ -2413,7 +2422,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="More Than Family — join Team Golomboski">
+  <section class="section" aria-label="More Than Family — join Team Golomboski">
     <div class="wrap">
       <div class="family-band">
         <div class="family-band-copy">
@@ -2433,7 +2442,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2480,7 +2489,7 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2510,7 +2519,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt">
     <div class="wrap">
       <div class="connect">
         <div>
@@ -2542,7 +2551,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="A National Plan to End Parkinson's">
+  <section class="section" aria-label="A National Plan to End Parkinson's">
     <div class="wrap">
       <div class="recap-grid recap-photo-grid">
       <div class="recap-copy prose">
@@ -2567,7 +2576,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="In the News">
+  <section class="section section-alt" aria-label="In the News">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2600,7 +2609,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="Your APDA Rhode Island team">
+  <section class="section" aria-label="Your APDA Rhode Island team">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
