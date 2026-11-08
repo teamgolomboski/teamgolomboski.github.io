@@ -869,6 +869,7 @@
 
   /* ---------- Our Story — pull quote & chapter timeline ---------- */
   .story-pullquote{margin:30px 0 6px;padding:26px 28px;background:var(--orange-soft);border-radius:var(--radius);max-width:760px}
+  .story-pullquote--plan{background:#102238;border-left:4px solid #ffb287}
   .story-pullquote p{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:clamp(1.25rem,2.6vw,1.55rem);line-height:1.45;color:var(--ink);margin:0}
   .story-pullquote p strong{color:var(--orange-dark)}
   .story-pullquote p strong{color:#ffb287}
@@ -2132,7 +2133,7 @@
         <p style="margin-top:14px">In July 2024, the National Plan to End Parkinson's Act became federal law — the first law of its kind. It directs a coordinated national effort, led by the National Institutes of Health, to prevent, diagnose, treat, and ultimately cure Parkinson's, guided by a federal Advisory Council that seats people living with Parkinson's, family care partners, clinicians, and researchers alongside government officials.</p>
         <p>The American Parkinson Disease Association is at the table: APDA partners Cathi Ann Thomas and Dr. David Standaert serve on the Council, as does APDA national board member Dr. Sara Whittingham, who lives with Parkinson's — and APDA has submitted its priorities for the plan.</p>
         <p>The Council meets Monday, November 9, 2026, with time set aside to hear from the public.</p>
-        <div class="story-pullquote" role="note">
+        <div class="story-pullquote story-pullquote--plan" role="note">
           <p>&ldquo;Families here feel Parkinson's at the kitchen table — in work missed, care given, and bills paid. A real national plan means faster research and real support for the people doing the caring. Our chapter will keep Rhode Island families posted on what this means for them.&rdquo;</p>
           <p style="font-family:'Public Sans',system-ui,sans-serif;font-style:normal;font-size:.98rem;line-height:1.5;margin-top:14px;color:var(--muted)">— Joseph Golomboski, President, APDA Rhode Island Chapter</p>
         </div>
@@ -2283,32 +2284,60 @@
       <p style="color:var(--muted);margin:0 0 18px;font-size:1rem">Team Golomboski thanks the volunteer board of the APDA Rhode Island Chapter, who give their time to Rhode Island families living with Parkinson's.</p>
       <div class="team-strip-grid">
         <article class="team-card">
-          <h3>Joseph Golomboski</h3>
-          <p class="role">President</p>
+          <h3>Joseph H. Friedman, MD</h3>
+          <p class="role">Medical Director</p>
         </article>
         <article class="team-card">
-          <h3>Lucas Davis</h3>
-          <p class="role">Secretary</p>
+          <h3>Joseph Golomboski</h3>
+          <p class="role">President</p>
         </article>
         <article class="team-card">
           <h3>Cristian Dersidan</h3>
           <p class="role">Treasurer</p>
         </article>
         <article class="team-card">
+          <h3>Lucas Davis</h3>
+          <p class="role">Secretary</p>
+        </article>
+        <article class="team-card">
+          <h3>Sandi MacLeod</h3>
+          <p class="role">Director</p>
+        </article>
+        <article class="team-card">
+          <h3>Jeff Sullivan</h3>
+          <p class="role">Director</p>
+        </article>
+        <article class="team-card">
+          <h3>Tai Kuforiji</h3>
+          <p class="role">Director</p>
+        </article>
+        <article class="team-card">
+          <h3>Chelsea Rozen</h3>
+          <p class="role">Director</p>
+        </article>
+        <article class="team-card">
+          <h3>Mary Ann Canavan</h3>
+          <p class="role">Director</p>
+        </article>
+        <article class="team-card">
+          <h3>Bev Brindle</h3>
+          <p class="role">Director</p>
+        </article>
+        <article class="team-card">
           <h3>Alicia Golomboski</h3>
-          <p class="role">Board Member</p>
+          <p class="role">Director</p>
+        </article>
+        <article class="team-card">
+          <h3>Daniel Shine</h3>
+          <p class="role">Director</p>
         </article>
         <article class="team-card">
           <h3>Brandon King</h3>
-          <p class="role">Board Member</p>
+          <p class="role">Director</p>
         </article>
         <article class="team-card">
-          <h3>Taiwo Sodipo-Kuforiji</h3>
-          <p class="role">Board Member</p>
-        </article>
-        <article class="team-card">
-          <h3>Geena Goyette</h3>
-          <p class="role">Board Member</p>
+          <h3>Colette Silverman</h3>
+          <p class="role">Director</p>
         </article>
       </div>
     </div>
@@ -3775,7 +3804,7 @@
       <h1>Photo Galleries</h1>
       <p>Photos from the days that built this team. Pick an event and look around — tap any photo to see it larger.</p>
       <p style="margin-top:20px"><a class="btn btn-green" href="https://docs.google.com/forms/d/1_N_JHip9MBmxFSo-G_uxVvmnk9a6cCn0f6lwMW2hR4Q/viewform" target="_blank" rel="noopener">Share Your Photos</a></p>
-      <p class="share-photos-note">Have photos from a walk year or team event we're missing? Send them in — every submission is reviewed by the team before anything is posted.</p>
+      <p class="share-photos-note">Have photos from a walk year or team event? Send them in — every submission is reviewed by the team before anything is posted.</p>
       </div>
       <figure class="page-hero-photo">
         <img class="ph-faces" src="assets/walk2017-team-group-wide-thumb.jpg" loading="lazy" decoding="async" alt="The whole Team Golomboski at Goddard Memorial State Park — 2017 Rhode Island Optimism Walk" width="1500" height="1450" />
@@ -8097,7 +8126,7 @@
         <p class="reading-actions"><a class="btn btn-outline" href="https://www.apdaparkinson.org/resources-support" target="_blank" rel="noopener">APDA Educational Publications</a></p>
         <div class="book-grid">
           <article class="book-card">
-            <img class="book-cover" src="assets/book-cover-ending-parkinsons.jpg" alt="Ending Parkinson's Disease book cover" width="323" height="500" loading="lazy" />
+            <img class="book-cover" src="assets/book-ending-pd.jpg" alt="Ending Parkinson's Disease book cover" width="323" height="500" loading="lazy" />
             <div class="book-info">
               <h3 class="book-title">Ending Parkinson's Disease</h3>
               <p class="book-author">Ray Dorsey, Todd Sherer, Michael S. Okun &amp; Bastiaan R. Bloem</p>
@@ -8121,7 +8150,7 @@
             </div>
           </article>
           <article class="book-card">
-            <img class="book-cover" src="assets/book-cover-10-secrets.jpg" alt="Parkinson's Treatment: 10 Secrets to a Happier Life book cover" width="333" height="500" loading="lazy" />
+            <img class="book-cover" src="assets/book-10-secrets.jpg" alt="Parkinson's Treatment: 10 Secrets to a Happier Life book cover" width="333" height="500" loading="lazy" />
             <div class="book-info">
               <h3 class="book-title">Parkinson's Treatment: 10 Secrets to a Happier Life</h3>
               <p class="book-author">Michael S. Okun, MD</p>
@@ -8299,7 +8328,7 @@
     </div>
     <div class="book-grid">
       <article class="book-card">
-        <img class="book-cover" src="assets/book-cover-brain-storms.jpg" alt="Brain Storms book cover" width="300" height="500" loading="lazy" />
+        <img class="book-cover" src="assets/book-brain-storms.jpg" alt="Brain Storms book cover" width="300" height="500" loading="lazy" />
         <div class="book-info">
           <h3 class="book-title">Brain Storms</h3>
           <p class="book-author">Jon Palfreman</p>
@@ -8323,7 +8352,7 @@
         </div>
       </article>
       <article class="book-card">
-        <img class="book-cover" src="assets/book-cover-no-time-like-the-future.jpg" alt="No Time Like the Future book cover" width="329" height="500" loading="lazy" />
+        <img class="book-cover" src="assets/book-fox.jpg" alt="No Time Like the Future book cover" width="329" height="500" loading="lazy" />
         <div class="book-info">
           <h3 class="book-title">No Time Like the Future</h3>
           <p class="book-author">Michael J. Fox</p>
