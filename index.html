@@ -1528,6 +1528,30 @@
   .reading-modal .book-grid{grid-template-columns:1fr;max-width:none}
   body.reading-modal-lock{overflow:hidden}
   @media (max-width:640px){ .reading-modal{padding:10px} .reading-modal-panel{padding:20px 16px;max-height:calc(100dvh - 20px)} }
+  /* ---------- APDA booklet cover rails (Resources subpages) ----------
+     A narrow right-side column of APDA booklet covers beside the
+     booklet text on the Recommended Reading, Just Diagnosed and
+     Caregivers pages: each cover links to APDA's own file or
+     download page, with the booklet's name as a caption under it.
+     Beside the text on desktop; on phones (<=900px) the rail
+     stacks below its section in two columns, and the one
+     landscape cover (My Mommy Has PD) spans the rail's full
+     width instead of being forced into the portrait column. */
+  .rail-layout{display:grid;grid-template-columns:minmax(0,1fr) 188px;gap:36px;align-items:start}
+  .rail-main{min-width:0}
+  .cover-rail{display:flex;flex-direction:column;gap:22px}
+  .cover-rail-title{font-family:"Archivo",sans-serif;font-size:1.02rem;font-weight:800;color:#0a2340;margin:0;line-height:1.3}
+  .cover-rail-item{display:block;text-decoration:none}
+  .cover-rail-item img{display:block;width:100%;height:auto;border:1px solid #d3dde7;border-radius:6px;background:#fff;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  .cover-rail-cap{display:block;margin-top:8px;font-size:.88rem;font-weight:700;line-height:1.4;color:#0a2340;text-align:center}
+  .cover-rail-item:hover .cover-rail-cap{color:#005eb8;text-decoration:underline}
+  .cover-rail-item:focus-visible{outline:3px solid #005eb8;outline-offset:3px;border-radius:6px}
+  @media (max-width:900px){
+    .rail-layout{grid-template-columns:1fr;gap:30px}
+    .cover-rail{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;align-items:start}
+    .cover-rail-title{grid-column:1/-1}
+    .cover-rail-item--wide{grid-column:1/-1}
+  }
   /* "On this page" jump control (Our Story): directly under the
      page hero, one compact row — the small "On this page" label
      beside a single dropdown holding all eleven stops (the five
@@ -1545,7 +1569,7 @@
   .page-jump-select:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
   #find-a-program,#news-research,#genetics-questions,#more-resources,#virtual-programs,#financial-help,#recommended-reading{scroll-margin-top:96px}
   #golomboski-family,#in-memory-joseph-sr,#story-so-far,#whole-family,#what-we-stand-for,#siblings-who-started-it,#memory-wall,#walk-with-us,#chapter-one,#chapter-two,#chapter-three,#chapter-four{scroll-margin-top:96px}
-  #built-together,#service-beyond-the-walk,#joseph,#alicia,#decade-of-service{scroll-margin-top:96px}
+  #built-together,#service-beyond-the-walk,#joseph,#alicia,#decade-of-service,#invite-joseph-to-speak{scroll-margin-top:96px}
   #where-every-dollar-goes,#spotlight-2026,#twelve-years,#sponsors-partners,#led-by-family,#circle-of-optimism{scroll-margin-top:96px}
   /* Page-foot disclaimers (Find Help): the page's two closing lines
      sit in their own base-shade band after the news section, so they
@@ -3251,6 +3275,7 @@
         <option value="joseph">Joseph Golomboski Jr.</option>
         <option value="alicia">Alicia Golomboski</option>
         <option value="decade-of-service">A Decade of Service</option>
+        <option value="invite-joseph-to-speak">Invite Joseph to Speak</option>
       </select>
     </div>
   </nav>
@@ -3420,6 +3445,28 @@
         <p class="decade-contact">Contact the team: <a href="mailto:teamgolomboski@gmail.com">teamgolomboski@gmail.com</a> · <a href="tel:+14012584957">(401) 258-4957</a></p>
       </div>
       <p class="speaking-line">Invite Joseph to speak about Parkinson's advocacy and community fundraising: <a href="mailto:teamgolomboski@gmail.com">teamgolomboski@gmail.com</a></p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="invite-joseph-to-speak">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Invite Joseph to Speak</h2>
+        <p>Joseph brings the caregiver’s journey and a decade of community fundraising to rooms across Rhode Island.</p>
+      </div>
+      <ul class="pd-resources-list" style="margin-top:0">
+        <li><strong>The Caregiver’s Journey</strong> — Caring for a parent with Parkinson’s, from the teen years through end of life, and what families actually need.</li>
+        <li><strong>Turning Grief Into Action</strong> — How one family’s loss became a team, a walk, and a statewide community.</li>
+        <li><strong>Community Fundraising That Works</strong> — Growing a grassroots team into a chapter-leading event through sponsors, volunteers, and showing up.</li>
+        <li><strong>Parkinson’s in the Family</strong> — A plain-words talk for families facing a new diagnosis, and how communities can support them.</li>
+      </ul>
+      <div class="prose" style="margin-top:26px">
+        <p>Joseph speaks to caregiver and support groups, senior centers, healthcare and community organizations, and civic groups — and with employers and senior living communities about real-life caregiving, keeping dignity at work, and how teams can support families living with Parkinson’s.</p>
+        <p><strong>Invite Joseph to speak:</strong> <a href="mailto:teamgolomboski@gmail.com">teamgolomboski@gmail.com</a> · <a href="tel:+14012584957">(401) 258-4957</a></p>
+      </div>
+      <p style="margin-top:20px"><a class="btn btn-green" href="mailto:teamgolomboski@gmail.com">Invite Joseph to Speak</a></p>
+      <p style="margin-top:16px"><a href="#/speaking">See Joseph’s full speaking page →</a></p>
     </div>
   </section>
 
@@ -9190,6 +9237,8 @@
   <section class="section" aria-label="Recommended Reading">
     <div class="wrap">
 <div class="reading-block" id="recommended-reading">
+      <div class="rail-layout">
+        <div class="rail-main">
         <div class="section-head">
           <div class="rule" aria-hidden="true"></div>
           <h2>Recommended Reading</h2>
@@ -9240,6 +9289,19 @@
           </article>
         </div>
         <p class="reading-actions reading-actions-below"><button type="button" class="btn btn-outline" id="readingMoreOpen" aria-haspopup="dialog" aria-controls="readingModal">More Books to Explore</button></p>
+        </div>
+        <aside class="cover-rail" aria-label="APDA booklets">
+          <h3 class="cover-rail-title">APDA Booklets</h3>
+          <a class="cover-rail-item" href="https://www.apdaparkinson.org/handbook-download/" target="_blank" rel="noopener">
+            <img src="assets/booklet-handbook.jpg" alt="Parkinson's Disease Handbook cover (APDA)" width="197" height="300" loading="lazy" />
+            <span class="cover-rail-cap">Parkinson's Disease Handbook</span>
+          </a>
+          <a class="cover-rail-item" href="https://www.apdaparkinson.org/download-exercise-guide/" target="_blank" rel="noopener">
+            <img src="assets/booklet-be-active.jpg" alt="Be Active &amp; Beyond cover (APDA)" width="196" height="300" loading="lazy" />
+            <span class="cover-rail-cap">Be Active &amp; Beyond</span>
+          </a>
+        </aside>
+      </div>
       </div>
       <div class="pd-resources-block">
         <h2 class="pd-resources-subhead" style="margin-top:0">Suggest a Book</h2>
@@ -9321,7 +9383,8 @@
 
   <section class="section section-alt" aria-label="APDA booklets and programs for the first years">
     <div class="wrap">
-      <div>
+      <div class="rail-layout">
+        <div class="rail-main">
         <h2 class="pd-resources-subhead" style="margin-top:0">Free Booklets From APDA</h2>
         <p class="pd-resources-framing" style="margin-top:16px">APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
         <p class="reading-actions"><a class="btn btn-outline btn-outline-surface" href="https://www.apdaparkinson.org/resources-support" target="_blank" rel="noopener">APDA Educational Publications</a></p>
@@ -9331,6 +9394,18 @@
           <li><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2025/11/PD-Overview.pdf" target="_blank" rel="noopener">What is Parkinson's Disease — A PD Overview (APDA fact sheet, PDF)</a></li>
           <li><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2026/04/APDA-Living_Well-10-Things-You-Can-Do-Now.pdf" target="_blank" rel="noopener">Living Well with Parkinson's Disease — 10 Things You Can Do Now (APDA, PDF)</a></li>
         </ul>
+        </div>
+        <aside class="cover-rail" aria-label="APDA fact sheets">
+          <h3 class="cover-rail-title">APDA Fact Sheets</h3>
+          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2026/04/APDA-Living_Well-10-Things-You-Can-Do-Now.pdf" target="_blank" rel="noopener">
+            <img src="assets/booklet-living-well-rail.jpg" alt="Living Well: 10 Things You Can Do Now cover (APDA)" width="460" height="595" loading="lazy" />
+            <span class="cover-rail-cap">Living Well: 10 Things You Can Do Now</span>
+          </a>
+          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2025/11/PD-Overview.pdf" target="_blank" rel="noopener">
+            <img src="assets/booklet-pd-overview-rail.jpg" alt="What Is Parkinson's Disease — A PD Overview cover (APDA)" width="460" height="595" loading="lazy" />
+            <span class="cover-rail-cap">What Is Parkinson's Disease — A PD Overview</span>
+          </a>
+        </aside>
       </div>
       <div class="pd-resources-block">
         <h3 class="pd-resources-subhead">Programs Made for the First Years</h3>
@@ -9490,13 +9565,16 @@
 
   <section class="section" aria-label="More from APDA for care partners">
     <div class="wrap">
-      <div>
+      <div class="rail-layout">
+        <div class="rail-main">
         <h2 class="pd-resources-subhead" style="margin-top:0">More From APDA for Care Partners</h2>
         <p class="pd-resources-framing" style="margin-top:16px">When one person in a family lives with Parkinson's, the whole family lives with it too. Care partners deserve breaks, outside interests of their own, and people they can turn to — these APDA resources are gathered with that in mind.</p>
         <ul class="pd-resources-list">
           <li><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2025/03/Caring-for-a-Person-With-PD-and-Yourself.pdf" target="_blank" rel="noopener"><em>Caring for a Person With PD and Yourself</em></a> — APDA's free booklet for care partners: practical help for supporting your loved one and yourself, and for handling the challenges of being a care partner (PDF).</li>
           <li><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/pdf_publications/Mommy-Has-PD-IOE.pdf" target="_blank" rel="noopener"><em>My Mommy Has PD… But It's Okay!</em></a> — APDA's free guide for young children about Parkinson's — a gentle way to talk with kids when a parent or grandparent has PD (PDF).</li>
           <li><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2025/05/APDA24432A_GrandparentsBooklet_TCD4FN_WEB.pdf" target="_blank" rel="noopener"><em>Something's Different About Grandpa</em></a> — APDA's illustrated booklet for kids (PDF).</li>
+          <li><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2020/01/APDA19364-Teens-FAQ-Supplement-D2V2.pdf" target="_blank" rel="noopener"><em>Talking to Your Teen About Parkinson's Disease</em></a> — APDA's free booklet answering teens' questions when a parent has Parkinson's (PDF).</li>
+          <li><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2020/01/PADRECC-WEB-Booklet-Final.pdf" target="_blank" rel="noopener"><em>Helping Those Who Serve: Parkinson's Disease Information for the Veterans Community</em></a> — APDA's free booklet for veterans living with Parkinson's and the people who support them (PDF).</li>
           <li><a href="https://www.apdaparkinson.org/resources-support/smart-patients/" target="_blank" rel="noopener">Smart Patients</a> — APDA's online community forum, where people with Parkinson's and their care partners share help, advice, and information about treatments, symptoms, and side effects.</li>
           <li><a href="https://www.apdaparkinson.org/parkinsons-disease/ask-the-doctor/" target="_blank" rel="noopener">Ask the Doctor</a> — APDA's online Q&amp;A, where healthcare professionals who specialize in Parkinson's address your questions and concerns about all aspects of the disease.</li>
           <li><a href="https://getpalliativecare.org/whatis/disease-types/parkinsons-disease-palliative-care" target="_blank" rel="noopener">Palliative Care for Parkinson's</a> — APDA links families to Get Palliative Care for help with pain management and support at home.</li>
@@ -9509,6 +9587,26 @@
             <li><a href="#/pd-resources/reading">Recommended Reading</a><span class="learn-more-why">Books for the road you're on — including <em>A Son's Journey</em>, one care partner's memoir.</span></li>
             <li><a href="#/our-story">Our Story</a><span class="learn-more-why">Our family's own caregiving story — including the wedding brought to Cherry Hill Manor so Dad could be there.</span></li>
           </ul>
+        </aside>
+        </div>
+        <aside class="cover-rail" aria-label="APDA booklets for care partners and families">
+          <h3 class="cover-rail-title">APDA Booklets</h3>
+          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2025/03/Caring-for-a-Person-With-PD-and-Yourself.pdf" target="_blank" rel="noopener">
+            <img src="assets/booklet-caring-rail.jpg" alt="Caring for a Person With PD and Yourself cover (APDA)" width="460" height="595" loading="lazy" />
+            <span class="cover-rail-cap">Caring for a Person With PD and Yourself</span>
+          </a>
+          <a class="cover-rail-item cover-rail-item--wide" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/pdf_publications/Mommy-Has-PD-IOE.pdf" target="_blank" rel="noopener">
+            <img src="assets/booklet-mommy-rail.jpg" alt="My Mommy Has PD cover (APDA)" width="460" height="298" loading="lazy" />
+            <span class="cover-rail-cap">My Mommy Has PD</span>
+          </a>
+          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2020/01/APDA19364-Teens-FAQ-Supplement-D2V2.pdf" target="_blank" rel="noopener">
+            <img src="assets/booklet-teen-rail.jpg" alt="Talking to Your Teen About Parkinson's Disease cover (APDA)" width="460" height="595" loading="lazy" />
+            <span class="cover-rail-cap">Talking to Your Teen About Parkinson's Disease</span>
+          </a>
+          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2020/01/PADRECC-WEB-Booklet-Final.pdf" target="_blank" rel="noopener">
+            <img src="assets/booklet-veterans-rail.jpg" alt="Helping Those Who Serve: Parkinson's Disease Information for the Veterans Community cover (APDA)" width="460" height="711" loading="lazy" />
+            <span class="cover-rail-cap">Helping Those Who Serve: Parkinson's Disease Information for the Veterans Community</span>
+          </a>
         </aside>
       </div>
     </div>
@@ -9929,10 +10027,109 @@
       <p><strong>Team Golomboski</strong></p>
       <p>Email: <a href="mailto:teamgolomboski@gmail.com">teamgolomboski@gmail.com</a><br>
       Phone: <a href="tel:+14012584957">(401) 258-4957</a></p>
+      <p>Speaking: invite Joseph to speak to your group or organization via the <a href="#/speaking">Speaking page</a>.</p>
     </div>
   </section>
 
 </div><!-- /page press-kit -->
+
+<!-- ============================================================
+     PAGE: SPEAKING
+     ============================================================ -->
+<div class="page" data-page="speaking">
+
+  <section class="page-hero" aria-label="Speaking introduction">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> · Speaking</div>
+      <h1>Speaking</h1>
+      <p>Book Joseph Golomboski to speak — on caregiving, community fundraising, and living with Parkinson’s in the family.</p>
+      </div>
+      <figure class="page-hero-photo">
+        <img class="ph-portrait" src="assets/walk2026-joseph-speech.jpg" alt="Joseph Golomboski speaking at the 2026 Rhode Island Optimism Walk" width="2730" height="4096" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-label="About Joseph as a speaker">
+    <div class="wrap">
+      <div class="prose">
+        <div class="rule" aria-hidden="true"></div>
+        <p style="font-size:1.25rem;color:var(--ink)"><strong>Joseph Golomboski — Parkinson’s advocate, family caregiver, and community fundraiser.</strong></p>
+        <p>President, APDA Rhode Island Chapter Board since September 2024 · Co-founder and Team Captain, Team Golomboski · Chair, RI Optimism Walk Committee since 2021.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="His story">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>His Story</h2>
+      </div>
+      <div class="prose">
+        <p>Joseph’s father, Joseph P. Golomboski Sr., was diagnosed with early-onset Parkinson’s at 44. Joseph and his sister Alicia helped carry his care from their late teens onward. In 2014 they founded Team Golomboski in their father’s honor, and have walked in his memory since his passing in 2019. What began as a family team now anchors the Rhode Island Parkinson’s community’s largest fundraising day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Speaking topics">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Speaking Topics</h2>
+      </div>
+      <ul class="pd-resources-list" style="margin-top:0">
+        <li><strong>The Caregiver’s Journey</strong> — Caring for a parent with Parkinson’s, from the teen years through end of life, and what families actually need.</li>
+        <li><strong>Turning Grief Into Action</strong> — How one family’s loss became a team, a walk, and a statewide community.</li>
+        <li><strong>Community Fundraising That Works</strong> — Growing a grassroots team into a chapter-leading event through sponsors, volunteers, and showing up.</li>
+        <li><strong>Parkinson’s in the Family</strong> — A plain-words talk for families facing a new diagnosis, and how communities can support them.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Proof points">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Proof Points</h2>
+      </div>
+      <ul class="stat-list">
+        <li><strong>$193,430.95</strong> Raised by the 2026 RI Optimism Walk &amp; 5K</li>
+        <li><strong>$7,273.75</strong> Raised by Team Golomboski in 2026</li>
+        <li><strong>$40,000+</strong> Raised since 2014</li>
+        <li><strong>NBC 10</strong> News coverage</li>
+        <li><strong>September 2025</strong> Rocky Point Neighbors cover story</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Audiences">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Audiences</h2>
+      </div>
+      <div class="prose">
+        <p>Caregiver and support groups · Senior centers · Healthcare and community organizations · Community and civic groups · Employers and senior living communities — speaking on real-life caregiving, keeping dignity at work, and how teams can support families living with Parkinson’s.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Booking">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Booking</h2>
+      </div>
+      <div class="prose">
+        <p>To invite Joseph to speak, write to <a href="mailto:teamgolomboski@gmail.com">teamgolomboski@gmail.com</a> or call <a href="tel:+14012584957">(401) 258-4957</a>.</p>
+      </div>
+      <p style="margin-top:20px"><a class="btn btn-green" href="mailto:teamgolomboski@gmail.com">Invite Joseph to Speak</a></p>
+    </div>
+  </section>
+
+</div><!-- /page speaking -->
 
 <!-- ============================================================
      PAGE: SITE MAP
@@ -9964,6 +10161,7 @@
             <li><a href="#/">Home</a><span>Start here — who we are, what's coming up, and how to get involved.</span></li>
             <li><a href="#/our-story">Our Story</a><span>How Team Golomboski began in 2014 around Joseph Golomboski Sr. — and the family still walking in his memory.</span></li>
             <li><a href="#/joseph-and-alicia">Joseph &amp; Alicia</a><span>Meet the brother-and-sister co-founders who lead the team.</span></li>
+            <li><a href="#/speaking">Speaking</a><span>Invite Joseph to speak — his topics, his story, and how to book him.</span></li>
             <li><a href="#/impact">Impact</a><span>What the team has raised since 2014 — and the local programs every dollar supports.</span></li>
             <li><a href="#/events">Events</a><span>The Optimism Walk &amp; 5K, the Magic of Hope Gala, Rock the Resort, trivia and bingo nights.</span></li>
             <li><a href="#/rock-the-resort">Rock the Resort</a><span>Our annual Concert for a Cure at The Last Resort in Smithfield.</span></li>
@@ -10151,7 +10349,7 @@
 <script>
   // Hash router: each .page block is one self-contained page.
   // Routes: #/ (home), #/our-story, #/joseph-and-alicia, #/impact, #/events,
-  //         #/rock-the-resort, #/media, #/galleries, #/donate, #/pd-resources, #/press-kit, #/site-map
+  //         #/rock-the-resort, #/media, #/galleries, #/donate, #/pd-resources, #/press-kit, #/speaking, #/site-map
   // A route may carry a gallery anchor: #/galleries#gallery-first-walk-2014
 
   // ================================================================
@@ -10173,6 +10371,7 @@
   //   donate            /donate                        funny4funds-check.jpg
   //   pd-resources      /pd-resources                  support.jpg
   //   press-kit         /press-kit                     joseph-profile.jpg
+  //   speaking          /speaking                      walk2026-joseph-speech.jpg
   //   site-map          /site-map                      hero-walk-2026.jpg
   //
   // Social scrapers don't run JavaScript or read hash fragments,
@@ -10207,6 +10406,7 @@
     "pd-resources/young-onset": { path: "pd-resources", title: "Young Onset Parkinson's | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
     "pd-resources/genetics": { path: "pd-resources", title: "Family History & Genetics | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
     "press-kit": { path: "press-kit", title: "Press Kit | Team Golomboski", description: "The Team Golomboski press kit: who the team is, the numbers that back it up, and who to contact — for reporters, producers, and partners.", image: "joseph-profile.jpg" },
+    "speaking": { path: "speaking", title: "Speaking | Team Golomboski", description: "Invite Joseph Golomboski to speak: caregiving and Parkinson's advocacy talks for caregiver and support groups, senior centers, healthcare and community organizations, employers, and senior living communities in Rhode Island.", image: "walk2026-joseph-speech.jpg" },
     "site-map": { path: "site-map", title: "Site Map | Team Golomboski", description: "Every page on the Team Golomboski site in one place: our story, events, photo galleries, and the full Resources & Support library for Rhode Island Parkinson's families.", image: "hero-walk-2026.jpg" }
   };
   (function () {
@@ -10230,6 +10430,7 @@
       "pd-resources/young-onset": "Young Onset Parkinson's | Team Golomboski",
       "pd-resources/genetics": "Family History & Genetics | Team Golomboski",
       "press-kit": "Press Kit | Team Golomboski",
+      "speaking": "Speaking | Team Golomboski",
       "site-map": "Site Map | Team Golomboski"
     };
     function parseHash() {
