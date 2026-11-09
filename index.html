@@ -1008,12 +1008,13 @@
      All buttons are >=48px tall for touch and keyboard use. */
   .event-filter-empty{max-width:880px;color:var(--muted);font-size:1.02rem;margin:0 0 24px}
   /* Events dropdown filters: the Galleries page's styled select
-     component (.gallery-filter / .gal-filter-select), sitting in
-     the navy hero, plus a pill Clear filters reset that appears
-     once any dropdown changes. */
-  .event-filters{margin:22px 0 0;align-items:end}
-  .event-filter-clear{font:inherit;font-weight:700;font-size:.95rem;line-height:1.3;min-height:48px;padding:11px 20px;border-radius:99px;border:2px solid rgba(255,255,255,.65);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;-webkit-tap-highlight-color:transparent}
-  .event-filter-clear:hover{background:rgba(255,255,255,.16)}
+     component (.gallery-filter / .gal-filter-select), opening the
+     first light section under the hero like on the Galleries page,
+     plus a pill Clear filters reset that appears once any dropdown
+     changes. */
+  .event-filters{margin:0 0 28px;align-items:end}
+  .event-filter-clear{font:inherit;font-weight:700;font-size:.95rem;line-height:1.3;min-height:48px;padding:11px 20px;border-radius:99px;border:2px solid #0a2340;background:#fff;color:#0a2340;cursor:pointer;-webkit-tap-highlight-color:transparent}
+  .event-filter-clear:hover{background:#eef3f8}
   .event-filter-clear:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
   .event-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow);display:grid;grid-template-columns:150px 1fr;gap:28px}
   .event-when{border-right:1px solid var(--line);padding-right:24px}
@@ -1507,7 +1508,8 @@
   .page-jump-select:hover{border-color:#94a3b8}
   .page-jump-select:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
   #find-a-program,#news-research,#genetics-questions,#more-resources,#virtual-programs,#financial-help,#recommended-reading{scroll-margin-top:96px}
-  #golomboski-family,#in-memory-joseph-sr,#story-so-far,#whole-family,#what-we-stand-for,#siblings-who-started-it,#memory-wall,#walk-with-us,#chapter-one,#chapter-two,#chapter-three,#chapter-four
+  #golomboski-family,#in-memory-joseph-sr,#story-so-far,#whole-family,#what-we-stand-for,#siblings-who-started-it,#memory-wall,#walk-with-us,#chapter-one,#chapter-two,#chapter-three,#chapter-four{scroll-margin-top:96px}
+  #built-together,#service-beyond-the-walk,#joseph,#alicia,#decade-of-service{scroll-margin-top:96px}
   /* Page-foot disclaimers (Find Help): the page's two closing lines
      sit in their own base-shade band after the news section, so they
      stay the last thing on the page. The band's top padding is
@@ -1988,15 +1990,15 @@
      button keep their colors; no other page is affected. */
   [data-page="events"] .event-when .mo,
   [data-page="events"] .section .event-when .mo{color:#0a2340}
+  /* Rock the Resort page only: the concert card's date-block
+     month label takes the same Team navy #0a2340 on its light
+     section background, overriding the base peach rule. */
+  [data-page="rock-the-resort"] .event-when .mo,
+  [data-page="rock-the-resort"] .section .event-when .mo{color:#0a2340}
   [data-page="events"] .event-body p.team-progress-label strong,
   [data-page="events"] .section .event-body p.team-progress-label strong{color:#0a2340}
   [data-page="events"] .tag-todo,
   [data-page="events"] .section .tag-todo{color:#0a2340}
-  /* Rock the Resort page: apply the same navy month-label treatment the
-     Events page uses, so the stranded base peach month on its concert
-     card matches the current palette. Events page keeps its own rule. */
-  [data-page="rock-the-resort"] .event-when .mo,
-  [data-page="rock-the-resort"] .section .event-when .mo{color:#0a2340}
   .section .event-body p.walk-total{background:#e8f4ec;color:#132433}
   .section .event-body p.walk-total strong{color:#16603c}
   .section .impact-chapter-line{background:#e8f4ec;border-color:rgba(21,128,61,.35)}
@@ -2044,18 +2046,6 @@
   .section .chapter-eyebrow{color:#0a2340}
   .section .memorial .chapter-eyebrow{color:#9fb8d2}
   .section .memorial .years{color:#ffb287}
-.page-hero h1 .accent{color:#7fb3e0}
-.founder-role,.hero-role,.person .role,.team-card .role,.profile-head .role,.honor .issuer,.media-feature .byline,.album-cover-meta,.circle-panel .circle-eyebrow{color:#7fb3e0}
-.story-pullquote p strong,.section .story-pullquote p strong{color:#7fb3e0}
-.memorial .years,.section .memorial .years{color:#7fb3e0}
-.circle-amount{background:rgba(36,112,184,.18);border-color:rgba(127,179,224,.5);color:#a8cbe9}
-.circle-panel{border-top-color:#2470b8}
-.section .event-filters{margin:0 0 28px}
-.section .event-filter-clear{border-color:#0a2340;background:#fff;color:#0a2340}
-.section .event-filter-clear:hover{background:#eef3f8}
-.page-hero .founder-role{color:#7fb3e0}
-.founders-row .founder-role{color:#005eb8}
-#built-together,#service-beyond-the-walk,#joseph,#alicia,#decade-of-service{scroll-margin-top:96px}
   .section .memorial figcaption{color:#c9d6e4}
   .section .cta-band h2{color:#fff}
   .section .cta-band p{color:#c9d6e4}
@@ -2155,6 +2145,62 @@
   @media (max-width:900px){
     .start-stack{flex-direction:column}
   }
+
+  /* ---------- Peach text sweep (Nov 8 follow-up) ----------
+     Every remaining peach (#ffb287) TEXT label sits on a navy or
+     dark surface — page heroes, dark panels, the navy quote
+     boxes, the dark memorial band and gallery covers — so it
+     moves to the palette's light blue #7fb3e0, legible on navy.
+     Peach text inside light sections was already converted to
+     navy/APDA blue by the Nov 8 scheme above and is untouched.
+     Peach survives only as decoration: the quote-box left
+     borders, the photo viewer's liked heart, and the Donate
+     orange system is its own color and is not touched. */
+  .page-hero h1 .accent{color:#7fb3e0}
+  .founder-role,.hero-role,.person .role,.team-card .role,.profile-head .role,.honor .issuer,.media-feature .byline,.album-cover-meta,.circle-panel .circle-eyebrow{color:#7fb3e0}
+  .story-pullquote p strong,.section .story-pullquote p strong{color:#7fb3e0}
+  .memorial .years,.section .memorial .years{color:#7fb3e0}
+  .circle-amount{background:rgba(36,112,184,.18);border-color:rgba(127,179,224,.5);color:#a8cbe9}
+  .circle-panel{border-top-color:#2470b8}
+  /* .founder-role context split: the sweep blue above is right on
+     the navy hero, but the Our Story founders row sits on a light
+     section, where it takes the light-section label blue. */
+  .page-hero .founder-role{color:#7fb3e0}
+  .founders-row .founder-role{color:#005eb8}
+
+  /* ---------- Our Story: standard light panels ----------
+     Joseph asked for the standard colors on the Our Story page,
+     so its three remaining navy body panels take the standard
+     light treatment used everywhere else on the site: white
+     cards with #d3dde7 borders and soft shadows, navy headings,
+     slate body text, APDA-blue accents. The navy page hero is
+     untouched (every page's hero is navy — that is standard),
+     and every rule here is scoped to the Our Story page, so no
+     other page changes: the National Plan quote box on the
+     homepage (.story-pullquote--plan) and the CTA bands on
+     other pages stay navy. The quote box keeps its peach left
+     border — decoration only, as on the other quote boxes. */
+  [data-page="our-story"] .section .memorial{background:#fff;border:1px solid #d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.08);color:#33475c}
+  [data-page="our-story"] .section .memorial .in-memory{color:#0a2340}
+  [data-page="our-story"] .section .memorial h2,
+  [data-page="our-story"] .section .memorial h3{color:#0a2340}
+  [data-page="our-story"] .section .memorial .years{color:#005eb8}
+  [data-page="our-story"] .section .memorial p{color:#33475c}
+  [data-page="our-story"] .section .memorial strong{color:#132433}
+  [data-page="our-story"] .section .memorial figcaption{color:#33475c}
+  [data-page="our-story"] .memorial-gallery-head{color:#0a2340}
+  [data-page="our-story"] .memorial-photo img,
+  [data-page="our-story"] .memorial-portrait img,
+  [data-page="our-story"] .memorial-gallery img{border-color:#d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.10)}
+  [data-page="our-story"] .section .story-pullquote--story{background:#fff;border:1px solid #d3dde7;border-left:4px solid #ffb287;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  [data-page="our-story"] .section .story-pullquote--story p{color:#33475c}
+  [data-page="our-story"] .section .story-pullquote--story p strong{color:#0a2340}
+  [data-page="our-story"] .section .cta-band{background:#fff;border:1px solid #d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.08);color:#33475c}
+  [data-page="our-story"] .section .cta-band h2{color:#0a2340}
+  [data-page="our-story"] .section .cta-band p{color:#33475c}
+  [data-page="our-story"] .section .cta-band strong{color:#132433}
+  [data-page="our-story"] .section .cta-band .invite-line{color:#0a2340 !important}
+  [data-page="our-story"] .section .cta-band .btn-outline{--ol-ink:#0a2340;--ol-bg:#fff;--ol-hover:#eef3f8;border-color:#0a2340;color:#0a2340;box-shadow:0 8px 24px rgba(19,36,51,.08)}
 </style>
 </head>
 <body>
@@ -3080,7 +3126,7 @@
       <label class="page-jump-label" for="foundersJumpSelect">On this page</label>
       <select class="page-jump-select" id="foundersJumpSelect">
         <option value="" selected>Choose a section…</option>
-        <option value="built-together">What We’ve Built Together</option>
+        <option value="built-together">What We've Built Together</option>
         <option value="service-beyond-the-walk">Service Beyond the Walk</option>
         <option value="joseph">Joseph Golomboski Jr.</option>
         <option value="alicia">Alicia Golomboski</option>
@@ -3123,7 +3169,7 @@
       </figure>
 
       <div class="prose" style="margin-top:44px">
-        <h2 id="service-beyond-the-walk" style="font-size:1.45rem">Service Beyond the Walk</h2>
+        <h2 style="font-size:1.45rem" id="service-beyond-the-walk">Service Beyond the Walk</h2>
         <p style="margin-top:12px">In 2020, as Rhode Island faced the early months of the pandemic, Joseph and Alicia extended Team Golomboski's giving beyond Parkinson's programs to neighbors in need. That spring and summer, the team donated <strong>$113.30 to the Rhode Island Community Food Bank</strong> (April 2020), delivered <strong>8 extra-large pizzas to the staff at Cherry Hill Manor</strong> (April 2020) — the care community where their father spent his final days — and donated to the <strong>Potter League for Animals</strong> (July 2020).</p>
         <p>That same instinct — to show up where help is needed — has defined their work together from the beginning.</p>
       </div>
@@ -3607,7 +3653,6 @@
       <p class="events-note">Some events are run by the APDA Rhode Island Chapter. Others are run by Team Golomboski to benefit the chapter — each event is labeled so you know which is which.</p>
       <p class="events-note" style="margin-top:14px">Dates are still being set — leave your email and we&rsquo;ll send a note when a date is announced. No newsletter, just event announcements.</p>
       <p style="margin-top:16px"><a class="btn btn-green" href="https://docs.google.com/forms/d/e/1FAIpQLSc4xazZ-3OW2oWdp5_9vxeTJaGT3rVONodd4uWya2_wjun0_w/viewform" target="_blank" rel="noopener">Get Event Notifications →</a></p>
-      
       </div>
       <figure class="page-hero-photo">
         <img class="ph-upper" src="assets/events-walk-day.jpg" alt="Joseph Golomboski Jr. with Team Golomboski members at the Optimism Walk" width="1280" height="1130" />
@@ -3929,6 +3974,46 @@
 
   <section class="section section-alt">
     <div class="wrap">
+      <div class="prose">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>The Tradition Continues</h2>
+        <p style="margin-top:14px">Rock the Resort is now a yearly tradition — a night this community can look forward to every year. It carries the same spirit as walk day: neighbors, music, and showing up for Rhode Island families living with Parkinson's.</p>
+        <p>Each year's concert supports the same mission as everything Team Golomboski does — funding the APDA Rhode Island Chapter's local programs, support services, and research toward a cure.</p>
+        <p>The date for the next Rock the Resort hasn't been set yet. Concert announcements will be posted here and shared through APDA Rhode Island Chapter news — sign up with APDA RI to hear as soon as the date is announced.</p>
+        <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Get APDA Rhode Island News</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Sponsor the next concert">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Sponsor the Next Concert</h2>
+        <p>Rock the Resort is now an annual tradition — and your business can help bring the next one to the stage.</p>
+      </div>
+      <div class="sponsor-layout">
+        <div class="sponsor-copy">
+          <p>Partnering with Rock the Resort puts your business <strong>in front of hundreds of local music fans</strong> while supporting the <strong>APDA Rhode Island Chapter</strong> — a great night of music that does real good close to home.</p>
+          <p>Net proceeds from the concert benefit <strong>support groups, research, and wellness programs</strong> for Rhode Island families living with Parkinson's disease.</p>
+          <ul class="sponsor-benefits">
+            <li><span class="sponsor-check" aria-hidden="true">✓</span><span><strong>A room full of local fans:</strong> your business in front of hundreds of concertgoers from across the community.</span></li>
+            <li><span class="sponsor-check" aria-hidden="true">✓</span><span><strong>A cause that stays local:</strong> sponsorship supports the APDA Rhode Island Chapter and the Rhode Island families it serves.</span></li>
+            <li><span class="sponsor-check" aria-hidden="true">✓</span><span><strong>Good that lasts beyond one night:</strong> net proceeds help fund support groups, research, and wellness programs year-round.</span></li>
+          </ul>
+        </div>
+        <aside class="sponsor-card" aria-label="Become a Rock the Resort sponsor">
+          <h3>Become a Concert Sponsor</h3>
+          <p>Interested in sponsoring the next Rock the Resort? Write to us about your business and we'll reply with the sponsorship options for the next concert — no pressure, just a conversation.</p>
+          <a class="btn btn-green" href="mailto:teamgolomboski@gmail.com?subject=Sponsor%20Rock%20the%20Resort">Email Us About Sponsoring</a>
+          <p class="sponsor-card-note">Next concert date to be announced.</p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
         <h2>The Inaugural Concert — April 26, 2026</h2>
@@ -3994,7 +4079,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="Official Spotify Playlist" style="padding-bottom:0">
+  <section class="section" aria-label="Official Spotify Playlist">
     <div class="wrap">
       <article class="spotify-card">
         <div class="spotify-icon" aria-hidden="true">
@@ -4007,17 +4092,6 @@
           <a class="btn btn-spotify" href="https://open.spotify.com/playlist/3hizfTbhLeLEOgd8L1SuKl" target="_blank" rel="noopener">Listen on Spotify</a>
         </div>
       </article>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="wrap">
-      <div class="prose">
-        <div class="rule" aria-hidden="true"></div>
-        <h2>The Tradition Continues</h2>
-        <p style="margin-top:14px">Rock the Resort is now a yearly tradition — a night this community can look forward to every year. It carries the same spirit as walk day: neighbors, music, and showing up for Rhode Island families living with Parkinson's.</p>
-        <p>Each year's concert supports the same mission as everything Team Golomboski does — funding the APDA Rhode Island Chapter's local programs, support services, and research toward a cure.</p>
-      </div>
     </div>
   </section>
 
@@ -4040,43 +4114,6 @@
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://joesnsonsservice.com/" target="_blank" rel="noopener">Joe &amp; Son&rsquo;s Auto Service</a></div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://www.stacysmithstudios.com/" target="_blank" rel="noopener">Stacy Smith Studios Photography</a></div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://www.martonegroup.com/agents/338535-Paul-Harrison/" target="_blank" rel="noopener">Paul Harrison Realtor</a> (In Memory of George Young)</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" aria-label="Sponsor the next concert">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="rule" aria-hidden="true"></div>
-        <h2>Sponsor the Next Concert</h2>
-        <p>Rock the Resort is now an annual tradition — and your business can help bring the next one to the stage.</p>
-      </div>
-      <div class="sponsor-layout">
-        <div class="sponsor-copy">
-          <p>Partnering with Rock the Resort puts your business <strong>in front of hundreds of local music fans</strong> while supporting the <strong>APDA Rhode Island Chapter</strong> — a great night of music that does real good close to home.</p>
-          <p>Net proceeds from the concert benefit <strong>support groups, research, and wellness programs</strong> for Rhode Island families living with Parkinson's disease.</p>
-          <ul class="sponsor-benefits">
-            <li><span class="sponsor-check" aria-hidden="true">✓</span><span><strong>A room full of local fans:</strong> your business in front of hundreds of concertgoers from across the community.</span></li>
-            <li><span class="sponsor-check" aria-hidden="true">✓</span><span><strong>A cause that stays local:</strong> sponsorship supports the APDA Rhode Island Chapter and the Rhode Island families it serves.</span></li>
-            <li><span class="sponsor-check" aria-hidden="true">✓</span><span><strong>Good that lasts beyond one night:</strong> net proceeds help fund support groups, research, and wellness programs year-round.</span></li>
-          </ul>
-        </div>
-        <aside class="sponsor-card" aria-label="Become a Rock the Resort sponsor">
-          <h3>Become a Concert Sponsor</h3>
-          <p>Interested in sponsoring the next Rock the Resort? Write to us about your business and we'll reply with the sponsorship options for the next concert — no pressure, just a conversation.</p>
-          <a class="btn btn-green" href="mailto:teamgolomboski@gmail.com?subject=Sponsor%20Rock%20the%20Resort">Email Us About Sponsoring</a>
-          <p class="sponsor-card-note">Next concert date to be announced.</p>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" style="padding-top:0">
-    <div class="wrap">
-      <div class="cta-band">
-        <h2>Next Concert — Date to Be Announced</h2>
-        <p>The date for the next Rock the Resort hasn't been set yet. Concert announcements will be posted here and shared through APDA Rhode Island Chapter news — sign up with APDA RI to hear as soon as the date is announced.</p>
-        <a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Get APDA Rhode Island News</a>
       </div>
     </div>
   </section>
@@ -8903,7 +8940,7 @@
       <p>When someone you love has Parkinson's, you live with it too. Here is APDA's guidance for care partners — and Rhode Island support that starts with a group led by our own chapter.</p>
       </div>
       <figure class="page-hero-photo">
-        <img src="assets/support.jpg" alt="A support group seated in a circle, talking and laughing together" width="1024" height="421" />
+        <img src="assets/walk2021-frame-trio.jpg" alt="Joseph Golomboski (right) with friends behind the APDA photo frame at the 2021 Rhode Island Optimism Walk" width="2690" height="4034" />
       </figure>
     </div>
   </section>
@@ -9465,6 +9502,11 @@
       }
     });
   })();
+
+  // Joseph & Alicia "On this page" dropdown: same pattern as the
+  // Our Story menu, routing through #/joseph-and-alicia#anchor so
+  // the landing uses the router's 96px header offset. The chosen
+  // section stays showing in the dropdown.
   (function () {
     var select = document.getElementById("foundersJumpSelect");
     if (!select) { return; }
