@@ -1584,6 +1584,21 @@
   .info-box p:last-child{margin-bottom:0}
   .info-box address{font-style:normal;font-size:1.05rem;line-height:1.7;color:var(--ink)}
   .info-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+
+  /* ---------- Learn more cross-link boxes ----------
+     One small card component, placed at the end of the section
+     it belongs to, on pages with a genuine connection to another
+     page: 1–2 links, each with a one-line reason. On wide
+     screens it sits right-aligned like a rail card; on phones
+     it stacks full-width below the content it accompanies. */
+  .learn-more{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);max-width:400px;margin:30px 0 0 auto}
+  .learn-more h3{font-size:1.05rem;font-weight:800;color:#eaf1f8;margin:0 0 12px}
+  .learn-more ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+  .learn-more li{margin:0;line-height:1.5}
+  .learn-more a{font-weight:700;text-decoration:none}
+  .learn-more a:hover{text-decoration:underline}
+  .learn-more-why{display:block;margin-top:2px;font-size:.95rem;line-height:1.55;color:var(--muted)}
+  @media (max-width:700px){ .learn-more{max-width:none;margin-left:0} }
   .boilerplate{background:var(--green-soft);border-radius:var(--radius);padding:28px 30px;font-size:1.06rem;line-height:1.7}
   .boilerplate p{margin:0}
   .stat-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
@@ -2239,6 +2254,19 @@
      keeps the standard white-card treatment from the generic flip
      above and gains the peach quote-box left edge as decoration. */
   [data-page="pd-resources/young-onset"] .section .pd-family-note-top{border-left:4px solid #ffb287}
+  /* Learn more boxes (light scheme): the standard white-card
+     treatment, with the reason lines in body slate. The heading
+     and links take the generic light-section navy and APDA blue
+     from the rules above. */
+  .section .learn-more{background:#fff;border-color:#d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  .section .learn-more-why{color:#33475c}
+  /* Site Map page: two grouped link lists side by side on
+     desktop, stacked on phones. */
+  .sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px;align-items:start}
+  .sitemap-list{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-direction:column;gap:16px}
+  .sitemap-list a{font-size:1.08rem}
+  .sitemap-list span{display:block;margin-top:2px;font-size:.95rem;line-height:1.55;color:#33475c}
+  @media (max-width:760px){ .sitemap-grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -2889,6 +2917,12 @@
           <li><span class="ch-year">Aug. 9, 2019</span><span class="ch-title">In memory of him</span><span class="ch-text">The family loses Joseph Sr. The team could have ended. It didn't.</span></li>
           <li><span class="ch-year">Today</span><span class="ch-title">Still walking</span><span class="ch-text">Over $40,000 raised in his name, chapter leadership, and a concert where his portrait still watches over the night.</span></li>
         </ol>
+        <aside class="learn-more" aria-label="Learn more">
+          <h3>Learn more</h3>
+          <ul>
+            <li><a href="#/pd-resources/young-onset">Young Onset Parkinson's</a><span class="learn-more-why">A diagnosis at 44 is young onset. If Parkinson's came early for you or someone you love, this page is for you.</span></li>
+          </ul>
+        </aside>
       </div>
       <figure class="story-section-photo">
         <img src="assets/founders-trio.jpg" alt="Alicia Golomboski and Joseph Golomboski Jr. with their father, Joseph Golomboski Sr., seated in his wheelchair." width="540" height="720" />
@@ -3213,6 +3247,12 @@
         <p style="margin-top:12px">In 2020, as Rhode Island faced the early months of the pandemic, Joseph and Alicia extended Team Golomboski's giving beyond Parkinson's programs to neighbors in need. That spring and summer, the team donated <strong>$113.30 to the Rhode Island Community Food Bank</strong> (April 2020), delivered <strong>8 extra-large pizzas to the staff at Cherry Hill Manor</strong> (April 2020) — the care community where their father spent his final days — and donated to the <strong>Potter League for Animals</strong> (July 2020).</p>
         <p>That same instinct — to show up where help is needed — has defined their work together from the beginning.</p>
       </div>
+      <aside class="learn-more" aria-label="Learn more">
+        <h3>Learn more</h3>
+        <ul>
+          <li><a href="#/our-story">Our Story</a><span class="learn-more-why">The full family story — how their dad's diagnosis became Team Golomboski.</span></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -4131,6 +4171,12 @@
           </div>
         </article>
       </div>
+      <aside class="learn-more" aria-label="Learn more">
+        <h3>Learn more</h3>
+        <ul>
+          <li><a href="#/galleries#gallery-rock-the-resort-2026">Photo Galleries</a><span class="learn-more-why">See the night in pictures — the full Rock the Resort 2026 album.</span></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -8973,6 +9019,12 @@
         <p>Exercise classes and support groups meet all over Rhode Island — and they are some of the best first steps there are.</p>
       </div>
       <p class="pd-resources-framing">Search by ZIP code or town on our <a href="#/pd-resources/programs">Programs &amp; Support Groups</a> page to see what's near you, including virtual programs you can join from home.</p>
+      <aside class="learn-more" aria-label="Learn more">
+        <h3>Learn more</h3>
+        <ul>
+          <li><a href="#/pd-resources/programs">Programs &amp; Support Groups</a><span class="learn-more-why">A support group or exercise class nearby is one of the best first steps — here's where to find yours.</span></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -9093,6 +9145,13 @@
           <li><a href="https://www.brainsupportnetwork.org/" target="_blank" rel="noopener">Brain Donation</a> — information about brain donation, through the Brain Support Network.</li>
         </ul>
         <p class="pd-resources-routing">These resources come from APDA's <a href="https://www.apdaparkinson.org/resources-support/for-care-partners/" target="_blank" rel="noopener">Resources for Care Partners</a> page. And if you can't find what you're looking for, APDA invites you to call the national helpline at <a href="tel:+18002232732"><strong>800-223-2732</strong></a> or email <a href="mailto:apda@apdaparkinson.org">apda@apdaparkinson.org</a> for referrals and information.</p>
+        <aside class="learn-more" aria-label="Learn more">
+          <h3>Learn more</h3>
+          <ul>
+            <li><a href="#/pd-resources/reading">Recommended Reading</a><span class="learn-more-why">Books for the road you're on — including <em>A Son's Journey</em>, one care partner's memoir.</span></li>
+            <li><a href="#/our-story">Our Story</a><span class="learn-more-why">Our family's own caregiving story — including the wedding brought to Cherry Hill Manor so Dad could be there.</span></li>
+          </ul>
+        </aside>
       </div>
     </div>
   </section>
@@ -9174,6 +9233,13 @@
         <h3>Young Onset Is Personal for Our Family</h3>
         <p>Our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44 — so young onset is personal for this family.</p>
       </div>
+      <aside class="learn-more" aria-label="Learn more">
+        <h3>Learn more</h3>
+        <ul>
+          <li><a href="#/our-story">Our Story</a><span class="learn-more-why">Our dad was diagnosed at 44 — read his story.</span></li>
+          <li><a href="#/pd-resources/news#genetics-questions">News &amp; Research</a><span class="learn-more-why">Does Parkinson's run in the family? APDA's note on family history and genetics.</span></li>
+        </ul>
+      </aside>
     </div>
   </section>
 
@@ -9393,6 +9459,68 @@
 
 </div><!-- /page press-kit -->
 
+<!-- ============================================================
+     PAGE: SITE MAP
+     ============================================================ -->
+<div class="page" data-page="site-map">
+
+  <section class="page-hero" aria-label="Site map introduction">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> · Site Map</div>
+      <h1>Site Map</h1>
+      <p>Every page on the Team Golomboski site, in one place — the team's story and events, and the full Resources &amp; Support library for Rhode Island Parkinson's families.</p>
+      </div>
+      <figure class="page-hero-photo">
+        <img src="assets/hero-walk-2026.jpg" alt="Walkers on the path at the 2026 Rhode Island Optimism Walk, Warwick City Park" width="1920" height="1280" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-label="All pages on this site">
+    <div class="wrap">
+      <div class="sitemap-grid">
+        <div class="sitemap-group">
+          <div class="section-head">
+            <div class="rule" aria-hidden="true"></div>
+            <h2>Explore Team Golomboski</h2>
+          </div>
+          <ul class="sitemap-list">
+            <li><a href="#/">Home</a><span>Start here — who we are, what's coming up, and how to get involved.</span></li>
+            <li><a href="#/our-story">Our Story</a><span>How Team Golomboski began in 2014 around Joseph Golomboski Sr. — and the family still walking in his memory.</span></li>
+            <li><a href="#/joseph-and-alicia">Joseph &amp; Alicia</a><span>Meet the brother-and-sister co-founders who lead the team.</span></li>
+            <li><a href="#/impact">Impact</a><span>What the team has raised since 2014 — and the local programs every dollar supports.</span></li>
+            <li><a href="#/events">Events</a><span>The Optimism Walk &amp; 5K, the Magic of Hope Gala, Rock the Resort, trivia and bingo nights.</span></li>
+            <li><a href="#/rock-the-resort">Rock the Resort</a><span>Our annual Concert for a Cure at The Last Resort in Smithfield.</span></li>
+            <li><a href="#/galleries">Photo Galleries</a><span>Walk days, concerts, and team events in pictures, from 2014 to today.</span></li>
+            <li><a href="#/media">Media</a><span>Team Golomboski in the news — coverage and interviews.</span></li>
+            <li><a href="#/press-kit">Press Kit</a><span>The facts, figures, and contacts for reporters, producers, and partners.</span></li>
+            <li><a href="#/donate">Donate</a><span>Give through Team Golomboski to the APDA Rhode Island Chapter.</span></li>
+            <li><a href="#/site-map">Site Map</a><span>This page — every page on the site, in one place.</span></li>
+          </ul>
+        </div>
+        <div class="sitemap-group">
+          <div class="section-head">
+            <div class="rule" aria-hidden="true"></div>
+            <h2>Resources &amp; Support</h2>
+          </div>
+          <ul class="sitemap-list">
+            <li><a href="#/pd-resources">Resources &amp; Support</a><span>The hub — plain-language Parkinson's help, and the Rhode Island people you can call.</span></li>
+            <li><a href="#/pd-resources/programs">Programs &amp; Support Groups</a><span>Find a support group or exercise class near you, by ZIP code or town.</span></li>
+            <li><a href="#/pd-resources/news">News &amp; Research</a><span>Parkinson's headlines from APDA, and A Closer Look from APDA's doctor blog.</span></li>
+            <li><a href="#/pd-resources/help">Financial Help &amp; RI Resources</a><span>Help with the costs of Parkinson's, plus Rhode Island services for families.</span></li>
+            <li><a href="#/pd-resources/reading">Recommended Reading</a><span>APDA booklets and books our community has found helpful.</span></li>
+            <li><a href="#/pd-resources/just-diagnosed">Just Diagnosed</a><span>First steps after a Parkinson's diagnosis — APDA's guidance and local help.</span></li>
+            <li><a href="#/pd-resources/caregivers">Caregivers &amp; Care Partners</a><span>Guidance and support for the people doing the caring.</span></li>
+            <li><a href="#/pd-resources/young-onset">Young Onset Parkinson's</a><span>Parkinson's diagnosed between 21 and 50 — what makes it different, and local support.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page site-map -->
+
 </main>
 
 <!-- Photo viewer (Galleries page + the Our Story inline First Walk grid): tapping any gallery photo opens
@@ -9515,6 +9643,7 @@
           <a href="#/donate">Donate</a>
           <a href="#/pd-resources">Resources &amp; Support</a>
           <a href="#/press-kit">Press Kit</a>
+          <a href="#/site-map">Site Map</a>
         </nav>
       </div>
       <div>
@@ -9546,7 +9675,7 @@
 <script>
   // Hash router: each .page block is one self-contained page.
   // Routes: #/ (home), #/our-story, #/joseph-and-alicia, #/impact, #/events,
-  //         #/rock-the-resort, #/media, #/galleries, #/donate, #/pd-resources, #/press-kit
+  //         #/rock-the-resort, #/media, #/galleries, #/donate, #/pd-resources, #/press-kit, #/site-map
   // A route may carry a gallery anchor: #/galleries#gallery-first-walk-2014
 
   // ================================================================
@@ -9568,6 +9697,7 @@
   //   donate            /donate                        funny4funds-check.jpg
   //   pd-resources      /pd-resources                  support.jpg
   //   press-kit         /press-kit                     joseph-profile.jpg
+  //   site-map          /site-map                      hero-walk-2026.jpg
   //
   // Social scrapers don't run JavaScript or read hash fragments,
   // so per-page cards can't ride on this file alone: at publish
@@ -9599,7 +9729,8 @@
     "pd-resources/just-diagnosed": { path: "pd-resources", title: "Just Diagnosed | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
     "pd-resources/caregivers": { path: "pd-resources", title: "Caregivers & Care Partners | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
     "pd-resources/young-onset": { path: "pd-resources", title: "Young Onset Parkinson's | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
-    "press-kit": { path: "press-kit", title: "Press Kit | Team Golomboski", description: "The Team Golomboski press kit: who the team is, the numbers that back it up, and who to contact — for reporters, producers, and partners.", image: "joseph-profile.jpg" }
+    "press-kit": { path: "press-kit", title: "Press Kit | Team Golomboski", description: "The Team Golomboski press kit: who the team is, the numbers that back it up, and who to contact — for reporters, producers, and partners.", image: "joseph-profile.jpg" },
+    "site-map": { path: "site-map", title: "Site Map | Team Golomboski", description: "Every page on the Team Golomboski site in one place: our story, events, photo galleries, and the full Resources & Support library for Rhode Island Parkinson's families.", image: "hero-walk-2026.jpg" }
   };
   (function () {
     var TITLES = {
@@ -9620,7 +9751,8 @@
       "pd-resources/just-diagnosed": "Just Diagnosed | Team Golomboski",
       "pd-resources/caregivers": "Caregivers & Care Partners | Team Golomboski",
       "pd-resources/young-onset": "Young Onset Parkinson's | Team Golomboski",
-      "press-kit": "Press Kit | Team Golomboski"
+      "press-kit": "Press Kit | Team Golomboski",
+      "site-map": "Site Map | Team Golomboski"
     };
     function parseHash() {
       var parts = window.location.hash.split("#");
