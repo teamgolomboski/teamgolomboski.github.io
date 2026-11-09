@@ -927,7 +927,7 @@
   .story-chapters .ch-text{color:var(--muted);font-size:.9rem;display:block;margin-top:6px;line-height:1.5}
   @media (max-width:768px){ .story-chapters{grid-template-columns:1fr 1fr} .story-pullquote{padding:22px 20px} }
   @media (max-width:400px){ .story-chapters{grid-template-columns:1fr} }
-  .prose h3.story-subhead{font-size:1.28rem;font-weight:800;color:var(--navy);margin:30px 0 0}
+  .prose h3.story-subhead{font-size:1.28rem;font-weight:800;color:var(--navy);margin:42px 0 0}
   .prose h3.story-subhead{color:#eaf1f8}
   .prose h3.story-subhead + p{margin-top:10px}
   /* Our Story chapter eyebrows: a small-caps label above each chapter
@@ -938,7 +938,7 @@
   .chapter-eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#ffb287;margin:28px 0 0}
   .chapter-eyebrow + h3.story-subhead{margin-top:6px}
   .memorial .chapter-eyebrow{color:#9fb8d2;margin-top:10px}
-  .memorial .chapter-eyebrow + h2{margin-top:6px}
+  .memorial h2{margin-top:10px}
 
   /* ---------- Our Story — "The Story So Far" timeline ----------
      Reuses the site's timeline treatment (vertical rule + orange dots
@@ -1507,7 +1507,7 @@
   .page-jump-select:hover{border-color:#94a3b8}
   .page-jump-select:focus-visible{outline:3px solid #8ec5ff;outline-offset:3px}
   #find-a-program,#news-research,#genetics-questions,#more-resources,#virtual-programs,#financial-help,#recommended-reading{scroll-margin-top:96px}
-  #golomboski-family,#in-memory-joseph-sr,#story-so-far,#whole-family,#what-we-stand-for,#siblings-who-started-it,#memory-wall,#walk-with-us,#chapter-one,#chapter-two,#chapter-three,#chapter-four{scroll-margin-top:96px}
+  #golomboski-family,#in-memory-joseph-sr,#story-so-far,#whole-family,#what-we-stand-for,#siblings-who-started-it,#memory-wall,#walk-with-us,#chapter-one,#chapter-two,#chapter-three,#chapter-four
   /* Page-foot disclaimers (Find Help): the page's two closing lines
      sit in their own base-shade band after the news section, so they
      stay the last thing on the page. The band's top padding is
@@ -1992,6 +1992,11 @@
   [data-page="events"] .section .event-body p.team-progress-label strong{color:#0a2340}
   [data-page="events"] .tag-todo,
   [data-page="events"] .section .tag-todo{color:#0a2340}
+  /* Rock the Resort page: apply the same navy month-label treatment the
+     Events page uses, so the stranded base peach month on its concert
+     card matches the current palette. Events page keeps its own rule. */
+  [data-page="rock-the-resort"] .event-when .mo,
+  [data-page="rock-the-resort"] .section .event-when .mo{color:#0a2340}
   .section .event-body p.walk-total{background:#e8f4ec;color:#132433}
   .section .event-body p.walk-total strong{color:#16603c}
   .section .impact-chapter-line{background:#e8f4ec;border-color:rgba(21,128,61,.35)}
@@ -2730,11 +2735,11 @@
       <label class="page-jump-label" for="storyJumpSelect">On this page</label>
       <select class="page-jump-select" id="storyJumpSelect">
         <option value="" selected>Choose a section…</option>
-        <option value="chapter-one">Chapter One — A Family Decides Not to Carry It Quietly</option>
-        <option value="chapter-two">Chapter Two — The First Walk — 2014</option>
-        <option value="chapter-three">Chapter Three — When “In Honor Of” Became “In Memory Of”</option>
-        <option value="chapter-four">Chapter Four — Carrying His Name Forward — Together</option>
-        <option value="in-memory-joseph-sr">Chapter Five — Joseph P. Golomboski Sr.</option>
+        <option value="chapter-one">A Family Decides Not to Carry It Quietly</option>
+        <option value="chapter-two">The First Walk — 2014</option>
+        <option value="chapter-three">When “In Honor Of” Became “In Memory Of”</option>
+        <option value="chapter-four">Carrying His Name Forward — Together</option>
+        <option value="in-memory-joseph-sr">Joseph P. Golomboski Sr.</option>
         <option value="story-so-far">The Story So Far</option>
         <option value="whole-family">The Whole Family</option>
         <option value="what-we-stand-for">What We Stand For</option>
@@ -2752,7 +2757,6 @@
         <h2>It Begins With the Golomboski Family</h2>
         <p style="margin-top:14px">This is a family story before it is a team story. Before there was a team name, a tent, or a fundraising goal, there was the <strong>Golomboski family</strong> — <strong>Joseph P. Golomboski Sr.</strong>, his children <strong>Alicia</strong> and <strong>Joseph Jr.</strong>, their mom, <strong>Donna Harrison Lerch</strong>, his brother <strong>Anthony Golomboski</strong> — Uncle Tony to Alicia and Joseph Jr. — and Anthony's wife, <strong>Gayle Golomboski</strong> — Aunt Gayle — his sister <strong>Maria Francis</strong> — Aunt Maria to the family — and the family around them. Everything Team Golomboski has become started with them, at home, long before the first walk.</p>
         <p>Then Parkinson's entered that family's life — early, and without asking. Joseph Sr. was diagnosed with <strong>early-onset Parkinson's at age 44</strong>. Forty-four is young. It is a time when most people expect many working years, family years, and ordinary days still ahead of them. Instead, the years that followed were lived with Parkinson's — and not by him alone. His children watched what the disease takes, year after year. The whole family learned how much has to be carried alongside the person who is ill: the appointments, the changes, the worry, and the love that has to get louder than all of it.</p>
-        <p class="chapter-eyebrow">Chapter One</p>
         <h3 class="story-subhead" id="chapter-one">A Family Decides Not to Carry It Quietly</h3>
         <p>In <strong>2014</strong>, Alicia and Joseph Jr. did something simple and stubborn with that love and worry: they founded <strong>Team Golomboski</strong> in honor of their father, who was living with Parkinson's disease. They put his name on the team — the family name — and invited other people to stand with them. The team walks and fundraises for the <strong>American Parkinson Disease Association Rhode Island Chapter</strong>, so that other Rhode Island families facing Parkinson's have programs, support, and a community to lean on — the kind of community they wanted around their own dad.</p>
         <p>The walk began as a way to honor their father. What deepened it into a lasting commitment was the family's relationship with the APDA Rhode Island Chapter — and especially with Mary Ellen Thibodeau, the chapter's executive director at the time. As Joseph Sr.'s Parkinson's advanced, the family turned to the chapter for help, and Mary Ellen became their guide — the person who showed two teenagers, and later two young caregivers, that they were not carrying this alone.</p>
@@ -2763,7 +2767,6 @@
           <p>He is not off to the side in these photos. <strong>He is in the middle of it</strong> — with his children beside him, and his name on every shirt around him.</p>
         </div>
         <div class="first-walk">
-          <p class="chapter-eyebrow">Chapter Two</p>
           <h3 class="story-subhead" id="chapter-two">The First Walk — 2014</h3>
           <p>Scenes from the 2014 Rhode Island Optimism Walk — Team Golomboski's first walk, the year Alicia and Joseph Jr. founded the team in their dad's honor.</p>
           <p class="gallery-hint">Tap any photo to see it larger.</p>
@@ -2785,13 +2788,11 @@
             <a class="btn btn-outline btn-outline-surface" href="#/galleries#gallery-first-walk-2014">See the Full First-Walk Gallery →</a>
           </div>
         </div>
-        <p class="chapter-eyebrow">Chapter Three</p>
         <h3 class="story-subhead" id="chapter-three">When “In Honor Of” Became “In Memory Of”</h3>
         <p>In the summer of <strong>2019</strong>, as Joseph Sr.'s battle with Parkinson's was nearing its end, the family learned he would not make it to Joseph and Kirby's wedding, planned for <strong>August 10</strong>. So they brought the wedding to him. On <strong>July 14, 2019</strong>, Joseph and Kirby married at <strong>Cherry Hill Manor Nursing and Rehabilitation Center in Johnston</strong>, so his dad could be there.</p>
         <p>Looking back on that day, Joseph said: <em>“He was more alert than he had been in a while.”</em> His dad was there for his wedding — and that is what the family holds onto from that day.</p>
         <p>Then everything changed. Joseph Sr. passed away on <strong>August 9, 2019</strong> — the day before the wedding date the family had originally planned. The words the family had used since 2014 had to change with him: <strong>“in honor of” became “in memory of.”</strong> Same name. Same family. One word different — and it said everything about what they had lost.</p>
         <p>It would have been understandable to stop there — to let the team be something they had done while he was here. They didn't stop. Grief could have ended this story. In this family, it became the reason the story continued.</p>
-        <p class="chapter-eyebrow">Chapter Four</p>
         <h3 class="story-subhead" id="chapter-four">Carrying His Name Forward — Together</h3>
         <p>The team has never stopped walking. Since 2014, Team Golomboski has raised <strong>over $40,000 for APDA Rhode Island</strong>, and the walk around it has grown, too — in 2026, the Rhode Island Optimism Walk as a whole raised <strong>$193,430.95</strong> for the chapter. Those are two different numbers, and both matter: the first is what this family team has raised in his name; the second is what the whole Rhode Island community raised together on walk day.</p>
         <p>What began as a family effort now helps lead the chapter. Joseph Jr. serves as <strong>President of the APDA Rhode Island Chapter's Board of Directors</strong>, and Alicia serves alongside him on that board — the same brother and sister who started a walk team for their dad in 2014. And in 2026, the family started something new in his name: <strong>Rock the Resort</strong>, an annual Concert for a Cure, where Joseph Sr.'s portrait sits on a memorial table and watches over the show — the music, the crowd, and the cause he is the reason for.</p>
@@ -2826,7 +2827,6 @@
     <div class="wrap">
       <div class="memorial">
         <div class="in-memory">In Loving Memory</div>
-        <p class="chapter-eyebrow">Chapter Five</p>
         <h2>Joseph P. Golomboski Sr.</h2>
         <div class="years">1960 – 2019</div>
         <figure class="memorial-portrait">
