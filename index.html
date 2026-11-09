@@ -2021,6 +2021,12 @@
      decade band's contact links. */
   #app .sponsor-card a:not(.btn){color:#8ec5ff}
   #app .decade-contact a{color:#fff}
+  /* The hub's finder panel is the same navy anchor, sitting inside
+     the hub's light Explore section: its heading, sub line, hint
+     text and Browse-all link keep their light panel colors. */
+  .section .hub-finder-panel h3{color:#fff}
+  .section .hub-finder-panel p{color:#c9d6e4}
+  #app .hub-finder-panel a:not(.btn){color:#8ec5ff}
   /* Outline buttons on light: white fill (the Start Here treatment),
      navy outline, navy text, soft card shadow */
   .section .btn-outline,
@@ -2128,6 +2134,15 @@
   .hub-card{min-height:0}
   .hub-card-cta{font-weight:700;color:#005eb8;margin-top:auto}
   .hub-card:hover .hub-card-cta{text-decoration:underline}
+  /* Hub finder panel: the Programs page finder panel (.finder-panel)
+     carried at the top of the hub's Explore section — same navy card,
+     sub line and green Search; its heading drops to h3 under the
+     section's h2, sized and ruled to match the panel's h2 treatment.
+     The panel holds no listings of its own: submitting hands the
+     term to the Programs page finder (see the hub search script). */
+  .hub-finder-panel{margin-bottom:28px}
+  .hub-finder-panel h3{color:#ffffff;font-size:clamp(1.45rem,2.9vw,1.9rem);font-weight:800}
+  .hub-finder-panel h3::before{content:"";display:block;width:56px;height:4px;border-radius:99px;background:var(--orange);margin-bottom:16px}
   @media (max-width:768px){ .hub-grid{grid-template-columns:1fr} }
   .res-back-wrap{margin:34px 0 0}
   .res-back{font-weight:700}
@@ -2562,7 +2577,7 @@
   <section class="section" aria-label="A National Plan to End Parkinson's">
     <div class="wrap">
       <div class="recap-grid recap-photo-grid">
-      <div class="recap-copy prose">
+      <div class="recap-copy prose" style="min-width:0">
         <div class="rule" aria-hidden="true"></div>
         <h2>A National Plan to End Parkinson's</h2>
         <p style="margin-top:14px">In July 2024, the National Plan to End Parkinson's Act became federal law — the first law of its kind. It directs a coordinated national effort, led by the National Institutes of Health, to prevent, diagnose, treat, and ultimately cure Parkinson's, guided by a federal Advisory Council that seats people living with Parkinson's, family care partners, clinicians, and researchers alongside government officials.</p>
@@ -2572,9 +2587,11 @@
           <p>&ldquo;Families here feel Parkinson's at the kitchen table — in work missed, care given, and bills paid. A real national plan means faster research and real support for the people doing the caring. Our chapter will keep Rhode Island families posted on what this means for them.&rdquo;</p>
           <p style="font-family:'Public Sans',system-ui,sans-serif;font-style:normal;font-size:.98rem;line-height:1.5;margin-top:14px;color:var(--muted)">— Joseph Golomboski, President, APDA Rhode Island Chapter</p>
         </div>
-        <div style="display:flex;gap:14px;flex-wrap:nowrap;margin-top:24px">
-          <a class="btn btn-outline" style="flex:1 1 0;justify-content:center;text-align:center" href="https://www.ninds.nih.gov/current-research/trans-agency-activities/national-plan-end-parkinsons" target="_blank" rel="noopener">The National Plan at NIH</a>
-          <a class="btn btn-outline" style="flex:1 1 0;justify-content:center;text-align:center" href="https://www.apdaparkinson.org/article/apda-applauds-seating-of-the-national-parkinsons-planadvisory-council/" target="_blank" rel="noopener">APDA on the National Plan</a>
+        <p style="margin-top:24px">Add your name: sign the Parkinson's community petition urging the Council to keep listening — a joint effort of APDA, The Michael J. Fox Foundation, and the Parkinson's Foundation.</p>
+        <div style="display:flex;gap:14px;flex-wrap:nowrap;margin-top:24px;min-width:0">
+          <a class="btn btn-outline" style="flex:1 1 0;min-width:0;justify-content:center;text-align:center" href="https://www.ninds.nih.gov/current-research/trans-agency-activities/national-plan-end-parkinsons" target="_blank" rel="noopener">The National Plan at NIH</a>
+          <a class="btn btn-outline" style="flex:1 1 0;min-width:0;justify-content:center;text-align:center" href="https://www.apdaparkinson.org/article/apda-applauds-seating-of-the-national-parkinsons-planadvisory-council/" target="_blank" rel="noopener">APDA on the National Plan</a>
+          <a class="btn btn-outline" style="flex:1 1 0;min-width:0;justify-content:center;text-align:center" href="https://docs.google.com/forms/d/e/1FAIpQLSfCE2FRTIJls7vTWWl-b4qGsHOaak4I7dOHsPadVXDJSzuv8g/viewform" target="_blank" rel="noopener">Sign the Petition</a>
         </div>
       </div>
         <figure class="recap-photo">
@@ -8249,7 +8266,61 @@
     </div>
   </section>
 
-  <section class="section" aria-label="Your APDA Rhode Island team">
+  <section class="section" aria-label="Explore Resources &amp; Support">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Explore Resources &amp; Support</h2>
+        <p>Programs, news, financial help, and reading — pick a topic to get started.</p>
+      </div>
+      <div class="finder-panel hub-finder-panel">
+        <h3>Find Programs &amp; Support Groups Near You</h3>
+        <p class="finder-sub">Enter your ZIP code or town to see exercise classes and support groups close to home.</p>
+        <form class="finder-search" id="hubFinderForm">
+          <label for="hubNearSearch">Enter your ZIP code or town</label>
+          <div class="finder-row">
+            <input type="search" id="hubNearSearch" autocomplete="off" placeholder="Enter your ZIP code or town — try: Warwick, Providence, 02886" />
+            <button type="submit" class="btn finder-btn">Search</button>
+          </div>
+        </form>
+        <p class="finder-hint"><a href="#/pd-resources/programs">Browse all programs &amp; support groups</a></p>
+      </div>
+      <div class="hub-grid">
+        <a class="pathway-card hub-card" href="#/pd-resources/just-diagnosed">
+          <h3>Just Diagnosed</h3>
+          <p>A diagnosis is the start of a plan, not the end of one — APDA's first steps for the days and weeks ahead.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="pathway-card hub-card" href="#/pd-resources/caregivers">
+          <h3>Caregivers &amp; Care Partners</h3>
+          <p>When someone you love has Parkinson's, you live with it too — APDA's support and resources for care partners.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="pathway-card hub-card" href="#/pd-resources/programs">
+          <h3>Programs &amp; Support Groups</h3>
+          <p>Enter your ZIP code or town to see exercise classes and support groups close to home.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="pathway-card hub-card" href="#/pd-resources/news">
+          <h3>News &amp; Research</h3>
+          <p>The latest from the American Parkinson Disease Association — research updates and news for the Parkinson's community.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="pathway-card hub-card" href="#/pd-resources/help">
+          <h3>Financial Help &amp; Rhode Island Resources</h3>
+          <p>For needs beyond Parkinson's — aging, disability, and help at home — these Rhode Island resources are a good place to start.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
+        <a class="pathway-card hub-card" href="#/pd-resources/reading">
+          <h3>Recommended Reading</h3>
+          <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Your APDA Rhode Island team">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -8290,48 +8361,6 @@
         </article>
       </div>
       <p class="chapter-address" style="margin-top:24px">Chapter mailing address: <strong>APDA Rhode Island, PO Box 114098, North Providence, RI 02911</strong></p>
-    </div>
-  </section>
-
-  <section class="section section-alt" aria-label="Explore Resources &amp; Support">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="rule" aria-hidden="true"></div>
-        <h2>Explore Resources &amp; Support</h2>
-        <p>Programs, news, financial help, and reading — pick a topic to get started.</p>
-      </div>
-      <div class="hub-grid">
-        <a class="pathway-card hub-card" href="#/pd-resources/just-diagnosed">
-          <h3>Just Diagnosed</h3>
-          <p>A diagnosis is the start of a plan, not the end of one — APDA's first steps for the days and weeks ahead.</p>
-          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
-        </a>
-        <a class="pathway-card hub-card" href="#/pd-resources/caregivers">
-          <h3>Caregivers &amp; Care Partners</h3>
-          <p>When someone you love has Parkinson's, you live with it too — APDA's support and resources for care partners.</p>
-          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
-        </a>
-        <a class="pathway-card hub-card" href="#/pd-resources/programs">
-          <h3>Programs &amp; Support Groups</h3>
-          <p>Enter your ZIP code or town to see exercise classes and support groups close to home.</p>
-          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
-        </a>
-        <a class="pathway-card hub-card" href="#/pd-resources/news">
-          <h3>News &amp; Research</h3>
-          <p>The latest from the American Parkinson Disease Association — research updates and news for the Parkinson's community.</p>
-          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
-        </a>
-        <a class="pathway-card hub-card" href="#/pd-resources/help">
-          <h3>Financial Help &amp; Rhode Island Resources</h3>
-          <p>For needs beyond Parkinson's — aging, disability, and help at home — these Rhode Island resources are a good place to start.</p>
-          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
-        </a>
-        <a class="pathway-card hub-card" href="#/pd-resources/reading">
-          <h3>Recommended Reading</h3>
-          <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
-          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
-        </a>
-      </div>
     </div>
   </section>
 
@@ -9685,6 +9714,31 @@
     if (searchBtn) { searchBtn.addEventListener("click", runSearch); }
     input.addEventListener("keydown", function (ev) {
       if (ev.key === "Enter") { ev.preventDefault(); runSearch(); }
+    });
+  })();
+
+  // Resources & Support hub search panel: the hub carries no finder
+  // of its own — the Programs page finder above stays the single
+  // source. Submitting (Search button or Enter) copies the term
+  // into that finder's input and fires its input event, which runs
+  // the exact filter a visitor typing on the Programs page gets,
+  // then routes to the Programs page with the results filtered —
+  // the same hand-off the retired homepage panel made.
+  (function () {
+    var form = document.getElementById("hubFinderForm");
+    var hubInput = document.getElementById("hubNearSearch");
+    if (!form || !hubInput) { return; }
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var finderInput = document.getElementById("nearSearch");
+      if (finderInput) {
+        finderInput.value = hubInput.value;
+        var evt;
+        if (typeof Event === "function") { evt = new Event("input", { bubbles: true }); }
+        else { evt = document.createEvent("Event"); evt.initEvent("input", true, false); }
+        finderInput.dispatchEvent(evt);
+      }
+      window.location.hash = "#/pd-resources/programs";
     });
   })();
 
