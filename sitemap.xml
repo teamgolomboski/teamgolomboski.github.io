@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Team Golomboski — https://teamgolomboski.github.io/
+       The site is a single-page app; its crawlable entry points are the
+       share-card stub pages below, each carrying its own title,
+       description, and share image and forwarding visitors to the page.
+       The Resources & Support subpages (Programs, News & Research,
+       Financial Help, Recommended Reading, Just Diagnosed, Caregivers,
+       Young Onset) live inside the app at #/pd-resources/... routes.
+       When teamgolomboski.com points at this site, swap the domain in
+       every <loc> below to https://teamgolomboski.com/...           -->
+  <url>
+    <loc>https://teamgolomboski.github.io/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/our-story</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/joseph-and-alicia</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/impact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/events</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/rock-the-resort</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/galleries</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/media</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/press-kit</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/pd-resources</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://teamgolomboski.github.io/donate</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
