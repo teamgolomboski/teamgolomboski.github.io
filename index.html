@@ -1419,6 +1419,26 @@
   .pd-family-note p{margin:12px 0 0;color:var(--muted);font-size:1rem;line-height:1.65}
   .pd-family-note .pd-family-note-link{margin-top:16px}
   @media (max-width:768px){ .pd-family-note{padding:22px 18px} }
+  /* Fact strips (Resources & Support subpages): one compact card
+     per page breaking up the text — a heading, 3–4 big-number
+     facts side by side on desktop and stacked on phones, and a
+     small source line under each fact linking to the APDA page
+     it came from. Base values follow the card family above; the
+     light-scheme block at the end of this stylesheet restates
+     the card as white with a light border, a navy heading,
+     APDA-blue numbers and slate text. A strip that leads its
+     section (.fact-strip-first) drops the top margin. */
+  .fact-strip{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;box-shadow:var(--shadow);margin-top:34px}
+  .fact-strip-first{margin-top:0}
+  .fact-strip-title{font-size:1.35rem;font-weight:800;color:#eaf1f8;margin:0;line-height:1.25}
+  .fact-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px 26px;margin-top:20px}
+  .fact{min-width:0}
+  .fact-num{font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(1.5rem,2.4vw,1.95rem);line-height:1.1;color:#8ec5ff}
+  .fact-text{margin:8px 0 0;font-size:.97rem;line-height:1.55;color:var(--muted)}
+  .fact-source{margin:8px 0 0;font-size:.8rem;line-height:1.5;color:var(--muted)}
+  .fact-quote{font-family:"Archivo",sans-serif;font-weight:800;font-size:1.08rem;line-height:1.45;color:#eaf1f8;margin:0}
+  @media (max-width:900px){ .fact-grid{grid-template-columns:1fr 1fr} }
+  @media (max-width:560px){ .fact-grid{grid-template-columns:1fr} .fact-strip{padding:22px 18px} }
   /* Young Onset family band: the family's own note (.pd-family-note)
      lifted to its own callout band directly under the page hero, so a
      reader meets the family's reason in the first screen or two. The
@@ -2260,6 +2280,16 @@
      from the rules above. */
   .section .learn-more{background:#fff;border-color:#d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.08)}
   .section .learn-more-why{color:#33475c}
+  /* Fact strips (light scheme): the standard white-card
+     treatment — navy heading, APDA-blue numbers, slate fact
+     text, and a quieter slate source line (its link takes the
+     standard APDA blue from the in-copy link rule above). */
+  .section .fact-strip{background:#fff;border-color:#d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  .section .fact-strip-title{color:#0a2340}
+  .section .fact-num{color:#005eb8}
+  .section .fact-text{color:#33475c}
+  .section .fact-source{color:#5a6b7d}
+  .section .fact-quote{color:#0a2340}
   /* Site Map page: two grouped link lists side by side on
      desktop, stacked on phones. */
   .sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px;align-items:start}
@@ -8569,6 +8599,11 @@
           <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
           <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
         </a>
+        <a class="pathway-card hub-card" href="#/pd-resources/genetics">
+          <h3>Family History &amp; Genetics</h3>
+          <p>Does Parkinson's run in families? What APDA says about heredity, risk, and genetic testing.</p>
+          <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+        </a>
       </div>
     </div>
   </section>
@@ -8895,6 +8930,31 @@
 
   <section class="section section-alt" aria-label="Virtual Programs from APDA">
     <div class="wrap">
+      <aside class="fact-strip fact-strip-first" aria-label="Programs at a glance">
+        <h2 class="fact-strip-title">Programs at a glance</h2>
+        <div class="fact-grid">
+          <div class="fact">
+            <div class="fact-num">8 weeks</div>
+            <p class="fact-text">PRESS — a free education and support program for people diagnosed within the last 5 years</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/newly-diagnoses-programs/" target="_blank" rel="noopener">APDA Rhode Island — Newly Diagnosed Programs</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">6:30 PM</div>
+            <p class="fact-text">Providence Young Onset Support Group — first Wednesday of each month, at Spaulding Rehabilitation Butler Campus</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">APDA Rhode Island — Parkinson's Support Groups</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">10:00 AM</div>
+            <p class="fact-text">Care Partners Support Group — virtual on Zoom, first Thursday of each month</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">APDA Rhode Island — Parkinson's Support Groups</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">Free</div>
+            <p class="fact-text">APDA virtual exercise classes — yoga, boxing, dance, singing, and drumming — to join from home</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/community-activity-exercise-groups/" target="_blank" rel="noopener">APDA Rhode Island — Exercise Classes</a></p>
+          </div>
+        </div>
+      </aside>
 <div class="virtual-programs-block" id="virtual-programs">
         <h2 class="pd-resources-subhead">Virtual Programs from APDA</h2>
         <ul class="pd-resources-list pd-resources-list-tight">
@@ -8953,6 +9013,31 @@
         </a>
       </div>
       <p class="pd-news-more"><a href="https://www.apdaparkinson.org/news/breaking-news/" target="_blank" rel="noopener">More news &amp; research at APDA</a></p>
+      <aside class="fact-strip" aria-label="Research headlines, by the numbers">
+        <h2 class="fact-strip-title">Research headlines, by the numbers</h2>
+        <div class="fact-grid">
+          <div class="fact">
+            <div class="fact-num">1.7 hours</div>
+            <p class="fact-text">more daily “on” time in the TEMPO 3 trial for people taking tavapadon (JUVMO) with levodopa, vs 0.6 hours with placebo — FDA approved Sept 29, 2026</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/fda-approves-tavapadon-a-new-treatment-option-for-parkinsons/" target="_blank" rel="noopener">APDA — FDA Approves Tavapadon</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">$82.2 billion</div>
+            <p class="fact-text">Parkinson’s costs the U.S. more than this every year</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/new-report-reveals-82-2-billion-economic-burden-of-parkinsons-in-the-u-s/" target="_blank" rel="noopener">APDA — New Report Reveals $82.2 Billion Economic Burden of Parkinson's in the U.S.</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">Aug 24, 2026</div>
+            <p class="fact-text">the second Advisory Council on Parkinson's Research, Care, and Services met</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/apda-advances-parkinsons-priorities/" target="_blank" rel="noopener">APDA — APDA Advances Parkinson's Priorities</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">70+</div>
+            <p class="fact-text">countries have banned paraquat — it is still legal in the U.S.</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/paraquat-parkinsons-disease-ban-state-legislation/" target="_blank" rel="noopener">APDA — Paraquat and Parkinson's</a></p>
+          </div>
+        </div>
+      </aside>
       <h2 class="pd-resources-subhead">From APDA's Doctor Blog — A Closer Look</h2>
       <p class="pd-resources-routing">A Closer Look is APDA's doctor blog series, where Dr. Rebecca Gilbert answers everyday Parkinson's questions in plain language.</p>
       <div class="pathway-grid" style="margin-top:26px">
@@ -8969,13 +9054,7 @@
           <span class="pd-news-date">October 1, 2026</span>
         </a>
       </div>
-<div class="pd-family-note" id="genetics-questions">
-        <h3>Is Parkinson's Hereditary? What Families Ask</h3>
-        <p>This question is personal for our family — our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44, so 'does it run in the family?' is one we've asked ourselves. Here's what APDA wants families to know:</p>
-        <p>When a parent has Parkinson's, it's natural for sons and daughters to wonder about their own risk. In most cases, Parkinson's is not directly inherited. APDA notes that about 10%–15% of people with Parkinson's carry an inherited genetic mutation known to increase PD risk — and most people with Parkinson's, even with a family history, do not carry one of these abnormal genes. Even when a mutation is present, it raises risk rather than deciding the outcome: many people who carry one never develop the disease. So a parent having Parkinson's does not mean a child will get it, and families thinking about genetic testing should talk it through with a neurologist or a genetic counselor first.</p>
-        <p class="pd-family-note-link"><a href="https://www.apdaparkinson.org/article/genetic-testing-for-parkinsons-disease/" target="_blank" rel="noopener">APDA on genetic testing for Parkinson's</a></p>
-      </div>
-      <p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
+<p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
     </div>
   </section>
 
@@ -9019,6 +9098,31 @@
           <li><a href="https://gcd.ri.gov/ri-livable-homes-modification-grant/frequently-asked-questions" target="_blank" rel="noopener">RI Livable Home Modification Grant</a> — State grant (Governor's Commission on Disabilities) that pays 50% of home safety changes — ramps, wider doorways, bathroom safety — up to $4,500.</li>
         </ul>
       </div>
+      <aside class="fact-strip" aria-label="Help with costs">
+        <h2 class="fact-strip-title">Help with costs</h2>
+        <div class="fact-grid">
+          <div class="fact">
+            <div class="fact-num">$300</div>
+            <p class="fact-text">per person from the APDA RI Financial Hardship Fund, for people with Parkinson’s facing financial hardship</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/financial-hardship-fund/" target="_blank" rel="noopener">APDA Rhode Island — Financial Hardship Fund</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">50%</div>
+            <p class="fact-text">of home safety changes paid by the RI Livable Home Modification Grant — up to $4,500</p>
+            <p class="fact-source">Source: <a href="https://gcd.ri.gov/ri-livable-homes-modification-grant/frequently-asked-questions" target="_blank" rel="noopener">RI Governor's Commission on Disabilities — RI Livable Home Modification Grant</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">401-462-4444</div>
+            <p class="fact-text">The Point, Rhode Island's Aging &amp; Disability Resource Center — a free, confidential first call</p>
+            <p class="fact-source">Source: <a href="https://oha.ri.gov/get-help" target="_blank" rel="noopener">The Point — Rhode Island's Aging &amp; Disability Resource Center</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">800-223-2732</div>
+            <p class="fact-text">APDA national helpline — for questions from anywhere</p>
+            <p class="fact-source">Source: APDA</p>
+          </div>
+        </div>
+      </aside>
 <div class="pd-resources-block" id="more-resources">
         <div class="section-head">
           <div class="rule" aria-hidden="true"></div>
@@ -9171,6 +9275,31 @@
         <li><strong>Plan for the future</strong> — at your own pace, with good information.</li>
       </ul>
       <p class="pd-resources-routing">APDA walks through each step in the free booklet <a href="https://www.apdaparkinson.org/wp-content/uploads/2026/04/APDA-Living_Well-10-Things-You-Can-Do-Now.pdf" target="_blank" rel="noopener"><em>Living Well With Parkinson's Disease — 10 Things You Can Do Now!</em> (PDF)</a>.</p>
+      <aside class="fact-strip" aria-label="Parkinson's by the numbers">
+        <h2 class="fact-strip-title">Parkinson's by the numbers</h2>
+        <div class="fact-grid">
+          <div class="fact">
+            <div class="fact-num">~1 million</div>
+            <p class="fact-text">people in the U.S. living with Parkinson’s</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/parkinsons-disease-advocacy-at-apda/" target="_blank" rel="noopener">APDA — Parkinson's Disease Advocacy at APDA</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">~90,000</div>
+            <p class="fact-text">new U.S. diagnoses each year — about one every 6 minutes</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/parkinsons-disease-advocacy-at-apda/" target="_blank" rel="noopener">APDA — Parkinson's Disease Advocacy at APDA</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">10 million+</div>
+            <p class="fact-text">people worldwide living with Parkinson’s</p>
+            <p class="fact-source">Source: APDA</p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">4</div>
+            <p class="fact-text">primary motor symptoms — tremor, rigidity, bradykinesia (slow movement), and postural instability</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/what-is-parkinsons/symptoms/" target="_blank" rel="noopener">APDA — Symptoms of Parkinson's</a></p>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -9296,6 +9425,31 @@
         <li><strong>Look after your own health</strong> — build exercise and good nutrition into your life, too.</li>
       </ul>
       <p class="pd-resources-routing">APDA's full page for care partners is <a href="https://www.apdaparkinson.org/resources-support/for-care-partners/" target="_blank" rel="noopener">Resources for Care Partners at APDA</a>.</p>
+      <aside class="fact-strip" aria-label="For care partners">
+        <h2 class="fact-strip-title">For care partners</h2>
+        <div class="fact-grid">
+          <div class="fact">
+            <div class="fact-num">10:00 AM</div>
+            <p class="fact-text">Care Partners Support Group — virtual on Zoom, first Thursday of each month, facilitated by Fatima Tobar and Michelle Mach</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">APDA Rhode Island — Parkinson's Support Groups</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">8 weeks</div>
+            <p class="fact-text">APDA Care Partner Connection — a program for care partners</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/signature-programs/" target="_blank" rel="noopener">APDA — Our Signature Programs</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">800-223-2732</div>
+            <p class="fact-text">APDA national helpline</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/resources-support/for-care-partners/" target="_blank" rel="noopener">APDA — Resources for Care Partners</a></p>
+          </div>
+          <div class="fact">
+            <p class="fact-quote">&ldquo;When one person in a family lives with Parkinson's, the whole family lives with it too.&rdquo;</p>
+            <p class="fact-text">APDA's framing for care partners</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/resources-support/for-care-partners/" target="_blank" rel="noopener">APDA — Resources for Care Partners</a></p>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -9419,7 +9573,7 @@
         <h3>Learn more</h3>
         <ul>
           <li><a href="#/our-story">Our Story</a><span class="learn-more-why">Our dad was diagnosed at 44 — read his story.</span></li>
-          <li><a href="#/pd-resources/news#genetics-questions">News &amp; Research</a><span class="learn-more-why">Does Parkinson's run in the family? APDA's note on family history and genetics.</span></li>
+          <li><a href="#/pd-resources/genetics">Family History &amp; Genetics</a><span class="learn-more-why">Does Parkinson's run in the family? APDA's genetics answers for families asking.</span></li>
         </ul>
       </aside>
     </div>
@@ -9444,6 +9598,31 @@
         <li><strong>No cure yet</strong> — there is no cure for Parkinson's yet, and treatment is tailored to each person to manage symptoms and support quality of life.</li>
       </ul>
       <p class="pd-resources-routing">APDA explains the basics on its <a href="https://www.apdaparkinson.org/what-is-parkinsons/" target="_blank" rel="noopener">What is Parkinson's Disease</a> page.</p>
+      <aside class="fact-strip" aria-label="Young onset at a glance">
+        <h2 class="fact-strip-title">Young onset at a glance</h2>
+        <div class="fact-grid">
+          <div class="fact">
+            <div class="fact-num">21–50</div>
+            <p class="fact-text">the ages at diagnosis APDA calls young onset Parkinson’s</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/young-onset-parkinsons-disease-2/" target="_blank" rel="noopener">APDA — Young Onset Parkinson's Disease</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">10%</div>
+            <p class="fact-text">of all Parkinson’s cases are young onset — roughly 9,000 new U.S. diagnoses a year</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/young-onset-parkinsons-disease-2/" target="_blank" rel="noopener">APDA — Young Onset Parkinson's Disease</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">5× a week</div>
+            <p class="fact-text">aerobic exercise, at least — APDA's guidance for people with young onset</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/young-onset-parkinsons-disease-2/" target="_blank" rel="noopener">APDA — Young Onset Parkinson's Disease</a></p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">6:30 PM</div>
+            <p class="fact-text">Providence Young Onset Support Group — first Wednesday of each month</p>
+            <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/community/publications-information/resources-support-ri/support-groups/" target="_blank" rel="noopener">APDA Rhode Island — Parkinson's Support Groups</a></p>
+          </div>
+        </div>
+      </aside>
     </div>
   </section>
 
@@ -9455,7 +9634,7 @@
           <li><strong>Diagnosis can take longer</strong> — at a younger age, symptoms can be dismissed, so diagnosis is sometimes delayed. APDA's advice is to be persistent, and to seek a second opinion if your concerns are brushed off.</li>
           <li><strong>Treatment choices may differ</strong> — treatment is broadly the same, though doctors may start with medications other than levodopa, because younger people can be more prone to motor fluctuations and dyskinesia. Those decisions belong with a movement-disorders specialist.</li>
           <li><strong>Exercise matters</strong> — APDA's young-onset guide calls for regular aerobic exercise, and APDA's <em>Be Active &amp; Beyond</em> guide is built around staying active with Parkinson's.</li>
-          <li><strong>Genetics can play a larger role</strong> — genetics can play a larger role in young onset than in Parkinson's diagnosed later in life. Our <a href="#/pd-resources/news#genetics-questions">News &amp; Research page</a> carries APDA's note for families asking whether Parkinson's is hereditary.</li>
+          <li><strong>Genetics can play a larger role</strong> — genetics can play a larger role in young onset than in Parkinson's diagnosed later in life. Our <a href="#/pd-resources/genetics">Family History &amp; Genetics page</a> carries APDA's note for families asking whether Parkinson's is hereditary.</li>
         </ul>
         <p class="pd-resources-routing">Read APDA's full guidance: <a href="https://www.apdaparkinson.org/what-is-parkinsons/early-onset-parkinsons-disease/" target="_blank" rel="noopener">Early-Onset Parkinson's Disease</a> and <a href="https://www.apdaparkinson.org/article/young-onset-parkinsons-disease-2/" target="_blank" rel="noopener">Young Onset Parkinson's Disease</a>.</p>
       </div>
@@ -9538,6 +9717,96 @@
   </section>
 
 </div><!-- /page pd-resources/young-onset -->
+
+<!-- ============================================================
+     PAGE: RESOURCES & SUPPORT — FAMILY HISTORY & GENETICS
+     ============================================================ -->
+<div class="page" data-page="pd-resources/genetics">
+
+  <section class="page-hero" aria-label="Family History and Genetics introduction">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> &middot; <a href="#/pd-resources">Resources &amp; Support</a> &middot; Family History &amp; Genetics</div>
+      <h1>Family History &amp; Genetics</h1>
+      <p>Does Parkinson's run in families? Here is what APDA wants families to know about heredity, risk, and genetic testing — in plain language.</p>
+      </div>
+      <figure class="page-hero-photo">
+        <img src="assets/support.jpg" alt="A support group seated in a circle, talking and laughing together" width="1024" height="421" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Is Parkinson's hereditary">
+    <div class="wrap">
+      <div class="pd-family-note pd-family-note-top">
+        <h3>Is Parkinson's Hereditary? What Families Ask</h3>
+        <p>This question is personal for our family — our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44, so 'does it run in the family?' is one we've asked ourselves. Here's what APDA wants families to know:</p>
+        <p>When a parent has Parkinson's, it's natural for sons and daughters to wonder about their own risk. In most cases, Parkinson's is not directly inherited. APDA notes that about 10%–15% of people with Parkinson's carry an inherited genetic mutation known to increase PD risk — and most people with Parkinson's, even with a family history, do not carry one of these abnormal genes. Even when a mutation is present, it raises risk rather than deciding the outcome: many people who carry one never develop the disease. So a parent having Parkinson's does not mean a child will get it, and families thinking about genetic testing should talk it through with a neurologist or a genetic counselor first.</p>
+        <p class="pd-family-note-link"><a href="https://www.apdaparkinson.org/article/genetic-testing-for-parkinsons-disease/" target="_blank" rel="noopener">APDA on genetic testing for Parkinson's</a></p>
+      </div>
+      <figure class="family-photo">
+        <img src="assets/family-alicia-dad.jpg" alt="A young Alicia Golomboski with her father, Joseph Golomboski Sr." width="709" height="623" />
+        <figcaption>Alicia Golomboski with her dad, Joseph Sr.</figcaption>
+      </figure>
+      <figure class="family-photo">
+        <img src="assets/family-2019-trio.jpg" alt="Alicia Golomboski and Joseph Golomboski Jr. with their father, Joseph Golomboski Sr." width="941" height="617" />
+        <figcaption>Alicia and Joseph Jr. with their dad, Joseph Sr.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Your APDA Rhode Island team">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Your APDA Rhode Island Team</h2>
+        <p>Real people, right here in Rhode Island. If you're not sure where to start, start with a phone call.</p>
+      </div>
+      <div class="team-strip-grid">
+        <article class="team-card">
+          <div class="team-head">
+            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, Program Director, APDA Rhode Island" width="84" height="84">
+            <div>
+              <h3>Fatima Tobar</h3>
+              <p class="role">Program Director, APDA Rhode Island</p>
+            </div>
+          </div>
+          <p>For Parkinson's resources, support groups, and local referrals.</p>
+          <p>Call <a href="tel:+14015917890"><strong>401-591-7890</strong></a><br>Email <a href="mailto:ftobar@apdaparkinson.org">ftobar@apdaparkinson.org</a></p>
+          <a class="btn btn-green" href="tel:+14015917890">Call Fatima Tobar</a>
+        </article>
+        <article class="team-card">
+          <div class="team-head">
+            <img class="avatar" src="assets/michelle-headshot.jpg" alt="Michelle Mach, Executive Director, APDA Rhode Island" width="84" height="84">
+            <div>
+              <h3>Michelle Mach</h3>
+              <p class="role">Executive Director, APDA Rhode Island</p>
+            </div>
+          </div>
+          <p>Reach Michelle through the APDA RI chapter office:</p>
+          <p>Chapter office: <a href="tel:+14014398435"><strong>401-439-8435</strong></a><br>Chapter email: <a href="mailto:apdari@apdaparkinson.org">apdari@apdaparkinson.org</a></p>
+          <a class="btn btn-green" href="tel:+14014398435">Call the Chapter Office</a>
+        </article>
+      </div>
+      <div class="team-strip-grid" style="margin-top:24px">
+        <article class="team-card">
+          <h3>APDA National Helpline</h3>
+          <p>For questions from anywhere, the APDA national helpline is <a href="tel:+18002232732"><strong>800-223-2732</strong></a>.</p>
+          <a class="btn btn-green" href="tel:+18002232732">Call the APDA Helpline</a>
+        </article>
+      </div>
+      <p class="chapter-address" style="margin-top:24px">Chapter mailing address: <strong>APDA RI, PO Box 114098, North Providence, RI 02911</strong></p>
+      <p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
+    </div>
+  </section>
+
+  <section class="page-foot" aria-label="Page notes">
+    <div class="wrap">
+      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
+    </div>
+  </section>
+
+</div><!-- /page pd-resources/genetics -->
 
 <!-- ============================================================
      PAGE: PRESS KIT
@@ -9695,6 +9964,7 @@
             <li><a href="#/pd-resources/just-diagnosed">Just Diagnosed</a><span>First steps after a Parkinson's diagnosis — APDA's guidance and local help.</span></li>
             <li><a href="#/pd-resources/caregivers">Caregivers &amp; Care Partners</a><span>Guidance and support for the people doing the caring.</span></li>
             <li><a href="#/pd-resources/young-onset">Young Onset Parkinson's</a><span>Parkinson's diagnosed between 21 and 50 — what makes it different, and local support.</span></li>
+            <li><a href="#/pd-resources/genetics">Family History &amp; Genetics</a><span>Does Parkinson's run in families? APDA's answers on heredity, risk, and genetic testing.</span></li>
           </ul>
         </div>
       </div>
@@ -9911,6 +10181,7 @@
     "pd-resources/just-diagnosed": { path: "pd-resources", title: "Just Diagnosed | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
     "pd-resources/caregivers": { path: "pd-resources", title: "Caregivers & Care Partners | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
     "pd-resources/young-onset": { path: "pd-resources", title: "Young Onset Parkinson's | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
+    "pd-resources/genetics": { path: "pd-resources", title: "Family History & Genetics | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
     "press-kit": { path: "press-kit", title: "Press Kit | Team Golomboski", description: "The Team Golomboski press kit: who the team is, the numbers that back it up, and who to contact — for reporters, producers, and partners.", image: "joseph-profile.jpg" },
     "site-map": { path: "site-map", title: "Site Map | Team Golomboski", description: "Every page on the Team Golomboski site in one place: our story, events, photo galleries, and the full Resources & Support library for Rhode Island Parkinson's families.", image: "hero-walk-2026.jpg" }
   };
@@ -9933,6 +10204,7 @@
       "pd-resources/just-diagnosed": "Just Diagnosed | Team Golomboski",
       "pd-resources/caregivers": "Caregivers & Care Partners | Team Golomboski",
       "pd-resources/young-onset": "Young Onset Parkinson's | Team Golomboski",
+      "pd-resources/genetics": "Family History & Genetics | Team Golomboski",
       "press-kit": "Press Kit | Team Golomboski",
       "site-map": "Site Map | Team Golomboski"
     };
