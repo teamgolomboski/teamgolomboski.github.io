@@ -1510,6 +1510,7 @@
   #find-a-program,#news-research,#genetics-questions,#more-resources,#virtual-programs,#financial-help,#recommended-reading{scroll-margin-top:96px}
   #golomboski-family,#in-memory-joseph-sr,#story-so-far,#whole-family,#what-we-stand-for,#siblings-who-started-it,#memory-wall,#walk-with-us,#chapter-one,#chapter-two,#chapter-three,#chapter-four{scroll-margin-top:96px}
   #built-together,#service-beyond-the-walk,#joseph,#alicia,#decade-of-service{scroll-margin-top:96px}
+  #where-every-dollar-goes,#spotlight-2026,#twelve-years,#sponsors-partners,#led-by-family,#circle-of-optimism{scroll-margin-top:96px}
   /* Page-foot disclaimers (Find Help): the page's two closing lines
      sit in their own base-shade band after the news section, so they
      stay the last thing on the page. The band's top padding is
@@ -1601,6 +1602,10 @@
   .timeline-list li{position:relative;padding:0 0 20px 34px}
   .timeline-list li:last-child{padding-bottom:0}
   .timeline-list li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--orange);border:3px solid var(--card);box-shadow:0 0 0 1px var(--line)}
+  /* Joseph & Alicia page: milestone dots use APDA blue, not Donate orange
+     (orange is reserved for Donate actions site-wide). Scoped to this page
+     so the Our Story and Impact timelines keep their existing treatment. */
+  [data-page="joseph-and-alicia"] .timeline-list li::before{background:#005eb8}
   .timeline-year{font-family:"Archivo",sans-serif;font-weight:800;font-size:.95rem;color:var(--navy);display:block}
   .timeline-year{color:#eaf1f8}
   .timeline-desc{color:var(--muted);font-size:.98rem;display:block;margin-top:2px}
@@ -1826,8 +1831,7 @@
      deep navy on every page, so the APDA chapter logo artwork
      sits on it directly; only the homepage drops its top
      margin, so the footer sits flush under the green numbers
-     band. The Share This Page control is not restyled by this
-     block. This block sits last in the stylesheet so it wins
+     band. This block sits last in the stylesheet so it wins
      ties against the base rules. */
   :root{color-scheme:light}
   body{background-color:#f5f7f9;background:#f5f7f9;color:#33475c}
@@ -2112,8 +2116,7 @@
      directly on the footer with no chip. Only the homepage
      drops the top margin, so the navy footer sits flush under
      the green numbers band instead of over a light stripe of
-     page background. The Share This Page control is not
-     restyled by this block. */
+     page background. */
   body.is-home footer{margin-top:0}
 
   /* ---------- Resources & Support hub + subpages ----------
@@ -3126,7 +3129,7 @@
       <label class="page-jump-label" for="foundersJumpSelect">On this page</label>
       <select class="page-jump-select" id="foundersJumpSelect">
         <option value="" selected>Choose a section…</option>
-        <option value="built-together">What We've Built Together</option>
+        <option value="built-together">What We’ve Built Together</option>
         <option value="service-beyond-the-walk">Service Beyond the Walk</option>
         <option value="joseph">Joseph Golomboski Jr.</option>
         <option value="alicia">Alicia Golomboski</option>
@@ -3322,6 +3325,21 @@
     </div>
   </section>
 
+  <nav class="page-jump" aria-label="On this page">
+    <div class="wrap page-jump-inner">
+      <label class="page-jump-label" for="impactJumpSelect">On this page</label>
+      <select class="page-jump-select" id="impactJumpSelect">
+        <option value="" selected>Choose a section…</option>
+        <option value="where-every-dollar-goes">Where Every Dollar Goes</option>
+        <option value="spotlight-2026">2026: The Goal, Beaten</option>
+        <option value="twelve-years">Twelve Years, One Promise</option>
+        <option value="sponsors-partners">Our Sponsors &amp; Community Partners</option>
+        <option value="led-by-family">Led by Family. Open to Everyone.</option>
+        <option value="circle-of-optimism">Circle of Optimism</option>
+      </select>
+    </div>
+  </nav>
+
   <section class="impact" aria-label="Impact in numbers">
     <div class="wrap">
       <div class="impact-grid">
@@ -3349,7 +3367,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="Where your support goes">
+  <section class="section" id="where-every-dollar-goes" aria-label="Where your support goes">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -3403,7 +3421,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="2026 spotlight">
+  <section class="section section-alt" id="spotlight-2026" aria-label="2026 spotlight">
     <div class="wrap">
       <div class="recap-grid recap-photo-grid">
         <div class="recap-copy">
@@ -3426,7 +3444,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="Our journey">
+  <section class="section" id="twelve-years" aria-label="Our journey">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -3479,7 +3497,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="Sponsors and partners">
+  <section class="section section-alt" id="sponsors-partners" aria-label="Sponsors and partners">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -3563,7 +3581,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="Leadership and ways to join">
+  <section class="section" id="led-by-family" aria-label="Leadership and ways to join">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -3611,7 +3629,7 @@
     </div>
   </section>
 
-  <section class="section" style="padding-top:0" aria-label="Circle of Optimism">
+  <section class="section" style="padding-top:0" id="circle-of-optimism" aria-label="Circle of Optimism">
     <div class="wrap">
       <div class="circle-panel">
         <p class="circle-eyebrow">Donor Recognition</p>
@@ -9513,6 +9531,30 @@
     select.addEventListener("change", function () {
       if (!select.value) { return; }
       var hash = "#/joseph-and-alicia#" + select.value;
+      if (window.location.hash === hash) {
+        // Already at this anchor: no hashchange will fire, so
+        // re-run the router's jump directly.
+        var target = document.getElementById(select.value);
+        if (target) {
+          var y = target.getBoundingClientRect().top + window.pageYOffset - 96;
+          window.scrollTo({ top: Math.max(0, y), behavior: "instant" });
+        }
+      } else {
+        window.location.hash = hash;
+      }
+    });
+  })();
+
+  // Impact "On this page" dropdown: same pattern as the Our Story
+  // and Joseph & Alicia menus, routing through #/impact#anchor so
+  // the landing uses the router's 96px header offset. The chosen
+  // section stays showing in the dropdown.
+  (function () {
+    var select = document.getElementById("impactJumpSelect");
+    if (!select) { return; }
+    select.addEventListener("change", function () {
+      if (!select.value) { return; }
+      var hash = "#/impact#" + select.value;
       if (window.location.hash === hash) {
         // Already at this anchor: no hashchange will fire, so
         // re-run the router's jump directly.
