@@ -301,6 +301,12 @@
      the crop window is centered on that band (23%) — at the default
      center the phone 16:9 crop would cut the back row's heads. */
   .page-hero-photo img.ph-faces{object-position:center 23%}
+  /* Young Onset hero portrait (Joseph Golomboski Sr., 1080x1350): a
+     tight headshot whose face spans most of the frame height, so the
+     4:3 hero crop window sits a touch above center (40%) — keeping
+     his eyes and mouth centered with the chin in frame, on desktop
+     and in the phone 16:9 crop alike. */
+  .page-hero-photo img.ph-portrait{object-position:center 40%}
   @media (max-width:980px){
     .page-hero .wrap{grid-template-columns:minmax(0,1fr) 300px;gap:28px}
   }
@@ -1413,6 +1419,16 @@
   .pd-family-note p{margin:12px 0 0;color:var(--muted);font-size:1rem;line-height:1.65}
   .pd-family-note .pd-family-note-link{margin-top:16px}
   @media (max-width:768px){ .pd-family-note{padding:22px 18px} }
+  /* Young Onset family band: the family's own note (.pd-family-note)
+     lifted to its own callout band directly under the page hero, so a
+     reader meets the family's reason in the first screen or two. The
+     band keeps the section rhythm at a tighter padding, and the note
+     drops the top margin it carried mid-page. Its peach left edge is
+     decoration only (the quote-box treatment), applied in the
+     light-scheme block at the end of this stylesheet where it can
+     win the border-color cascade. */
+  .pd-family-band{padding:44px 0}
+  .pd-family-note-top{margin-top:0}
   /* More Parkinson's Resources (same foot-of-page section, after the
      genetics note): the two APDA entries lead as full pathway cards
      in the two-up .news-grid — the prominent home-base pair — while
@@ -2219,6 +2235,10 @@
   [data-page="our-story"] .section .cta-band strong{color:#132433}
   [data-page="our-story"] .section .cta-band .invite-line{color:#0a2340 !important}
   [data-page="our-story"] .section .cta-band .btn-outline{--ol-ink:#0a2340;--ol-bg:#fff;--ol-hover:#eef3f8;border-color:#0a2340;color:#0a2340;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  /* Young Onset family band (light scheme): the moved family note
+     keeps the standard white-card treatment from the generic flip
+     above and gains the peach quote-box left edge as decoration. */
+  [data-page="pd-resources/young-onset"] .section .pd-family-note-top{border-left:4px solid #ffb287}
 </style>
 </head>
 <body>
@@ -8705,6 +8725,22 @@
         </a>
       </div>
       <p class="pd-news-more"><a href="https://www.apdaparkinson.org/news/breaking-news/" target="_blank" rel="noopener">More news &amp; research at APDA</a></p>
+      <h2 class="pd-resources-subhead">From APDA's Doctor Blog — A Closer Look</h2>
+      <p class="pd-resources-routing">A Closer Look is APDA's doctor blog series, where Dr. Rebecca Gilbert answers everyday Parkinson's questions in plain language.</p>
+      <div class="pathway-grid" style="margin-top:26px">
+        <a class="pathway-card pd-news-card" href="https://www.apdaparkinson.org/article/how-to-manage-fatigue-in-parkinsons-disease/" target="_blank" rel="noopener">
+          <h3>Fatigue in Parkinson's Disease and How to Manage It</h3>
+          <span class="pd-news-date">October 27, 2026</span>
+        </a>
+        <a class="pathway-card pd-news-card" href="https://www.apdaparkinson.org/article/parkinsons-disease-symptoms-beyond-movement/" target="_blank" rel="noopener">
+          <h3>Parkinson's Symptoms Beyond Movement</h3>
+          <span class="pd-news-date">October 13, 2026</span>
+        </a>
+        <a class="pathway-card pd-news-card" href="https://www.apdaparkinson.org/article/scientific-themes-from-wpc-2026/" target="_blank" rel="noopener">
+          <h3>Scientific Themes Emerging from WPC 2026</h3>
+          <span class="pd-news-date">October 1, 2026</span>
+        </a>
+      </div>
 <div class="pd-family-note" id="genetics-questions">
         <h3>Is Parkinson's Hereditary? What Families Ask</h3>
         <p>This question is personal for our family — our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44, so 'does it run in the family?' is one we've asked ourselves. Here's what APDA wants families to know:</p>
@@ -8845,8 +8881,22 @@
               <p class="book-line">Everyday guidance on living well, from a leading movement-disorders neurologist.</p>
             </div>
           </article>
+          <article class="book-card">
+            <img class="book-cover" src="assets/book-cover-sons-journey.jpg" alt="A Son's Journey book cover" width="400" height="640" loading="lazy" />
+            <div class="book-info">
+              <h3 class="book-title">A Son's Journey from Parkinson's Disease Caregiver to Advocate</h3>
+              <p class="book-author">Dr. George M. Ackerman (2024)</p>
+              <p class="book-line">A son's memoir of caring for his mother, Sharon, through her 15-year Parkinson's battle, written in her memory after she passed in 2020.</p>
+              <p class="book-line">George founded <a href="https://togetherforsharon.com/" target="_blank" rel="noopener">Together for Sharon</a> in her memory — and interviewed Joseph about our family's story in July 2023.</p>
+            </div>
+          </article>
         </div>
         <p class="reading-actions reading-actions-below"><button type="button" class="btn btn-outline" id="readingMoreOpen" aria-haspopup="dialog" aria-controls="readingModal">More Books to Explore</button></p>
+      </div>
+      <div class="pd-resources-block">
+        <h2 class="pd-resources-subhead" style="margin-top:0">Suggest a Book</h2>
+        <p class="pd-resources-routing">Know a Parkinson's book that belongs on this list? Our Suggest a Book form is open to any author or publisher with a Parkinson's book to suggest, and every suggestion is reviewed by Team Golomboski. Authors and publishers who send a complimentary review copy get more in return: a featured placement on this page and a mention to our community. Suggesting a book is not a guarantee it will be listed.</p>
+        <p class="reading-actions reading-actions-below"><a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLScaBqVNVJloUk9MNO6cLaSKP3TjOS-KHpG-ziBiHlJjKZFQtA/viewform" target="_blank" rel="noopener">Suggest a Book</a></p>
       </div>
       <p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
     </div>
@@ -9113,8 +9163,17 @@
       <p>Parkinson's diagnosed between 21 and 50 is called young onset — and it comes with its own questions about work, family, and the years ahead. Here is APDA's guidance, and Rhode Island support close to home.</p>
       </div>
       <figure class="page-hero-photo">
-        <img src="assets/wellness.jpg" alt="People with Parkinson's in boxing gloves, working in pairs at a Parkinson's exercise class" width="1200" height="816" />
+        <img class="ph-portrait" src="assets/joseph-sr-portrait.png" alt="Joseph Golomboski Sr." width="1080" height="1350" />
       </figure>
+    </div>
+  </section>
+
+  <section class="section section-alt pd-family-band" aria-label="Why young onset is personal for our family">
+    <div class="wrap">
+      <div class="pd-family-note pd-family-note-top">
+        <h3>Young Onset Is Personal for Our Family</h3>
+        <p>Our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44 — so young onset is personal for this family.</p>
+      </div>
     </div>
   </section>
 
@@ -9175,10 +9234,6 @@
           <li><strong>Young Onset Support Group</strong> — Providence · 1st Wednesday 6:30 PM · Spaulding Rehabilitation Butler Campus · Facilitated by Geena Goyette · <a href="tel:+14018864650">401-886-4650</a></li>
         </ul>
         <p class="pd-resources-routing">Find this group and every other Rhode Island program on our <a href="#/pd-resources/programs">Programs &amp; Support Groups</a> page — search by ZIP code or town to see what's near you.</p>
-      </div>
-      <div class="pd-family-note">
-        <h3>Young Onset Is Personal for Our Family</h3>
-        <p>Our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44 — so young onset is personal for this family.</p>
       </div>
     </div>
   </section>
