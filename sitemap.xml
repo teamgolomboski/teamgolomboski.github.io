@@ -50,6 +50,11 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://teamgolomboski.github.io/in-the-news</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://teamgolomboski.github.io/press-kit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
