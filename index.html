@@ -354,6 +354,15 @@
      his eyes and mouth centered with the chin in frame, on desktop
      and in the phone 16:9 crop alike. */
   .page-hero-photo img.ph-portrait{object-position:center 40%}
+  /* Our Story hero ONLY (Nov 10, 2026): the dad-frame photo is nearly
+     square (1616x1568) and the shared 4:3 cover crop slices the blue
+     frame's bottom edge and its "unshakeable spirit" words, so this
+     one hero shows the photo WHOLE at its natural aspect ratio — the
+     hero runs taller on this page, which is intended. The higher
+     specificity (0-2-1) also beats the phone rule below that forces
+     page-hero photos to 16:9 / max-height 210px. Every other page's
+     hero keeps the standard 4:3 cover treatment. */
+  [data-page="our-story"] .page-hero-photo img{aspect-ratio:auto;height:auto;max-height:none;object-fit:contain}
   @media (max-width:980px){
     .page-hero .wrap{grid-template-columns:minmax(0,1fr) 300px;gap:28px}
   }
@@ -526,6 +535,11 @@
      tulips crop away. */
   .gift-card img.crop-exercise{object-position:50% 32%}
   .gift-card img.crop-research{object-position:50% 35%}
+  /* Financial Assistance (Donate): the 2026 walk sign-group photo is
+     wide (2048x1365), so the 190px card crop window sits at 38% —
+     keeping the group's faces and the APDA letters of the yard sign
+     in frame together. */
+  .gift-card img.crop-assist{object-position:50% 38%}
   .gift-figure{margin:0}
   .gift-figure figcaption{padding:10px 22px 0;font-size:.85rem;color:var(--muted);line-height:1.5}
   .gift-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
@@ -4068,8 +4082,6 @@
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Backstage VIP</span><a class="sponsor-link" href="https://heavymetalmuscleco.com" target="_blank" rel="noopener">The Heavy Metal Muscle Co.</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">The Opening Act</span>Anthony Golomboski of RE/MAX 1st Choice</div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://hurdermillwork.com/" target="_blank" rel="noopener">Hurder Millwork Corporation</a></div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://demospizzafactory.com/" target="_blank" rel="noopener">Demo&rsquo;s Pizza Factory - Warwick, RI</a></div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="http://www.t-impressions.com/" target="_blank" rel="noopener">Therapeutic Impressions</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://joesnsonsservice.com/" target="_blank" rel="noopener">Joe &amp; Son&rsquo;s Auto Service</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://www.stacysmithstudios.com/" target="_blank" rel="noopener">Stacy Smith Studios Photography</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://www.martonegroup.com/agents/338535-Paul-Harrison/" target="_blank" rel="noopener">Paul Harrison Realtor</a> (In Memory of George Young)</div>
@@ -4083,16 +4095,13 @@
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Gold</span><a class="sponsor-link" href="https://www.balisesubaru.com/" target="_blank" rel="noopener">Balise Subaru</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Silver</span><a class="sponsor-link" href="https://hurdermillwork.com/" target="_blank" rel="noopener">Hurder Millwork Corp.</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://bluewater.network/" target="_blank" rel="noopener">Bluewater Network LLC</a></div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://demospizzafactory.com/" target="_blank" rel="noopener">Demo&rsquo;s Pizza Factory</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span>Kuts By Ken</div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://www.mariakishfy.com/" target="_blank" rel="noopener">Maria Kishfy Health &amp; Fitness Consultant</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span>Pontiac Tap</div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://www.t-impressions.com/" target="_blank" rel="noopener">Therapeutic Impressions, LLC</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span>Tony Jones - Realtor</div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://www.yourfavoriteinflatables.com/" target="_blank" rel="noopener">Your Favorite Inflatables</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Show Sponsor</span><a class="sponsor-link" href="https://www.themusiccomplexri.com/" target="_blank" rel="noopener">The Music Complex RI</a></div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Show Sponsor</span><a class="sponsor-link" href="https://simplicityprintstudio.com" target="_blank" rel="noopener">Simplicity Print Studio</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Show Sponsor</span>Anthony Golomboski of RE/MAX 1st Choice</div>
         </div>
         <div class="sponsor-wall-head" style="margin-top:36px">
@@ -4108,9 +4117,7 @@
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span>Kuts By Ken</div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://www.mariakishfy.com/" target="_blank" rel="noopener">Maria Kishfy Health &amp; Fitness Consultant</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://www.stacysmithstudios.com/" target="_blank" rel="noopener">Stacy Smith Studios</a></div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://www.thebatteryshopwarwick.com/" target="_blank" rel="noopener">The Battery Shop</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://www.t-impressions.com/" target="_blank" rel="noopener">Therapeutic Impressions, LLC</a></div>
           <a class="sponsor-tile sponsor-tile-invite" href="mailto:teamgolomboski@gmail.com?subject=Sponsor%20Team%20Golomboski">Your Business Here — Become a Sponsor →</a>
         </div>
         <p style="margin-top:16px;color:var(--muted);font-size:.95rem">Supported Team Golomboski and don&rsquo;t see your name yet? Write to <a href="mailto:teamgolomboski@gmail.com">teamgolomboski@gmail.com</a> and we&rsquo;ll add you right away. Sponsors listed here are businesses that supported <strong style="color:var(--ink)">Team Golomboski events</strong> directly.</p>
@@ -4674,8 +4681,6 @@
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">The Opening Act</span>Anthony Golomboski of RE/MAX 1st Choice</div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">The Opening Act</span><a class="sponsor-link" href="https://www.themusiccomplexri.com/" target="_blank" rel="noopener">The Music Complex RI</a></div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://hurdermillwork.com/" target="_blank" rel="noopener">Hurder Millwork Corporation</a></div>
-        <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://demospizzafactory.com/" target="_blank" rel="noopener">Demo&rsquo;s Pizza Factory - Warwick, RI</a></div>
-        <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="http://www.t-impressions.com/" target="_blank" rel="noopener">Therapeutic Impressions</a></div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://joesnsonsservice.com/" target="_blank" rel="noopener">Joe &amp; Son&rsquo;s Auto Service</a></div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://www.stacysmithstudios.com/" target="_blank" rel="noopener">Stacy Smith Studios Photography</a></div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://www.martonegroup.com/agents/338535-Paul-Harrison/" target="_blank" rel="noopener">Paul Harrison Realtor</a> (In Memory of George Young)</div>
@@ -8961,6 +8966,10 @@
           </div>
         </article>
         <article class="gift-card">
+          <figure class="gift-figure">
+            <img class="crop-assist" src="assets/walk2026-sign-group.jpg" alt="A large group of chapter members and friends standing behind the APDA RI yard sign with its sunflower decorations" width="2048" height="1365" />
+            <figcaption>Chapter members and friends at the 2026 Optimism Walk.</figcaption>
+          </figure>
           <div class="gift-body">
             <h3>Financial Assistance</h3>
             <p>Parkinson's brings costs that insurance doesn't always cover. Your gift helps ease the financial weight on local families so they can focus on living well.</p>
@@ -9664,11 +9673,6 @@
   <section class="section" aria-label="Recommended Reading">
     <div class="wrap">
 <div class="reading-block" id="recommended-reading">
-        <div class="section-head">
-          <div class="rule" aria-hidden="true"></div>
-          <h2>Recommended Reading</h2>
-          <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
-        </div>
         <p class="reading-actions"><a class="btn btn-outline" href="https://www.apdaparkinson.org/resources-support" target="_blank" rel="noopener">APDA Educational Publications</a></p>
       </div>
       <div class="bookshelf-block" id="apda-booklet-shelf">
