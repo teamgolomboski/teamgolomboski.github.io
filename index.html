@@ -1008,8 +1008,8 @@
   .memorial h2{margin-top:10px}
 
   /* ---------- Our Story — "The Story So Far" timeline ----------
-     Reuses the site's timeline treatment (vertical rule + orange dots
-     from .timeline-list); here the Archivo year sits in its own column
+     Reuses the site's timeline treatment (vertical rule + APDA-blue
+     dots from .timeline-list); here the Archivo year sits in its own column
      with the entry text beside it, left-aligned throughout. */
   .story-timeline{max-width:840px}
   .story-timeline .timeline-list li{display:grid;grid-template-columns:70px 1fr;gap:18px;align-items:baseline;padding-bottom:24px}
@@ -1769,10 +1769,11 @@
   .timeline-list::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
   .timeline-list li{position:relative;padding:0 0 20px 34px}
   .timeline-list li:last-child{padding-bottom:0}
-  .timeline-list li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:var(--orange);border:3px solid var(--card);box-shadow:0 0 0 1px var(--line)}
-  /* Joseph & Alicia page: milestone dots use APDA blue, not Donate orange
-     (orange is reserved for Donate actions site-wide). Scoped to this page
-     so the Our Story and Impact timelines keep their existing treatment. */
+  .timeline-list li::before{content:"";position:absolute;left:0;top:6px;width:16px;height:16px;border-radius:50%;background:#005eb8;border:3px solid var(--card);box-shadow:0 0 0 1px var(--line)}
+  /* Timeline dots use APDA blue, not Donate orange (orange is reserved
+     for Donate actions site-wide). The Joseph & Alicia page override
+     below predates the base-rule change and is kept as-is; it resolves
+     to the same APDA blue. */
   [data-page="joseph-and-alicia"] .timeline-list li::before{background:#005eb8}
   .timeline-year{font-family:"Archivo",sans-serif;font-weight:800;font-size:.95rem;color:var(--navy);display:block}
   .timeline-year{color:#eaf1f8}
@@ -2404,6 +2405,18 @@
   [data-page="our-story"] .section .cta-band strong{color:#132433}
   [data-page="our-story"] .section .cta-band .invite-line{color:#0a2340 !important}
   [data-page="our-story"] .section .cta-band .btn-outline{--ol-ink:#0a2340;--ol-bg:#fff;--ol-hover:#eef3f8;border-color:#0a2340;color:#0a2340;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  /* Walk With Us band only: this one band takes the standard navy CTA
+     panel treatment instead of the Our Story page's white-card flip —
+     navy ground, white heading, light on-navy body copy, white invite
+     line, and the on-navy outline button. The Donate button keeps its
+     btn-orange treatment. Scoped to #walk-with-us so every other
+     .cta-band keeps its current look. */
+  #walk-with-us .cta-band{background:var(--navy);border:none;box-shadow:none;color:#fff}
+  #walk-with-us .cta-band h2{color:#fff}
+  #walk-with-us .cta-band p{color:#c9d6e4}
+  #walk-with-us .cta-band strong{color:#fff}
+  #walk-with-us .cta-band .invite-line{color:#fff !important}
+  #walk-with-us .cta-band .btn-outline{--ol-ink:#fff;--ol-bg:rgba(255,255,255,.06);--ol-hover:rgba(255,255,255,.16);border-color:#fff;color:#fff;box-shadow:none}
   /* Young Onset family band (light scheme): the moved family note
      keeps the standard white-card treatment from the generic flip
      above and gains the peach quote-box left edge as decoration. */
