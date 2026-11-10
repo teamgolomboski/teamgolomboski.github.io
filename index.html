@@ -1018,6 +1018,50 @@
   .story-timeline .timeline-desc{margin-top:0;font-size:1.02rem}
   @media (max-width:480px){ .story-timeline .timeline-list li{grid-template-columns:56px 1fr;gap:12px} .story-timeline .timeline-year{font-size:1.05rem} }
 
+  /* ---------- Our Story — tappable "Story So Far" entries ----------
+     Each entry gains a small "+ See the photo" toggle under its
+     text; tapping opens a panel with that year's album cover
+     photo, the album's own caption, and one extra line. One entry
+     open at a time, all closed by default — the closed timeline
+     keeps its exact look (blue dots, rail, spacing). */
+  .story-timeline .timeline-body{min-width:0}
+  .timeline-toggle{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:7px 10px 7px 2px;background:none;border:0;border-radius:6px;font:inherit;font-size:.88rem;font-weight:700;letter-spacing:.02em;color:#8ec5ff;cursor:pointer;-webkit-appearance:none;appearance:none;-webkit-tap-highlight-color:transparent}
+  .timeline-toggle .when-open{display:none}
+  .story-timeline li.open .timeline-toggle .when-open{display:inline}
+  .story-timeline li.open .timeline-toggle .when-closed{display:none}
+  .timeline-toggle:focus-visible{outline:3px solid #8ec5ff;outline-offset:2px}
+  .timeline-panel{margin-top:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+  .timeline-panel[hidden]{display:none}
+  .timeline-panel figure{margin:0}
+  .timeline-panel img{display:block;width:100%;max-width:520px;height:auto;border-radius:10px;border:1px solid var(--line)}
+  .timeline-panel figcaption{margin-top:12px;font-size:.92rem;line-height:1.5;color:var(--muted);max-width:520px}
+  .timeline-panel .timeline-extra{margin:14px 0 0;font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.12rem;line-height:1.5;color:var(--ink);max-width:620px}
+
+  /* ---------- Our Story — "Where the Walk Has Called Home" ----------
+     A static hand-drawn SVG of Rhode Island in template colors,
+     pinned with the walk's two Warwick homes. It sits inside the
+     Story So Far section as a card on that section's base shade,
+     so the page's base/alt section rhythm is untouched. No
+     embeds, no map tiles, no third-party calls. */
+  .walk-homes{margin-top:48px;max-width:1000px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px 34px}
+  .walk-homes h3{font-family:"Archivo",sans-serif;font-size:clamp(1.3rem,2.6vw,1.6rem);font-weight:800;line-height:1.25;color:#eaf1f8;margin:0}
+  .walk-homes .walk-homes-intro{margin:12px 0 0;font-size:1.02rem;line-height:1.6;color:var(--muted);max-width:640px}
+  .walk-homes .ri-map{display:block;width:100%;max-width:360px;height:auto;margin:26px auto 4px}
+  .ri-land{fill:#26507e;stroke:#9fb8d2;stroke-width:2;stroke-linejoin:round}
+  .ri-water{fill:#102238}
+  .ri-city-label{font-family:"Archivo",sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;fill:#9fb8d2}
+  .map-pin .pin-body{stroke:#fff;stroke-width:2}
+  .map-pin text{font-family:"Archivo",sans-serif;font-size:13px;font-weight:800;fill:#fff;text-anchor:middle}
+  .pin-goddard .pin-body{fill:#35b26f}
+  .pin-citypark .pin-body{fill:#57a7ec}
+  .walk-homes-list{list-style:none;margin:22px 0 0;padding:22px 0 0;border-top:1px solid var(--line);display:grid;gap:12px}
+  .walk-homes-list li{display:flex;align-items:flex-start;gap:12px;font-size:1rem;line-height:1.55;color:var(--muted)}
+  .wh-chip{flex:none;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin-top:1px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);color:#fff;font-family:"Archivo",sans-serif;font-size:.82rem;font-weight:800}
+  .wh-chip span{transform:rotate(45deg)}
+  .wh-chip.pin-goddard{background:#35b26f}
+  .wh-chip.pin-citypark{background:#57a7ec}
+  @media (max-width:560px){ .walk-homes{padding:24px 20px} }
+
   /* ---------- Our Story — The Memory Wall ----------
      Entries live in .memory-grid as .memory-card tiles in the
      pathway-card family (card surface, 2px line border, radius,
@@ -2139,6 +2183,27 @@
   .section .regional-label{color:#0a2340}
   .section .chapter-address{color:#33475c}
   .section .book-title{color:#0a2340}
+  /* Tappable Story So Far entries + the walk-homes map card take
+     the light-section treatment: APDA-blue toggle, white panels
+     with the standard light card border and shadow, and the map
+     drawn in pale APDA blue with navy linework. */
+  .section .timeline-toggle{color:#005eb8}
+  .section .timeline-panel{background:#fff;border-color:#d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  .section .timeline-panel img{border-color:#d3dde7}
+  .section .timeline-panel figcaption{color:#33475c}
+  .section .timeline-panel .timeline-extra{color:#0a2340}
+  .section .walk-homes{background:#fff;border-color:#d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  .section .walk-homes h3{color:#0a2340}
+  .section .walk-homes .walk-homes-intro{color:#33475c}
+  .section .walk-homes-list{border-top-color:#d3dde7}
+  .section .walk-homes-list li{color:#33475c}
+  .section .ri-land{fill:#cfe1f1;stroke:#0a2340}
+  .section .ri-water{fill:#fff}
+  .section .ri-city-label{fill:#0a2340}
+  .section .pin-goddard .pin-body{fill:#16603c}
+  .section .pin-citypark .pin-body{fill:#005eb8}
+  .section .wh-chip.pin-goddard{background:#16603c}
+  .section .wh-chip.pin-citypark{background:#005eb8}
   /* Thank-you box joins the white-card family; its orange top
      rule stays, and the lead-in takes the Team navy */
   .section .thankyou{background:#fff;border:1px solid #d3dde7;border-top:4px solid #0a2340;color:#33475c;box-shadow:0 8px 24px rgba(19,36,51,.08)}
@@ -3505,32 +3570,130 @@
         <ul class="timeline-list">
           <li>
             <span class="timeline-year">2014</span>
-            <span class="timeline-desc">Alicia and Joseph Jr. found Team Golomboski in their dad's honor, and the team walks its first Optimism Walk at Goddard Memorial State Park.</span>
+            <div class="timeline-body">
+              <span class="timeline-desc">Alicia and Joseph Jr. found Team Golomboski in their dad's honor, and the team walks its first Optimism Walk at Goddard Memorial State Park.</span>
+              <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="story-panel-2014"><span class="when-closed">+ See the photo</span><span class="when-open">− Hide the photo</span></button>
+              <div class="timeline-panel" id="story-panel-2014" hidden>
+                <figure>
+                  <img src="assets/walk2014-team-group-thumb.jpg" data-full="assets/walk2014-team-group.jpg" alt="The first Team Golomboski gathered under the team tent at the 2014 Optimism Walk." width="960" height="720" loading="lazy" decoding="async" />
+                  <figcaption>The first Team Golomboski, gathered under the team tent.</figcaption>
+                </figure>
+                <p class="timeline-extra">The first walk: family, friends, and a promise — we would keep showing up, every year, until there's a cure.</p>
+              </div>
+            </div>
           </li>
           <li>
             <span class="timeline-year">2016</span>
-            <span class="timeline-desc">Joseph Sr. wins Cherry Hill Manor's Christmas card design contest — his artwork becomes the manor's Christmas card.</span>
+            <div class="timeline-body">
+              <span class="timeline-desc">Joseph Sr. wins Cherry Hill Manor's Christmas card design contest — his artwork becomes the manor's Christmas card.</span>
+              <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="story-panel-2016"><span class="when-closed">+ See the photo</span><span class="when-open">− Hide the photo</span></button>
+              <div class="timeline-panel" id="story-panel-2016" hidden>
+                <figure>
+                  <img src="assets/walk2016-team-group-thumb.jpg" data-full="assets/walk2016-team-group.jpg" alt="Team Golomboski at the 2016 Rhode Island Optimism Walk — Joseph P. Golomboski Sr. front and center" width="1920" height="1080" loading="lazy" decoding="async" />
+                  <figcaption>Team Golomboski at the 2016 Rhode Island Optimism Walk — Joseph P. Golomboski Sr. front and center.</figcaption>
+                </figure>
+                <p class="timeline-extra">His art, on a Christmas card: Joseph Sr.'s winning design carried Cherry Hill Manor's holiday greetings that year.</p>
+              </div>
+            </div>
           </li>
           <li>
             <span class="timeline-year">2017</span>
-            <span class="timeline-desc">The team walks in memory of Teresa Golomboski, Joseph Sr.'s mother, and a raffle and bake sale at Cherry Hill rally the staff and families.</span>
+            <div class="timeline-body">
+              <span class="timeline-desc">The team walks in memory of Teresa Golomboski, Joseph Sr.'s mother, and a raffle and bake sale at Cherry Hill rally the staff and families.</span>
+              <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="story-panel-2017"><span class="when-closed">+ See the photo</span><span class="when-open">− Hide the photo</span></button>
+              <div class="timeline-panel" id="story-panel-2017" hidden>
+                <figure>
+                  <img src="assets/walk2017-team-group-wide-thumb.jpg" data-full="assets/walk2017-team-group-wide.jpg" alt="The whole Team Golomboski group at Goddard Park, 2017" width="1500" height="1450" loading="lazy" decoding="async" />
+                  <figcaption>The whole team at Goddard, 2017.</figcaption>
+                </figure>
+                <p class="timeline-extra">That year the team walked for two: for Joseph Sr., and in memory of his mother, Teresa.</p>
+              </div>
+            </div>
           </li>
           <li>
             <span class="timeline-year">2019</span>
-            <span class="timeline-desc">Joseph and Kirby move their wedding to Cherry Hill so his dad can be there. He passes that August, and the team walks in his memory for the first time.</span>
+            <div class="timeline-body">
+              <span class="timeline-desc">Joseph and Kirby move their wedding to Cherry Hill so his dad can be there. He passes that August, and the team walks in his memory for the first time.</span>
+              <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="story-panel-2019"><span class="when-closed">+ See the photo</span><span class="when-open">− Hide the photo</span></button>
+              <div class="timeline-panel" id="story-panel-2019" hidden>
+                <figure>
+                  <img src="assets/walk2019-course-group-thumb.jpg" data-full="assets/walk2019-course-group.jpg" alt="Team Golomboski on the course, 2019" width="4080" height="3060" loading="lazy" decoding="async" />
+                  <figcaption>Team Golomboski on the course, 2019.</figcaption>
+                </figure>
+                <p class="timeline-extra">A wedding moved so Dad could be there — and, that fall, the first walk held in his memory.</p>
+              </div>
+            </div>
           </li>
           <li>
             <span class="timeline-year">2021</span>
-            <span class="timeline-desc">Joseph becomes chair of the Rhode Island Optimism Walk committee.</span>
+            <div class="timeline-body">
+              <span class="timeline-desc">Joseph becomes chair of the Rhode Island Optimism Walk committee.</span>
+              <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="story-panel-2021"><span class="when-closed">+ See the photo</span><span class="when-open">− Hide the photo</span></button>
+              <div class="timeline-panel" id="story-panel-2021" hidden>
+                <figure>
+                  <img src="assets/walk2021-bridge-group-thumb.jpg" data-full="assets/walk2021-bridge-group.jpg" alt="Team Golomboski on the bridge at Goddard — the first in-person Optimism Walk in two years." width="2017" height="1345" loading="lazy" decoding="async" />
+                  <figcaption>Team Golomboski on the bridge at Goddard — the first in-person Optimism Walk in two years.</figcaption>
+                </figure>
+                <p class="timeline-extra">Joseph took the chair of the walk committee — helping run the day he'd once only walked in.</p>
+              </div>
+            </div>
           </li>
           <li>
             <span class="timeline-year">2024</span>
-            <span class="timeline-desc">Joseph becomes president of the APDA Rhode Island Chapter board of directors.</span>
+            <div class="timeline-body">
+              <span class="timeline-desc">Joseph becomes president of the APDA Rhode Island Chapter board of directors.</span>
+              <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="story-panel-2024"><span class="when-closed">+ See the photo</span><span class="when-open">− Hide the photo</span></button>
+              <div class="timeline-panel" id="story-panel-2024" hidden>
+                <figure>
+                  <img src="assets/walk2025-start-thumb.jpg" data-full="assets/walk2025-start.jpg" alt="A crowd of walkers in purple 2025 Optimism Walk shirts streaming under the green, white and blue balloon arch at the start of the walk, Warwick City Park" width="2048" height="1366" loading="lazy" decoding="async" />
+                  <figcaption>Walkers pour under the balloon arch at the start.</figcaption>
+                </figure>
+                <p class="timeline-extra">In September 2024 Joseph became president of the APDA Rhode Island Chapter board — the family's fight became the whole state's.</p>
+              </div>
+            </div>
           </li>
           <li>
             <span class="timeline-year">2026</span>
-            <span class="timeline-desc">The Rhode Island Optimism Walk raises $193,430.95, Team Golomboski passes $40,000 raised since 2014, and the first Rock the Resort concert takes the stage.</span>
+            <div class="timeline-body">
+              <span class="timeline-desc">The Rhode Island Optimism Walk raises $193,430.95, Team Golomboski passes $40,000 raised since 2014, and the first Rock the Resort concert takes the stage.</span>
+              <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="story-panel-2026"><span class="when-closed">+ See the photo</span><span class="when-open">− Hide the photo</span></button>
+              <div class="timeline-panel" id="story-panel-2026" hidden>
+                <figure>
+                  <img src="assets/hero-walk-2026-thumb.jpg" data-full="assets/hero-walk-2026.jpg" alt="Walkers on the path at the 2026 Rhode Island Optimism Walk, Warwick City Park" width="1920" height="1280" loading="lazy" decoding="async" />
+                  <figcaption>Walkers on the path at the 2026 Rhode Island Optimism Walk, Warwick City Park.</figcaption>
+                </figure>
+                <p class="timeline-extra">The biggest year yet: the walk raised $193,430.95, the team passed $40,000 all-time, and Rock the Resort took the stage for the first time.</p>
+              </div>
+            </div>
           </li>
+        </ul>
+      </div>
+
+      <div class="walk-homes">
+        <h3>Where the Walk Has Called Home</h3>
+        <p class="walk-homes-intro">Twelve years of walks, two Warwick homes — every step of it in the city the Golomboski family calls home.</p>
+        <svg class="ri-map" viewBox="0 0 320 330" role="img" aria-label="Stylized map of Rhode Island with two pins in Warwick: pin 1, Goddard Memorial State Park, and pin 2, Warwick City Park.">
+          <title>Rhode Island — the walk's two Warwick homes</title>
+          <path class="ri-land" d="M58 30 L150 24 L226 20 L246 36 L240 68 L222 88 L206 96 L214 122 L204 146 L214 172 L200 198 L208 226 L186 250 L172 258 L156 234 L146 214 L118 220 L82 228 L54 212 L42 172 L46 118 L52 66 Z" />
+          <path class="ri-land" d="M228 148 C240 146 246 158 244 176 C242 196 246 214 238 228 C228 230 220 218 220 198 C220 176 220 156 228 148 Z" />
+          <path class="ri-land" d="M96 292 C106 284 122 286 126 296 C122 308 104 310 96 302 Z" />
+          <path class="ri-water" d="M178 90 C164 112 184 130 174 152 C164 174 150 192 146 214 C156 234 168 248 182 256 C176 232 188 210 186 184 C184 156 196 122 178 90 Z" />
+          <path class="ri-water" d="M152 146 C140 148 129 154 126 163 C135 170 146 170 153 163 C155 155 155 150 152 146 Z" />
+          <text class="ri-city-label" x="40" y="128">WARWICK</text>
+          <g class="map-pin pin-goddard" transform="translate(148,198)">
+            <title>Goddard Memorial State Park — the first walk, 2014 · the 2017 walk</title>
+            <path class="pin-body" d="M0 0 C-10 -12 -14 -18 -14 -26 A14 14 0 1 1 14 -26 C14 -18 10 -12 0 0 Z" />
+            <text y="-26" dy=".35em">1</text>
+          </g>
+          <g class="map-pin pin-citypark" transform="translate(122,166)">
+            <title>Warwick City Park — the 2026 walk</title>
+            <path class="pin-body" d="M0 0 C-10 -12 -14 -18 -14 -26 A14 14 0 1 1 14 -26 C14 -18 10 -12 0 0 Z" />
+            <text y="-26" dy=".35em">2</text>
+          </g>
+        </svg>
+        <ul class="walk-homes-list">
+          <li><span class="wh-chip pin-goddard" aria-hidden="true"><span>1</span></span><span>Goddard Memorial State Park — the first walk, 2014 · the 2017 walk</span></li>
+          <li><span class="wh-chip pin-citypark" aria-hidden="true"><span>2</span></span><span>Warwick City Park — the 2026 walk</span></li>
         </ul>
       </div>
     </div>
@@ -12140,6 +12303,36 @@
     }
     window.addEventListener("hashchange", syncFromHash);
     syncFromHash();
+  })();
+
+
+  // Our Story "The Story So Far" timeline: each year's toggle opens
+  // a panel with that year's album cover photo, the album's own
+  // caption, and one extra line. Accordion behavior — opening one
+  // year closes the others, and tapping the open year closes it.
+  // All entries start closed. Native buttons, so Enter/Space work
+  // and aria-expanded stays in step, same pattern as the albums.
+  (function () {
+    var items = document.querySelectorAll('[data-page="our-story"] .story-timeline .timeline-list > li');
+    if (!items.length) { return; }
+    function setOpen(item, open) {
+      item.classList.toggle("open", open);
+      var btn = item.querySelector(".timeline-toggle");
+      var panel = item.querySelector(".timeline-panel");
+      if (btn) { btn.setAttribute("aria-expanded", open ? "true" : "false"); }
+      if (panel) { panel.hidden = !open; }
+    }
+    for (var i = 0; i < items.length; i++) {
+      (function (item) {
+        var btn = item.querySelector(".timeline-toggle");
+        if (!btn) { return; }
+        btn.addEventListener("click", function () {
+          var willOpen = !item.classList.contains("open");
+          for (var j = 0; j < items.length; j++) { setOpen(items[j], false); }
+          if (willOpen) { setOpen(item, true); }
+        });
+      })(items[i]);
+    }
   })();
 
 
