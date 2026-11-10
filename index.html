@@ -2555,6 +2555,85 @@
   [data-page="introduction-to-parkinsons"] .intro-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;align-items:start}
   [data-page="introduction-to-parkinsons"] .intro-card-grid .pd-resources-card{margin-top:0}
   @media (max-width:760px){ [data-page="introduction-to-parkinsons"] .intro-card-grid{grid-template-columns:1fr} }
+
+  /* ---------- Layout fix: photos beside text + widening (Nov 10, 2026) ----------
+     .beside is the photo-beside-text layout built on the site's existing
+     photo-with-caption treatment (.recap-photo figure styles): text in one
+     column, a captioned photo in the other. .beside-flip puts the photo on
+     the LEFT on desktop so paired sections alternate sides down a page.
+     At <=900px every .beside stacks to one column with the photo ABOVE its
+     text (figure order:-1), matching the site's phone photo sections.
+     The widening rules below are page-scoped so pages outside the fix
+     (Media, In the News, Donate, Reading, Galleries, Site Map) keep their
+     existing measures: long prose/lists go to 1000px; card/list grids go
+     to the full 1120px wrap (max-width:none). */
+  .beside{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:start}
+  .beside-flip{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
+  @media (min-width:901px){
+    .beside-flip .beside-text{grid-column:2;grid-row:1}
+    .beside-flip .beside-figure{grid-column:1;grid-row:1}
+  }
+  .beside-text{min-width:0}
+  .beside-figure{margin:0;min-width:0}
+  .beside-figure-narrow{max-width:340px;width:100%;justify-self:center}
+  @media (max-width:900px){
+    .beside,.beside-flip{grid-template-columns:1fr;gap:26px}
+    .beside-figure{order:-1;max-width:640px}
+    .beside-figure-narrow{max-width:340px}
+  }
+  /* Genetics: the two family photos become a two-column figure row */
+  .genetics-photo-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px;align-items:start}
+  .genetics-photo-row .family-photo{margin:0;max-width:none}
+  .genetics-photo-row .family-photo figcaption{text-align:left}
+  @media (max-width:640px){ .genetics-photo-row{grid-template-columns:1fr} }
+  /* Widening — Our Story */
+  [data-page="our-story"] .prose{max-width:1000px}
+  [data-page="our-story"] .story-pullquote{max-width:1000px}
+  [data-page="our-story"] .story-timeline{max-width:1000px}
+  [data-page="our-story"] .team-grid{max-width:none}
+  [data-page="our-story"] .story-section-photo{max-width:1000px}
+  [data-page="our-story"] .beside .prose{max-width:none}
+  /* Widening — Speaking (prose blocks + Speaking Topics list) */
+  [data-page="speaking"] .prose{max-width:1000px}
+  [data-page="speaking"] .pd-resources-list{max-width:1000px}
+  /* Widening — Introduction to Parkinson's (consistent across the page) */
+  [data-page="introduction-to-parkinsons"] .prose{max-width:1000px}
+  [data-page="introduction-to-parkinsons"] .basics-panel{max-width:1000px}
+  [data-page="introduction-to-parkinsons"] .pd-resources-list{max-width:1000px}
+  [data-page="introduction-to-parkinsons"] .pd-resources-framing{max-width:1000px}
+  [data-page="introduction-to-parkinsons"] .pd-resources-routing{max-width:1000px}
+  [data-page="introduction-to-parkinsons"] .pd-resources-compact{max-width:1000px}
+  [data-page="introduction-to-parkinsons"] .basics-close{max-width:1000px}
+  [data-page="introduction-to-parkinsons"] .beside .basics-panel{max-width:none}
+  /* Widening — Homepage "What Is Parkinson's?" stack + Meet the Team grid */
+  [data-page="home"] .prose{max-width:1000px}
+  [data-page="home"] .basics-panel{max-width:1000px}
+  [data-page="home"] .basics-note{max-width:1000px}
+  [data-page="home"] .basics-close{max-width:1000px}
+  [data-page="home"] .team-grid{max-width:none}
+  /* Widening — Impact */
+  [data-page="impact"] .story-timeline{max-width:1000px}
+  [data-page="impact"] .team-grid{max-width:none}
+  /* Widening — Events + Rock the Resort secondary lists/cards */
+  [data-page="events"] .event-list{max-width:none}
+  [data-page="events"] .event-filter-empty{max-width:none}
+  [data-page="rock-the-resort"] .prose{max-width:1000px}
+  [data-page="rock-the-resort"] .event-list{max-width:none}
+  [data-page="rock-the-resort"] .spotify-card{max-width:none}
+  [data-page="rock-the-resort"] .beside .prose{max-width:none}
+  /* Widening — Press Kit leadership bios */
+  [data-page="press-kit"] .team-grid{max-width:none}
+  /* Photo pairing — Joseph & Alicia: prose inside .beside uses its column */
+  [data-page="joseph-and-alicia"] .beside .prose{max-width:none}
+  /* Widening — hidden Resources pages (Help, Just Diagnosed, Caregivers,
+     Young Onset, Genetics): the shared 860px system goes to 1000px */
+  [data-page="pd-resources/help"] :is(.pd-resources-framing,.pd-resources-list,.pd-resources-routing,.pd-resources-compact,.pd-family-note){max-width:1000px}
+  [data-page="pd-resources/just-diagnosed"] :is(.pd-resources-framing,.pd-resources-list,.pd-resources-routing,.pd-resources-compact,.pd-family-note){max-width:1000px}
+  [data-page="pd-resources/caregivers"] :is(.pd-resources-framing,.pd-resources-list,.pd-resources-routing,.pd-resources-compact,.pd-family-note){max-width:1000px}
+  [data-page="pd-resources/young-onset"] :is(.pd-resources-framing,.pd-resources-list,.pd-resources-routing,.pd-resources-compact,.pd-family-note){max-width:1000px}
+  [data-page="pd-resources/genetics"] :is(.pd-resources-framing,.pd-resources-list,.pd-resources-routing,.pd-resources-compact,.pd-family-note){max-width:1000px}
+  [data-page="pd-resources/just-diagnosed"] .learn-more{max-width:1000px}
+  [data-page="pd-resources/young-onset"] .pd-family-band .learn-more{max-width:1000px}
 </style>
 </head>
 <body>
@@ -3217,11 +3296,19 @@
 
   <section class="section" id="golomboski-family">
     <div class="wrap">
-      <div class="prose">
+      <div class="beside">
+        <div class="prose beside-text">
         <div class="rule" aria-hidden="true"></div>
         <h2>It Begins With the Golomboski Family</h2>
         <p style="margin-top:14px">This is a family story before it is a team story. Before there was a team name, a tent, or a fundraising goal, there was the <strong>Golomboski family</strong> — <strong>Joseph P. Golomboski Sr.</strong>, his children <strong>Alicia</strong> and <strong>Joseph Jr.</strong>, their mom, <strong>Donna Harrison Lerch</strong>, his brother <strong>Anthony Golomboski</strong> — Uncle Tony to Alicia and Joseph Jr. — and Anthony's wife, <strong>Gayle Golomboski</strong> — Aunt Gayle — his sister <strong>Maria Francis</strong> — Aunt Maria to the family — and the family around them. Everything Team Golomboski has become started with them, at home, long before the first walk.</p>
         <p>Then Parkinson's entered that family's life — early, and without asking. Joseph Sr. was diagnosed with <strong>early-onset Parkinson's at age 44</strong>. Forty-four is young. It is a time when most people expect many working years, family years, and ordinary days still ahead of them. Instead, the years that followed were lived with Parkinson's — and not by him alone. His children watched what the disease takes, year after year. The whole family learned how much has to be carried alongside the person who is ill: the appointments, the changes, the worry, and the love that has to get louder than all of it.</p>
+        </div>
+        <figure class="recap-photo beside-figure">
+          <img src="assets/founders-trio.jpg" alt="Alicia Golomboski and Joseph Golomboski Jr. with their father, Joseph Golomboski Sr., seated in his wheelchair." width="540" height="720" />
+          <figcaption>Alicia and Joseph with their dad, Joseph Sr. — the heart of Team Golomboski.</figcaption>
+        </figure>
+      </div>
+      <div class="prose">
         <h3 class="story-subhead" id="chapter-one">A Family Decides Not to Carry It Quietly</h3>
         <p>In <strong>2014</strong>, Alicia and Joseph Jr. did something simple and stubborn with that love and worry: they founded <strong>Team Golomboski</strong> in honor of their father, who was living with Parkinson's disease. They put his name on the team — the family name — and invited other people to stand with them. The team walks and fundraises for the <strong>American Parkinson Disease Association Rhode Island Chapter</strong>, so that other Rhode Island families facing Parkinson's have programs, support, and a community to lean on — the kind of community they wanted around their own dad.</p>
         <p>The walk began as a way to honor their father. What deepened it into a lasting commitment was the family's relationship with the APDA Rhode Island Chapter — and especially with Mary Ellen Thibodeau, the chapter's executive director at the time. As Joseph Sr.'s Parkinson's advanced, the family turned to the chapter for help, and Mary Ellen became their guide — the person who showed two teenagers, and later two young caregivers, that they were not carrying this alone.</p>
@@ -3276,10 +3363,6 @@
           </ul>
         </aside>
       </div>
-      <figure class="story-section-photo">
-        <img src="assets/founders-trio.jpg" alt="Alicia Golomboski and Joseph Golomboski Jr. with their father, Joseph Golomboski Sr., seated in his wheelchair." width="540" height="720" />
-        <figcaption>Alicia and Joseph with their dad, Joseph Sr. — the heart of Team Golomboski.</figcaption>
-      </figure>
       <div class="founders-row">
         <a class="founder" href="#/joseph-and-alicia">
           <img class="avatar avatar-a" src="assets/alicia-headshot.jpg" alt="Alicia Golomboski, Co-Founder of Team Golomboski and APDA Rhode Island board member" width="118" height="118" />
@@ -3564,12 +3647,18 @@
 
   <section class="section" id="built-together">
     <div class="wrap">
-      <div class="prose">
+      <div class="beside">
+        <div class="prose beside-text">
         <div class="rule" aria-hidden="true"></div>
         <h2>What We've Built Together</h2>
         <p style="margin-top:14px">Joseph Golomboski Jr. and Alicia Golomboski co-founded <strong>Team Golomboski in 2014</strong> in honor of their father, <strong>Joseph P. Golomboski Sr. (1960–2019)</strong>, who was diagnosed with early-onset Parkinson's disease at age 44 and passed away on August 9, 2019.</p>
         <p>What began as a family walk team has grown through consistency and community. Year after year, Joseph and Alicia have walked, fundraised, and invited neighbors, friends, sponsors, and local businesses to stand with Rhode Island families living with Parkinson's. Since 2014, Team Golomboski has raised <strong>over $40,000 for APDA RI</strong> — including <strong>$7,273.75 in 2026, 103% of the team's $7,000 goal</strong>. The team has grown beyond family to include friends, colleagues, and community members — and everyone is welcome to join.</p>
         <p>Together, they have helped shape a calendar of events that brings people together for the cause throughout the year — not only on walk day, but in concert halls, comedy rooms, and neighborhoods across the state.</p>
+        </div>
+        <figure class="recap-photo beside-figure">
+          <img src="assets/siblings-apda-event.jpg" alt="Joseph Golomboski Jr. and Alicia Golomboski at the APDA Massachusetts Annual Magic of Hope Gala." width="2048" height="1536" />
+          <figcaption>Joseph and Alicia Golomboski at the APDA Massachusetts Annual Magic of Hope Gala.</figcaption>
+        </figure>
       </div>
 
       <div class="shared-events" aria-label="Events Joseph and Alicia have shared">
@@ -3590,10 +3679,6 @@
         </article>
       </div>
 
-      <figure class="family-photo">
-        <img src="assets/siblings-apda-event.jpg" alt="Joseph Golomboski Jr. and Alicia Golomboski at the APDA Massachusetts Annual Magic of Hope Gala." width="2048" height="1536" />
-        <figcaption>Joseph and Alicia Golomboski at the APDA Massachusetts Annual Magic of Hope Gala.</figcaption>
-      </figure>
 
       <div class="prose" style="margin-top:44px">
         <h2 style="font-size:1.45rem" id="service-beyond-the-walk">Service Beyond the Walk</h2>
@@ -4433,24 +4518,36 @@
 
   <section class="section">
     <div class="wrap">
-      <div class="prose">
+      <div class="beside">
+        <div class="prose beside-text">
         <div class="rule" aria-hidden="true"></div>
         <h2>A Concert for a Cure</h2>
         <p style="margin-top:14px"><strong>Rock the Resort: Concert for a Cure</strong> is Team Golomboski's benefit concert at <strong>The Last Resort</strong> — live music, good company, and a community coming together for Rhode Island families living with Parkinson's disease.</p>
         <p>The first concert went so well that it's now an <strong>annual event</strong> — one night every year when this community trades walk shoes for dancing shoes, all in support of the APDA Rhode Island Chapter.</p>
+        </div>
+        <figure class="recap-photo beside-figure">
+          <img src="assets/21guns-rock-the-resort.jpg" alt="Five-piece band 21 Guns Band RI performing on stage with electric guitars, bass, drums and vocals in front of the Rock the Resort 'Concert for a Cure' banner" width="2048" height="1366" />
+          <figcaption>21 Guns Band RI performing at Rock the Resort 2026 — The Last Resort, Smithfield, April 26, 2026.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
   <section class="section section-alt">
     <div class="wrap">
-      <div class="prose">
+      <div class="beside beside-flip">
+        <div class="prose beside-text">
         <div class="rule" aria-hidden="true"></div>
         <h2>The Tradition Continues</h2>
         <p style="margin-top:14px">Rock the Resort is now a yearly tradition — a night this community can look forward to every year. It carries the same spirit as walk day: neighbors, music, and showing up for Rhode Island families living with Parkinson's.</p>
         <p>Each year's concert supports the same mission as everything Team Golomboski does — funding the APDA RI Chapter's local programs, support services, and research toward a cure.</p>
         <p>The date for the next Rock the Resort hasn't been set yet. Concert announcements will be posted here and shared through APDA RI Chapter news — sign up with APDA RI to hear as soon as the date is announced.</p>
         <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Get APDA RI News</a></p>
+        </div>
+        <figure class="recap-photo beside-figure">
+          <img src="assets/rock-resort-crowd.jpg" alt="Concert crowd with hands raised toward the stage at Rock the Resort 2026." width="1079" height="723" />
+          <figcaption>Hands up — the crowd at Rock the Resort 2026.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -4507,10 +4604,6 @@
             </ul>
             <p><strong>Thank you</strong> to the performers, to Stephen Donovan for hosting the night, and to every sponsor and supporter who helped make the first concert happen.</p>
             <figure class="event-photo">
-              <img src="assets/21guns-rock-the-resort.jpg" alt="Five-piece band 21 Guns Band RI performing on stage with electric guitars, bass, drums and vocals in front of the Rock the Resort 'Concert for a Cure' banner" width="2048" height="1366" />
-              <figcaption>21 Guns Band RI performing at Rock the Resort 2026 — The Last Resort, Smithfield, April 26, 2026.</figcaption>
-            </figure>
-            <figure class="event-photo">
               <img src="assets/rock-resort-collage.jpg" alt="Photo collage from Rock the Resort 2026: performers, attendees, and a framed photo of Joseph Golomboski Sr." width="1800" height="1200" />
               <figcaption>Scenes from Rock the Resort 2026 — Concert for a Cure, in loving memory of Joseph Golomboski Sr.</figcaption>
             </figure>
@@ -4529,10 +4622,6 @@
             <figure class="event-photo">
               <img src="assets/rock-resort-friends.jpg" alt="Joseph Golomboski Jr. with his wife Kirby, his sister Alicia Golomboski, his niece Oliva, and friend Natalie at Rock the Resort 2026." width="1069" height="723" />
               <figcaption>Joseph Golomboski Jr. with his wife Kirby, his sister Alicia, his niece Oliva, and friend Natalie at Rock the Resort 2026.</figcaption>
-            </figure>
-            <figure class="event-photo">
-              <img src="assets/rock-resort-crowd.jpg" alt="Concert crowd with hands raised toward the stage at Rock the Resort 2026." width="1079" height="723" />
-              <figcaption>Hands up — the crowd at Rock the Resort 2026.</figcaption>
             </figure>
             <figure class="event-photo">
               <img src="assets/rock-resort-bar.jpg" alt="Two concertgoers seated at the bar during Rock the Resort 2026." width="1079" height="723" />
@@ -10376,14 +10465,16 @@
         <p class="pd-family-note-link"><a href="https://www.apdaparkinson.org/article/genetic-testing-for-parkinsons-disease/" target="_blank" rel="noopener">APDA on genetic testing for Parkinson's</a></p>
         <p class="pd-family-note-link"><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2025/11/PD-Overview.pdf" target="_blank" rel="noopener">See the risk-factors panel in APDA's PD Overview fact sheet (PDF)</a></p>
       </div>
-      <figure class="family-photo">
+      <div class="genetics-photo-row">
+        <figure class="family-photo">
         <img src="assets/family-alicia-dad.jpg" alt="A young Alicia Golomboski with her father, Joseph Golomboski Sr." width="709" height="623" />
         <figcaption>Alicia Golomboski with her dad, Joseph Sr.</figcaption>
       </figure>
       <figure class="family-photo">
         <img src="assets/family-2019-trio.jpg" alt="Alicia Golomboski and Joseph Golomboski Jr. with their father, Joseph Golomboski Sr." width="941" height="617" />
         <figcaption>Alicia and Joseph Jr. with their dad, Joseph Sr.</figcaption>
-      </figure>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -10534,13 +10625,15 @@
         <div class="rule" aria-hidden="true"></div>
         <h2>Young Onset Parkinson's</h2>
       </div>
-      <div class="basics-panel" style="margin-top:0">
+      <div class="beside">
+        <div class="basics-panel beside-text" style="margin-top:0">
         <p><strong>Parkinson's can start young.</strong> Doctors call it young onset when symptoms begin between ages 21 and 50 — about 10% of cases. Our dad, Joseph Golomboski Sr., was diagnosed at 44.</p>
       </div>
-      <figure class="family-photo">
-        <img src="assets/joseph-sr-portrait.png" alt="Joseph Golomboski Sr." width="1080" height="1350" />
-        <figcaption>Joseph Golomboski Sr. — diagnosed at 44.</figcaption>
-      </figure>
+        <figure class="recap-photo beside-figure beside-figure-narrow">
+          <img src="assets/joseph-sr-portrait.png" alt="Joseph Golomboski Sr." width="1080" height="1350" />
+          <figcaption>Joseph Golomboski Sr. — diagnosed at 44.</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
