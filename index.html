@@ -268,37 +268,36 @@
     .nav-resources-pinned{display:inline-flex;min-height:48px;font-size:.9rem;padding:9px 14px}
     .menu-btn{display:inline-flex}
   }
-  /* Desktop row, leaner nav (Nov 9, 2026): Our Story and
-     Joseph & Alicia moved under the About dropdown, so the
-     top-level row carries six links plus the Resources &
-     Support pill. With a full link's width handed back, the
-     ≥1151px metrics relax one step from the earlier ten-entry
-     tightening — slightly larger link text, wider padding and
-     gaps — so the row sits visibly airier while still fitting
-     the 1120px header column on one line (below 1151px the
-     hamburger layout above takes over). The Resources pill
-     and Donate keep matched font-size and padding steps, so
-     the two buttons still render at exactly the same height,
-     as they always have. */
+  /* Desktop row (Nov 10, 2026): Our Story and Joseph &
+     Alicia are separate top-level links again, so the row
+     carries eight links plus the Resources & Support pill.
+     The ≥1151px metrics restore the tighter spacing used
+     before the About grouping relaxed them — smaller link
+     text, narrower padding and gaps — so the full row fits
+     the 1120px header column on one line with no overflow
+     (below 1151px the hamburger layout above takes over).
+     The Resources pill and Donate keep matched font-size and
+     padding steps, so the two buttons still render at exactly
+     the same height, as they always have. */
   @media (min-width:1151px){
-    .nav-inner{gap:10px}
+    .nav-inner{gap:8px}
     .brand-name{font-size:1.06rem}
     .brand-sub{font-size:.66rem;letter-spacing:.11em}
-    .nav-links{gap:4px}
-    .nav-links a{font-size:.9rem;padding:10px 7px}
-    .nav-links a.nav-resources{font-size:.9rem;padding:11px 13px;margin-left:2px}
-    .nav-donate{font-size:.9rem;padding:11px 13px}
+    .nav-links{gap:2px}
+    .nav-links a{font-size:.86rem;padding:10px 5px}
+    .nav-links a.nav-resources{font-size:.86rem;padding:11px 12px;margin-left:2px}
+    .nav-donate{font-size:.86rem;padding:11px 12px}
   }
 
   /* ---------- Nav dropdowns (Nov 9, 2026) ----------
-     "About", "Events" and "Media" in the desktop nav are dropdown
+     "Events" and "Media" in the desktop nav are dropdown
      parents: each parent stays a plain link through to its own
      page, and the panel under it carries a simple list of child
-     entries — for About: Our Story and Joseph & Alicia; for
-     Media: In the News and Photo Galleries; for Events: Rock
-     the Resort today, with further event pages to be appended as
-     plain entries in the same list later (the panel is a vertical
-     list, min-width 216px, so several entries sit naturally).
+     entries — for Media: In the News and Photo Galleries; for
+     Events: Rock the Resort today, with further event pages to
+     be appended as plain entries in the same list later (the
+     panel is a vertical list, min-width 216px, so several
+     entries sit naturally).
      Child pages have no top-level menu item of their own. The
      panels open on hover and on keyboard focus-within; the script
      below keeps each parent's aria-expanded in step and Escape
@@ -1549,11 +1548,13 @@
   .financial-help-block{margin-top:56px}
   .financial-help-block .pd-resources-subhead{margin-top:0}
   /* Recommended Reading: APDA's free educational booklets lead the
-     page (the cover rail beside the booklet text, untouched), then
-     the trade books stand on a virtual bookshelf in their own block
-     below (.bookshelf-block) — all nine titles upright on wooden
-     shelf boards. Covers are display only: no purchase or retailer
-     links anywhere on the page. */
+     page (the APDA Booklet Shelf block below), then the trade books
+     stand on a virtual bookshelf in their own block below
+     (.bookshelf-block) — ten titles upright on wooden shelf boards
+     (nine real covers and one placeholder). Each trade book
+     carries a small "Buy on Amazon" search link under its title
+     (Joseph's direction, Nov 10, 2026); the APDA booklets are
+     free from APDA and carry no buy links. */
   .reading-block{margin-top:56px}
   .reading-block .section-head{margin-bottom:22px}
   .reading-actions{margin:0 0 22px}
@@ -1562,7 +1563,7 @@
   .book-author{margin:5px 0 0;font-weight:700;font-size:.9rem;color:#7fd6a5}
   .book-line{margin:6px 0 0;color:var(--muted);font-size:.93rem;line-height:1.55}
   /* ---------- Virtual bookshelf (Recommended Reading) ----------
-     The nine trade books stand upright on wooden shelf boards in
+     The trade books stand upright on wooden shelf boards in
      a warm, furniture-like panel under the APDA booklets. Each
      book is a fixed-width column in a wrapping flex row: five
      across on desktop, three on tablets, two on phones. Every
@@ -1591,6 +1592,14 @@
   .shelf-info .book-title{font-size:.97rem}
   .shelf-info .book-author{font-size:.86rem}
   .shelf-info .book-line{font-size:.87rem}
+  /* "Buy on Amazon" (Our Bookshelf only, Nov 10, 2026): a small,
+     quiet text link under each trade book's title/author, in the
+     site's standard link blue — no logo, no button. Each link is
+     an Amazon search for that book's exact title + author. The
+     APDA booklets are free from APDA and carry no buy link. */
+  .shelf-info .book-buy{margin:7px 0 0;font-size:.86rem;font-weight:700;line-height:1.4}
+  .shelf-info .book-buy a{color:#005eb8;text-decoration:none}
+  .shelf-info .book-buy a:hover{text-decoration:underline}
   @media (max-width:900px){
     .shelf-book{flex-basis:33.333%;max-width:33.333%}
     .shelf-stage{height:202px}
@@ -1606,30 +1615,16 @@
   /* The "More Books to Explore" pop-up was retired with the
      bookshelf build (Nov 9, 2026): all nine books now stand on
      the shelf, so the modal, its button and its script are gone. */
-  /* ---------- APDA booklet cover rails (Resources subpages) ----------
-     A narrow right-side column of APDA booklet covers beside the
-     booklet text on the Recommended Reading, Just Diagnosed and
-     Caregivers pages: each cover links to APDA's own file or
-     download page, with the booklet's name as a caption under it.
-     Beside the text on desktop; on phones (<=900px) the rail
-     stacks below its section in two columns, and the one
-     landscape cover (My Mommy Has PD) spans the rail's full
-     width instead of being forced into the portrait column. */
-  .rail-layout{display:grid;grid-template-columns:minmax(0,1fr) 188px;gap:36px;align-items:start}
-  .rail-main{min-width:0}
-  .cover-rail{display:flex;flex-direction:column;gap:22px}
-  .cover-rail-title{font-family:"Archivo",sans-serif;font-size:1.02rem;font-weight:800;color:#0a2340;margin:0;line-height:1.3}
-  .cover-rail-item{display:block;text-decoration:none}
-  .cover-rail-item img{display:block;width:100%;height:auto;border:1px solid #d3dde7;border-radius:6px;background:#fff;box-shadow:0 8px 24px rgba(19,36,51,.08)}
-  .cover-rail-cap{display:block;margin-top:8px;font-size:.88rem;font-weight:700;line-height:1.4;color:#0a2340;text-align:center}
-  .cover-rail-item:hover .cover-rail-cap{color:#005eb8;text-decoration:underline}
-  .cover-rail-item:focus-visible{outline:3px solid #005eb8;outline-offset:3px;border-radius:6px}
-  @media (max-width:900px){
-    .rail-layout{grid-template-columns:1fr;gap:30px}
-    .cover-rail{display:grid;grid-template-columns:1fr 1fr;gap:20px 18px;align-items:start}
-    .cover-rail-title{grid-column:1/-1}
-    .cover-rail-item--wide{grid-column:1/-1}
-  }
+  /* ---------- Shelf placeholder covers (Recommended Reading) ----------
+     Slots whose real cover is not on the site yet stand on the
+     shelf as a plain placeholder plate inside the standard cover
+     frame, labeled "Cover coming soon" — no drawn or generated
+     cover art. Used by the APDA Booklet Shelf (slots 3–10) and
+     by Our Bookshelf's tenth slot. (The narrow right-side booklet
+     cover column that used to sit beside the text on the Reading,
+     Just Diagnosed and Caregivers pages was removed Nov 10, 2026;
+     those sections now run full width.) */
+  .shelf-cover-placeholder{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:14px;text-align:center;font-family:"Archivo",sans-serif;font-size:.92rem;font-weight:700;line-height:1.45;color:#5b7186;background:#e7edf3}
   /* "On this page" jump control (Our Story): directly under the
      page hero, one compact row — the small "On this page" label
      beside a single dropdown holding all eleven stops (the five
@@ -2563,13 +2558,8 @@
     </a>
     <nav class="nav-links" id="mainNav" aria-label="Main">
       <a href="#/" data-route="home">Home</a>
-      <div class="nav-drop">
-        <a class="nav-drop-parent" href="#/our-story" data-route="our-story" aria-haspopup="true" aria-expanded="false">About <span class="nav-caret" aria-hidden="true">▾</span></a>
-        <div class="nav-drop-menu">
-          <a href="#/our-story" data-route="our-story">Our Story</a>
-          <a href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
-        </div>
-      </div>
+      <a href="#/our-story" data-route="our-story">Our Story</a>
+      <a href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
       <a href="#/impact" data-route="impact">Impact</a>
       <div class="nav-drop">
         <a class="nav-drop-parent" href="#/events" data-route="events" aria-haspopup="true" aria-expanded="false">Events <span class="nav-caret" aria-hidden="true">▾</span></a>
@@ -2597,9 +2587,8 @@
     <div class="wrap">
       <nav aria-label="Mobile">
         <a href="#/" data-route="home">Home</a>
-        <a href="#/our-story" data-route="our-story">About</a>
-        <a class="mobile-sub" href="#/our-story" data-route="our-story">Our Story</a>
-        <a class="mobile-sub" href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
+        <a href="#/our-story" data-route="our-story">Our Story</a>
+        <a href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
         <a href="#/impact" data-route="impact">Impact</a>
         <a href="#/events" data-route="events">Events</a>
         <a class="mobile-sub" href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
@@ -9571,27 +9560,12 @@
   <section class="section" aria-label="Recommended Reading">
     <div class="wrap">
 <div class="reading-block" id="recommended-reading">
-      <div class="rail-layout">
-        <div class="rail-main">
         <div class="section-head">
           <div class="rule" aria-hidden="true"></div>
           <h2>Recommended Reading</h2>
           <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
         </div>
         <p class="reading-actions"><a class="btn btn-outline" href="https://www.apdaparkinson.org/resources-support" target="_blank" rel="noopener">APDA Educational Publications</a></p>
-        </div>
-        <aside class="cover-rail" aria-label="APDA booklets">
-          <h3 class="cover-rail-title">APDA Booklets</h3>
-          <a class="cover-rail-item" href="https://www.apdaparkinson.org/handbook-download/" target="_blank" rel="noopener">
-            <img src="assets/booklet-handbook.jpg" alt="Parkinson's Disease Handbook cover (APDA)" width="197" height="300" loading="lazy" />
-            <span class="cover-rail-cap">Parkinson's Disease Handbook</span>
-          </a>
-          <a class="cover-rail-item" href="https://www.apdaparkinson.org/download-exercise-guide/" target="_blank" rel="noopener">
-            <img src="assets/booklet-be-active.jpg" alt="Be Active &amp; Beyond cover (APDA)" width="196" height="300" loading="lazy" />
-            <span class="cover-rail-cap">Be Active &amp; Beyond</span>
-          </a>
-        </aside>
-      </div>
       </div>
       <div class="bookshelf-block" id="apda-booklet-shelf">
         <div class="section-head">
@@ -9625,6 +9599,102 @@
                 </span>
               </a>
             </article>
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/resources-support/download-publications/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="Parkinson's Disease: An Overview — cover coming soon">Cover coming soon</span></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">Parkinson's Disease: An Overview</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/resources-support/download-publications/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="Living Well with Parkinson's Disease — cover coming soon">Cover coming soon</span></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">Living Well with Parkinson's Disease</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/resources-support/download-publications/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="Caring for a Person With Parkinson's Disease and Yourself — cover coming soon">Cover coming soon</span></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">Caring for a Person With Parkinson's Disease and Yourself</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/resources-support/download-publications/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="Something's Different About Grandpa — cover coming soon">Cover coming soon</span></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">Something's Different About Grandpa</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/resources-support/download-publications/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="Talking to Your Teen About Parkinson's Disease — cover coming soon">Cover coming soon</span></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">Talking to Your Teen About Parkinson's Disease</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/resources-support/download-publications/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="My Mommy Has Parkinson's Disease — cover coming soon">Cover coming soon</span></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">My Mommy Has Parkinson's Disease</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/resources-support/download-publications/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="Parkinson's Disease and Dementia — cover coming soon">Cover coming soon</span></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">Parkinson's Disease and Dementia</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/resources-support/download-publications/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="Medication Tips and Reminders — cover coming soon">Cover coming soon</span></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">Medication Tips and Reminders</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
           </div>
         </div>
       </div>
@@ -9644,6 +9714,7 @@
               <div class="shelf-info">
                 <h3 class="book-title">Ending Parkinson's Disease</h3>
                 <p class="book-author">Ray Dorsey, Todd Sherer, Michael S. Okun &amp; Bastiaan R. Bloem</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=Ending+Parkinson%27s+Disease+Ray+Dorsey+Todd+Sherer+Michael+S.+Okun+Bastiaan+R.+Bloem" target="_blank" rel="noopener">Buy on Amazon</a></p>
                 <p class="book-line">A bold plan to prevent, treat, and end Parkinson's, from four leading experts.</p>
               </div>
             </article>
@@ -9655,6 +9726,7 @@
               <div class="shelf-info">
                 <h3 class="book-title">Every Victory Counts</h3>
                 <p class="book-author">Davis Phinney Foundation</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=Every+Victory+Counts+Davis+Phinney+Foundation" target="_blank" rel="noopener">Buy on Amazon</a></p>
                 <p class="book-line">A practical manual for living well with Parkinson's, from the Davis Phinney Foundation.</p>
               </div>
             </article>
@@ -9666,6 +9738,7 @@
               <div class="shelf-info">
                 <h3 class="book-title">Parkinson's Disease For Dummies</h3>
                 <p class="book-author">Michele Tagliati &amp; Jo Horne</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=Parkinson%27s+Disease+For+Dummies+Michele+Tagliati+Jo+Horne" target="_blank" rel="noopener">Buy on Amazon</a></p>
                 <p class="book-line">A plain-language primer for the newly diagnosed and their families.</p>
               </div>
             </article>
@@ -9677,6 +9750,7 @@
               <div class="shelf-info">
                 <h3 class="book-title">Parkinson's Treatment: 10 Secrets to a Happier Life</h3>
                 <p class="book-author">Michael S. Okun, MD</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=Parkinson%27s+Treatment%3A+10+Secrets+to+a+Happier+Life+Michael+S.+Okun" target="_blank" rel="noopener">Buy on Amazon</a></p>
                 <p class="book-line">Everyday guidance on living well, from a leading movement-disorders neurologist.</p>
               </div>
             </article>
@@ -9688,6 +9762,7 @@
               <div class="shelf-info">
                 <h3 class="book-title">A Son's Journey from Parkinson's Disease Caregiver to Advocate</h3>
                 <p class="book-author">Dr. George M. Ackerman (2024)</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=A+Son%27s+Journey+from+Parkinson%27s+Disease+Caregiver+to+Advocate+George+M.+Ackerman" target="_blank" rel="noopener">Buy on Amazon</a></p>
                 <p class="book-line">A son's memoir of caring for his mother, Sharon, through her 15-year Parkinson's battle, written in her memory after she passed in 2020.</p>
                 <p class="book-line">George founded <a href="https://togetherforsharon.com/" target="_blank" rel="noopener">Together for Sharon</a> in her memory — and interviewed Joseph about our family's story in July 2023.</p>
               </div>
@@ -9700,6 +9775,7 @@
               <div class="shelf-info">
                 <h3 class="book-title">Brain Storms</h3>
                 <p class="book-author">Jon Palfreman</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=Brain+Storms+Jon+Palfreman" target="_blank" rel="noopener">Buy on Amazon</a></p>
                 <p class="book-line">A journalist's investigation into Parkinson's science and the search for a cure.</p>
               </div>
             </article>
@@ -9711,6 +9787,7 @@
               <div class="shelf-info">
                 <h3 class="book-title">The Parkinson's Plan</h3>
                 <p class="book-author">Ray Dorsey &amp; Michael S. Okun</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=The+Parkinson%27s+Plan+Ray+Dorsey+Michael+S.+Okun" target="_blank" rel="noopener">Buy on Amazon</a></p>
                 <p class="book-line">The authors' newest book: a plan to prevent and end Parkinson's.</p>
               </div>
             </article>
@@ -9722,6 +9799,7 @@
               <div class="shelf-info">
                 <h3 class="book-title">You Have Young Onset Parkinson's</h3>
                 <p class="book-author">Blake L. Bookstaff</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=You+Have+Young+Onset+Parkinson%27s+Blake+L.+Bookstaff" target="_blank" rel="noopener">Buy on Amazon</a></p>
                 <p class="book-line">A first-person guide for people diagnosed young, and the families beside them.</p>
               </div>
             </article>
@@ -9733,7 +9811,19 @@
               <div class="shelf-info">
                 <h3 class="book-title">No Time Like the Future</h3>
                 <p class="book-author">Michael J. Fox</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=No+Time+Like+the+Future+Michael+J.+Fox" target="_blank" rel="noopener">Buy on Amazon</a></p>
                 <p class="book-line">Michael J. Fox's memoir of optimism, gratitude, and mortality.</p>
+              </div>
+            </article>
+            <article class="shelf-book" data-apda-article="https://www.apdaparkinson.org/article/lets-keep-moving-a-closer-look-at-a-sons-journey/">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="A Son's Journey — cover coming soon">Cover coming soon</span></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">A Son's Journey</h3>
+                <p class="book-author">Bobbie J. Ackerman</p>
+                <p class="book-buy"><a href="https://www.amazon.com/s?k=A+Son%27s+Journey+Bobbie+J.+Ackerman" target="_blank" rel="noopener">Buy on Amazon</a></p>
               </div>
             </article>
           </div>
@@ -9820,8 +9910,7 @@
 
   <section class="section section-alt" aria-label="APDA booklets and programs for the first years">
     <div class="wrap">
-      <div class="rail-layout">
-        <div class="rail-main">
+      <div>
         <h2 class="pd-resources-subhead" style="margin-top:0">Free Booklets From APDA</h2>
         <p class="pd-resources-framing" style="margin-top:16px">APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
         <p class="reading-actions"><a class="btn btn-outline btn-outline-surface" href="https://www.apdaparkinson.org/resources-support" target="_blank" rel="noopener">APDA Educational Publications</a></p>
@@ -9831,18 +9920,6 @@
           <li><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2025/11/PD-Overview.pdf" target="_blank" rel="noopener">What is Parkinson's Disease — A PD Overview (APDA fact sheet, PDF)</a></li>
           <li><a href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2026/04/APDA-Living_Well-10-Things-You-Can-Do-Now.pdf" target="_blank" rel="noopener">Living Well with Parkinson's Disease — 10 Things You Can Do Now (APDA, PDF)</a></li>
         </ul>
-        </div>
-        <aside class="cover-rail" aria-label="APDA fact sheets">
-          <h3 class="cover-rail-title">APDA Fact Sheets</h3>
-          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2026/04/APDA-Living_Well-10-Things-You-Can-Do-Now.pdf" target="_blank" rel="noopener">
-            <img src="assets/booklet-living-well-rail.jpg" alt="Living Well: 10 Things You Can Do Now cover (APDA)" width="460" height="595" loading="lazy" />
-            <span class="cover-rail-cap">Living Well: 10 Things You Can Do Now</span>
-          </a>
-          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2025/11/PD-Overview.pdf" target="_blank" rel="noopener">
-            <img src="assets/booklet-pd-overview-rail.jpg" alt="What Is Parkinson's Disease — A PD Overview cover (APDA)" width="460" height="595" loading="lazy" />
-            <span class="cover-rail-cap">What Is Parkinson's Disease — A PD Overview</span>
-          </a>
-        </aside>
       </div>
       <div class="pd-resources-block pd-resources-card">
         <h3 class="pd-resources-subhead">Programs Made for the First Years</h3>
@@ -10002,8 +10079,7 @@
 
   <section class="section" aria-label="More from APDA for care partners">
     <div class="wrap">
-      <div class="rail-layout">
-        <div class="rail-main">
+      <div>
         <h2 class="pd-resources-subhead" style="margin-top:0">More From APDA for Care Partners</h2>
         <p class="pd-resources-framing" style="margin-top:16px">When one person in a family lives with Parkinson's, the whole family lives with it too. Care partners deserve breaks, outside interests of their own, and people they can turn to — these APDA resources are gathered with that in mind.</p>
         <ul class="pd-resources-list">
@@ -10024,26 +10100,6 @@
             <li><a href="#/pd-resources/reading">Recommended Reading</a><span class="learn-more-why">Books for the road you're on — including <em>A Son's Journey</em>, one care partner's memoir.</span></li>
             <li><a href="#/our-story">Our Story</a><span class="learn-more-why">Our family's own caregiving story — including the wedding brought to Cherry Hill Manor so Dad could be there.</span></li>
           </ul>
-        </aside>
-        </div>
-        <aside class="cover-rail" aria-label="APDA booklets for care partners and families">
-          <h3 class="cover-rail-title">APDA Booklets</h3>
-          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2025/03/Caring-for-a-Person-With-PD-and-Yourself.pdf" target="_blank" rel="noopener">
-            <img src="assets/booklet-caring-rail.jpg" alt="Caring for a Person With PD and Yourself cover (APDA)" width="460" height="595" loading="lazy" />
-            <span class="cover-rail-cap">Caring for a Person With PD and Yourself</span>
-          </a>
-          <a class="cover-rail-item cover-rail-item--wide" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/pdf_publications/Mommy-Has-PD-IOE.pdf" target="_blank" rel="noopener">
-            <img src="assets/booklet-mommy-rail.jpg" alt="My Mommy Has PD cover (APDA)" width="460" height="298" loading="lazy" />
-            <span class="cover-rail-cap">My Mommy Has PD</span>
-          </a>
-          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2020/01/APDA19364-Teens-FAQ-Supplement-D2V2.pdf" target="_blank" rel="noopener">
-            <img src="assets/booklet-teen-rail.jpg" alt="Talking to Your Teen About Parkinson's Disease cover (APDA)" width="460" height="595" loading="lazy" />
-            <span class="cover-rail-cap">Talking to Your Teen About Parkinson's Disease</span>
-          </a>
-          <a class="cover-rail-item" href="https://d2icp22po6iej.cloudfront.net/wp-content/uploads/2020/01/PADRECC-WEB-Booklet-Final.pdf" target="_blank" rel="noopener">
-            <img src="assets/booklet-veterans-rail.jpg" alt="Helping Those Who Serve: Parkinson's Disease Information for the Veterans Community cover (APDA)" width="460" height="711" loading="lazy" />
-            <span class="cover-rail-cap">Helping Those Who Serve: Parkinson's Disease Information for the Veterans Community</span>
-          </a>
         </aside>
       </div>
     </div>
@@ -10881,7 +10937,7 @@
         panelLinks[k].addEventListener("click", closeMenu);
       }
     }
-    // Nav dropdowns (desktop nav): the "About", "Events" and
+    // Nav dropdowns (desktop nav): the "Events" and
     // "Media" parents stay plain links to their pages; their
     // panels open on hover
     // and on keyboard focus (CSS :hover / :focus-within). This
