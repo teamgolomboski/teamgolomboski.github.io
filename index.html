@@ -268,6 +268,25 @@
     .nav-resources-pinned{display:inline-flex;min-height:48px;font-size:.9rem;padding:9px 14px}
     .menu-btn{display:inline-flex}
   }
+  /* Desktop row, ten entries (Nov 9, 2026): Recommended Reading
+     joined the nav beside the Resources & Support pill, and at the
+     old metrics the row overflowed the 1120px header column — the
+     right-aligned link row spilled back over the wordmark. At
+     desktop widths only (≥1151px; below that the hamburger layout
+     above takes over) the row tightens one step so all ten entries
+     fit on one line: a slightly smaller wordmark, link text and
+     padding. The Resources pill and Donate keep matched font-size
+     and padding steps, so the two buttons still render at exactly
+     the same height, as they always have. */
+  @media (min-width:1151px){
+    .nav-inner{gap:8px}
+    .brand-name{font-size:1.06rem}
+    .brand-sub{font-size:.66rem;letter-spacing:.11em}
+    .nav-links{gap:1px}
+    .nav-links a{font-size:.87rem;padding:10px 3px}
+    .nav-links a.nav-resources{font-size:.87rem;padding:11px 10px;margin-left:2px}
+    .nav-donate{font-size:.87rem;padding:11px 10px}
+  }
 
   /* ---------- Pages (hash-routed views; each .page block is one
      self-contained page, exportable on its own for GitHub Pages) ---------- */
@@ -1258,6 +1277,17 @@
      its text is explicitly light so it stays readable on the navy in
      every browser. (The whole site is pinned navy now; this band keeps
      its own hex pin as a second line of defence.) */
+  /* Resources & Support cluster HIDDEN (Joseph's decision, Nov 9,
+     2026 — see HIDDEN_ROUTES in the router script at the foot of
+     this file): while that list is non-empty the router adds
+     .resources-hidden to <body>, and every block marked
+     data-hide-with-resources hides with the cluster — currently
+     the Our Story Learn more box (Young Onset is its only entry).
+     (The homepage Start Here section is NOT hidden: Joseph kept
+     it visible, Nov 9, with its buttons retargeted to APDA's own
+     pages.) No markup is deleted; emptying HIDDEN_ROUTES restores
+     all of it. */
+  body.resources-hidden [data-hide-with-resources]{display:none !important}
   .start-here{background-color:#0d1d31;background:var(--bg-alt);color:#ffffff;border-bottom:1px solid #0e2f56;padding:44px 0}
   .start-here h2{text-align:center;color:#ffffff}
   .start-here .start-sub{text-align:center;color:#c9d6e4;margin:12px auto 0;max-width:560px;font-size:1.05rem}
@@ -2421,10 +2451,11 @@
       <a href="#/events" data-route="events">Events</a>
       <a href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
       <a href="#/media" data-route="media">Media</a>
-      <a class="nav-resources" href="#/pd-resources" data-route="pd-resources">Resources &amp; Support</a>
+      <a class="nav-resources" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
+      <a href="#/pd-resources/reading" data-route="pd-resources/reading">Recommended Reading</a>
     </nav>
     <div class="nav-actions">
-      <a class="nav-resources-pinned" href="#/pd-resources" data-route="pd-resources">Resources &amp; Support</a>
+      <a class="nav-resources-pinned" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
       <a class="nav-donate" href="https://www.apdaparkinson.org/community/rhode-island/ways-donate/donate/" target="_blank" rel="noopener">Donate</a>
     </div>
     <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu"><span aria-hidden="true">☰</span> Menu</button>
@@ -2439,6 +2470,8 @@
         <a href="#/events" data-route="events">Events</a>
         <a href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
         <a href="#/media" data-route="media">Media</a>
+        <a class="nav-resources" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
+        <a href="#/pd-resources/reading" data-route="pd-resources/reading">Recommended Reading</a>
       </nav>
     </div>
   </div>
@@ -2492,15 +2525,16 @@
     </div>
   </section>
 
+  <!-- While the Resources & Support cluster is hidden (Nov 9, 2026), this section STAYS visible (Joseph's call, Nov 9, 10:31 PM) with its three buttons retargeted to APDA's own pages, below. -->
   <section class="start-here" aria-label="Start here for Parkinson's help">
     <div class="wrap">
       <h2>New to Parkinson's? Start Here.</h2>
       <p class="start-sub">Plain-language help for people living with Parkinson's — and for the family and caregivers who stand with them.</p>
       <div class="start-layout">
         <div class="start-stack">
-          <a class="start-btn" href="#/pd-resources/just-diagnosed">Just Diagnosed</a>
-          <a class="start-btn" href="#/pd-resources/caregivers">Caregivers</a>
-          <a class="start-btn" href="#/pd-resources/programs">Local Programs &amp; Support Groups</a>
+          <a class="start-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/newly-diagnoses-programs/" target="_blank" rel="noopener">Just Diagnosed</a>
+          <a class="start-btn" href="https://www.apdaparkinson.org/resources-support/for-care-partners/" target="_blank" rel="noopener">Caregivers</a>
+          <a class="start-btn" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Local Programs &amp; Support Groups</a>
         </div>
       </div>
       <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
@@ -3051,7 +3085,8 @@
           <li><span class="ch-year">Aug. 9, 2019</span><span class="ch-title">In memory of him</span><span class="ch-text">The family loses Joseph Sr. The team could have ended. It didn't.</span></li>
           <li><span class="ch-year">Today</span><span class="ch-title">Still walking</span><span class="ch-text">Over $40,000 raised in his name, chapter leadership, and a concert where his portrait still watches over the night.</span></li>
         </ol>
-        <aside class="learn-more" aria-label="Learn more">
+        <!-- Hidden while the Resources & Support cluster is hidden (Nov 9, 2026): Young Onset is this box's only entry. Markup intact; see HIDDEN_ROUTES in the router script. -->
+        <aside class="learn-more" data-hide-with-resources aria-label="Learn more">
           <h3>Learn more</h3>
           <ul>
             <li><a href="#/pd-resources/young-onset">Young Onset Parkinson's</a><span class="learn-more-why">A diagnosis at 44 is young onset. If Parkinson's came early for you or someone you love, this page is for you.</span></li>
@@ -3099,7 +3134,7 @@
           <h4 class="memorial-gallery-head" style="text-align:left">The Road from Diagnosis</h4>
           <p style="text-align:left">Joseph Sr. was diagnosed with early-onset Parkinson's at 44, when Alicia and Joseph Jr. were still teenagers. For years he lived on his own in his apartment, determined to stay independent. The disease took that independence piece by piece — first driving, when it was no longer safe and the keys had to be taken away; then living alone, as he moved into assisted living. After that came a series of nursing homes across Rhode Island, until he reached his final home, Cherry Hill Manor in Johnston — the same place where his family would later gather around him for Joseph and Kirby's wedding, and where he spent his final days.</p>
           <p style="text-align:left">Through those first years, Alicia and Joseph Jr. still got to live a normal teenage life — because their aunt and uncle took on being their dad's caregivers, carrying the daily weight of his care. It wasn't until the two reached their late teens and early twenties that the responsibility became theirs: managing his medications, getting him to doctors' appointments, and making the everyday decisions his care required.</p>
-          <p style="text-align:left">There was no one their own age for them to talk to back then. Today there is — APDA runs a free virtual support group for teenagers whose parent lives with young-onset Parkinson's: the group Joseph Jr. and Alicia never had. It's listed on our Resources &amp; Support page.</p>
+          <p style="text-align:left">There was no one their own age for them to talk to back then. Today there is — APDA runs a free virtual support group for teenagers whose parent lives with young-onset Parkinson's: the group Joseph Jr. and Alicia never had. It's listed among APDA Rhode Island's programs for families.</p>
         </div>
         <p>The walk carries more than one name. Joseph Sr.'s mother, Teresa Golomboski, passed away in July 2017, weeks before that year's Optimism Walk — the team walked in her memory too, and her family directed memorial donations to the APDA Rhode Island Chapter.</p>
         <figure class="memorial-photo">
@@ -3554,7 +3589,7 @@
       <p class="impact-hero-note">Walk with us, sponsor an event, or give — <strong>every way in helps a Rhode Island family</strong> living with Parkinson&rsquo;s today.</p>
       </div>
       <figure class="page-hero-photo">
-        <img class="ph-faces" src="assets/impact-team-2025-blur.jpg" alt="Team Golomboski at the 2025 Rhode Island Optimism Walk, holding their 2nd Place Top Fundraising Team certificate" width="1548" height="1366" />
+        <img class="ph-faces" src="assets/impact-team-2025-blur.jpg" alt="Team Golomboski at the 2025 Rhode Island Optimism Walk, holding their 3rd Place Top Fundraising Team certificate" width="1548" height="1366" />
       </figure>
     </div>
   </section>
@@ -3711,7 +3746,7 @@
       </div>
       <div class="impact-gallery" style="margin-top:36px">
         <figure>
-          <img src="assets/impact-2025-walk.jpg" alt="Team Golomboski group at the 2025 Optimism Walk holding a framed Top Fundraising Team 3rd Place certificate." width="774" height="683" />
+          <img src="assets/impact-team-2025-blur.jpg" alt="Team Golomboski group at the 2025 Optimism Walk holding a framed Top Fundraising Team 3rd Place certificate." width="1548" height="1366" />
           <figcaption>Top Fundraising Team — 3rd Place at the 2025 Rhode Island Optimism Walk &amp; 5K.</figcaption>
         </figure>
         <figure>
@@ -5999,7 +6034,7 @@
             </figure>
             <figure class="gallery-tile">
               <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Team Golomboski with its Top Fundraising Team — 3rd Place certificate.">
-                <span class="tile-frame"><img src="assets/walk2025-third-place-thumb.jpg" data-full="assets/walk2025-third-place.jpg" loading="lazy" decoding="async" alt="Team Golomboski members under the pavilion holding the framed Top Fundraising Team — 3rd Place certificate, with two crowned pageant titleholders at the edges" width="2048" height="1366" /></span>
+                <span class="tile-frame"><img src="assets/walk2025-third-place-blur-thumb.jpg" data-full="assets/walk2025-third-place-blur.jpg" loading="lazy" decoding="async" alt="Team Golomboski members under the pavilion holding the framed Top Fundraising Team — 3rd Place certificate, with two crowned pageant titleholders at the edges" width="2048" height="1366" /></span>
               </button>
               <figcaption>Team Golomboski with its Top Fundraising Team — 3rd Place certificate.</figcaption>
             </figure>
@@ -9290,7 +9325,7 @@
   <section class="page-hero" aria-label="Recommended Reading introduction">
     <div class="wrap">
       <div class="page-hero-text">
-      <div class="crumb"><a href="#/">Home</a> &middot; <a href="#/pd-resources">Resources &amp; Support</a> &middot; Recommended Reading</div>
+      <div class="crumb"><a href="#/">Home</a> &middot; Recommended Reading</div>
       <h1>Recommended Reading</h1>
       <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
       </div>
@@ -9374,7 +9409,7 @@
         <p class="pd-resources-routing">Know a Parkinson's book that belongs on this list? Our Suggest a Book form is open to any author or publisher with a Parkinson's book to suggest, and every suggestion is reviewed by Team Golomboski. Authors and publishers who send a complimentary review copy get more in return: a featured placement on this page and a mention to our community. Suggesting a book is not a guarantee it will be listed.</p>
         <p class="reading-actions reading-actions-below"><a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLScaBqVNVJloUk9MNO6cLaSKP3TjOS-KHpG-ziBiHlJjKZFQtA/viewform" target="_blank" rel="noopener">Suggest a Book</a></p>
       </div>
-      <p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
+      <p class="res-back-wrap"><a class="res-back" href="#/">&larr; Back to Home</a></p>
     </div>
   </section>
 
@@ -10210,7 +10245,7 @@
       <div class="page-hero-text">
       <div class="crumb"><a href="#/">Home</a> · Site Map</div>
       <h1>Site Map</h1>
-      <p>Every page on the Team Golomboski site, in one place — the team's story and events, and the full Resources &amp; Support library for Rhode Island Parkinson's families.</p>
+      <p>Every page on the Team Golomboski site, in one place — the team's story and events, and recommended reading for Rhode Island Parkinson's families.</p>
       </div>
       <figure class="page-hero-photo">
         <img src="assets/hero-walk-2026.jpg" alt="Walkers on the path at the 2026 Rhode Island Optimism Walk, Warwick City Park" width="1920" height="1280" />
@@ -10238,24 +10273,8 @@
             <li><a href="#/media">Media</a><span>Team Golomboski in the news — coverage and interviews.</span></li>
             <li><a href="#/press-kit">Press Kit</a><span>The facts, figures, and contacts for reporters, producers, and partners.</span></li>
             <li><a href="#/donate">Donate</a><span>Give through Team Golomboski to the APDA Rhode Island Chapter.</span></li>
-            <li><a href="#/site-map">Site Map</a><span>This page — every page on the site, in one place.</span></li>
-          </ul>
-        </div>
-        <div class="sitemap-group">
-          <div class="section-head">
-            <div class="rule" aria-hidden="true"></div>
-            <h2>Resources &amp; Support</h2>
-          </div>
-          <ul class="sitemap-list">
-            <li><a href="#/pd-resources">Resources &amp; Support</a><span>The hub — plain-language Parkinson's help, and the Rhode Island people you can call.</span></li>
-            <li><a href="#/pd-resources/programs">Programs &amp; Support Groups</a><span>Find a support group or exercise class near you, by ZIP code or town.</span></li>
-            <li><a href="#/pd-resources/news">News &amp; Research</a><span>Parkinson's headlines from APDA, and A Closer Look from APDA's doctor blog.</span></li>
-            <li><a href="#/pd-resources/help">Financial Help &amp; RI Resources</a><span>Help with the costs of Parkinson's, plus Rhode Island services for families.</span></li>
             <li><a href="#/pd-resources/reading">Recommended Reading</a><span>APDA booklets and books our community has found helpful.</span></li>
-            <li><a href="#/pd-resources/just-diagnosed">Just Diagnosed</a><span>First steps after a Parkinson's diagnosis — APDA's guidance and local help.</span></li>
-            <li><a href="#/pd-resources/caregivers">Caregivers &amp; Care Partners</a><span>Guidance and support for the people doing the caring.</span></li>
-            <li><a href="#/pd-resources/young-onset">Young Onset Parkinson's</a><span>Parkinson's diagnosed between 21 and 50 — what makes it different, and local support.</span></li>
-            <li><a href="#/pd-resources/genetics">Family History &amp; Genetics</a><span>Does Parkinson's run in families? APDA's answers on heredity, risk, and genetic testing.</span></li>
+            <li><a href="#/site-map">Site Map</a><span>This page — every page on the site, in one place.</span></li>
           </ul>
         </div>
       </div>
@@ -10384,7 +10403,7 @@
           <a href="#/media">Media</a>
           <a href="#/galleries">Photo Galleries</a>
           <a href="#/donate">Donate</a>
-          <a href="#/pd-resources">Resources &amp; Support</a>
+          <a href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
           <a href="#/press-kit">Press Kit</a>
           <a href="#/site-map">Site Map</a>
         </nav>
@@ -10420,6 +10439,49 @@
   // Routes: #/ (home), #/our-story, #/joseph-and-alicia, #/impact, #/events,
   //         #/rock-the-resort, #/media, #/galleries, #/donate, #/pd-resources, #/press-kit, #/speaking, #/site-map
   // A route may carry a gallery anchor: #/galleries#gallery-first-walk-2014
+
+  // ================================================================
+  // RESOURCES & SUPPORT CLUSTER — HIDDEN (Joseph's decision,
+  // Nov 9, 2026: "hide it tonight, books linked in the header").
+  //
+  // The whole Resources & Support cluster is off the public site
+  // until Joseph is happy with how its pages look. NOTHING is
+  // deleted: every hidden page's markup, styling and content stays
+  // in this file, intact. This list is the ONE hide mechanism:
+  //
+  //   - the router (render(), below) sends any navigation to a
+  //     route on this list back to the homepage — direct hash
+  //     entry, a surviving in-page link, and back/forward alike;
+  //   - while the list is non-empty, <body> carries the
+  //     .resources-hidden class, and the stylesheet hides every
+  //     block marked data-hide-with-resources with it (currently
+  //     the Our Story Learn more box, whose only door leads into
+  //     the cluster). The homepage Start Here section stays
+  //     visible throughout: Joseph kept it (Nov 9, 10:31 PM) with
+  //     its three buttons retargeted to APDA's own pages.
+  //
+  // TO RESTORE THE CLUSTER: empty this list (var HIDDEN_ROUTES = [])
+  // and the pages and the Learn more box all come back exactly as
+  // they were. (The header's Resources & Support links and the
+  // Start Here buttons, which point to APDA pages while the
+  // cluster is hidden, and the Site Map and Reading-page crumb
+  // edits, are ordinary content edits to revisit at the same
+  // time.)
+  //
+  // #/pd-resources/reading (Recommended Reading — the books page)
+  // is deliberately NOT on this list: it stays live.
+  // ================================================================
+  var HIDDEN_ROUTES = [
+    "pd-resources",
+    "pd-resources/programs",
+    "pd-resources/news",
+    "pd-resources/help",
+    "pd-resources/just-diagnosed",
+    "pd-resources/caregivers",
+    "pd-resources/young-onset",
+    "pd-resources/genetics"
+  ];
+  if (HIDDEN_ROUTES.length) { document.body.classList.add("resources-hidden"); }
 
   // ================================================================
   // PAGE META + SOCIAL SHARE CARDS — the one mapping for the site.
@@ -10476,7 +10538,7 @@
     "pd-resources/genetics": { path: "pd-resources", title: "Family History & Genetics | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
     "press-kit": { path: "press-kit", title: "Press Kit | Team Golomboski", description: "The Team Golomboski press kit: who the team is, the numbers that back it up, and who to contact — for reporters, producers, and partners.", image: "joseph-profile.jpg" },
     "speaking": { path: "speaking", title: "Speaking | Team Golomboski", description: "Invite Joseph Golomboski to speak: caregiving and Parkinson's advocacy talks for caregiver and support groups, senior centers, healthcare and community organizations, employers, and senior living communities in Rhode Island.", image: "walk2026-joseph-speech.jpg" },
-    "site-map": { path: "site-map", title: "Site Map | Team Golomboski", description: "Every page on the Team Golomboski site in one place: our story, events, photo galleries, and the full Resources & Support library for Rhode Island Parkinson's families.", image: "hero-walk-2026.jpg" }
+    "site-map": { path: "site-map", title: "Site Map | Team Golomboski", description: "Every page on the Team Golomboski site in one place: our story, events, photo galleries, and recommended reading for Rhode Island Parkinson's families.", image: "hero-walk-2026.jpg" }
   };
   (function () {
     var TITLES = {
@@ -10533,6 +10595,14 @@
       var parsed = parseHash();
       var route = parsed.route;
       var anchor = parsed.anchor;
+      // Hidden-cluster guard (Joseph's Nov 9, 2026 hide — see
+      // HIDDEN_ROUTES above): any navigation to a hidden route
+      // lands on the homepage instead. replace() keeps the hidden
+      // URL out of the history entry the visitor lands on.
+      if (HIDDEN_ROUTES.indexOf(route) !== -1) {
+        window.location.replace("#/");
+        return;
+      }
       // Homepage state marker: the router flags the homepage on
       // <body>; the site-wide scheme CSS keys only the footer's
       // flush-under-the-numbers-band spacing off it.
@@ -10543,8 +10613,11 @@
       }
       var links = document.querySelectorAll("a[data-route]");
       // Resources & Support subpages (pd-resources/…) keep the hub's
-      // nav entry highlighted.
-      var navRoute = route.indexOf("pd-resources/") === 0 ? "pd-resources" : route;
+      // nav entry highlighted — except Recommended Reading, which
+      // carries its own nav entry while the cluster is hidden
+      // (HIDDEN_ROUTES, above).
+      var navRoute = route === "pd-resources/reading" ? "pd-resources/reading"
+        : (route.indexOf("pd-resources/") === 0 ? "pd-resources" : route);
       for (var j = 0; j < links.length; j++) {
         var on = links[j].getAttribute("data-route") === navRoute;
         links[j].classList.toggle("active", on);
