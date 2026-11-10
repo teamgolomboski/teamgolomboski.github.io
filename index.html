@@ -288,20 +288,24 @@
     .nav-donate{font-size:.87rem;padding:11px 10px}
   }
 
-  /* ---------- Media dropdown (Nov 9, 2026) ----------
-     "Media" in the desktop nav is a dropdown parent: the parent
-     stays a plain link through to the Media page, and the panel
-     under it carries exactly two entries — Media and Photo
-     Galleries (Galleries has no top-level menu item of its own).
-     The panel opens on hover and on keyboard focus-within; the
-     script below keeps the parent's aria-expanded in step and
-     Escape closes it (.closed suppresses the hover/focus open
-     until the pointer or focus leaves, so it cannot spring
-     straight back). The panel wears the header's navy family
-     (navy-2 surface, hairline white border) so it reads as part
-     of the header. Desktop only: at ≤1150px the link row is
-     hidden and the mobile menu shows Photo Galleries nested
-     under Media instead (.mobile-sub). */
+  /* ---------- Nav dropdowns (Nov 9, 2026) ----------
+     "Events" and "Media" in the desktop nav are dropdown parents:
+     each parent stays a plain link through to its own page, and
+     the panel under it carries a simple list of child entries —
+     for Media: In the News and Photo Galleries; for Events: Rock
+     the Resort today, with further event pages to be appended as
+     plain entries in the same list later (the panel is a vertical
+     list, min-width 216px, so several entries sit naturally).
+     Child pages have no top-level menu item of their own. The
+     panels open on hover and on keyboard focus-within; the script
+     below keeps each parent's aria-expanded in step and Escape
+     closes it (.closed suppresses the hover/focus open until the
+     pointer or focus leaves, so it cannot spring straight back).
+     The panels wear the header's navy family (navy-2 surface,
+     hairline white border) so they read as part of the header.
+     Desktop only: at ≤1150px the link row is hidden and the
+     mobile menu shows the child entries nested and indented
+     under their parents instead (.mobile-sub). */
   .nav-drop{position:relative;display:flex;align-items:center}
   .nav-caret{font-size:.62rem;margin-left:3px;color:#9fb8d2}
   .nav-drop-menu{position:absolute;top:100%;right:0;z-index:60;min-width:216px;background:var(--navy-2);border:1px solid rgba(255,255,255,.20);border-radius:10px;box-shadow:0 16px 36px rgba(0,0,0,.38);padding:6px;display:none;flex-direction:column}
@@ -1541,45 +1545,64 @@
      buttons — matching the request. */
   .financial-help-block{margin-top:56px}
   .financial-help-block .pd-resources-subhead{margin-top:0}
-  /* Recommended Reading (last block in the foot-of-page resource
-     cluster, after Financial Help and before the page-foot
-     disclaimer): APDA's free educational booklets lead, then four
-     compact book cards — real published cover, title, author, one
-     line — and a "More Books to Explore" button that opens the
-     reading modal below with four more. Covers are display only:
-     no purchase or retailer links anywhere in the block. */
+  /* Recommended Reading: APDA's free educational booklets lead the
+     page (the cover rail beside the booklet text, untouched), then
+     the trade books stand on a virtual bookshelf in their own block
+     below (.bookshelf-block) — all nine titles upright on wooden
+     shelf boards. Covers are display only: no purchase or retailer
+     links anywhere on the page. */
   .reading-block{margin-top:56px}
   .reading-block .section-head{margin-bottom:22px}
   .reading-actions{margin:0 0 22px}
   .reading-actions-below{margin:22px 0 0}
-  .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:960px}
-  .book-card{display:flex;gap:16px;align-items:flex-start;background:var(--card);border:2px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-  .book-cover{flex:none;width:100px;height:150px;object-fit:cover;border-radius:6px;border:1px solid var(--line);background:var(--navy-deep)}
-  /* Wider-format covers (the Every Victory Counts manual and the
-     For Dummies guide are nearer 4:5 than 2:3): shown whole with
-     contain so no cover text is cropped; the navy-deep plate
-     behind them matches the standard cover background. */
-  .book-cover-contain{object-fit:contain}
-  .book-cover-tile{flex:none;width:100px;height:150px;border-radius:6px;border:1px solid var(--line);background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px;font-family:"Archivo",sans-serif;font-weight:800;font-size:.82rem;line-height:1.35}
-  .book-info{min-width:0}
   .book-title{font-family:"Archivo",sans-serif;font-size:1.02rem;font-weight:800;color:#eaf1f8;line-height:1.3;margin:0}
   .book-author{margin:5px 0 0;font-weight:700;font-size:.9rem;color:#7fd6a5}
   .book-line{margin:6px 0 0;color:var(--muted);font-size:.93rem;line-height:1.55}
-  @media (max-width:900px){ .book-grid{grid-template-columns:1fr} }
-  @media (max-width:480px){ .book-card{padding:14px;gap:12px} .book-cover,.book-cover-tile{width:90px;height:135px} }
-  /* More Books to Explore modal: same visual family as the Galleries
-     photo viewer — a dimmed navy backdrop with a centered panel. The
-     panel scrolls internally (max-height + overflow), so opening it
-     never changes the page's length; it closes on the ×, on a backdrop
-     click, and on Escape. */
-  .reading-modal{position:fixed;inset:0;z-index:130;display:none;align-items:center;justify-content:center;background:rgba(7,26,48,.88);padding:18px}
-  .reading-modal.open{display:flex}
-  .reading-modal-panel{background:var(--card);border:2px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);width:100%;max-width:760px;max-height:calc(100dvh - 36px);overflow-y:auto;padding:26px}
-  .reading-modal-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:20px}
-  .reading-modal-head h2{flex:1;min-width:0;font-size:clamp(1.35rem,3vw,1.8rem);color:#eaf1f8}
-  .reading-modal .book-grid{grid-template-columns:1fr;max-width:none}
-  body.reading-modal-lock{overflow:hidden}
-  @media (max-width:640px){ .reading-modal{padding:10px} .reading-modal-panel{padding:20px 16px;max-height:calc(100dvh - 20px)} }
+  /* ---------- Virtual bookshelf (Recommended Reading) ----------
+     The nine trade books stand upright on wooden shelf boards in
+     a warm, furniture-like panel under the APDA booklets. Each
+     book is a fixed-width column in a wrapping flex row: five
+     across on desktop, three on tablets, two on phones. Every
+     book carries its own board segment directly under its cover;
+     because the columns touch, the segments in a row read as one
+     continuous board — and when the row wraps, each new line of
+     books gets its own board the same way. The cover stage is a
+     fixed height with covers bottom-aligned, so every book in a
+     row stands ON its board. Title, author and the book's line
+     sit beneath the board in small text. */
+  .bookshelf-block{margin-top:56px}
+  .bookshelf-panel{background:#faf5ec;border:1px solid #e3d6bf;border-radius:18px;padding:32px 28px 8px;box-shadow:0 10px 28px rgba(19,36,51,.07)}
+  .bookshelf{display:flex;flex-wrap:wrap;justify-content:center}
+  .shelf-book{flex:0 0 20%;max-width:20%;min-width:0;padding:0 0 28px;display:flex;flex-direction:column;align-items:center;text-align:center}
+  .shelf-stage{height:230px;width:100%;padding:0 12px;display:flex;align-items:flex-end;justify-content:center}
+  .shelf-cover-wrap{position:relative;width:148px;max-width:100%;height:222px;flex:none;border-radius:3px 7px 7px 3px;overflow:hidden;background:#e9eef3;box-shadow:8px 10px 18px rgba(19,36,51,.30)}
+  .shelf-cover-wrap::before{content:"";position:absolute;top:0;bottom:0;left:0;width:9px;z-index:2;background:linear-gradient(90deg,rgba(0,0,0,.30),rgba(0,0,0,.10) 55%,rgba(255,255,255,.22));pointer-events:none}
+  .shelf-cover{width:100%;height:100%;object-fit:cover;display:block}
+  /* Wider-format covers (the Every Victory Counts manual and the
+     For Dummies guide are nearer 4:5 than 2:3): shown whole with
+     contain so no cover text is cropped; the light plate behind
+     them fills the book's frame. */
+  .shelf-cover-contain{object-fit:contain}
+  .shelf-board{width:100%;height:20px;flex:none;border-radius:2px;background:linear-gradient(180deg,#cfa15f 0,#bd8c4c 5px,#8f652f 6px,#77511f 100%);box-shadow:0 12px 14px rgba(19,36,51,.22),inset 0 1px 0 rgba(255,255,255,.35)}
+  .shelf-info{padding:14px 10px 0;min-width:0}
+  .shelf-info .book-title{font-size:.97rem}
+  .shelf-info .book-author{font-size:.86rem}
+  .shelf-info .book-line{font-size:.87rem}
+  @media (max-width:900px){
+    .shelf-book{flex-basis:33.333%;max-width:33.333%}
+    .shelf-stage{height:202px}
+    .shelf-cover-wrap{width:128px;height:192px}
+  }
+  @media (max-width:520px){
+    .bookshelf-panel{padding:24px 14px 2px}
+    .shelf-book{flex-basis:50%;max-width:50%}
+    .shelf-stage{height:188px;padding:0 8px}
+    .shelf-cover-wrap{width:118px;height:177px}
+    .shelf-info{padding:12px 6px 0}
+  }
+  /* The "More Books to Explore" pop-up was retired with the
+     bookshelf build (Nov 9, 2026): all nine books now stand on
+     the shelf, so the modal, its button and its script are gone. */
   /* ---------- APDA booklet cover rails (Resources subpages) ----------
      A narrow right-side column of APDA booklet covers beside the
      booklet text on the Recommended Reading, Just Diagnosed and
@@ -2012,7 +2035,6 @@
   .section .media-feature,
   .section .pathway-card,
   .section .pd-family-note,
-  .section .book-card,
   .section .res-card,
   .section .info-box,
   .section .shared-card,
@@ -2216,13 +2238,16 @@
   /* ---------- Page-foot disclaimers (Find Help) ---------- */
   .page-foot .disclaimer,.page-foot .fineprint{color:#33475c}
   .page-foot a{color:#005eb8}
-  /* ---------- More Books to Explore modal ---------- */
-  .reading-modal-panel{background:#fff;border-color:#d3dde7}
-  .reading-modal-head h2{color:#0a2340}
-  .reading-modal .book-card{background:#fff;border-color:#d3dde7}
-  .reading-modal .book-title{color:#0a2340}
-  .reading-modal .book-line{color:#33475c}
-  .book-cover{background:#e7edf3;border-color:#d3dde7}
+  /* ---------- Virtual bookshelf (light scheme) ---------- */
+  .bookshelf-panel{background:#faf5ec;border-color:#e3d6bf}
+  .shelf-cover-wrap{background:#e7edf3}
+  /* Shelf captions sit on the cream panel, so they carry the
+     light scheme's dark text colors explicitly (navy titles,
+     help-green authors, slate lines) rather than relying on the
+     base dark-scheme .book-* colors. */
+  .shelf-info .book-title{color:#0a2340}
+  .shelf-info .book-author{color:#16603c}
+  .shelf-info .book-line{color:#33475c}
 
   /* ---------- Hero (homepage): deep navy overlay ----------
      The hero photo itself is unchanged; over it sits a deep
@@ -2268,6 +2293,15 @@
   .hub-card{min-height:0}
   .hub-card-cta{font-weight:700;color:#005eb8;margin-top:auto}
   .hub-card:hover .hub-card-cta{text-decoration:underline}
+  /* Media hub (#/media): the two large link cards carry a photo
+     across the top — the pathway-card frame with its padding
+     moved into the body block so the photo runs edge to edge. */
+  .media-hub-card{padding:0;overflow:hidden;gap:0}
+  .media-hub-card img{width:100%;height:230px;object-fit:cover;display:block}
+  .media-hub-card img.media-hub-img-top{object-position:50% 18%}
+  .media-hub-body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .media-hub-body p{flex:1}
+  @media (max-width:520px){ .media-hub-card img{height:190px} }
   /* Hub finder panel: the Programs page finder panel (.finder-panel)
      carried at the top of the hub's Explore section — same navy card,
      sub line and green Search; its heading drops to h3 under the
@@ -2489,12 +2523,16 @@
       <a href="#/our-story" data-route="our-story">Our Story</a>
       <a href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
       <a href="#/impact" data-route="impact">Impact</a>
-      <a href="#/events" data-route="events">Events</a>
-      <a href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
+      <div class="nav-drop">
+        <a class="nav-drop-parent" href="#/events" data-route="events" aria-haspopup="true" aria-expanded="false">Events <span class="nav-caret" aria-hidden="true">▾</span></a>
+        <div class="nav-drop-menu">
+          <a href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
+        </div>
+      </div>
       <div class="nav-drop">
         <a class="nav-drop-parent" href="#/media" data-route="media" aria-haspopup="true" aria-expanded="false">Media <span class="nav-caret" aria-hidden="true">▾</span></a>
         <div class="nav-drop-menu">
-          <a href="#/media" data-route="media">Media</a>
+          <a href="#/in-the-news" data-route="in-the-news">In the News</a>
           <a href="#/galleries" data-route="galleries">Photo Galleries</a>
         </div>
       </div>
@@ -2515,8 +2553,9 @@
         <a href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
         <a href="#/impact" data-route="impact">Impact</a>
         <a href="#/events" data-route="events">Events</a>
-        <a href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
+        <a class="mobile-sub" href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
         <a href="#/media" data-route="media">Media</a>
+        <a class="mobile-sub" href="#/in-the-news" data-route="in-the-news">In the News</a>
         <a class="mobile-sub" href="#/galleries" data-route="galleries">Photo Galleries</a>
         <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
         <a class="nav-resources" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
@@ -2894,7 +2933,7 @@
           <a class="more-link" href="https://www.johnstonsunrise.net/archives/local-news/team-golomboski-set-to-raise-funds-to-fight-parkinsons-disease/article_b86f7594-6e8a-52b5-aa2c-43bb531c0cac.html" target="_blank" rel="noopener">Read the article →</a>
         </article>
       </div>
-      <p class="news-more">See the full list of coverage on our <a href="#/media">Media page →</a></p>
+      <p class="news-more">See the full list of coverage on our <a href="#/in-the-news">In the News page →</a></p>
     </div>
   </section>
 
@@ -4462,7 +4501,7 @@
 </div><!-- /page rock-the-resort -->
 
 <!-- ============================================================
-     PAGE: MEDIA
+     PAGE: MEDIA (hub)
      ============================================================ -->
 <div class="page" data-page="media">
 
@@ -4471,6 +4510,54 @@
       <div class="page-hero-text">
       <div class="crumb"><a href="#/">Home</a> · Media</div>
       <h1>Media</h1>
+      <p>Team Golomboski in the news and in pictures — press coverage of the team and the Rhode Island Parkinson's community, and photos from a decade of walks, concerts, and community events.</p>
+      </div>
+      <figure class="page-hero-photo">
+        <img class="ph-portrait" src="assets/walk2026-joseph-speech.jpg" alt="Joseph Golomboski speaking at the 2026 Rhode Island Optimism Walk" width="2730" height="4096" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Explore Media">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Explore Media</h2>
+        <p>Press coverage of Team Golomboski, and photos from a decade of walks, concerts, and community events.</p>
+      </div>
+      <div class="hub-grid">
+        <a class="pathway-card hub-card media-hub-card" href="#/in-the-news">
+          <img class="media-hub-img-top" src="assets/rocky-point-cover.jpg" alt="Cover of Rocky Point Neighbors magazine, September 2025: Joseph and Kirby Golomboski seated together on the rocks at Rocky Point" width="1560" height="2048" loading="lazy" />
+          <span class="media-hub-body">
+            <h3>In the News</h3>
+            <p>Press and media coverage of Team Golomboski and the Rhode Island Parkinson's community.</p>
+            <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+          </span>
+        </a>
+        <a class="pathway-card hub-card media-hub-card" href="#/galleries">
+          <img src="assets/walk2017-team-group-wide.jpg" alt="The whole Team Golomboski group at Goddard Park, 2017" width="1500" height="1450" loading="lazy" />
+          <span class="media-hub-body">
+            <h3>Photo Galleries</h3>
+            <p>Photos from a decade of walks, concerts, and community events.</p>
+            <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /page media -->
+
+<!-- ============================================================
+     PAGE: IN THE NEWS
+     ============================================================ -->
+<div class="page" data-page="in-the-news">
+
+  <section class="page-hero" aria-label="In the News introduction">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> · In the News</div>
+      <h1>In the News</h1>
       <p>Team Golomboski in the press — led by the September 2025 Rocky Point Neighbors cover story, with coverage of the team, the walk, and the Rhode Island Parkinson's community.</p>
       </div>
       <figure class="page-hero-photo">
@@ -4571,7 +4658,7 @@
     </div>
   </section>
 
-</div><!-- /page media -->
+</div><!-- /page in-the-news -->
 
 <!-- ============================================================
      PAGE: PHOTO GALLERIES
@@ -9394,50 +9481,6 @@
           <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
         </div>
         <p class="reading-actions"><a class="btn btn-outline" href="https://www.apdaparkinson.org/resources-support" target="_blank" rel="noopener">APDA Educational Publications</a></p>
-        <div class="book-grid">
-          <article class="book-card">
-            <img class="book-cover" src="assets/book-ending-pd.jpg" alt="Ending Parkinson's Disease book cover" width="323" height="500" loading="lazy" />
-            <div class="book-info">
-              <h3 class="book-title">Ending Parkinson's Disease</h3>
-              <p class="book-author">Ray Dorsey, Todd Sherer, Michael S. Okun &amp; Bastiaan R. Bloem</p>
-              <p class="book-line">A bold plan to prevent, treat, and end Parkinson's, from four leading experts.</p>
-            </div>
-          </article>
-          <article class="book-card">
-            <img class="book-cover book-cover-contain" src="assets/book-cover-every-victory-counts.jpg" alt="Every Victory Counts book cover" width="308" height="400" loading="lazy" />
-            <div class="book-info">
-              <h3 class="book-title">Every Victory Counts</h3>
-              <p class="book-author">Davis Phinney Foundation</p>
-              <p class="book-line">A practical manual for living well with Parkinson's, from the Davis Phinney Foundation.</p>
-            </div>
-          </article>
-          <article class="book-card">
-            <img class="book-cover book-cover-contain" src="assets/book-cover-parkinsons-for-dummies.jpg" alt="Parkinson's Disease For Dummies book cover" width="500" height="628" loading="lazy" />
-            <div class="book-info">
-              <h3 class="book-title">Parkinson's Disease For Dummies</h3>
-              <p class="book-author">Michele Tagliati &amp; Jo Horne</p>
-              <p class="book-line">A plain-language primer for the newly diagnosed and their families.</p>
-            </div>
-          </article>
-          <article class="book-card">
-            <img class="book-cover" src="assets/book-10-secrets.jpg" alt="Parkinson's Treatment: 10 Secrets to a Happier Life book cover" width="333" height="500" loading="lazy" />
-            <div class="book-info">
-              <h3 class="book-title">Parkinson's Treatment: 10 Secrets to a Happier Life</h3>
-              <p class="book-author">Michael S. Okun, MD</p>
-              <p class="book-line">Everyday guidance on living well, from a leading movement-disorders neurologist.</p>
-            </div>
-          </article>
-          <article class="book-card">
-            <img class="book-cover" src="assets/book-cover-sons-journey.jpg" alt="A Son's Journey book cover" width="400" height="640" loading="lazy" />
-            <div class="book-info">
-              <h3 class="book-title">A Son's Journey from Parkinson's Disease Caregiver to Advocate</h3>
-              <p class="book-author">Dr. George M. Ackerman (2024)</p>
-              <p class="book-line">A son's memoir of caring for his mother, Sharon, through her 15-year Parkinson's battle, written in her memory after she passed in 2020.</p>
-              <p class="book-line">George founded <a href="https://togetherforsharon.com/" target="_blank" rel="noopener">Together for Sharon</a> in her memory — and interviewed Joseph about our family's story in July 2023.</p>
-            </div>
-          </article>
-        </div>
-        <p class="reading-actions reading-actions-below"><button type="button" class="btn btn-outline" id="readingMoreOpen" aria-haspopup="dialog" aria-controls="readingModal">More Books to Explore</button></p>
         </div>
         <aside class="cover-rail" aria-label="APDA booklets">
           <h3 class="cover-rail-title">APDA Booklets</h3>
@@ -9451,6 +9494,117 @@
           </a>
         </aside>
       </div>
+      </div>
+      <div class="bookshelf-block" id="bookshelf">
+        <div class="section-head">
+          <div class="rule" aria-hidden="true"></div>
+          <h2>Our Bookshelf</h2>
+          <p>Books our community has found helpful.</p>
+        </div>
+        <div class="bookshelf-panel">
+          <div class="bookshelf">
+            <article class="shelf-book">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><img class="shelf-cover" src="assets/book-ending-pd.jpg" alt="Ending Parkinson's Disease book cover" width="323" height="500" loading="lazy" /></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">Ending Parkinson's Disease</h3>
+                <p class="book-author">Ray Dorsey, Todd Sherer, Michael S. Okun &amp; Bastiaan R. Bloem</p>
+                <p class="book-line">A bold plan to prevent, treat, and end Parkinson's, from four leading experts.</p>
+              </div>
+            </article>
+            <article class="shelf-book">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><img class="shelf-cover shelf-cover-contain" src="assets/book-cover-every-victory-counts.jpg" alt="Every Victory Counts book cover" width="308" height="400" loading="lazy" /></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">Every Victory Counts</h3>
+                <p class="book-author">Davis Phinney Foundation</p>
+                <p class="book-line">A practical manual for living well with Parkinson's, from the Davis Phinney Foundation.</p>
+              </div>
+            </article>
+            <article class="shelf-book">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><img class="shelf-cover shelf-cover-contain" src="assets/book-cover-parkinsons-for-dummies.jpg" alt="Parkinson's Disease For Dummies book cover" width="500" height="628" loading="lazy" /></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">Parkinson's Disease For Dummies</h3>
+                <p class="book-author">Michele Tagliati &amp; Jo Horne</p>
+                <p class="book-line">A plain-language primer for the newly diagnosed and their families.</p>
+              </div>
+            </article>
+            <article class="shelf-book">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><img class="shelf-cover" src="assets/book-10-secrets.jpg" alt="Parkinson's Treatment: 10 Secrets to a Happier Life book cover" width="333" height="500" loading="lazy" /></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">Parkinson's Treatment: 10 Secrets to a Happier Life</h3>
+                <p class="book-author">Michael S. Okun, MD</p>
+                <p class="book-line">Everyday guidance on living well, from a leading movement-disorders neurologist.</p>
+              </div>
+            </article>
+            <article class="shelf-book">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><img class="shelf-cover" src="assets/book-cover-sons-journey.jpg" alt="A Son's Journey book cover" width="400" height="640" loading="lazy" /></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">A Son's Journey from Parkinson's Disease Caregiver to Advocate</h3>
+                <p class="book-author">Dr. George M. Ackerman (2024)</p>
+                <p class="book-line">A son's memoir of caring for his mother, Sharon, through her 15-year Parkinson's battle, written in her memory after she passed in 2020.</p>
+                <p class="book-line">George founded <a href="https://togetherforsharon.com/" target="_blank" rel="noopener">Together for Sharon</a> in her memory — and interviewed Joseph about our family's story in July 2023.</p>
+              </div>
+            </article>
+            <article class="shelf-book">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><img class="shelf-cover" src="assets/book-brain-storms.jpg" alt="Brain Storms book cover" width="300" height="500" loading="lazy" /></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">Brain Storms</h3>
+                <p class="book-author">Jon Palfreman</p>
+                <p class="book-line">A journalist's investigation into Parkinson's science and the search for a cure.</p>
+              </div>
+            </article>
+            <article class="shelf-book">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><img class="shelf-cover" src="assets/book-cover-parkinsons-plan.jpg" alt="The Parkinson's Plan book cover" width="258" height="400" loading="lazy" /></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">The Parkinson's Plan</h3>
+                <p class="book-author">Ray Dorsey &amp; Michael S. Okun</p>
+                <p class="book-line">The authors' newest book: a plan to prevent and end Parkinson's.</p>
+              </div>
+            </article>
+            <article class="shelf-book">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><img class="shelf-cover" src="assets/book-cover-young-onset.jpg" alt="You Have Young Onset Parkinson's book cover" width="333" height="500" loading="lazy" /></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">You Have Young Onset Parkinson's</h3>
+                <p class="book-author">Blake L. Bookstaff</p>
+                <p class="book-line">A first-person guide for people diagnosed young, and the families beside them.</p>
+              </div>
+            </article>
+            <article class="shelf-book">
+              <div class="shelf-stage">
+                <div class="shelf-cover-wrap"><img class="shelf-cover" src="assets/book-fox.jpg" alt="No Time Like the Future book cover" width="329" height="500" loading="lazy" /></div>
+              </div>
+              <div class="shelf-board" aria-hidden="true"></div>
+              <div class="shelf-info">
+                <h3 class="book-title">No Time Like the Future</h3>
+                <p class="book-author">Michael J. Fox</p>
+                <p class="book-line">Michael J. Fox's memoir of optimism, gratitude, and mortality.</p>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
       <div class="pd-resources-block pd-resources-card">
         <h2 class="pd-resources-subhead" style="margin-top:0">Suggest a Book</h2>
@@ -10165,7 +10319,7 @@
         <h2>Photos &amp; Assets</h2>
       </div>
       <p>Team photos, walk-day images, and logos are <strong>available on request</strong> — email the media contact above and we'll send what you need for your story or segment.</p>
-      <p>For past coverage, see the <a href="#/media">Media archive</a>.</p>
+      <p>For past coverage, see the <a href="#/in-the-news">In the News archive</a>.</p>
       <p>Browse event photos in our <a href="#/galleries">Photo Galleries</a>.</p>
     </div>
   </section>
@@ -10318,7 +10472,8 @@
             <li><a href="#/events">Events</a><span>The Optimism Walk &amp; 5K, the Magic of Hope Gala, Rock the Resort, trivia and bingo nights.</span></li>
             <li><a href="#/rock-the-resort">Rock the Resort</a><span>Our annual Concert for a Cure at The Last Resort in Smithfield.</span></li>
             <li><a href="#/galleries">Photo Galleries</a><span>Walk days, concerts, and team events in pictures, from 2014 to today.</span></li>
-            <li><a href="#/media">Media</a><span>Team Golomboski in the news — coverage and interviews.</span></li>
+            <li><a href="#/media">Media</a><span>Team Golomboski in the news and in pictures — press coverage and photo galleries.</span></li>
+            <li><a href="#/in-the-news">In the News</a><span>Team Golomboski in the news — coverage and interviews.</span></li>
             <li><a href="#/press-kit">Press Kit</a><span>The facts, figures, and contacts for reporters, producers, and partners.</span></li>
             <li><a href="#/donate">Donate</a><span>Give through Team Golomboski to the APDA Rhode Island Chapter.</span></li>
             <li><a href="#/pd-resources/reading">Books</a><span>APDA booklets and books our community has found helpful.</span></li>
@@ -10368,55 +10523,6 @@
   </div>
 </div>
 
-<!-- More Books to Explore modal (Find Help — Recommended Reading):
-     opened by the "More Books to Explore" button under the four
-     featured books. Same visual family as the photo viewer above —
-     a dimmed navy backdrop with a centered panel and a × close
-     control; it also closes on a backdrop click and on Escape, and
-     the panel scrolls internally so the page never grows. -->
-<div class="reading-modal" id="readingModal" role="dialog" aria-modal="true" aria-labelledby="readingModalTitle" hidden>
-  <div class="reading-modal-panel">
-    <div class="reading-modal-head">
-      <h2 id="readingModalTitle">More Books to Explore</h2>
-      <button type="button" class="flipbook-close" id="readingModalClose" aria-label="Close the book list">&times;</button>
-    </div>
-    <div class="book-grid">
-      <article class="book-card">
-        <img class="book-cover" src="assets/book-brain-storms.jpg" alt="Brain Storms book cover" width="300" height="500" loading="lazy" />
-        <div class="book-info">
-          <h3 class="book-title">Brain Storms</h3>
-          <p class="book-author">Jon Palfreman</p>
-          <p class="book-line">A journalist's investigation into Parkinson's science and the search for a cure.</p>
-        </div>
-      </article>
-      <article class="book-card">
-        <img class="book-cover" src="assets/book-cover-parkinsons-plan.jpg" alt="The Parkinson's Plan book cover" width="258" height="400" loading="lazy" />
-        <div class="book-info">
-          <h3 class="book-title">The Parkinson's Plan</h3>
-          <p class="book-author">Ray Dorsey &amp; Michael S. Okun</p>
-          <p class="book-line">The authors' newest book: a plan to prevent and end Parkinson's.</p>
-        </div>
-      </article>
-      <article class="book-card">
-        <img class="book-cover" src="assets/book-cover-young-onset.jpg" alt="You Have Young Onset Parkinson's book cover" width="333" height="500" loading="lazy" />
-        <div class="book-info">
-          <h3 class="book-title">You Have Young Onset Parkinson's</h3>
-          <p class="book-author">Blake L. Bookstaff</p>
-          <p class="book-line">A first-person guide for people diagnosed young, and the families beside them.</p>
-        </div>
-      </article>
-      <article class="book-card">
-        <img class="book-cover" src="assets/book-fox.jpg" alt="No Time Like the Future book cover" width="329" height="500" loading="lazy" />
-        <div class="book-info">
-          <h3 class="book-title">No Time Like the Future</h3>
-          <p class="book-author">Michael J. Fox</p>
-          <p class="book-line">Michael J. Fox's memoir of optimism, gratitude, and mortality.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</div>
-
 <!-- ============================================================
      FOOTER — shared by every page
      ============================================================ -->
@@ -10448,7 +10554,7 @@
           <a href="#/our-story">Our Story</a>
           <a href="#/impact">Impact</a>
           <a href="#/events">Events</a>
-          <a href="#/media">Media</a>
+          <a href="#/in-the-news">In the News</a>
           <a href="#/galleries">Photo Galleries</a>
           <a href="#/donate">Donate</a>
           <a href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
@@ -10546,6 +10652,7 @@
   //   events            /events                        events-walk-day.jpg
   //   rock-the-resort   /rock-the-resort               rock-the-resort-team.jpg
   //   media             /media                         rocky-point-cover.jpg
+  //   in-the-news       /in-the-news                    rocky-point-cover.jpg
   //   galleries         /galleries                     walk2017-team-group-wide.jpg
   //   donate            /donate                        funny4funds-check.jpg
   //   pd-resources      /pd-resources                  support.jpg
@@ -10572,7 +10679,8 @@
     "impact": { path: "impact", title: "Impact | Team Golomboski", description: "Team Golomboski's impact since 2014: over $40,000 raised for APDA Rhode Island, a record $7,273.75 in 2026, and the local programs every dollar supports.", image: "impact-team-2025-blur.jpg" },
     "events": { path: "events", title: "Events | Team Golomboski", description: "Team Golomboski and APDA Rhode Island events: the Optimism Walk & 5K, the Magic of Hope Gala, Rock the Resort, Funny 4 Funds, trivia and bingo nights.", image: "events-walk-day.jpg" },
     "rock-the-resort": { path: "rock-the-resort", title: "Rock the Resort | Team Golomboski", description: "Rock the Resort is Team Golomboski's annual Concert for a Cure — live music at The Last Resort in Smithfield, benefiting the APDA Rhode Island Chapter.", image: "rock-the-resort-team.jpg" },
-    "media": { path: "media", title: "Media | Team Golomboski", description: "Team Golomboski in the news: coverage and interviews from NBC 10, The Rhode Island Wave, Together for Sharon, and the Johnston Sun Rise.", image: "rocky-point-cover.jpg" },
+    "media": { path: "media", title: "Media | Team Golomboski", description: "Team Golomboski in the news and in pictures — press coverage and photo galleries.", image: "rocky-point-cover.jpg" },
+    "in-the-news": { path: "in-the-news", title: "In the News | Team Golomboski", description: "Team Golomboski in the news: coverage and interviews from NBC 10, The Rhode Island Wave, Together for Sharon, and the Johnston Sun Rise.", image: "rocky-point-cover.jpg" },
     "galleries": { path: "galleries", title: "Photo Galleries | Team Golomboski", description: "Photo galleries from the days that built Team Golomboski: Optimism Walks from 2014 to 2026, Rock the Resort, Funny 4 Funds, and more team events.", image: "walk2017-team-group-wide.jpg" },
     "donate": { path: "donate", title: "Donate | Team Golomboski", description: "Donate through Team Golomboski to the APDA Rhode Island Chapter. Every gift stays in Rhode Island, funding local programs, support, and research.", image: "funny4funds-check.jpg" },
     "pd-resources": { path: "pd-resources", title: "Resources & Support | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
@@ -10597,6 +10705,7 @@
       "events": "Events | Team Golomboski",
       "rock-the-resort": "Rock the Resort | Team Golomboski",
       "media": "Media | Team Golomboski",
+      "in-the-news": "In the News | Team Golomboski",
       "galleries": "Photo Galleries | Team Golomboski",
       "donate": "Donate | Team Golomboski",
       "pd-resources": "Resources & Support | Team Golomboski",
@@ -10639,44 +10748,48 @@
         panelLinks[k].addEventListener("click", closeMenu);
       }
     }
-    // Media dropdown (desktop nav): the parent "Media" link stays a
-    // plain link to the Media page; the panel opens on hover and on
-    // keyboard focus (CSS :hover / :focus-within). This script only
-    // keeps the parent's aria-expanded in step and wires Escape:
-    // Escape closes the panel and suppresses reopening (.closed)
-    // until the pointer or focus leaves the dropdown.
-    var navDrop = document.querySelector(".nav-drop");
-    if (navDrop) {
-      var dropParent = navDrop.querySelector(".nav-drop-parent");
-      var setDrop = function (open) {
-        if (dropParent) { dropParent.setAttribute("aria-expanded", open ? "true" : "false"); }
-      };
-      navDrop.addEventListener("mouseenter", function () {
-        navDrop.classList.remove("closed");
-        setDrop(true);
-      });
-      navDrop.addEventListener("mouseleave", function () {
-        navDrop.classList.remove("closed");
-        setDrop(false);
-      });
-      navDrop.addEventListener("focusin", function () {
-        if (!navDrop.classList.contains("closed")) { setDrop(true); }
-      });
-      navDrop.addEventListener("focusout", function () {
-        window.setTimeout(function () {
-          if (!navDrop.contains(document.activeElement)) {
-            navDrop.classList.remove("closed");
-            setDrop(false);
-          }
-        }, 0);
-      });
-      navDrop.addEventListener("keydown", function (e) {
-        if (e.key === "Escape" || e.keyCode === 27) {
-          navDrop.classList.add("closed");
+    // Nav dropdowns (desktop nav): the "Events" and "Media" parents
+    // stay plain links to their pages; their panels open on hover
+    // and on keyboard focus (CSS :hover / :focus-within). This
+    // script only keeps each parent's aria-expanded in step and
+    // wires Escape: Escape closes the panel and suppresses
+    // reopening (.closed) until the pointer or focus leaves the
+    // dropdown. The wiring loops over every .nav-drop, so a future
+    // dropdown added to the nav gets the same behavior as-is.
+    var navDrops = document.querySelectorAll(".nav-drop");
+    for (var nd = 0; nd < navDrops.length; nd++) {
+      (function (navDrop) {
+        var dropParent = navDrop.querySelector(".nav-drop-parent");
+        var setDrop = function (open) {
+          if (dropParent) { dropParent.setAttribute("aria-expanded", open ? "true" : "false"); }
+        };
+        navDrop.addEventListener("mouseenter", function () {
+          navDrop.classList.remove("closed");
+          setDrop(true);
+        });
+        navDrop.addEventListener("mouseleave", function () {
+          navDrop.classList.remove("closed");
           setDrop(false);
-          if (navDrop.contains(document.activeElement)) { document.activeElement.blur(); }
-        }
-      });
+        });
+        navDrop.addEventListener("focusin", function () {
+          if (!navDrop.classList.contains("closed")) { setDrop(true); }
+        });
+        navDrop.addEventListener("focusout", function () {
+          window.setTimeout(function () {
+            if (!navDrop.contains(document.activeElement)) {
+              navDrop.classList.remove("closed");
+              setDrop(false);
+            }
+          }, 0);
+        });
+        navDrop.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" || e.keyCode === 27) {
+            navDrop.classList.add("closed");
+            setDrop(false);
+            if (navDrop.contains(document.activeElement)) { document.activeElement.blur(); }
+          }
+        });
+      })(navDrops[nd]);
     }
     function render() {
       var parsed = parseHash();
@@ -11169,42 +11282,8 @@
     window.addEventListener("hashchange", closeFlipbook);
   })();
 
-  // More Books to Explore modal (Find Help — Recommended Reading):
-  // the button under the four featured books opens a centered overlay
-  // with four more titles. It closes on the × button, on a click on
-  // the dimmed backdrop, and on Escape, and returns focus to the
-  // button; the panel scrolls internally, so the page never grows.
-  (function () {
-    var overlay = document.getElementById("readingModal");
-    var openBtn = document.getElementById("readingMoreOpen");
-    if (!overlay || !openBtn) { return; }
-    var closeBtn = document.getElementById("readingModalClose");
-    var isOpen = false;
-    function openModal() {
-      isOpen = true;
-      overlay.hidden = false;
-      overlay.classList.add("open");
-      document.body.classList.add("reading-modal-lock");
-      if (closeBtn && closeBtn.focus) { closeBtn.focus(); }
-    }
-    function closeModal() {
-      if (!isOpen) { return; }
-      isOpen = false;
-      overlay.classList.remove("open");
-      overlay.hidden = true;
-      document.body.classList.remove("reading-modal-lock");
-      if (openBtn.focus) { openBtn.focus(); }
-    }
-    openBtn.addEventListener("click", openModal);
-    if (closeBtn) { closeBtn.addEventListener("click", closeModal); }
-    overlay.addEventListener("click", function (ev) { if (ev.target === overlay) { closeModal(); } });
-    document.addEventListener("keydown", function (ev) {
-      if (!isOpen) { return; }
-      if (ev.key === "Escape") { closeModal(); }
-    });
-    // Navigating to another page of the site closes the modal.
-    window.addEventListener("hashchange", closeModal);
-  })();
+  // (The "More Books to Explore" modal script was retired with the
+  // bookshelf build — all nine books now stand on the shelf.)
 
   // Events filters (Events page only): four dropdowns in the hero
   // — Status, Month, Host, Event Type — using the Galleries page's
