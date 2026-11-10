@@ -2300,11 +2300,16 @@
      across the top — the pathway-card frame with its padding
      moved into the body block so the photo runs edge to edge. */
   .media-hub-card{padding:0;overflow:hidden;gap:0}
-  .media-hub-card img{width:100%;height:230px;object-fit:cover;display:block}
-  .media-hub-card img.media-hub-img-top{object-position:50% 18%}
+  /* Both hub images sit in a shared frame at one height: the full
+     image is shown uncropped (object-fit contain) over a soft
+     blurred fill of itself, so the portrait magazine cover reads
+     as a cover and the team photo keeps its whole group + banner. */
+  .media-hub-frame{position:relative;display:block;height:300px;overflow:hidden;background:#10243a;flex:none}
+  .media-hub-frame .media-hub-fill{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(16px) brightness(.7) saturate(1.05);transform:scale(1.2)}
+  .media-hub-frame .media-hub-img{position:relative;width:100%;height:100%;object-fit:contain;display:block}
   .media-hub-body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:10px;flex:1}
   .media-hub-body p{flex:1}
-  @media (max-width:520px){ .media-hub-card img{height:190px} }
+  @media (max-width:520px){ .media-hub-frame{height:260px} }
   /* Hub finder panel: the Programs page finder panel (.finder-panel)
      carried at the top of the hub's Explore section — same navy card,
      sub line and green Search; its heading drops to h3 under the
@@ -4614,7 +4619,10 @@
       </div>
       <div class="hub-grid">
         <a class="pathway-card hub-card media-hub-card" href="#/in-the-news">
-          <img class="media-hub-img-top" src="assets/rocky-point-cover.jpg" alt="Cover of Rocky Point Neighbors magazine, September 2025: Joseph and Kirby Golomboski seated together on the rocks at Rocky Point" width="1560" height="2048" loading="lazy" />
+          <span class="media-hub-frame">
+            <img class="media-hub-fill" src="assets/rocky-point-cover.jpg" alt="" aria-hidden="true" width="1560" height="2048" loading="lazy" />
+            <img class="media-hub-img" src="assets/rocky-point-cover.jpg" alt="Cover of Rocky Point Neighbors magazine, September 2025: Joseph and Kirby Golomboski seated together on the rocks at Rocky Point" width="1560" height="2048" loading="lazy" />
+          </span>
           <span class="media-hub-body">
             <h3>In the News</h3>
             <p>Press and media coverage of Team Golomboski and the Rhode Island Parkinson's community.</p>
@@ -4622,7 +4630,10 @@
           </span>
         </a>
         <a class="pathway-card hub-card media-hub-card" href="#/galleries">
-          <img src="assets/walk2017-team-group-wide.jpg" alt="The whole Team Golomboski group at Goddard Park, 2017" width="1500" height="1450" loading="lazy" />
+          <span class="media-hub-frame">
+            <img class="media-hub-fill" src="assets/walk2017-team-group-hub.jpg" alt="" aria-hidden="true" width="1500" height="970" loading="lazy" />
+            <img class="media-hub-img" src="assets/walk2017-team-group-hub.jpg" alt="The whole Team Golomboski group at Goddard Park, 2017, holding the APDA banner" width="1500" height="970" loading="lazy" />
+          </span>
           <span class="media-hub-body">
             <h3>Photo Galleries</h3>
             <p>Photos from a decade of walks, concerts, and community events.</p>
