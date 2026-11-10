@@ -268,31 +268,34 @@
     .nav-resources-pinned{display:inline-flex;min-height:48px;font-size:.9rem;padding:9px 14px}
     .menu-btn{display:inline-flex}
   }
-  /* Desktop row, ten entries (Nov 9, 2026): Recommended Reading
-     joined the nav beside the Resources & Support pill, and at the
-     old metrics the row overflowed the 1120px header column — the
-     right-aligned link row spilled back over the wordmark. At
-     desktop widths only (≥1151px; below that the hamburger layout
-     above takes over) the row tightens one step so all ten entries
-     fit on one line: a slightly smaller wordmark, link text and
-     padding. The Resources pill and Donate keep matched font-size
-     and padding steps, so the two buttons still render at exactly
-     the same height, as they always have. */
+  /* Desktop row, leaner nav (Nov 9, 2026): Our Story and
+     Joseph & Alicia moved under the About dropdown, so the
+     top-level row carries six links plus the Resources &
+     Support pill. With a full link's width handed back, the
+     ≥1151px metrics relax one step from the earlier ten-entry
+     tightening — slightly larger link text, wider padding and
+     gaps — so the row sits visibly airier while still fitting
+     the 1120px header column on one line (below 1151px the
+     hamburger layout above takes over). The Resources pill
+     and Donate keep matched font-size and padding steps, so
+     the two buttons still render at exactly the same height,
+     as they always have. */
   @media (min-width:1151px){
-    .nav-inner{gap:8px}
+    .nav-inner{gap:10px}
     .brand-name{font-size:1.06rem}
     .brand-sub{font-size:.66rem;letter-spacing:.11em}
-    .nav-links{gap:1px}
-    .nav-links a{font-size:.87rem;padding:10px 3px}
-    .nav-links a.nav-resources{font-size:.87rem;padding:11px 10px;margin-left:2px}
-    .nav-donate{font-size:.87rem;padding:11px 10px}
+    .nav-links{gap:4px}
+    .nav-links a{font-size:.9rem;padding:10px 7px}
+    .nav-links a.nav-resources{font-size:.9rem;padding:11px 13px;margin-left:2px}
+    .nav-donate{font-size:.9rem;padding:11px 13px}
   }
 
   /* ---------- Nav dropdowns (Nov 9, 2026) ----------
-     "Events" and "Media" in the desktop nav are dropdown parents:
-     each parent stays a plain link through to its own page, and
-     the panel under it carries a simple list of child entries —
-     for Media: In the News and Photo Galleries; for Events: Rock
+     "About", "Events" and "Media" in the desktop nav are dropdown
+     parents: each parent stays a plain link through to its own
+     page, and the panel under it carries a simple list of child
+     entries — for About: Our Story and Joseph & Alicia; for
+     Media: In the News and Photo Galleries; for Events: Rock
      the Resort today, with further event pages to be appended as
      plain entries in the same list later (the panel is a vertical
      list, min-width 216px, so several entries sit naturally).
@@ -2505,6 +2508,41 @@
   [data-page="impact"] .impact .stat .num{color:#0a2340}
   [data-page="impact"] .impact .stat .lbl{color:#33475c}
   [data-page="impact"] .impact .stat .sub2{color:#33475c}
+  /* ---------- APDA Booklet Shelf links (Recommended Reading) ----------
+     The APDA Booklet Shelf reuses the bookshelf presentation
+     (.bookshelf-panel / .shelf-book / .shelf-stage / .shelf-board)
+     exactly as Our Bookshelf renders it, but each booklet stands
+     inside one link: cover and title both open APDA's download
+     page. The link is a flex column mirroring .shelf-book's own
+     layout, and the span copies of the shelf parts are set to
+     block/flex so they take the same boxes as the div originals.
+     Hover deepens the cover's shadow and turns the title APDA
+     blue; keyboard focus gets a clear outline. */
+  .shelf-book-link{display:flex;flex-direction:column;align-items:center;text-align:center;width:100%;text-decoration:none}
+  .shelf-book-link .shelf-board,.shelf-book-link .shelf-info{display:block}
+  .shelf-book-link .book-title,.shelf-book-link .book-line{display:block}
+  .shelf-book-link .shelf-cover-wrap{transition:box-shadow .18s ease}
+  .shelf-book-link:hover .shelf-cover-wrap{box-shadow:10px 14px 26px rgba(19,36,51,.40)}
+  .shelf-book-link:hover .book-title{color:#005eb8}
+  .shelf-book-link:focus-visible{outline:3px solid #005eb8;outline-offset:4px;border-radius:6px}
+  @media (prefers-reduced-motion: reduce){ .shelf-book-link .shelf-cover-wrap{transition:none} }
+  /* ---------- Homepage "What Is Parkinson's?" basics section ----------
+     A plain-language family introduction to Parkinson's, sitting
+     between the Our Story teaser and More Than Family on the
+     homepage (a base .section; the sections below it traded
+     base/alt so the homepage alternation holds end to end).
+     The eyebrow matches the site's small-caps chapter labels in
+     APDA blue; the four fact tiles reuse the shared .fact-strip
+     card; the young-onset panel is a standard white card; the
+     closing line is set in the site's serif italic, like the
+     page-hero standfirsts. */
+  .basics-eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#005eb8;margin:0 0 10px}
+  .basics-panel{background:#fff;border:1px solid #d3dde7;border-radius:var(--radius);box-shadow:0 8px 24px rgba(19,36,51,.08);padding:26px 28px;margin-top:28px;max-width:860px}
+  .basics-panel p{margin:0;font-size:1.02rem;line-height:1.65}
+  .basics-note{max-width:760px;margin-top:26px;font-size:1.02rem;line-height:1.65}
+  .basics-close{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.3rem;line-height:1.45;color:#0a2340;max-width:760px;margin-top:28px}
+  .basics-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
+  @media (max-width:560px){ .basics-panel{padding:22px 18px} .basics-actions .btn{flex:1 1 100%;justify-content:center;text-align:center} }
 </style>
 </head>
 <body>
@@ -2520,8 +2558,13 @@
     </a>
     <nav class="nav-links" id="mainNav" aria-label="Main">
       <a href="#/" data-route="home">Home</a>
-      <a href="#/our-story" data-route="our-story">Our Story</a>
-      <a href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
+      <div class="nav-drop">
+        <a class="nav-drop-parent" href="#/our-story" data-route="our-story" aria-haspopup="true" aria-expanded="false">About <span class="nav-caret" aria-hidden="true">▾</span></a>
+        <div class="nav-drop-menu">
+          <a href="#/our-story" data-route="our-story">Our Story</a>
+          <a href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
+        </div>
+      </div>
       <a href="#/impact" data-route="impact">Impact</a>
       <div class="nav-drop">
         <a class="nav-drop-parent" href="#/events" data-route="events" aria-haspopup="true" aria-expanded="false">Events <span class="nav-caret" aria-hidden="true">▾</span></a>
@@ -2549,8 +2592,9 @@
     <div class="wrap">
       <nav aria-label="Mobile">
         <a href="#/" data-route="home">Home</a>
-        <a href="#/our-story" data-route="our-story">Our Story</a>
-        <a href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
+        <a href="#/our-story" data-route="our-story">About</a>
+        <a class="mobile-sub" href="#/our-story" data-route="our-story">Our Story</a>
+        <a class="mobile-sub" href="#/joseph-and-alicia" data-route="joseph-and-alicia">Joseph &amp; Alicia</a>
         <a href="#/impact" data-route="impact">Impact</a>
         <a href="#/events" data-route="events">Events</a>
         <a class="mobile-sub" href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
@@ -2747,7 +2791,50 @@
     </div>
   </section>
 
-  <section class="section" aria-label="More Than Family — join Team Golomboski">
+  <section class="section" aria-label="What is Parkinson's?">
+    <div class="wrap">
+      <p class="basics-eyebrow">The Basics</p>
+      <h2>What Is Parkinson's?</h2>
+      <div class="prose" style="margin-top:16px">
+        <p>Parkinson's disease is a progressive condition of the brain and nervous system. It happens when brain cells that make dopamine — a chemical messenger that helps control movement — gradually break down.</p>
+        <p>As dopamine falls, movement slows and stiffens, and other symptoms can appear over time.</p>
+        <p>There is no cure yet, but there are treatments, therapies, and a community that helps people live well with it.</p>
+      </div>
+      <aside class="fact-strip" aria-label="Parkinson's in numbers">
+        <div class="fact-grid" style="margin-top:0">
+          <div class="fact">
+            <div class="fact-num">Nearly 1 million</div>
+            <p class="fact-text">people in the U.S. are living with Parkinson's</p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">About 90,000</div>
+            <p class="fact-text">people are diagnosed each year — one every 6 minutes</p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">More than 10 million</div>
+            <p class="fact-text">people worldwide are living with Parkinson's</p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">4 motor signs</div>
+            <p class="fact-text">tremor, stiffness, slowness, and balance problems</p>
+          </div>
+        </div>
+      </aside>
+      <div class="basics-panel">
+        <p><strong>Parkinson's can start young.</strong> Doctors call it young onset when symptoms begin between ages 21 and 50 — about 10% of cases. Our dad, Joseph Golomboski Sr., was diagnosed at 44.</p>
+      </div>
+      <p class="basics-note">Most Parkinson's isn't inherited — only about 10% to 15% of cases trace to a known genetic mutation.</p>
+      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
+      <p class="basics-close">If someone you love was just diagnosed, you don't have to figure this out alone.</p>
+      <div class="basics-actions">
+        <a class="btn btn-green" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island</a>
+        <a class="btn btn-outline" href="https://www.apdaparkinson.org/what-is-parkinsons/" target="_blank" rel="noopener">APDA's Parkinson's Basics</a>
+        <a class="btn btn-outline" href="#/pd-resources/reading">See our Books</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="More Than Family — join Team Golomboski">
     <div class="wrap">
       <div class="family-band">
         <div class="family-band-copy">
@@ -2767,7 +2854,7 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2814,7 +2901,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section section-alt">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2844,7 +2931,7 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section">
     <div class="wrap">
       <div class="connect">
         <div>
@@ -2876,7 +2963,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="A National Plan to End Parkinson's">
+  <section class="section section-alt" aria-label="A National Plan to End Parkinson's">
     <div class="wrap">
       <div class="recap-grid recap-photo-grid">
       <div class="recap-copy prose" style="min-width:0">
@@ -2904,7 +2991,7 @@
     </div>
   </section>
 
-  <section class="section section-alt" aria-label="In the News">
+  <section class="section" aria-label="In the News">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -2937,7 +3024,7 @@
     </div>
   </section>
 
-  <section class="section" aria-label="Your APDA RI team">
+  <section class="section section-alt" aria-label="Your APDA RI team">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
@@ -9495,6 +9582,41 @@
         </aside>
       </div>
       </div>
+      <div class="bookshelf-block" id="apda-booklet-shelf">
+        <div class="section-head">
+          <div class="rule" aria-hidden="true"></div>
+          <h2>APDA Booklet Shelf</h2>
+          <p>APDA's free booklets, standing on the shelf — tap a cover to get yours from APDA.</p>
+        </div>
+        <div class="bookshelf-panel">
+          <div class="bookshelf">
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/handbook-download/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><img class="shelf-cover" src="assets/booklet-handbook.jpg" alt="Parkinson's Disease Handbook cover (APDA)" width="197" height="300" loading="lazy" /></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">Parkinson's Disease Handbook</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
+            <article class="shelf-book">
+              <a class="shelf-book-link" href="https://www.apdaparkinson.org/download-exercise-guide/" target="_blank" rel="noopener">
+                <span class="shelf-stage">
+                  <span class="shelf-cover-wrap"><img class="shelf-cover" src="assets/booklet-be-active.jpg" alt="Be Active &amp; Beyond cover (APDA)" width="196" height="300" loading="lazy" /></span>
+                </span>
+                <span class="shelf-board" aria-hidden="true"></span>
+                <span class="shelf-info">
+                  <span class="book-title">Be Active &amp; Beyond</span>
+                  <span class="book-line">Free from APDA</span>
+                </span>
+              </a>
+            </article>
+          </div>
+        </div>
+      </div>
       <div class="bookshelf-block" id="bookshelf">
         <div class="section-head">
           <div class="rule" aria-hidden="true"></div>
@@ -10748,8 +10870,9 @@
         panelLinks[k].addEventListener("click", closeMenu);
       }
     }
-    // Nav dropdowns (desktop nav): the "Events" and "Media" parents
-    // stay plain links to their pages; their panels open on hover
+    // Nav dropdowns (desktop nav): the "About", "Events" and
+    // "Media" parents stay plain links to their pages; their
+    // panels open on hover
     // and on keyboard focus (CSS :hover / :focus-within). This
     // script only keeps each parent's aria-expanded in step and
     // wires Escape: Escape closes the panel and suppresses
