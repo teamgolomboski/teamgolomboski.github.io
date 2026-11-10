@@ -2543,6 +2543,18 @@
   .basics-close{font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.3rem;line-height:1.45;color:#0a2340;max-width:760px;margin-top:28px}
   .basics-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px}
   @media (max-width:560px){ .basics-panel{padding:22px 18px} .basics-actions .btn{flex:1 1 100%;justify-content:center;text-align:center} }
+  /* ---------- Reading intro full width + Introduction to Parkinson's (Nov 10, 2026) ----------
+     Reading page: with the APDA Booklets rail gone, the Recommended
+     Reading intro block (.reading-block .section-head) no longer sits
+     at the shared .section-head 680px cap — it spans the full content
+     width like the shelves below it. Scoped to the Reading page only;
+     the shared .section-head rule is untouched everywhere else.
+     Introduction to Parkinson's: the Symptoms at a Glance cards sit
+     two-up on desktop, stacked on phones. */
+  [data-page="pd-resources/reading"] .reading-block .section-head{max-width:none}
+  [data-page="introduction-to-parkinsons"] .intro-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px;align-items:start}
+  [data-page="introduction-to-parkinsons"] .intro-card-grid .pd-resources-card{margin-top:0}
+  @media (max-width:760px){ [data-page="introduction-to-parkinsons"] .intro-card-grid{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
@@ -2575,7 +2587,13 @@
         </div>
       </div>
       <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
-      <a class="nav-resources" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
+      <div class="nav-drop">
+        <a class="nav-resources nav-drop-parent" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener" aria-haspopup="true" aria-expanded="false">Resources &amp; Support <span class="nav-caret" aria-hidden="true">▾</span></a>
+        <div class="nav-drop-menu">
+          <a href="#/introduction-to-parkinsons" data-route="introduction-to-parkinsons">Introduction to Parkinson's</a>
+          <a href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">RI Chapter, Programs &amp; Support</a>
+        </div>
+      </div>
     </nav>
     <div class="nav-actions">
       <a class="nav-resources-pinned" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
@@ -2597,6 +2615,8 @@
         <a class="mobile-sub" href="#/galleries" data-route="galleries">Photo Galleries</a>
         <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
         <a class="nav-resources" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
+        <a class="mobile-sub" href="#/introduction-to-parkinsons" data-route="introduction-to-parkinsons">Introduction to Parkinson's</a>
+        <a class="mobile-sub" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">RI Chapter, Programs &amp; Support</a>
       </nav>
     </div>
   </div>
@@ -2824,6 +2844,7 @@
         <a class="btn btn-green" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island</a>
         <a class="btn btn-outline" href="https://www.apdaparkinson.org/what-is-parkinsons/" target="_blank" rel="noopener">APDA's Parkinson's Basics</a>
         <a class="btn btn-outline" href="#/pd-resources/reading">See our Books</a>
+        <a class="btn btn-outline" href="#/introduction-to-parkinsons">Learn more</a>
       </div>
     </div>
   </section>
@@ -10426,6 +10447,179 @@
 </div><!-- /page pd-resources/genetics -->
 
 <!-- ============================================================
+     PAGE: INTRODUCTION TO PARKINSON'S
+     ============================================================ -->
+<div class="page" data-page="introduction-to-parkinsons">
+
+  <section class="page-hero" aria-label="Introduction to Parkinson's">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> &middot; Introduction to Parkinson's</div>
+      <h1>Introduction to Parkinson's</h1>
+      <p>New to Parkinson's? Start here — what it is, what the symptoms look like, and the questions worth asking, all in plain language.</p>
+      </div>
+      <figure class="page-hero-photo">
+        <img src="assets/support.jpg" alt="A support group seated in a circle, talking and laughing together" width="1024" height="421" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" aria-label="What is Parkinson's?">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>What Is Parkinson's?</h2>
+      </div>
+      <div class="prose">
+        <p>Parkinson's disease is a progressive condition of the brain and nervous system. It happens when brain cells that make dopamine — a chemical messenger that helps control movement — gradually break down.</p>
+        <p>As dopamine falls, movement slows and stiffens, and other symptoms can appear over time. The changes usually begin gradually, and they look different from person to person.</p>
+        <p>Parkinson's is diagnosed with a clinical exam by a neurologist — often a movement-disorder specialist — based on your history and symptoms. There is no cure yet, but there are treatments, therapies, and a community that helps people live well with it: medications that ease symptoms, exercise that keeps people moving, and physical, speech, and occupational therapies for daily life.</p>
+      </div>
+      <aside class="fact-strip" aria-label="Parkinson's in numbers">
+        <div class="fact-grid" style="margin-top:0">
+          <div class="fact">
+            <div class="fact-num">Nearly 1 million</div>
+            <p class="fact-text">people in the U.S. are living with Parkinson's</p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">About 90,000</div>
+            <p class="fact-text">people are diagnosed each year — one every 6 minutes</p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">More than 10 million</div>
+            <p class="fact-text">people worldwide are living with Parkinson's</p>
+          </div>
+          <div class="fact">
+            <div class="fact-num">4 motor signs</div>
+            <p class="fact-text">tremor, stiffness, slowness, and balance problems</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Symptoms at a glance">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Symptoms at a Glance</h2>
+        <p>Parkinson's is best known for how it affects movement — but it doesn't stop there. Not everyone gets all of these; symptoms vary from person to person.</p>
+      </div>
+      <div class="intro-card-grid">
+        <div class="pd-resources-card">
+          <h3 class="pd-resources-subhead">Motor Symptoms</h3>
+          <ul class="pd-resources-list">
+            <li><strong>Tremor</strong> — a shaking, often in a hand, that tends to show up at rest.</li>
+            <li><strong>Rigidity</strong> — stiffness in the arms, legs, or trunk.</li>
+            <li><strong>Bradykinesia</strong> — slowness of movement; everyday tasks take longer.</li>
+            <li><strong>Postural instability</strong> — balance problems that can lead to falls.</li>
+          </ul>
+          <p class="pd-resources-routing">These four are the cardinal signs doctors look for first.</p>
+        </div>
+        <div class="pd-resources-card">
+          <h3 class="pd-resources-subhead">Common Non-Motor Symptoms</h3>
+          <ul class="pd-resources-list">
+            <li>Loss of smell</li>
+            <li>Sleep problems</li>
+            <li>Constipation</li>
+            <li>Depression or anxiety</li>
+            <li>Fatigue</li>
+            <li>Cognitive changes</li>
+            <li>A softer voice</li>
+            <li>Smaller handwriting</li>
+          </ul>
+          <p class="pd-resources-routing">Non-motor symptoms are part of Parkinson's too — some appear years before movement changes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-label="Young onset Parkinson's">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Young Onset Parkinson's</h2>
+      </div>
+      <div class="basics-panel" style="margin-top:0">
+        <p><strong>Parkinson's can start young.</strong> Doctors call it young onset when symptoms begin between ages 21 and 50 — about 10% of cases. Our dad, Joseph Golomboski Sr., was diagnosed at 44.</p>
+      </div>
+      <figure class="family-photo">
+        <img src="assets/joseph-sr-portrait.png" alt="Joseph Golomboski Sr." width="1080" height="1350" />
+        <figcaption>Joseph Golomboski Sr. — diagnosed at 44.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Is Parkinson's inherited?">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Is Parkinson's Inherited?</h2>
+      </div>
+      <p class="pd-resources-framing" style="margin-top:0">Most Parkinson's isn't inherited — only about 10% to 15% of cases trace to a known genetic mutation. In most cases, Parkinson's is not passed directly from parent to child: most people with Parkinson's, even with a family history, do not carry one of these genes. And even when a mutation is present, it raises risk rather than deciding the outcome — many people who carry one never develop the disease. A parent having Parkinson's does not mean a child will get it.</p>
+      <p class="pd-resources-routing">Read more: <a href="https://www.apdaparkinson.org/article/genetic-testing-for-parkinsons-disease/" target="_blank" rel="noopener">APDA on genetic testing for Parkinson's</a></p>
+    </div>
+  </section>
+
+  <section class="section" aria-label="The stages of Parkinson's in plain language">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>The Stages, in Plain Language</h2>
+        <p>Doctors often describe Parkinson's in five stages (the Hoehn &amp; Yahr scale). Treat them as a general picture, not a prediction — progression varies widely from person to person, and many people never reach the later stages.</p>
+      </div>
+      <ul class="pd-resources-list">
+        <li><strong>Stage 1</strong> — Symptoms on one side of the body only. They are mild, and daily life goes on much as usual.</li>
+        <li><strong>Stage 2</strong> — Symptoms on both sides of the body. Walking and posture begin to change, but balance is still steady.</li>
+        <li><strong>Stage 3</strong> — Balance problems and slower movement. Falls become more likely, though the person is still largely independent.</li>
+        <li><strong>Stage 4</strong> — Symptoms are severe. Walking may take a walker or a helping hand, and daily activities need support.</li>
+        <li><strong>Stage 5</strong> — The most advanced stage. Stiffness can make standing or walking impossible without help, and care is often needed around the clock.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-alt" aria-label="Questions to ask your doctor">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Questions to Ask Your Doctor</h2>
+        <p>A new diagnosis can make your mind go blank in the exam room. Bring this list — and write down the answers.</p>
+      </div>
+      <ul class="pd-resources-list">
+        <li>What type of Parkinson's do I have?</li>
+        <li>What treatments should we consider now?</li>
+        <li>Should I see a movement-disorder specialist?</li>
+        <li>What exercise do you recommend?</li>
+        <li>What symptoms should make me call you?</li>
+        <li>Are there support programs or clinical trials I should know about?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" aria-label="If someone you love was just diagnosed">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>If Someone You Love Was Just Diagnosed</h2>
+      </div>
+      <p class="basics-close" style="margin-top:0">You don't have to figure this out alone — that's exactly why our family started Team Golomboski. APDA Rhode Island has real people, close to home, who answer the phone. APDA's Parkinson's Basics explains the condition in depth. And our Books page gathers the guides other families have leaned on.</p>
+      <div class="basics-actions">
+        <a class="btn btn-green" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA Rhode Island</a>
+        <a class="btn btn-outline" href="https://www.apdaparkinson.org/what-is-parkinsons/" target="_blank" rel="noopener">APDA's Parkinson's Basics</a>
+        <a class="btn btn-outline" href="#/pd-resources/reading">See our Books</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-foot" aria-label="Page notes">
+    <div class="wrap">
+      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
+    </div>
+  </section>
+
+</div><!-- /page introduction-to-parkinsons -->
+
+<!-- ============================================================
      PAGE: PRESS KIT
      ============================================================ -->
 <div class="page" data-page="press-kit">
@@ -10669,6 +10863,15 @@
             <li><a href="#/site-map">Site Map</a><span>This page — every page on the site, in one place.</span></li>
           </ul>
         </div>
+        <div class="sitemap-group">
+          <div class="section-head">
+            <div class="rule" aria-hidden="true"></div>
+            <h2>Resources &amp; Support</h2>
+          </div>
+          <ul class="sitemap-list">
+            <li><a href="#/introduction-to-parkinsons">Introduction to Parkinson's</a><span>Parkinson's in plain language — what it is, the symptoms, the stages, and the questions to ask your doctor.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -10780,7 +10983,7 @@
 <script>
   // Hash router: each .page block is one self-contained page.
   // Routes: #/ (home), #/our-story, #/joseph-and-alicia, #/impact, #/events,
-  //         #/rock-the-resort, #/media, #/galleries, #/donate, #/pd-resources, #/press-kit, #/speaking, #/site-map
+  //         #/rock-the-resort, #/media, #/galleries, #/donate, #/pd-resources, #/introduction-to-parkinsons, #/press-kit, #/speaking, #/site-map
   // A route may carry a gallery anchor: #/galleries#gallery-first-walk-2014
 
   // ================================================================
@@ -10842,6 +11045,7 @@
   //   rock-the-resort   /rock-the-resort               rock-the-resort-team.jpg
   //   media             /media                         rocky-point-cover.jpg
   //   in-the-news       /in-the-news                    rocky-point-cover.jpg
+  //   introduction-to-parkinsons /introduction-to-parkinsons support.jpg
   //   galleries         /galleries                     walk2017-team-group-wide.jpg
   //   donate            /donate                        funny4funds-check.jpg
   //   pd-resources      /pd-resources                  support.jpg
@@ -10870,6 +11074,7 @@
     "rock-the-resort": { path: "rock-the-resort", title: "Rock the Resort | Team Golomboski", description: "Rock the Resort is Team Golomboski's annual Concert for a Cure — live music at The Last Resort in Smithfield, benefiting the APDA Rhode Island Chapter.", image: "rock-the-resort-team.jpg" },
     "media": { path: "media", title: "Media | Team Golomboski", description: "Team Golomboski in the news and in pictures — press coverage and photo galleries.", image: "rocky-point-cover.jpg" },
     "in-the-news": { path: "in-the-news", title: "In the News | Team Golomboski", description: "Team Golomboski in the news: coverage and interviews from NBC 10, The Rhode Island Wave, Together for Sharon, and the Johnston Sun Rise.", image: "rocky-point-cover.jpg" },
+    "introduction-to-parkinsons": { path: "introduction-to-parkinsons", title: "Introduction to Parkinson's | Team Golomboski", description: "An introduction to Parkinson's disease in plain language: what it is, motor and non-motor symptoms, young onset, the five stages, and questions to ask your doctor.", image: "support.jpg" },
     "galleries": { path: "galleries", title: "Photo Galleries | Team Golomboski", description: "Photo galleries from the days that built Team Golomboski: Optimism Walks from 2014 to 2026, Rock the Resort, Funny 4 Funds, and more team events.", image: "walk2017-team-group-wide.jpg" },
     "donate": { path: "donate", title: "Donate | Team Golomboski", description: "Donate through Team Golomboski to the APDA Rhode Island Chapter. Every gift stays in Rhode Island, funding local programs, support, and research.", image: "funny4funds-check.jpg" },
     "pd-resources": { path: "pd-resources", title: "Resources & Support | Team Golomboski", description: "Resources & Support: plain-language Parkinson's help from Team Golomboski — APDA Rhode Island programs, support groups, and people you can call.", image: "support.jpg" },
@@ -10895,6 +11100,7 @@
       "rock-the-resort": "Rock the Resort | Team Golomboski",
       "media": "Media | Team Golomboski",
       "in-the-news": "In the News | Team Golomboski",
+      "introduction-to-parkinsons": "Introduction to Parkinson's | Team Golomboski",
       "galleries": "Photo Galleries | Team Golomboski",
       "donate": "Donate | Team Golomboski",
       "pd-resources": "Resources & Support | Team Golomboski",
