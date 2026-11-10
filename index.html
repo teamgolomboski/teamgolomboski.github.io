@@ -1632,10 +1632,11 @@
   /* ---------- Learn more cross-link boxes ----------
      One small card component, placed at the end of the section
      it belongs to, on pages with a genuine connection to another
-     page: 1–2 links, each with a one-line reason. On wide
-     screens it sits right-aligned like a rail card; on phones
-     it stacks full-width below the content it accompanies. */
-  .learn-more{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);max-width:400px;margin:30px 0 0 auto}
+     page: 1–2 links, each with a one-line reason. It sits
+     left-aligned below the content it follows and spans that
+     content's measure; where the section text runs narrower
+     than the wrap, a page-scoped cap below matches its width. */
+  .learn-more{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin:30px 0 0}
   .learn-more h3{font-size:1.05rem;font-weight:800;color:#eaf1f8;margin:0 0 12px}
   .learn-more ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
   .learn-more li{margin:0;line-height:1.5}
@@ -1643,6 +1644,11 @@
   .learn-more a:hover{text-decoration:underline}
   .learn-more-why{display:block;margin-top:2px;font-size:.95rem;line-height:1.55;color:var(--muted)}
   @media (max-width:700px){ .learn-more{max-width:none;margin-left:0} }
+  /* Page-scoped measures: match the box to the width of the
+     section content it follows on that page. */
+  [data-page="joseph-and-alicia"] .learn-more{max-width:760px}
+  [data-page="pd-resources/just-diagnosed"] .learn-more{max-width:860px}
+  [data-page="pd-resources/young-onset"] .pd-family-band .learn-more{max-width:860px}
   .boilerplate{background:var(--green-soft);border-radius:var(--radius);padding:28px 30px;font-size:1.06rem;line-height:1.7}
   .boilerplate p{margin:0}
   .stat-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
@@ -2763,9 +2769,9 @@
       <div class="team-strip-grid">
         <article class="team-card">
           <div class="team-head">
-            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, Program Director, APDA Rhode Island" width="84" height="84">
+            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, MHA, Program Director, APDA Rhode Island" width="84" height="84">
             <div>
-              <h3>Fatima Tobar</h3>
+              <h3>Fatima Tobar, MHA</h3>
               <p class="role">Program Director, APDA Rhode Island</p>
             </div>
           </div>
@@ -8681,9 +8687,9 @@
       <div class="team-strip-grid">
         <article class="team-card">
           <div class="team-head">
-            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, Program Director, APDA Rhode Island" width="84" height="84">
+            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, MHA, Program Director, APDA Rhode Island" width="84" height="84">
             <div>
-              <h3>Fatima Tobar</h3>
+              <h3>Fatima Tobar, MHA</h3>
               <p class="role">Program Director, APDA Rhode Island</p>
             </div>
           </div>
@@ -9335,6 +9341,7 @@
 
   <section class="section" aria-label="First steps after a diagnosis">
     <div class="wrap">
+      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
         <h2>First Steps After a Diagnosis</h2>
@@ -9445,9 +9452,9 @@
       <div class="team-strip-grid">
         <article class="team-card">
           <div class="team-head">
-            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, Program Director, APDA Rhode Island" width="84" height="84">
+            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, MHA, Program Director, APDA Rhode Island" width="84" height="84">
             <div>
-              <h3>Fatima Tobar</h3>
+              <h3>Fatima Tobar, MHA</h3>
               <p class="role">Program Director, APDA Rhode Island</p>
             </div>
           </div>
@@ -9508,6 +9515,7 @@
 
   <section class="section" aria-label="Care partners need care too">
     <div class="wrap">
+      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
         <h2>Care Partners Need Care, Too</h2>
@@ -9622,9 +9630,9 @@
       <div class="team-strip-grid">
         <article class="team-card">
           <div class="team-head">
-            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, Program Director, APDA Rhode Island" width="84" height="84">
+            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, MHA, Program Director, APDA Rhode Island" width="84" height="84">
             <div>
-              <h3>Fatima Tobar</h3>
+              <h3>Fatima Tobar, MHA</h3>
               <p class="role">Program Director, APDA Rhode Island</p>
             </div>
           </div>
@@ -9701,6 +9709,7 @@
 
   <section class="section" aria-label="Parkinson's diagnosed young">
     <div class="wrap">
+      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
         <h2>Parkinson's, Diagnosed Young</h2>
@@ -9796,9 +9805,9 @@
       <div class="team-strip-grid">
         <article class="team-card">
           <div class="team-head">
-            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, Program Director, APDA Rhode Island" width="84" height="84">
+            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, MHA, Program Director, APDA Rhode Island" width="84" height="84">
             <div>
-              <h3>Fatima Tobar</h3>
+              <h3>Fatima Tobar, MHA</h3>
               <p class="role">Program Director, APDA Rhode Island</p>
             </div>
           </div>
@@ -9859,6 +9868,7 @@
 
   <section class="section" aria-label="Is Parkinson's hereditary">
     <div class="wrap">
+      <p class="fineprint">This page shares general information from American Parkinson Disease Association resources — it isn't medical advice. Questions about symptoms or treatment belong with your own doctor or neurologist.</p>
       <div class="pd-family-note pd-family-note-top">
         <h3>Is Parkinson's Hereditary? What Families Ask</h3>
         <p>This question is personal for our family — our dad, Joseph Golomboski Sr., was diagnosed with early-onset Parkinson's at 44, so 'does it run in the family?' is one we've asked ourselves. Here's what APDA wants families to know:</p>
@@ -9887,9 +9897,9 @@
       <div class="team-strip-grid">
         <article class="team-card">
           <div class="team-head">
-            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, Program Director, APDA Rhode Island" width="84" height="84">
+            <img class="avatar" src="assets/fatima-headshot.jpg" alt="Fatima Tobar, MHA, Program Director, APDA Rhode Island" width="84" height="84">
             <div>
-              <h3>Fatima Tobar</h3>
+              <h3>Fatima Tobar, MHA</h3>
               <p class="role">Program Director, APDA Rhode Island</p>
             </div>
           </div>
