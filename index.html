@@ -2648,6 +2648,24 @@
   [data-page="pd-resources/genetics"] :is(.pd-resources-framing,.pd-resources-list,.pd-resources-routing,.pd-resources-compact,.pd-family-note){max-width:1000px}
   [data-page="pd-resources/just-diagnosed"] .learn-more{max-width:1000px}
   [data-page="pd-resources/young-onset"] .pd-family-band .learn-more{max-width:1000px}
+  /* Introduction — Young Onset fact strip (Nov 10, 2026): the
+     "Young onset at a glance" strip sits UNDER the young-onset
+     panel INSIDE that section's left (.beside-text) column, so
+     the column runs close to the tall portrait's height instead
+     of ending early. It reuses the shared .fact-strip pattern;
+     only its grid and phone order are scoped here — the tiles
+     run three-across inside the narrower desktop column (the
+     shared four-across grid is for full-width strips), and on
+     phones, where .beside normally lifts the photo above its
+     text, this section keeps the reading order panel, then
+     facts, then portrait. No other strip or section changes. */
+  [data-page="introduction-to-parkinsons"] .young-facts{margin-top:24px}
+  @media (min-width:901px){
+    [data-page="introduction-to-parkinsons"] .young-facts .fact-grid{grid-template-columns:repeat(3,1fr);gap:22px 18px}
+  }
+  @media (max-width:900px){
+    [data-page="introduction-to-parkinsons"] .beside-young-onset .beside-figure{order:0}
+  }
 </style>
 </head>
 <body>
@@ -2680,7 +2698,6 @@
         </div>
       </div>
       <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
-      <a class="nav-resources" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
       <a href="#/introduction-to-parkinsons" data-route="introduction-to-parkinsons">Introduction to Parkinson's</a>
     </nav>
     <div class="nav-actions">
@@ -2702,7 +2719,6 @@
         <a class="mobile-sub" href="#/in-the-news" data-route="in-the-news">In the News</a>
         <a class="mobile-sub" href="#/galleries" data-route="galleries">Photo Galleries</a>
         <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
-        <a class="nav-resources" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
         <a href="#/introduction-to-parkinsons" data-route="introduction-to-parkinsons">Introduction to Parkinson's</a>
       </nav>
     </div>
@@ -9925,7 +9941,7 @@
             </article>
             <article class="shelf-book">
               <div class="shelf-stage">
-                <div class="shelf-cover-wrap"><span class="shelf-cover-placeholder" role="img" aria-label="Living Parkinson's: 7 Strategies for Living a Full Life with Renewed Purpose — cover coming soon">Cover coming soon</span></div>
+                <div class="shelf-cover-wrap"><img class="shelf-cover" src="assets/book-living-parkinsons.jpg" alt="Living Parkinson's book cover" width="180" height="279" loading="lazy" /></div>
               </div>
               <div class="shelf-board" aria-hidden="true"></div>
               <div class="shelf-info">
@@ -10629,10 +10645,32 @@
         <div class="rule" aria-hidden="true"></div>
         <h2>Young Onset Parkinson's</h2>
       </div>
-      <div class="beside">
-        <div class="basics-panel beside-text" style="margin-top:0">
-        <p><strong>Parkinson's can start young.</strong> Doctors call it young onset when symptoms begin between ages 21 and 50 — about 10% of cases. Our dad, Joseph Golomboski Sr., was diagnosed at 44.</p>
-      </div>
+      <div class="beside beside-young-onset">
+        <div class="beside-text">
+          <div class="basics-panel" style="margin-top:0">
+            <p><strong>Parkinson's can start young.</strong> Doctors call it young onset when symptoms begin between ages 21 and 50 — about 10% of cases. Our dad, Joseph Golomboski Sr., was diagnosed at 44.</p>
+          </div>
+          <aside class="fact-strip young-facts" aria-label="Young onset at a glance">
+            <h2 class="fact-strip-title">Young onset at a glance</h2>
+            <div class="fact-grid">
+              <div class="fact">
+                <div class="fact-num">21–50</div>
+                <p class="fact-text">the ages at diagnosis APDA calls young onset Parkinson’s</p>
+                <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/young-onset-parkinsons-disease-2/" target="_blank" rel="noopener">APDA — Young Onset Parkinson's Disease</a></p>
+              </div>
+              <div class="fact">
+                <div class="fact-num">10%</div>
+                <p class="fact-text">of all Parkinson’s cases are young onset — roughly 9,000 new U.S. diagnoses a year</p>
+                <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/young-onset-parkinsons-disease-2/" target="_blank" rel="noopener">APDA — Young Onset Parkinson's Disease</a></p>
+              </div>
+              <div class="fact">
+                <div class="fact-num">5× a week</div>
+                <p class="fact-text">aerobic exercise, at least — APDA's guidance for people with young onset</p>
+                <p class="fact-source">Source: <a href="https://www.apdaparkinson.org/article/young-onset-parkinsons-disease-2/" target="_blank" rel="noopener">APDA — Young Onset Parkinson's Disease</a></p>
+              </div>
+            </div>
+          </aside>
+        </div>
         <figure class="recap-photo beside-figure beside-figure-narrow">
           <img src="assets/joseph-sr-portrait.png" alt="Joseph Golomboski Sr." width="1080" height="1350" />
           <figcaption>Joseph Golomboski Sr. — diagnosed at 44.</figcaption>
