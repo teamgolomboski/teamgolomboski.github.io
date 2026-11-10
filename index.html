@@ -2346,6 +2346,38 @@
   .section .virtual-programs-block .pd-resources-routing{color:#33475c}
   .section .virtual-programs-block .pd-resources-routing a{color:#005eb8}
   @media (max-width:560px){ .section .virtual-programs-block{padding:22px 18px} }
+  /* Resources & Support card unification (Nov 9 follow-up):
+     the remaining bare text blocks on the Resources subpages
+     take the same white-card treatment as Virtual Programs
+     above — white fill, light border, the standard radius,
+     soft shadow, fact-strip padding — so every content block
+     on these pages reads as one matching card stack. The
+     .pd-resources-card class is carried only by the blocks
+     named for carding: Financial Help and Rhode Island
+     Resources (Help page), Suggest a Book (Reading page),
+     Programs Made for the First Years (Just Diagnosed),
+     Rhode Island's Young Onset Support Group (Young Onset),
+     and the A Closer Look cluster (News page). The shared
+     .pd-resources-block class is deliberately NOT styled:
+     the Help page's More Parkinson's Resources block carries
+     it too and keeps its own section-head + pathway-card
+     design. Each card is spaced 28px from what precedes it,
+     like the Virtual Programs card; that margin also wins
+     over the page-scoped margin-top:0 rules written when
+     these blocks sat bare (later in the cascade at equal
+     specificity for the Help page's Financial Help block,
+     higher specificity for the .pd-resources-block cards).
+     Inside the cards the text keeps the standard light
+     colors — navy headings, slate body, ink strongs,
+     APDA-blue links. The first heading's own top margin is
+     removed because the card padding already carries it. */
+  .section .pd-resources-card{background:#fff;border:1px solid #d3dde7;border-radius:var(--radius);box-shadow:0 8px 24px rgba(19,36,51,.08);padding:28px;margin-top:28px}
+  .section .pd-resources-card .pd-resources-subhead{margin-top:0;color:#0a2340}
+  .section .pd-resources-card .pd-resources-list li{color:#33475c}
+  .section .pd-resources-card .pd-resources-list li strong{color:#132433}
+  .section .pd-resources-card .pd-resources-routing{color:#33475c}
+  .section .pd-resources-card .pd-resources-routing a{color:#005eb8}
+  @media (max-width:560px){ .section .pd-resources-card{padding:22px 18px} }
   /* Site Map page: two grouped link lists side by side on
      desktop, stacked on phones. */
   .sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px;align-items:start}
@@ -9133,6 +9165,7 @@
           </div>
         </div>
       </aside>
+      <div class="pd-resources-card">
       <h2 class="pd-resources-subhead">From APDA's Doctor Blog — A Closer Look</h2>
       <p class="pd-resources-routing">A Closer Look is APDA's doctor blog series, where Dr. Rebecca Gilbert answers everyday Parkinson's questions in plain language.</p>
       <div class="pathway-grid" style="margin-top:26px">
@@ -9148,6 +9181,7 @@
           <h3>Scientific Themes Emerging from WPC 2026</h3>
           <span class="pd-news-date">October 1, 2026</span>
         </a>
+      </div>
       </div>
 <p class="res-back-wrap"><a class="res-back" href="#/pd-resources">&larr; Back to Resources &amp; Support</a></p>
     </div>
@@ -9175,7 +9209,7 @@
 
   <section class="section" aria-label="Financial Help &amp; Rhode Island Resources">
     <div class="wrap">
-<div class="financial-help-block" id="financial-help">
+<div class="financial-help-block pd-resources-card" id="financial-help">
         <h2 class="pd-resources-subhead">Financial Help</h2>
         <ul class="pd-resources-list pd-resources-list-tight">
           <li><strong>Financial Hardship Fund</strong> — APDA Rhode Island offers $300 per person to people with Parkinson’s facing financial hardship. Funds are limited; applications are on the <a href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">APDA RI website</a>.</li>
@@ -9183,7 +9217,7 @@
           <li><strong>Help paying for medication</strong> — many drug makers run patient assistance programs. Two free directories list them by medication: <a href="https://www.needymeds.org/" target="_blank" rel="noopener">NeedyMeds</a> and <a href="https://www.panfoundation.org/" target="_blank" rel="noopener">the PAN Foundation</a>.</li>
         </ul>
       </div>
-      <div class="pd-resources-block">
+      <div class="pd-resources-block pd-resources-card">
         <h3 class="pd-resources-subhead">Rhode Island Resources</h3>
         <p class="pd-resources-routing">For needs beyond Parkinson's — aging, disability, and help at home — these Rhode Island resources are a good place to start. For anything Parkinson's, start with APDA RI above.</p>
         <ul class="pd-resources-list pd-resources-list-tight">
@@ -9335,7 +9369,7 @@
         </aside>
       </div>
       </div>
-      <div class="pd-resources-block">
+      <div class="pd-resources-block pd-resources-card">
         <h2 class="pd-resources-subhead" style="margin-top:0">Suggest a Book</h2>
         <p class="pd-resources-routing">Know a Parkinson's book that belongs on this list? Our Suggest a Book form is open to any author or publisher with a Parkinson's book to suggest, and every suggestion is reviewed by Team Golomboski. Authors and publishers who send a complimentary review copy get more in return: a featured placement on this page and a mention to our community. Suggesting a book is not a guarantee it will be listed.</p>
         <p class="reading-actions reading-actions-below"><a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLScaBqVNVJloUk9MNO6cLaSKP3TjOS-KHpG-ziBiHlJjKZFQtA/viewform" target="_blank" rel="noopener">Suggest a Book</a></p>
@@ -9440,7 +9474,7 @@
           </a>
         </aside>
       </div>
-      <div class="pd-resources-block">
+      <div class="pd-resources-block pd-resources-card">
         <h3 class="pd-resources-subhead">Programs Made for the First Years</h3>
         <ul class="pd-resources-list pd-resources-list-tight">
           <li><strong>PRESS Program</strong> — an 8-week support series for people diagnosed with Parkinson’s in the last five years, and their care partners.</li>
@@ -9810,7 +9844,7 @@
           <li><strong>Teen support group</strong> — APDA runs a free virtual support group for teenagers whose parent lives with young-onset Parkinson's. To learn more, contact Fatima Tobar at <a href="tel:+14015917890"><strong>401-591-7890</strong></a> or <a href="mailto:ftobar@apdaparkinson.org">ftobar@apdaparkinson.org</a>.</li>
         </ul>
       </div>
-      <div class="pd-resources-block">
+      <div class="pd-resources-block pd-resources-card">
         <h3 class="pd-resources-subhead">Rhode Island's Young Onset Support Group</h3>
         <ul class="pd-resources-list pd-resources-list-tight">
           <li><strong>Young Onset Support Group</strong> — Providence · 1st Wednesday 6:30 PM · Spaulding Rehabilitation Butler Campus · Facilitated by Geena Goyette · <a href="tel:+14018864650">401-886-4650</a></li>
