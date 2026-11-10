@@ -288,6 +288,28 @@
     .nav-donate{font-size:.87rem;padding:11px 10px}
   }
 
+  /* ---------- Media dropdown (Nov 9, 2026) ----------
+     "Media" in the desktop nav is a dropdown parent: the parent
+     stays a plain link through to the Media page, and the panel
+     under it carries exactly two entries — Media and Photo
+     Galleries (Galleries has no top-level menu item of its own).
+     The panel opens on hover and on keyboard focus-within; the
+     script below keeps the parent's aria-expanded in step and
+     Escape closes it (.closed suppresses the hover/focus open
+     until the pointer or focus leaves, so it cannot spring
+     straight back). The panel wears the header's navy family
+     (navy-2 surface, hairline white border) so it reads as part
+     of the header. Desktop only: at ≤1150px the link row is
+     hidden and the mobile menu shows Photo Galleries nested
+     under Media instead (.mobile-sub). */
+  .nav-drop{position:relative;display:flex;align-items:center}
+  .nav-caret{font-size:.62rem;margin-left:3px;color:#9fb8d2}
+  .nav-drop-menu{position:absolute;top:100%;right:0;z-index:60;min-width:216px;background:var(--navy-2);border:1px solid rgba(255,255,255,.20);border-radius:10px;box-shadow:0 16px 36px rgba(0,0,0,.38);padding:6px;display:none;flex-direction:column}
+  .nav-drop:hover .nav-drop-menu,.nav-drop:focus-within .nav-drop-menu{display:flex}
+  .nav-links .nav-drop.closed .nav-drop-menu{display:none}
+  .nav-drop-menu a{display:block;padding:11px 12px;text-align:left}
+  .mobile-menu a.mobile-sub{padding-left:38px;font-size:.95rem;color:#b9cbdf}
+
   /* ---------- Pages (hash-routed views; each .page block is one
      self-contained page, exportable on its own for GitHub Pages) ---------- */
   .page{display:none}
@@ -2430,6 +2452,25 @@
      none of them carries .listing-btn. */
   a.btn.btn-outline.btn-outline-surface.listing-btn{--ol-ink:#0a2340;--ol-bg:#fff;--ol-hover:#eef3f8;border-color:#0a2340;color:#0a2340;background:#fff;box-shadow:0 8px 24px rgba(19,36,51,.08)}
   a.btn.btn-outline.btn-outline-surface.listing-btn:hover{background:#eef3f8}
+  /* ---------- Impact page proof band: white stat cards (Nov 9, 2026) ----------
+     The numbers band under the Impact page's "On this page" menu
+     leaves the shared green-band treatment (which the homepage keeps,
+     top and near-footer) and becomes four individual white cards on
+     the light page background: standard card border and soft shadow,
+     navy numerals, slate labels and sub-labels. Scoped to
+     [data-page="impact"] so no other .impact band is touched; the
+     markup, numbers and the scroll-triggered count-up (.stat /
+     .count-pending / .count-in) are unchanged. The card border
+     shorthand also retires the band's white divider rules
+     (.stat + .stat border-left, and the ≤900px border-top rules)
+     for this page only. On phones the grid keeps its 2-up wrap,
+     so the cards sit two by two. */
+  [data-page="impact"] .impact{background:transparent;color:#33475c;padding:30px 0 10px}
+  [data-page="impact"] .impact-grid{gap:20px}
+  [data-page="impact"] .impact .stat{background:#fff;border:1px solid #d3dde7;border-radius:var(--radius);box-shadow:0 8px 24px rgba(19,36,51,.08)}
+  [data-page="impact"] .impact .stat .num{color:#0a2340}
+  [data-page="impact"] .impact .stat .lbl{color:#33475c}
+  [data-page="impact"] .impact .stat .sub2{color:#33475c}
 </style>
 </head>
 <body>
@@ -2450,9 +2491,15 @@
       <a href="#/impact" data-route="impact">Impact</a>
       <a href="#/events" data-route="events">Events</a>
       <a href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
-      <a href="#/media" data-route="media">Media</a>
+      <div class="nav-drop">
+        <a class="nav-drop-parent" href="#/media" data-route="media" aria-haspopup="true" aria-expanded="false">Media <span class="nav-caret" aria-hidden="true">▾</span></a>
+        <div class="nav-drop-menu">
+          <a href="#/media" data-route="media">Media</a>
+          <a href="#/galleries" data-route="galleries">Photo Galleries</a>
+        </div>
+      </div>
+      <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
       <a class="nav-resources" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
-      <a href="#/pd-resources/reading" data-route="pd-resources/reading">Recommended Reading</a>
     </nav>
     <div class="nav-actions">
       <a class="nav-resources-pinned" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
@@ -2470,8 +2517,9 @@
         <a href="#/events" data-route="events">Events</a>
         <a href="#/rock-the-resort" data-route="rock-the-resort">Rock the Resort</a>
         <a href="#/media" data-route="media">Media</a>
+        <a class="mobile-sub" href="#/galleries" data-route="galleries">Photo Galleries</a>
+        <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
         <a class="nav-resources" href="https://www.apdaparkinson.org/community/rhode-island/resources-support-ri/" target="_blank" rel="noopener">Resources &amp; Support</a>
-        <a href="#/pd-resources/reading" data-route="pd-resources/reading">Recommended Reading</a>
       </nav>
     </div>
   </div>
@@ -9325,7 +9373,7 @@
   <section class="page-hero" aria-label="Recommended Reading introduction">
     <div class="wrap">
       <div class="page-hero-text">
-      <div class="crumb"><a href="#/">Home</a> &middot; Recommended Reading</div>
+      <div class="crumb"><a href="#/">Home</a> &middot; Books</div>
       <h1>Recommended Reading</h1>
       <p>APDA's free educational booklets are a good place to start — plain-language guides on symptoms, treatment, exercise, and living well, free to read and download.</p>
       </div>
@@ -10273,7 +10321,7 @@
             <li><a href="#/media">Media</a><span>Team Golomboski in the news — coverage and interviews.</span></li>
             <li><a href="#/press-kit">Press Kit</a><span>The facts, figures, and contacts for reporters, producers, and partners.</span></li>
             <li><a href="#/donate">Donate</a><span>Give through Team Golomboski to the APDA Rhode Island Chapter.</span></li>
-            <li><a href="#/pd-resources/reading">Recommended Reading</a><span>APDA booklets and books our community has found helpful.</span></li>
+            <li><a href="#/pd-resources/reading">Books</a><span>APDA booklets and books our community has found helpful.</span></li>
             <li><a href="#/site-map">Site Map</a><span>This page — every page on the site, in one place.</span></li>
           </ul>
         </div>
@@ -10590,6 +10638,45 @@
       for (var k = 0; k < panelLinks.length; k++) {
         panelLinks[k].addEventListener("click", closeMenu);
       }
+    }
+    // Media dropdown (desktop nav): the parent "Media" link stays a
+    // plain link to the Media page; the panel opens on hover and on
+    // keyboard focus (CSS :hover / :focus-within). This script only
+    // keeps the parent's aria-expanded in step and wires Escape:
+    // Escape closes the panel and suppresses reopening (.closed)
+    // until the pointer or focus leaves the dropdown.
+    var navDrop = document.querySelector(".nav-drop");
+    if (navDrop) {
+      var dropParent = navDrop.querySelector(".nav-drop-parent");
+      var setDrop = function (open) {
+        if (dropParent) { dropParent.setAttribute("aria-expanded", open ? "true" : "false"); }
+      };
+      navDrop.addEventListener("mouseenter", function () {
+        navDrop.classList.remove("closed");
+        setDrop(true);
+      });
+      navDrop.addEventListener("mouseleave", function () {
+        navDrop.classList.remove("closed");
+        setDrop(false);
+      });
+      navDrop.addEventListener("focusin", function () {
+        if (!navDrop.classList.contains("closed")) { setDrop(true); }
+      });
+      navDrop.addEventListener("focusout", function () {
+        window.setTimeout(function () {
+          if (!navDrop.contains(document.activeElement)) {
+            navDrop.classList.remove("closed");
+            setDrop(false);
+          }
+        }, 0);
+      });
+      navDrop.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" || e.keyCode === 27) {
+          navDrop.classList.add("closed");
+          setDrop(false);
+          if (navDrop.contains(document.activeElement)) { document.activeElement.blur(); }
+        }
+      });
     }
     function render() {
       var parsed = parseHash();
