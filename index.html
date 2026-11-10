@@ -2321,6 +2321,31 @@
   .section .fact-text{color:#33475c}
   .section .fact-source{color:#5a6b7d}
   .section .fact-quote{color:#0a2340}
+  /* Virtual Programs from APDA (light scheme): the block sits
+     directly under the Programs-at-a-glance fact strip on the
+     light alt band, but its subhead, list and routing lines kept
+     their dark-scheme colors (near-white heading, muted list
+     text), so it read washed out next to the white fact-strip
+     card above it. It now takes the same white-card treatment
+     as the fact strip — white fill, light border, the standard
+     radius, soft shadow, fact-strip padding — with a navy
+     heading, slate body text, ink program names and APDA-blue
+     links. Every rule is scoped to descendants of
+     .virtual-programs-block, which exists only on the Programs
+     page, so the shared .pd-resources-* classes on the Financial
+     Help and Recommended Reading pages are untouched. The card
+     is spaced from the fact strip above it like sibling cards:
+     the page-scoped margin-top:0 earlier in this block was
+     written for the old uncarded block and would leave the two
+     white cards touching. */
+  .section .virtual-programs-block{background:#fff;border:1px solid #d3dde7;border-radius:var(--radius);box-shadow:0 8px 24px rgba(19,36,51,.08);padding:28px}
+  [data-page="pd-resources/programs"] .section .virtual-programs-block{margin-top:28px}
+  .section .virtual-programs-block .pd-resources-subhead{color:#0a2340}
+  .section .virtual-programs-block .pd-resources-list li{color:#33475c}
+  .section .virtual-programs-block .pd-resources-list li strong{color:#132433}
+  .section .virtual-programs-block .pd-resources-routing{color:#33475c}
+  .section .virtual-programs-block .pd-resources-routing a{color:#005eb8}
+  @media (max-width:560px){ .section .virtual-programs-block{padding:22px 18px} }
   /* Site Map page: two grouped link lists side by side on
      desktop, stacked on phones. */
   .sitemap-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px 56px;align-items:start}
