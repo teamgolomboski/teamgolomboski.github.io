@@ -191,15 +191,16 @@
   @media (max-width:850px) and (min-width:769px){ .nav-links a.nav-resources{font-size:.82rem;padding:8px 11px} }
   .nav-donate{background:var(--orange);color:#fff;padding:11px 16px;text-decoration:none;font-weight:600;font-size:.92rem;border-radius:8px;display:inline-flex;align-items:center;flex:none;white-space:nowrap}
   .nav-donate:hover{background:var(--orange-dark)}
-  /* Resources & Support pinned in the header beside Donate — narrow
-     (hamburger) layout ONLY. Hidden on desktop, where the link already
-     sits in the full nav row as .nav-links a.nav-resources. When shown
-     it wears that same squared green box: solid #15803d, white text,
-     8px radius, Donate-matching padding / font-size / weight, so the
-     two pinned buttons render at the same height side by side. Like
-     Donate, it lives OUTSIDE the dropdown menu (the menu carries no
-     Resources & Support entry), so it is tappable without opening it. */
-  .nav-resources-pinned{display:none;background:#15803d;color:#fff;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.88rem;line-height:1.6;border-radius:8px;align-items:center;justify-content:center;flex:none;white-space:nowrap}
+  /* Resources & Support pinned in the header beside Donate — shown at
+     ALL viewport widths (desktop included; the link no longer sits in
+     the desktop nav row, so this pinned button is the header's
+     Resources & Support entry point everywhere). It wears the squared
+     green box: solid #15803d, white text, 8px radius, Donate-matching
+     padding / font-size / weight, so the two pinned buttons render at
+     the same height side by side. Like Donate, it lives OUTSIDE the
+     dropdown menu (the menu carries no Resources & Support entry), so
+     it is tappable without opening it. */
+  .nav-resources-pinned{display:inline-flex;background:#15803d;color:#fff;padding:10px 14px;text-decoration:none;font-weight:600;font-size:.88rem;line-height:1.6;border-radius:8px;align-items:center;justify-content:center;flex:none;white-space:nowrap}
   .nav-resources-pinned:hover{background:#126e34;color:#fff}
   .nav-resources-pinned.active{background:#0e6330;color:#fff;box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
   /* Header actions (Donate + mobile Menu button): pinned to the far right
@@ -286,6 +287,7 @@
     .nav-links{gap:2px}
     .nav-links a{font-size:.86rem;padding:10px 5px}
     .nav-links a.nav-resources{font-size:.86rem;padding:11px 12px;margin-left:2px}
+    .nav-resources-pinned{font-size:.86rem;padding:11px 12px}
     .nav-donate{font-size:.86rem;padding:11px 12px}
   }
 
