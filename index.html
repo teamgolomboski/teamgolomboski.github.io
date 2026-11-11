@@ -15,7 +15,7 @@
 <meta name="twitter:description" content="Team Golomboski is a Rhode Island family team founded in 2014 in honor of Joseph Golomboski Sr., walking the Rhode Island Optimism Walk for APDA Rhode Island." />
 <meta name="twitter:image" content="https://teamgolomboski.github.io/assets/hero-walk-2026.jpg" />
 <title>Team Golomboski | Rhode Island Parkinson's Fundraising</title>
-<link rel="icon" type="image/png" href="assets/apda-ri-logo.png" />
+<link rel="icon" type="image/png" href="assets/favicon-g.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Newsreader:ital,opsz,wght@1,6..72,500&display=swap" rel="stylesheet">
@@ -2823,13 +2823,6 @@
   <section class="hero" aria-label="Introduction">
     <div class="hero-slides">
       <img class="hero-bg is-active" src="assets/hero-walk-2026.jpg" alt="Walkers on the path at the 2026 Rhode Island Optimism Walk, Warwick City Park" />
-      <img class="hero-bg" src="assets/hero-standstrong-team.jpg" alt="" aria-hidden="true" />
-      <img class="hero-bg" src="assets/walk2026-canopy-group.jpg" alt="" aria-hidden="true" />
-      <img class="hero-bg" src="assets/walk2021-bridge-group.jpg" alt="" aria-hidden="true" />
-      <img class="hero-bg" src="assets/rock-the-resort-team.jpg" alt="" aria-hidden="true" />
-      <img class="hero-bg" src="assets/walk2025-start.jpg" alt="" aria-hidden="true" />
-      <img class="hero-bg" src="assets/biggest-year-2026.jpg" alt="" aria-hidden="true" />
-      <img class="hero-bg" src="assets/dad-frame-hd.jpg" alt="" aria-hidden="true" />
     </div>
     <div class="wrap">
       <div class="hero-inner">
@@ -12652,45 +12645,11 @@
 </script>
 
 <script>
-  // Living hero + year filmstrip (Nov 10, 2026). Both honor
-  // prefers-reduced-motion: the hero then stays on its first photo
-  // and the filmstrip scrolls only by hand. No tracking, no
-  // third-party scripts.
+  // Year filmstrip (Nov 10, 2026). Honors
+  // prefers-reduced-motion: the filmstrip scrolls only by hand.
+  // No tracking, no third-party scripts.
   (function () {
     var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    // --- Living hero: crossfade the seven hero photos, ~5s each ---
-    var hero = document.querySelector(".hero");
-    var slides = hero ? hero.querySelectorAll(".hero-bg") : [];
-    if (hero && slides.length > 1 && !reduceMotion) {
-      var current = 0;
-      var heroInView = true;
-      var timer = null;
-      function advance() {
-        slides[current].classList.remove("is-active");
-        current = (current + 1) % slides.length;
-        slides[current].classList.add("is-active");
-      }
-      function start() {
-        if (!timer) {
-          timer = setInterval(function () {
-            if (!document.hidden && heroInView) { advance(); }
-          }, 5000);
-        }
-      }
-      function stop() {
-        if (timer) { clearInterval(timer); timer = null; }
-      }
-      document.addEventListener("visibilitychange", function () {
-        if (document.hidden) { stop(); } else { start(); }
-      });
-      if ("IntersectionObserver" in window) {
-        new IntersectionObserver(function (entries) {
-          heroInView = entries[0].isIntersecting;
-        }, { threshold: 0.05 }).observe(hero);
-      }
-      start();
-    }
 
     // --- Year filmstrip: slow auto-scroll, seamless loop ---
     // Pauses on hover; pauses while touched/swiped and for a few
