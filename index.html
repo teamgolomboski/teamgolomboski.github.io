@@ -1037,31 +1037,6 @@
   .timeline-panel figcaption{margin-top:12px;font-size:.92rem;line-height:1.5;color:var(--muted);max-width:520px}
   .timeline-panel .timeline-extra{margin:14px 0 0;font-family:"Newsreader",Georgia,serif;font-style:italic;font-size:1.12rem;line-height:1.5;color:var(--ink);max-width:620px}
 
-  /* ---------- Our Story — "Where the Walk Has Called Home" ----------
-     A static hand-drawn SVG of Rhode Island in template colors,
-     pinned with the walk's two Warwick homes. It sits inside the
-     Story So Far section as a card on that section's base shade,
-     so the page's base/alt section rhythm is untouched. No
-     embeds, no map tiles, no third-party calls. */
-  .walk-homes{margin-top:48px;max-width:1000px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:32px 34px}
-  .walk-homes h3{font-family:"Archivo",sans-serif;font-size:clamp(1.3rem,2.6vw,1.6rem);font-weight:800;line-height:1.25;color:#eaf1f8;margin:0}
-  .walk-homes .walk-homes-intro{margin:12px 0 0;font-size:1.02rem;line-height:1.6;color:var(--muted);max-width:640px}
-  .walk-homes .ri-map{display:block;width:100%;max-width:360px;height:auto;margin:26px auto 4px}
-  .ri-land{fill:#26507e;stroke:#9fb8d2;stroke-width:2;stroke-linejoin:round}
-  .ri-water{fill:#102238}
-  .ri-city-label{font-family:"Archivo",sans-serif;font-size:12px;font-weight:700;letter-spacing:.18em;fill:#9fb8d2}
-  .map-pin .pin-body{stroke:#fff;stroke-width:2}
-  .map-pin text{font-family:"Archivo",sans-serif;font-size:13px;font-weight:800;fill:#fff;text-anchor:middle}
-  .pin-goddard .pin-body{fill:#35b26f}
-  .pin-citypark .pin-body{fill:#57a7ec}
-  .walk-homes-list{list-style:none;margin:22px 0 0;padding:22px 0 0;border-top:1px solid var(--line);display:grid;gap:12px}
-  .walk-homes-list li{display:flex;align-items:flex-start;gap:12px;font-size:1rem;line-height:1.55;color:var(--muted)}
-  .wh-chip{flex:none;display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;margin-top:1px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);color:#fff;font-family:"Archivo",sans-serif;font-size:.82rem;font-weight:800}
-  .wh-chip span{transform:rotate(45deg)}
-  .wh-chip.pin-goddard{background:#35b26f}
-  .wh-chip.pin-citypark{background:#57a7ec}
-  @media (max-width:560px){ .walk-homes{padding:24px 20px} }
-
   /* ---------- Our Story — The Memory Wall ----------
      Entries live in .memory-grid as .memory-card tiles in the
      pathway-card family (card surface, 2px line border, radius,
@@ -2190,27 +2165,14 @@
   .section .regional-label{color:#0a2340}
   .section .chapter-address{color:#33475c}
   .section .book-title{color:#0a2340}
-  /* Tappable Story So Far entries + the walk-homes map card take
-     the light-section treatment: APDA-blue toggle, white panels
-     with the standard light card border and shadow, and the map
-     drawn in pale APDA blue with navy linework. */
+  /* Tappable Story So Far entries take the light-section
+     treatment: APDA-blue toggle, white panels with the
+     standard light card border and shadow. */
   .section .timeline-toggle{color:#005eb8}
   .section .timeline-panel{background:#fff;border-color:#d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.08)}
   .section .timeline-panel img{border-color:#d3dde7}
   .section .timeline-panel figcaption{color:#33475c}
   .section .timeline-panel .timeline-extra{color:#0a2340}
-  .section .walk-homes{background:#fff;border-color:#d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.08)}
-  .section .walk-homes h3{color:#0a2340}
-  .section .walk-homes .walk-homes-intro{color:#33475c}
-  .section .walk-homes-list{border-top-color:#d3dde7}
-  .section .walk-homes-list li{color:#33475c}
-  .section .ri-land{fill:#cfe1f1;stroke:#0a2340}
-  .section .ri-water{fill:#fff}
-  .section .ri-city-label{fill:#0a2340}
-  .section .pin-goddard .pin-body{fill:#16603c}
-  .section .pin-citypark .pin-body{fill:#005eb8}
-  .section .wh-chip.pin-goddard{background:#16603c}
-  .section .wh-chip.pin-citypark{background:#005eb8}
   /* Thank-you box joins the white-card family; its orange top
      rule stays, and the lead-in takes the Team navy */
   .section .thankyou{background:#fff;border:1px solid #d3dde7;border-top:4px solid #0a2340;color:#33475c;box-shadow:0 8px 24px rgba(19,36,51,.08)}
@@ -3673,34 +3635,6 @@
               </div>
             </div>
           </li>
-        </ul>
-      </div>
-
-      <div class="walk-homes">
-        <h3>Where the Walk Has Called Home</h3>
-        <p class="walk-homes-intro">Twelve years of walks, two Warwick homes — every step of it in the city the Golomboski family calls home.</p>
-        <svg class="ri-map" viewBox="0 0 320 330" role="img" aria-label="Stylized map of Rhode Island with two pins in Warwick: pin 1, Goddard Memorial State Park, and pin 2, Warwick City Park.">
-          <title>Rhode Island — the walk's two Warwick homes</title>
-          <path class="ri-land" d="M58 30 L150 24 L226 20 L246 36 L240 68 L222 88 L206 96 L214 122 L204 146 L214 172 L200 198 L208 226 L186 250 L172 258 L156 234 L146 214 L118 220 L82 228 L54 212 L42 172 L46 118 L52 66 Z" />
-          <path class="ri-land" d="M228 148 C240 146 246 158 244 176 C242 196 246 214 238 228 C228 230 220 218 220 198 C220 176 220 156 228 148 Z" />
-          <path class="ri-land" d="M96 292 C106 284 122 286 126 296 C122 308 104 310 96 302 Z" />
-          <path class="ri-water" d="M178 90 C164 112 184 130 174 152 C164 174 150 192 146 214 C156 234 168 248 182 256 C176 232 188 210 186 184 C184 156 196 122 178 90 Z" />
-          <path class="ri-water" d="M152 146 C140 148 129 154 126 163 C135 170 146 170 153 163 C155 155 155 150 152 146 Z" />
-          <text class="ri-city-label" x="40" y="128">WARWICK</text>
-          <g class="map-pin pin-goddard" transform="translate(148,198)">
-            <title>Goddard Memorial State Park — the first walk, 2014 · the 2017 walk</title>
-            <path class="pin-body" d="M0 0 C-10 -12 -14 -18 -14 -26 A14 14 0 1 1 14 -26 C14 -18 10 -12 0 0 Z" />
-            <text y="-26" dy=".35em">1</text>
-          </g>
-          <g class="map-pin pin-citypark" transform="translate(122,166)">
-            <title>Warwick City Park — the 2026 walk</title>
-            <path class="pin-body" d="M0 0 C-10 -12 -14 -18 -14 -26 A14 14 0 1 1 14 -26 C14 -18 10 -12 0 0 Z" />
-            <text y="-26" dy=".35em">2</text>
-          </g>
-        </svg>
-        <ul class="walk-homes-list">
-          <li><span class="wh-chip pin-goddard" aria-hidden="true"><span>1</span></span><span>Goddard Memorial State Park — the first walk, 2014 · the 2017 walk</span></li>
-          <li><span class="wh-chip pin-citypark" aria-hidden="true"><span>2</span></span><span>Warwick City Park — the 2026 walk</span></li>
         </ul>
       </div>
     </div>
