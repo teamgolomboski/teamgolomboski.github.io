@@ -1835,6 +1835,13 @@
   .honor-photo{margin:18px 0 0;max-width:640px}
   .honor-photo img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line);box-shadow:var(--shadow);display:block}
   .honor-photo figcaption{margin-top:12px;font-size:.92rem;color:var(--muted);line-height:1.5}
+  /* Side-by-side photo pairs on the Joseph profile: two photos
+     across, each keeping its own caption underneath, at every
+     width including phones (Joseph's request, Nov 10). */
+  .photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-top:26px}
+  .honor .photo-pair{margin-top:18px}
+  .photo-pair .profile-photo,.photo-pair .honor-photo{margin:0;max-width:none;min-width:0}
+  @media (max-width:520px){ .photo-pair{gap:12px} .photo-pair figcaption{font-size:.82rem;margin-top:8px} }
   .decade-band{background:var(--navy);color:#fff;border-radius:20px;padding:40px;text-align:center}
   .decade-band h2{color:#fff}
   .decade-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 28px;margin-top:20px}
@@ -3943,28 +3950,32 @@
             </li>
           </ul>
         </div>
-        <figure class="profile-photo">
-          <img src="assets/jeff-sullivan.jpg" alt="Jeff Sullivan speaking into a microphone beside Joseph Golomboski Jr. at an APDA RI event." width="1280" height="1707" />
-          <figcaption>Joseph Golomboski Jr. with Jeff Sullivan — past president and long-standing board member of APDA RI.</figcaption>
-        </figure>
-        <figure class="profile-photo">
-          <img src="assets/joseph-frame-event.jpg" alt="Joseph Golomboski Jr. and Alicia Golomboski holding a green APDA 'unshakeable support' photo frame." width="2048" height="1365" />
-          <figcaption>Joseph Golomboski Jr. and Alicia Golomboski holding APDA's 'unshakeable support' frame at an APDA RI event.</figcaption>
-        </figure>
+        <div class="photo-pair">
+          <figure class="profile-photo">
+            <img src="assets/jeff-sullivan.jpg" alt="Jeff Sullivan speaking into a microphone beside Joseph Golomboski Jr. at an APDA RI event." width="1280" height="1707" />
+            <figcaption>Joseph Golomboski Jr. with Jeff Sullivan — past president and long-standing board member of APDA RI.</figcaption>
+          </figure>
+          <figure class="profile-photo">
+            <img src="assets/joseph-frame-event.jpg" alt="Joseph Golomboski Jr. and Alicia Golomboski holding a green APDA 'unshakeable support' photo frame." width="2048" height="1365" />
+            <figcaption>Joseph Golomboski Jr. and Alicia Golomboski holding APDA's 'unshakeable support' frame at an APDA RI event.</figcaption>
+          </figure>
+        </div>
         <div class="honors" aria-label="Honors and awards">
           <h4>Honors &amp; Awards</h4>
           <div class="honor">
             <h5>Hero of the Match — April 30, 2022</h5>
             <p class="issuer">New England Revolution</p>
             <p class="desc">Honored on-field at Gillette Stadium for outstanding contributions to the Rhode Island community, specifically recognizing leadership in Parkinson's Disease advocacy and the impact of the APDA RI Chapter.</p>
-            <figure class="honor-photo">
-              <img src="assets/gillette-hero.jpg" alt="Gillette Stadium video board showing Alicia and Joseph Golomboski holding a framed photo with their father, Joseph Golomboski Sr." width="768" height="496" />
-              <figcaption>The Golomboski family's photo on the Gillette Stadium screen as Joseph was honored as the New England Revolution's Hero of the Match — April 30, 2022.</figcaption>
-            </figure>
-            <figure class="honor-photo">
-              <img src="assets/gillette-onfield.jpg" alt="Gillette Stadium screen showing Joseph Golomboski on the field as Hero of the Match." width="1200" height="1200" />
-              <figcaption>On the field at Gillette Stadium — 'Hero of the Match,' April 30, 2022.</figcaption>
-            </figure>
+            <div class="photo-pair">
+              <figure class="honor-photo">
+                <img src="assets/gillette-hero.jpg" alt="Gillette Stadium video board showing Alicia and Joseph Golomboski holding a framed photo with their father, Joseph Golomboski Sr." width="768" height="496" />
+                <figcaption>The Golomboski family's photo on the Gillette Stadium screen as Joseph was honored as the New England Revolution's Hero of the Match — April 30, 2022.</figcaption>
+              </figure>
+              <figure class="honor-photo">
+                <img src="assets/gillette-onfield.jpg" alt="Gillette Stadium screen showing Joseph Golomboski on the field as Hero of the Match." width="1200" height="1200" />
+                <figcaption>On the field at Gillette Stadium — 'Hero of the Match,' April 30, 2022.</figcaption>
+              </figure>
+            </div>
           </div>
           <div class="honor">
             <h5>2021 Honey Dew Donuts Dew Good Awards — Top 10 Nomination</h5>
