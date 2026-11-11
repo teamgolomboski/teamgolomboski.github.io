@@ -2716,7 +2716,7 @@
 
   /* ---------- Nov 10, 2026: photo pairs, living hero, year filmstrip ---------- */
   /* Part B — living hero (home): the hero photo layer crossfades
-     through four photos already on the site. The slides sit exactly
+     through seven photos already on the site. The slides sit exactly
      where the single hero photo sat — absolute, inset 0, cover-cropped
      — behind the existing gradient overlay and hero content, so the
      headline, subline and buttons never move or lose clicks. The
@@ -2732,18 +2732,24 @@
      section): a full-width, sideways-scrolling strip on the section's
      own alt shade — transparent surface, no card, so the section's
      shade and its neighbors are unchanged. Frames are the Photo
-     Galleries album covers at the galleries' 4:3 crop, each labeled
-     with just its year; the frames are not links. The track holds
-     the year set twice so the auto-scroll can loop seamlessly. */
+     Galleries album covers at the galleries' 4:3 crop, cropped from
+     the top (object-position:top) so faces in portrait covers stay
+     in frame, each labeled with just its year as a white overlay at
+     the photo's bottom-left over a dark gradient scrim; the frames
+     are not links. Each frame sits on a navy placeholder surface so
+     a slow-loading photo never shows as a blank white tile. The
+     track holds the year set twice so the auto-scroll can loop
+     seamlessly. */
   .filmstrip-block{margin-top:56px}
   .filmstrip-caption{text-align:center;font-size:1rem;color:#33475c;margin:0 20px 18px}
   .filmstrip{overflow-x:auto;overflow-y:hidden;scrollbar-width:none;-webkit-overflow-scrolling:touch}
   .filmstrip::-webkit-scrollbar{display:none}
   .filmstrip-track{display:flex;width:max-content}
   .filmstrip-set{display:flex;gap:16px;padding-right:16px}
-  .film-frame{margin:0;flex:0 0 auto;width:208px}
-  .film-frame img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:10px;border:1px solid #d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.10);display:block}
-  .film-frame figcaption{margin-top:8px;font-family:"Archivo",sans-serif;font-weight:800;font-size:.95rem;color:#0a2340;text-align:center}
+  .film-frame{margin:0;flex:0 0 auto;width:208px;position:relative;overflow:hidden;border-radius:10px;border:1px solid #d3dde7;box-shadow:0 8px 24px rgba(19,36,51,.10);background:#0a2340}
+  .film-frame img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:top;background:#0a2340;color:transparent;display:block}
+  .film-frame img.focal-2020{object-position:50% 33%}
+  .film-frame figcaption{position:absolute;left:0;right:0;bottom:0;margin:0;padding:22px 10px 8px;font-family:"Archivo",sans-serif;font-weight:800;font-size:.95rem;color:#fff;text-align:left;line-height:1;text-shadow:0 1px 6px rgba(7,26,48,.6);background:linear-gradient(to top,rgba(7,26,48,.82) 0%,rgba(7,26,48,.45) 55%,rgba(7,26,48,0) 100%);pointer-events:none}
   @media (max-width:520px){
     .film-frame{width:152px}
     .filmstrip-block{margin-top:44px}
@@ -2817,9 +2823,12 @@
   <section class="hero" aria-label="Introduction">
     <div class="hero-slides">
       <img class="hero-bg is-active" src="assets/hero-walk-2026.jpg" alt="Walkers on the path at the 2026 Rhode Island Optimism Walk, Warwick City Park" />
+      <img class="hero-bg" src="assets/walk2026-canopy-group.jpg" alt="" aria-hidden="true" />
+      <img class="hero-bg" src="assets/walk2021-bridge-group.jpg" alt="" aria-hidden="true" />
       <img class="hero-bg" src="assets/rock-the-resort-team.jpg" alt="" aria-hidden="true" />
-      <img class="hero-bg" src="assets/dad-frame-hd.jpg" alt="" aria-hidden="true" />
+      <img class="hero-bg" src="assets/walk2025-start.jpg" alt="" aria-hidden="true" />
       <img class="hero-bg" src="assets/biggest-year-2026.jpg" alt="" aria-hidden="true" />
+      <img class="hero-bg" src="assets/dad-frame-hd.jpg" alt="" aria-hidden="true" />
     </div>
     <div class="wrap">
       <div class="hero-inner">
@@ -2999,101 +3008,101 @@
         <div class="filmstrip-track">
           <div class="filmstrip-set">
             <figure class="film-frame">
-              <img src="assets/walk2014-team-group-thumb.jpg" alt="Rhode Island Optimism Walk — 2014 album cover" loading="lazy" decoding="async" />
+              <img src="assets/walk2014-team-group-thumb.jpg" alt="Rhode Island Optimism Walk — 2014 album cover" loading="eager" fetchpriority="high" decoding="async" />
               <figcaption>2014</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2016-team-group-thumb.jpg" alt="Rhode Island Optimism Walk — 2016 album cover" loading="lazy" decoding="async" />
+              <img src="assets/walk2016-team-group-thumb.jpg" alt="Rhode Island Optimism Walk — 2016 album cover" loading="eager" fetchpriority="high" decoding="async" />
               <figcaption>2016</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2017-team-group-wide-thumb.jpg" alt="Rhode Island Optimism Walk — 2017 album cover" loading="lazy" decoding="async" />
+              <img src="assets/walk2017-team-group-wide-thumb.jpg" alt="Rhode Island Optimism Walk — 2017 album cover" loading="eager" fetchpriority="high" decoding="async" />
               <figcaption>2017</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2018-banner-thumb.jpg" alt="Rhode Island Optimism Walk — 2018 album cover" loading="lazy" decoding="async" />
+              <img src="assets/walk2018-banner-thumb.jpg" alt="Rhode Island Optimism Walk — 2018 album cover" loading="eager" fetchpriority="high" decoding="async" />
               <figcaption>2018</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2019-course-group-thumb.jpg" alt="Rhode Island Optimism Walk — 2019 album cover" loading="lazy" decoding="async" />
+              <img src="assets/walk2019-course-group-thumb.jpg" alt="Rhode Island Optimism Walk — 2019 album cover" loading="eager" decoding="async" />
               <figcaption>2019</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2020-joseph-dog-thumb.jpg" alt="Rhode Island Optimism Walk — 2020 album cover" loading="lazy" decoding="async" />
+              <img class="focal-2020" src="assets/walk2020-joseph-dog-thumb.jpg" alt="Rhode Island Optimism Walk — 2020 album cover" loading="eager" decoding="async" />
               <figcaption>2020</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2021-bridge-group-thumb.jpg" alt="Rhode Island Optimism Walk — 2021 album cover" loading="lazy" decoding="async" />
+              <img src="assets/walk2021-bridge-group-thumb.jpg" alt="Rhode Island Optimism Walk — 2021 album cover" loading="eager" decoding="async" />
               <figcaption>2021</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2022-flag-thumb.jpg" alt="Rhode Island Optimism Walk — 2022 album cover" loading="lazy" decoding="async" />
+              <img src="assets/walk2022-flag-thumb.jpg" alt="Rhode Island Optimism Walk — 2022 album cover" loading="eager" decoding="async" />
               <figcaption>2022</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/f4f2023-check-thumb.jpg" alt="Funny 4 Funds — 2023 album cover" loading="lazy" decoding="async" />
+              <img src="assets/f4f2023-check-thumb.jpg" alt="Funny 4 Funds — 2023 album cover" loading="eager" decoding="async" />
               <figcaption>2023</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/f4f2024-check-thumb.jpg" alt="Funny 4 Funds — 2024 album cover" loading="lazy" decoding="async" />
+              <img src="assets/f4f2024-check-thumb.jpg" alt="Funny 4 Funds — 2024 album cover" loading="eager" decoding="async" />
               <figcaption>2024</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2025-start-thumb.jpg" alt="Rhode Island Optimism Walk — 2025 album cover" loading="lazy" decoding="async" />
+              <img src="assets/walk2025-start-thumb.jpg" alt="Rhode Island Optimism Walk — 2025 album cover" loading="eager" decoding="async" />
               <figcaption>2025</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/hero-walk-2026-thumb.jpg" alt="Rhode Island Optimism Walk — 2026 album cover" loading="lazy" decoding="async" />
+              <img src="assets/hero-walk-2026-thumb.jpg" alt="Rhode Island Optimism Walk — 2026 album cover" loading="eager" decoding="async" />
               <figcaption>2026</figcaption>
             </figure>
           </div>
           <div class="filmstrip-set" aria-hidden="true">
             <figure class="film-frame">
-              <img src="assets/walk2014-team-group-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/walk2014-team-group-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2014</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2016-team-group-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/walk2016-team-group-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2016</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2017-team-group-wide-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/walk2017-team-group-wide-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2017</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2018-banner-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/walk2018-banner-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2018</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2019-course-group-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/walk2019-course-group-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2019</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2020-joseph-dog-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img class="focal-2020" src="assets/walk2020-joseph-dog-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2020</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2021-bridge-group-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/walk2021-bridge-group-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2021</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2022-flag-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/walk2022-flag-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2022</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/f4f2023-check-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/f4f2023-check-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2023</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/f4f2024-check-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/f4f2024-check-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2024</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/walk2025-start-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/walk2025-start-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2025</figcaption>
             </figure>
             <figure class="film-frame">
-              <img src="assets/hero-walk-2026-thumb.jpg" alt="" loading="lazy" decoding="async" />
+              <img src="assets/hero-walk-2026-thumb.jpg" alt="" loading="eager" decoding="async" />
               <figcaption>2026</figcaption>
             </figure>
           </div>
@@ -12507,7 +12516,7 @@
   (function () {
     var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    // --- Living hero: crossfade the four hero photos, ~5s each ---
+    // --- Living hero: crossfade the seven hero photos, ~5s each ---
     var hero = document.querySelector(".hero");
     var slides = hero ? hero.querySelectorAll(".hero-bg") : [];
     if (hero && slides.length > 1 && !reduceMotion) {
