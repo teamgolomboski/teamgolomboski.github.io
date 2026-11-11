@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- Team Golomboski — https://teamgolomboski.github.io/
+  <!-- Team Golomboski — https://teamgolomboski.com/
        The site is a single-page app; its crawlable entry points are the
        share-card stub pages below, each carrying its own title,
        description, and share image and forwarding visitors to the page.
@@ -10,72 +10,72 @@
        When teamgolomboski.com points at this site, swap the domain in
        every <loc> below to https://teamgolomboski.com/...           -->
   <url>
-    <loc>https://teamgolomboski.github.io/</loc>
+    <loc>https://teamgolomboski.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/our-story</loc>
+    <loc>https://teamgolomboski.com/our-story</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/joseph-and-alicia</loc>
+    <loc>https://teamgolomboski.com/joseph-and-alicia</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/impact</loc>
+    <loc>https://teamgolomboski.com/impact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/events</loc>
+    <loc>https://teamgolomboski.com/events</loc>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/rock-the-resort</loc>
+    <loc>https://teamgolomboski.com/rock-the-resort</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/galleries</loc>
+    <loc>https://teamgolomboski.com/galleries</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/media</loc>
+    <loc>https://teamgolomboski.com/media</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/in-the-news</loc>
+    <loc>https://teamgolomboski.com/in-the-news</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/introduction-to-parkinsons</loc>
+    <loc>https://teamgolomboski.com/introduction-to-parkinsons</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/press-kit</loc>
+    <loc>https://teamgolomboski.com/press-kit</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/speaking</loc>
+    <loc>https://teamgolomboski.com/speaking</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/donate</loc>
+    <loc>https://teamgolomboski.com/donate</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://teamgolomboski.github.io/site-map</loc>
+    <loc>https://teamgolomboski.com/site-map</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
