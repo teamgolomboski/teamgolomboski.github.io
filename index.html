@@ -2726,6 +2726,15 @@
   }
 
   /* ---------- Nov 10, 2026: photo pairs, living hero, year filmstrip ---------- */
+  /* Beyond Rhode Island ONLY: the three MA Walk grid photos share one
+     4:3 frame so the row is level — uniform height, level captions.
+     Scoped to #beyond-rhode-island .photo-pair so the other photo
+     pairs on this page (profile pair, honor pair) and the featured
+     leadership photo above the grid are untouched. People photos crop
+     from the top (50% 25%) so faces are never cut; the wide letters
+     photo crops centered (its edges trim at 4:3, as accepted). */
+  #beyond-rhode-island .photo-pair .profile-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:50% 25%}
+  #beyond-rhode-island .photo-pair .profile-photo img[src*="mawalk-letters"]{object-position:50% 50%}
   /* Part B — living hero (home): the hero photo layer crossfades
      through seven photos already on the site. The slides sit exactly
      where the single hero photo sat — absolute, inset 0, cover-cropped
@@ -4096,18 +4105,19 @@
       </figure>
       <div class="photo-pair">
         <figure class="profile-photo">
-          <img src="assets/mawalk-letters-thumb.jpg" data-full="assets/mawalk-letters.jpg" alt="APDA WALK letters on the grass at Bowditch Field, Framingham" width="1600" height="838" loading="lazy" decoding="async" />
+          <img src="assets/mawalk-letters-thumb.jpg" data-full="assets/mawalk-letters.jpg" alt="APDA WALK letters on the grass at Bowditch Field, Framingham" width="640" height="480" loading="lazy" decoding="async" />
           <figcaption>The Massachusetts Optimism Walk at Bowditch Field, Framingham.</figcaption>
         </figure>
         <figure class="profile-photo">
-          <img src="assets/mawalk-volunteer-thumb.jpg" data-full="assets/mawalk-volunteer.jpg" alt="Joseph Golomboski with a fellow volunteer in green Optimism Walk shirts" width="1463" height="1463" loading="lazy" decoding="async" />
+          <img src="assets/mawalk-volunteer-thumb.jpg" data-full="assets/mawalk-volunteer.jpg" alt="Joseph Golomboski with a fellow volunteer in green Optimism Walk shirts" width="640" height="480" loading="lazy" decoding="async" />
           <figcaption>Joseph with a fellow volunteer for the day.</figcaption>
         </figure>
         <figure class="profile-photo">
-          <img src="assets/mawalk-team-dominachin-thumb.jpg" data-full="assets/mawalk-team-dominachin.jpg" alt="Joseph Golomboski standing with members of Team Dominachin in tie-dye shirts" width="1080" height="1080" loading="lazy" decoding="async" />
+          <img src="assets/mawalk-team-dominachin-thumb.jpg" data-full="assets/mawalk-team-dominachin.jpg" alt="Joseph Golomboski standing with members of Team Dominachin in tie-dye shirts" width="640" height="480" loading="lazy" decoding="async" />
           <figcaption>Joseph with members of Team Dominachin.</figcaption>
         </figure>
       </div>
+      <p style="margin-top:24px"><a class="more-link" href="#/galleries#gallery-ma-walk">See the full Massachusetts album →</a></p>
     </div>
   </section>
 
@@ -5267,6 +5277,7 @@
             <option value="pawsox">PawSox</option>
             <option value="christmas-card">Christmas Card</option>
             <option value="wedding">Wedding</option>
+            <option value="ma-walk">Massachusetts Walk</option>
           </select>
         </div>
       </div>
@@ -8396,6 +8407,50 @@
                 <span class="tile-frame"><img class="focal-w18-joseph-dog" src="assets/walk2018-joseph-dog-thumb.jpg" data-full="assets/walk2018-joseph-dog.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski in a blue Optimism Walks shirt walking the team&#x27;s black dog, wearing its white walk shirt, down a wooded park road" width="2500" height="3750" /></span>
               </button>
               <figcaption>Joseph Golomboski on the course with the team's four-legged walker.</figcaption>
+            </figure>
+        </div>
+        </div>
+      </section>
+
+      <section class="gallery-section album" id="gallery-ma-walk" data-year="2026" data-event-type="chapter" data-series="ma-walk" aria-label="Massachusetts Optimism Walk gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-ma-walk">
+          <img src="assets/mawalk-leadership-thumb.jpg" loading="lazy" decoding="async" alt="Massachusetts Optimism Walk" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Massachusetts Optimism Walk</span>
+            <span class="album-cover-date">Framingham, Massachusetts</span>
+            <span class="album-cover-meta">4 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-ma-walk" hidden>
+        <div class="gallery-head">
+          <h2>Massachusetts Optimism Walk</h2>
+          <p>Framingham, Massachusetts</p>
+          <p>Joseph has volunteered at the Massachusetts Optimism Walk in Framingham for the past four years. The 2026 walk — Sunday, May 17 at Bowditch Field — was its 40th annual event.</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="ma-walk" data-gallery-title="Massachusetts Optimism Walk">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with Michelle Harman McDonald, MSW, LSW, Chief Operating Officer of APDA National, and Bill Patjane, Regional Director – Northeast.">
+                <span class="tile-frame"><img src="assets/mawalk-leadership-thumb.jpg" data-full="assets/mawalk-leadership.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski with Michelle Harman McDonald and Bill Patjane at the Massachusetts Optimism Walk" width="1463" height="1463" /></span>
+              </button>
+              <figcaption>Joseph with Michelle Harman McDonald, MSW, LSW, Chief Operating Officer of APDA National, and Bill Patjane, Regional Director – Northeast.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Massachusetts Optimism Walk at Bowditch Field, Framingham.">
+                <span class="tile-frame"><img src="assets/mawalk-letters-thumb.jpg" data-full="assets/mawalk-letters.jpg" loading="lazy" decoding="async" alt="APDA WALK letters on the grass at Bowditch Field, Framingham" width="1600" height="838" /></span>
+              </button>
+              <figcaption>The Massachusetts Optimism Walk at Bowditch Field, Framingham.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with a fellow volunteer for the day.">
+                <span class="tile-frame"><img src="assets/mawalk-volunteer-thumb.jpg" data-full="assets/mawalk-volunteer.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski with a fellow volunteer in green Optimism Walk shirts" width="1463" height="1463" /></span>
+              </button>
+              <figcaption>Joseph with a fellow volunteer for the day.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with members of Team Dominachin.">
+                <span class="tile-frame"><img src="assets/mawalk-team-dominachin-thumb.jpg" data-full="assets/mawalk-team-dominachin.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski standing with members of Team Dominachin in tie-dye shirts" width="1080" height="1080" /></span>
+              </button>
+              <figcaption>Joseph with members of Team Dominachin.</figcaption>
             </figure>
         </div>
         </div>
