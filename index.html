@@ -374,6 +374,21 @@
      page-hero photos to 16:9 / max-height 210px. Every other page's
      hero keeps the standard 4:3 cover treatment. */
   [data-page="our-story"] .page-hero-photo img{aspect-ratio:auto;height:auto;max-height:none;object-fit:contain}
+  /* Introduction to Parkinson's hero ONLY: the hero photo is now
+     Joseph Golomboski Sr.'s black-and-white portrait (1080x1350,
+     portrait 4:5) — a tight headshot whose head spans nearly the
+     whole frame, so the shared 4:3 cover crop (and the phone 16:9
+     crop) would slice off the top of his head and his chin at any
+     object position. This page therefore frames the hero at the
+     portrait's own 4:5 ratio, anchored on his face from the top
+     (center 0%), so his WHOLE head and face stay in frame on
+     desktop and phone alike — the hero runs taller on this page,
+     which is intended. The higher specificity (0-2-1) also beats
+     the phone rule below that forces page-hero photos to 16:9 /
+     max-height 210px. Every other page's hero keeps the standard
+     4:3 cover treatment, and the Young Onset panel on this same
+     page keeps showing the portrait whole, unchanged. */
+  [data-page="introduction-to-parkinsons"] .page-hero-photo img{aspect-ratio:4/5;height:auto;max-height:none;object-fit:cover;object-position:center 0%}
   @media (max-width:980px){
     .page-hero .wrap{grid-template-columns:minmax(0,1fr) 300px;gap:28px}
   }
@@ -5527,6 +5542,50 @@
         </div>
       </section>
 
+      <section class="gallery-section album" id="gallery-ma-walk" data-year="2026" data-event-type="chapter" data-series="ma-walk" aria-label="Massachusetts Optimism Walk gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-ma-walk">
+          <img class="focal-ma-leadership" src="assets/mawalk-leadership-thumb.jpg" loading="lazy" decoding="async" alt="Massachusetts Optimism Walk" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Massachusetts Optimism Walk</span>
+            <span class="album-cover-date">Framingham, Massachusetts · May 17, 2026</span>
+            <span class="album-cover-meta">4 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-ma-walk" hidden>
+        <div class="gallery-head">
+          <h2>Massachusetts Optimism Walk</h2>
+          <p>Framingham, Massachusetts</p>
+          <p>Joseph has volunteered at the Massachusetts Optimism Walk in Framingham for the past four years. The 2026 walk — Sunday, May 17 at Bowditch Field — was its 40th annual event.</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="ma-walk" data-gallery-title="Massachusetts Optimism Walk">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with Michelle Harman McDonald, MSW, LSW, Chief Operating Officer of APDA National, and Bill Patjane, Regional Director – Northeast.">
+                <span class="tile-frame"><img src="assets/mawalk-leadership-thumb.jpg" data-full="assets/mawalk-leadership.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski with Michelle Harman McDonald and Bill Patjane at the Massachusetts Optimism Walk" width="1463" height="1463" /></span>
+              </button>
+              <figcaption>Joseph with Michelle Harman McDonald, MSW, LSW, Chief Operating Officer of APDA National, and Bill Patjane, Regional Director – Northeast.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Massachusetts Optimism Walk at Bowditch Field, Framingham.">
+                <span class="tile-frame"><img src="assets/mawalk-letters-thumb.jpg" data-full="assets/mawalk-letters.jpg" loading="lazy" decoding="async" alt="APDA WALK letters on the grass at Bowditch Field, Framingham" width="1600" height="838" /></span>
+              </button>
+              <figcaption>The Massachusetts Optimism Walk at Bowditch Field, Framingham.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with a fellow volunteer for the day.">
+                <span class="tile-frame"><img src="assets/mawalk-volunteer-thumb.jpg" data-full="assets/mawalk-volunteer.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski with a fellow volunteer in green Optimism Walk shirts" width="1463" height="1463" /></span>
+              </button>
+              <figcaption>Joseph with a fellow volunteer for the day.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with members of Team Dominachin.">
+                <span class="tile-frame"><img src="assets/mawalk-team-dominachin-thumb.jpg" data-full="assets/mawalk-team-dominachin.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski standing with members of Team Dominachin in tie-dye shirts" width="1080" height="1080" /></span>
+              </button>
+              <figcaption>Joseph with members of Team Dominachin.</figcaption>
+            </figure>
+        </div>
+        </div>
+      </section>
+
       <section class="gallery-section album" id="gallery-rock-the-resort-2026" data-year="2026" data-event-type="team" data-series="rock-the-resort" aria-label="Rock the Resort 2026 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-rock-the-resort-2026">
           <img src="assets/rock-resort-crowd-thumb.jpg" loading="lazy" decoding="async" alt="Rock the Resort — 2026" />
@@ -6741,6 +6800,44 @@
         </div>
       </section>
 
+      <section class="gallery-section album" id="gallery-bristol-2024" data-year="2024" data-event-type="chapter" data-series="bristol-2024" aria-label="Bristol Fourth of July 2024 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-bristol-2024">
+          <img src="assets/bristol2024-group-thumb.jpg" loading="lazy" decoding="async" alt="Bristol Fourth of July — 2024" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Bristol Fourth of July — 2024</span>
+            <span class="album-cover-date">Bristol, Rhode Island</span>
+            <span class="album-cover-meta">3 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-bristol-2024" hidden>
+        <div class="gallery-head">
+          <h2>Bristol Fourth of July — 2024</h2>
+          <p>Bristol, Rhode Island</p>
+          <p>On July 4, 2024, Joseph marched with fellow APDA Rhode Island walkers in Bristol's Fourth of July Celebration — the nation's oldest continuous Independence Day celebration — carrying the chapter banner down the parade route and inviting everyone to that fall's Optimism Walk at Warwick City Park.</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="bristol-2024" data-gallery-title="Bristol Fourth of July — 2024">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The whole crew behind the APDA Rhode Island banner before the parade.">
+                <span class="tile-frame"><img src="assets/bristol2024-group-thumb.jpg" data-full="assets/bristol2024-group.jpg" loading="lazy" decoding="async" alt="The whole crew behind the APDA Rhode Island banner before the parade" width="1600" height="684" /></span>
+              </button>
+              <figcaption>The whole crew behind the APDA Rhode Island banner before the parade.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Carrying the chapter banner down the parade route, walk signs in hand.">
+                <span class="tile-frame"><img src="assets/bristol2024-banner-thumb.jpg" data-full="assets/bristol2024-banner.jpg" loading="lazy" decoding="async" alt="Carrying the chapter banner down the parade route, walk signs in hand" width="1600" height="1200" /></span>
+              </button>
+              <figcaption>Carrying the chapter banner down the parade route, walk signs in hand.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with a fellow walker beside the parade car.">
+                <span class="tile-frame"><img src="assets/bristol2024-car-thumb.jpg" data-full="assets/bristol2024-car.jpg" loading="lazy" decoding="async" alt="Joseph with a fellow walker beside the parade car" width="960" height="958" /></span>
+              </button>
+              <figcaption>Joseph with a fellow walker beside the parade car.</figcaption>
+            </figure>
+        </div>
+        </div>
+      </section>
+
       <section class="gallery-section album" id="gallery-golf-2024" data-year="2024" data-event-type="chapter" data-series="golf" aria-label="APDA Driving Away Parkinson's Disease Golf Tournament 2024 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-golf-2024">
           <img src="assets/golf2024-quidnessett-sign-thumb.jpg" loading="lazy" decoding="async" alt="APDA Driving Away Parkinson's Disease Golf Tournament — 2024" />
@@ -7315,6 +7412,168 @@
         </div>
       </section>
 
+      <section class="gallery-section album" id="gallery-taco-tuesday-2024" data-year="2024" data-event-type="team" data-series="taco-tuesday-2024" aria-label="Taco Tuesday at Lake Taco 2024 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-taco-tuesday-2024">
+          <img src="assets/taco2024-table-thumb.jpg" loading="lazy" decoding="async" alt="Taco Tuesday at Lake Taco — 2024" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Taco Tuesday at Lake Taco — 2024</span>
+            <span class="album-cover-date">Lake Taco · Coventry</span>
+            <span class="album-cover-meta">3 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-taco-tuesday-2024" hidden>
+        <div class="gallery-head">
+          <h2>Taco Tuesday at Lake Taco — 2024</h2>
+          <p>Lake Taco · Coventry</p>
+          <p>Team Golomboski's Taco Tuesday fundraiser with trivia at Lake Taco in Coventry — 10% of every sale benefited APDA RI. April 16, 2024.</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="taco-tuesday-2024" data-gallery-title="Taco Tuesday at Lake Taco — 2024">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Team Golomboski table at Lake Taco — posters, wristbands, and Twizzlers at the ready.">
+                <span class="tile-frame"><img src="assets/taco2024-table-thumb.jpg" data-full="assets/taco2024-table.jpg" loading="lazy" decoding="async" alt="The Team Golomboski table at Lake Taco — posters, wristbands, and Twizzlers at the ready" width="1600" height="1200" /></span>
+              </button>
+              <figcaption>The Team Golomboski table at Lake Taco — posters, wristbands, and Twizzlers at the ready.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph and a fellow team member at the table.">
+                <span class="tile-frame"><img src="assets/taco2024-team-thumb.jpg" data-full="assets/taco2024-team.jpg" loading="lazy" decoding="async" alt="Joseph and a fellow team member at the table" width="960" height="960" /></span>
+              </button>
+              <figcaption>Joseph and a fellow team member at the table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The event flyer.">
+                <span class="tile-frame"><img src="assets/taco-tuesday-flyer-thumb.jpg" data-full="assets/taco-tuesday-flyer.jpg" loading="lazy" decoding="async" alt="The event flyer" width="1545" height="2000" /></span>
+              </button>
+              <figcaption>The event flyer.</figcaption>
+            </figure>
+        </div>
+        </div>
+      </section>
+
+      <section class="gallery-section album" id="gallery-bristol-2023" data-year="2023" data-event-type="chapter" data-series="bristol-2024" aria-label="Bristol Fourth of July 2023 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-bristol-2023">
+          <img src="assets/bristol2023-banner-thumb.jpg" loading="lazy" decoding="async" alt="Bristol Fourth of July — 2023" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Bristol Fourth of July — 2023</span>
+            <span class="album-cover-date">Bristol, Rhode Island</span>
+            <span class="album-cover-meta">5 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-bristol-2023" hidden>
+        <div class="gallery-head">
+          <h2>Bristol Fourth of July — 2023</h2>
+          <p>Bristol, Rhode Island</p>
+          <p>Joseph and fellow APDA Rhode Island walkers marched in Bristol's Fourth of July Celebration in 2023 — carrying the chapter banner down the parade route and spreading the word about the Optimism Walk, rain or shine.</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="bristol-2023" data-gallery-title="Bristol Fourth of July — 2023">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph and fellow walkers with the APDA banner on the parade route.">
+                <span class="tile-frame"><img src="assets/bristol2023-banner-thumb.jpg" data-full="assets/bristol2023-banner.jpg" loading="lazy" decoding="async" alt="Joseph and fellow walkers with the APDA banner on the parade route" width="1080" height="1422" /></span>
+              </button>
+              <figcaption>Joseph and fellow walkers with the APDA banner on the parade route.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Fellow walkers with the banner and their walk signs on the route.">
+                <span class="tile-frame"><img src="assets/bristol2023-banner2-thumb.jpg" data-full="assets/bristol2023-banner2.jpg" loading="lazy" decoding="async" alt="Fellow walkers with the banner and their walk signs on the route" width="1600" height="1200" /></span>
+              </button>
+              <figcaption>Fellow walkers with the banner and their walk signs on the route.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: I walk for all who live with Parkinson's.">
+                <span class="tile-frame"><img src="assets/bristol2023-sign-thumb.jpg" data-full="assets/bristol2023-sign.jpg" loading="lazy" decoding="async" alt="I walk for all who live with Parkinson's" width="1079" height="1434" /></span>
+              </button>
+              <figcaption>I walk for all who live with Parkinson's.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Rain didn't stop the celebration.">
+                <span class="tile-frame"><img src="assets/bristol2023-umbrellas-thumb.jpg" data-full="assets/bristol2023-umbrellas.jpg" loading="lazy" decoding="async" alt="Rain didn't stop the celebration" width="1079" height="1402" /></span>
+              </button>
+              <figcaption>Rain didn't stop the celebration.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Riding the route in the chapter car, flags out the windows.">
+                <span class="tile-frame"><img src="assets/bristol2023-car-thumb.jpg" data-full="assets/bristol2023-car.jpg" loading="lazy" decoding="async" alt="Riding the route in the chapter car, flags out the windows" width="1079" height="1434" /></span>
+              </button>
+              <figcaption>Riding the route in the chapter car, flags out the windows.</figcaption>
+            </figure>
+        </div>
+        </div>
+      </section>
+
+      <section class="gallery-section album" id="gallery-golf-2023" data-year="2023" data-event-type="chapter" data-series="golf" aria-label="APDA Driving Away Parkinson's Disease Golf Tournament 2023 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-golf-2023">
+          <img src="assets/golf2023-clubhouse-thumb.jpg" loading="lazy" decoding="async" alt="APDA Driving Away Parkinson's Disease Golf Tournament — 2023" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">APDA Driving Away Parkinson's Disease Golf Tournament — 2023</span>
+            <span class="album-cover-date">Quidnessett Country Club · June 5, 2023</span>
+            <span class="album-cover-meta">9 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-golf-2023" hidden>
+        <div class="gallery-head">
+          <h2>APDA Driving Away Parkinson's Disease Golf Tournament — 2023</h2>
+          <p>Quidnessett Country Club · June 5, 2023</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="golf-2023" data-gallery-title="APDA Driving Away Parkinson's Disease Golf Tournament — 2023">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Quidnessett clubhouse from the practice green.">
+                <span class="tile-frame"><img src="assets/golf2023-clubhouse-thumb.jpg" data-full="assets/golf2023-clubhouse.jpg" loading="lazy" decoding="async" alt="The Quidnessett clubhouse from the practice green." width="1024" height="683" /></span>
+              </button>
+              <figcaption>The Quidnessett clubhouse from the practice green.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Quidnessett pin flag over the water.">
+                <span class="tile-frame"><img src="assets/golf2023-pin-flag-thumb.jpg" data-full="assets/golf2023-pin-flag.jpg" loading="lazy" decoding="async" alt="The Quidnessett pin flag over the water." width="1024" height="683" /></span>
+              </button>
+              <figcaption>The Quidnessett pin flag over the water.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A foursome on the course, with the bay behind them.">
+                <span class="tile-frame"><img src="assets/golf2023-foursome-water-thumb.jpg" data-full="assets/golf2023-foursome-water.jpg" loading="lazy" decoding="async" alt="A foursome on the course, with the bay behind them." width="1024" height="683" /></span>
+              </button>
+              <figcaption>A foursome on the course, with the bay behind them.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A foursome with their drivers on the green.">
+                <span class="tile-frame"><img src="assets/golf2023-foursome-green-thumb.jpg" data-full="assets/golf2023-foursome-green.jpg" loading="lazy" decoding="async" alt="A foursome with their drivers on the green." width="1024" height="683" /></span>
+              </button>
+              <figcaption>A foursome with their drivers on the green.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A tee shot at Quidnessett.">
+                <span class="tile-frame"><img src="assets/golf2023-tee-shot-cap-thumb.jpg" data-full="assets/golf2023-tee-shot-cap.jpg" loading="lazy" decoding="async" alt="A tee shot at Quidnessett." width="1024" height="1536" /></span>
+              </button>
+              <figcaption>A tee shot at Quidnessett.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Addressing the ball on the tee, clubhouse behind.">
+                <span class="tile-frame"><img src="assets/golf2023-tee-shot-blue-thumb.jpg" data-full="assets/golf2023-tee-shot-blue.jpg" loading="lazy" decoding="async" alt="Addressing the ball on the tee, clubhouse behind." width="1024" height="1536" /></span>
+              </button>
+              <figcaption>Addressing the ball on the tee, clubhouse behind.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A dinner-table centerpiece: an APDA flag, a ball stamped APDA GOLF 2023, and chapter wristbands.">
+                <span class="tile-frame"><img src="assets/golf2023-apda-centerpiece-thumb.jpg" data-full="assets/golf2023-apda-centerpiece.jpg" loading="lazy" decoding="async" alt="A dinner-table centerpiece: an APDA flag, a ball stamped APDA GOLF 2023, and chapter wristbands." width="1024" height="1536" /></span>
+              </button>
+              <figcaption>A dinner-table centerpiece: an APDA flag, a ball stamped APDA GOLF 2023, and chapter wristbands.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Five golfers at the reception, three holding boxes of Titleist balls.">
+                <span class="tile-frame"><img src="assets/golf2023-titleist-five-thumb.jpg" data-full="assets/golf2023-titleist-five.jpg" loading="lazy" decoding="async" alt="Five golfers at the reception, three holding boxes of Titleist balls." width="1024" height="683" /></span>
+              </button>
+              <figcaption>Five golfers at the reception, three holding boxes of Titleist balls.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at a dinner table with fellow golfers after the round.">
+                <span class="tile-frame"><img src="assets/golf2023-dinner-table-thumb.jpg" data-full="assets/golf2023-dinner-table.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski at a dinner table with fellow golfers after the round." width="1024" height="683" /></span>
+              </button>
+              <figcaption>Joseph Golomboski at a dinner table with fellow golfers after the round.</figcaption>
+            </figure>
+        </div>
+        <p class="gallery-credit">Photos by Kurt Stickel Photography.</p>
+        </div>
+      </section>
+
       <section class="gallery-section album" id="gallery-funny4funds-2023" data-year="2023" data-event-type="team" data-series="funny4funds" aria-label="Funny 4 Funds 2023 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-funny4funds-2023">
           <img class="focal-f4f-check" src="assets/f4f2023-check-thumb.jpg" loading="lazy" decoding="async" alt="Funny 4 Funds — 2023" />
@@ -7701,80 +7960,6 @@
                 <span class="tile-frame"><img class="focal-f4f-joseph-friends" src="assets/f4f2023-joseph-friends-thumb.jpg" data-full="assets/f4f2023-joseph-friends.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski Jr. poses with friends at the show" width="2116" height="1410" /></span>
               </button>
               <figcaption>Joseph Golomboski Jr. poses with friends at the show.</figcaption>
-            </figure>
-        </div>
-        <p class="gallery-credit">Photos by Kurt Stickel Photography.</p>
-        </div>
-      </section>
-
-      <section class="gallery-section album" id="gallery-golf-2023" data-year="2023" data-event-type="chapter" data-series="golf" aria-label="APDA Driving Away Parkinson's Disease Golf Tournament 2023 gallery">
-        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-golf-2023">
-          <img src="assets/golf2023-clubhouse-thumb.jpg" loading="lazy" decoding="async" alt="APDA Driving Away Parkinson's Disease Golf Tournament — 2023" />
-          <span class="album-cover-text">
-            <span class="album-cover-name">APDA Driving Away Parkinson's Disease Golf Tournament — 2023</span>
-            <span class="album-cover-date">Quidnessett Country Club · June 5, 2023</span>
-            <span class="album-cover-meta">9 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
-          </span>
-        </button>
-        <div class="album-panel" id="album-panel-golf-2023" hidden>
-        <div class="gallery-head">
-          <h2>APDA Driving Away Parkinson's Disease Golf Tournament — 2023</h2>
-          <p>Quidnessett Country Club · June 5, 2023</p>
-        </div>
-        <div class="uniform-gallery" data-gallery="golf-2023" data-gallery-title="APDA Driving Away Parkinson's Disease Golf Tournament — 2023">
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Quidnessett clubhouse from the practice green.">
-                <span class="tile-frame"><img src="assets/golf2023-clubhouse-thumb.jpg" data-full="assets/golf2023-clubhouse.jpg" loading="lazy" decoding="async" alt="The Quidnessett clubhouse from the practice green." width="1024" height="683" /></span>
-              </button>
-              <figcaption>The Quidnessett clubhouse from the practice green.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Quidnessett pin flag over the water.">
-                <span class="tile-frame"><img src="assets/golf2023-pin-flag-thumb.jpg" data-full="assets/golf2023-pin-flag.jpg" loading="lazy" decoding="async" alt="The Quidnessett pin flag over the water." width="1024" height="683" /></span>
-              </button>
-              <figcaption>The Quidnessett pin flag over the water.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A foursome on the course, with the bay behind them.">
-                <span class="tile-frame"><img src="assets/golf2023-foursome-water-thumb.jpg" data-full="assets/golf2023-foursome-water.jpg" loading="lazy" decoding="async" alt="A foursome on the course, with the bay behind them." width="1024" height="683" /></span>
-              </button>
-              <figcaption>A foursome on the course, with the bay behind them.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A foursome with their drivers on the green.">
-                <span class="tile-frame"><img src="assets/golf2023-foursome-green-thumb.jpg" data-full="assets/golf2023-foursome-green.jpg" loading="lazy" decoding="async" alt="A foursome with their drivers on the green." width="1024" height="683" /></span>
-              </button>
-              <figcaption>A foursome with their drivers on the green.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A tee shot at Quidnessett.">
-                <span class="tile-frame"><img src="assets/golf2023-tee-shot-cap-thumb.jpg" data-full="assets/golf2023-tee-shot-cap.jpg" loading="lazy" decoding="async" alt="A tee shot at Quidnessett." width="1024" height="1536" /></span>
-              </button>
-              <figcaption>A tee shot at Quidnessett.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Addressing the ball on the tee, clubhouse behind.">
-                <span class="tile-frame"><img src="assets/golf2023-tee-shot-blue-thumb.jpg" data-full="assets/golf2023-tee-shot-blue.jpg" loading="lazy" decoding="async" alt="Addressing the ball on the tee, clubhouse behind." width="1024" height="1536" /></span>
-              </button>
-              <figcaption>Addressing the ball on the tee, clubhouse behind.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A dinner-table centerpiece: an APDA flag, a ball stamped APDA GOLF 2023, and chapter wristbands.">
-                <span class="tile-frame"><img src="assets/golf2023-apda-centerpiece-thumb.jpg" data-full="assets/golf2023-apda-centerpiece.jpg" loading="lazy" decoding="async" alt="A dinner-table centerpiece: an APDA flag, a ball stamped APDA GOLF 2023, and chapter wristbands." width="1024" height="1536" /></span>
-              </button>
-              <figcaption>A dinner-table centerpiece: an APDA flag, a ball stamped APDA GOLF 2023, and chapter wristbands.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Five golfers at the reception, three holding boxes of Titleist balls.">
-                <span class="tile-frame"><img src="assets/golf2023-titleist-five-thumb.jpg" data-full="assets/golf2023-titleist-five.jpg" loading="lazy" decoding="async" alt="Five golfers at the reception, three holding boxes of Titleist balls." width="1024" height="683" /></span>
-              </button>
-              <figcaption>Five golfers at the reception, three holding boxes of Titleist balls.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski at a dinner table with fellow golfers after the round.">
-                <span class="tile-frame"><img src="assets/golf2023-dinner-table-thumb.jpg" data-full="assets/golf2023-dinner-table.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski at a dinner table with fellow golfers after the round." width="1024" height="683" /></span>
-              </button>
-              <figcaption>Joseph Golomboski at a dinner table with fellow golfers after the round.</figcaption>
             </figure>
         </div>
         <p class="gallery-credit">Photos by Kurt Stickel Photography.</p>
@@ -8378,213 +8563,6 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-optimism-walk-2018" data-year="2018" data-event-type="chapter" data-series="optimism-walk" aria-label="Rhode Island Optimism Walk 2018 gallery">
-        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2018">
-          <img src="assets/walk2018-banner-thumb.jpg" loading="lazy" decoding="async" alt="Rhode Island Optimism Walk — 2018" />
-          <span class="album-cover-text">
-            <span class="album-cover-name">Rhode Island Optimism Walk — 2018</span>
-            <span class="album-cover-date">Goddard Memorial State Park · September 8, 2018</span>
-            <span class="album-cover-meta">3 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
-          </span>
-        </button>
-        <div class="album-panel" id="album-panel-optimism-walk-2018" hidden>
-        <div class="gallery-head">
-          <h2>Rhode Island Optimism Walk — 2018</h2>
-          <p>Goddard Memorial State Park · September 8, 2018</p>
-        </div>
-        <div class="uniform-gallery" data-gallery="optimism-walk-2018" data-gallery-title="Rhode Island Optimism Walk — 2018">
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Carrying the Team Golomboski 2018 banner down the course.">
-                <span class="tile-frame"><img src="assets/walk2018-banner-thumb.jpg" data-full="assets/walk2018-banner.jpg" loading="lazy" decoding="async" alt="Three walkers in white Optimism Walk shirts carrying the large &#x27;Team Golomboski 2018 — Fights Against Parkinson&#x27;s Disease&#x27; banner along a tree-lined park road at Goddard Memorial State Park" width="1875" height="1250" /></span>
-              </button>
-              <figcaption>Carrying the Team Golomboski 2018 banner down the course.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Walkers on the course at Goddard Memorial State Park.">
-                <span class="tile-frame"><img src="assets/walk2018-course-group-thumb.jpg" data-full="assets/walk2018-course-group.jpg" loading="lazy" decoding="async" alt="A group of walkers coming down the paved course at Goddard Memorial State Park — a man in a wheelchair at the front of the group, with families, strollers and a second wheelchair user behind" width="1875" height="1250" /></span>
-              </button>
-              <figcaption>Walkers on the course at Goddard Memorial State Park.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski on the course with the team's four-legged walker.">
-                <span class="tile-frame"><img class="focal-w18-joseph-dog" src="assets/walk2018-joseph-dog-thumb.jpg" data-full="assets/walk2018-joseph-dog.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski in a blue Optimism Walks shirt walking the team&#x27;s black dog, wearing its white walk shirt, down a wooded park road" width="2500" height="3750" /></span>
-              </button>
-              <figcaption>Joseph Golomboski on the course with the team's four-legged walker.</figcaption>
-            </figure>
-        </div>
-        </div>
-      </section>
-
-      <section class="gallery-section album" id="gallery-ma-walk" data-year="2026" data-event-type="chapter" data-series="ma-walk" aria-label="Massachusetts Optimism Walk gallery">
-        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-ma-walk">
-          <img class="focal-ma-leadership" src="assets/mawalk-leadership-thumb.jpg" loading="lazy" decoding="async" alt="Massachusetts Optimism Walk" />
-          <span class="album-cover-text">
-            <span class="album-cover-name">Massachusetts Optimism Walk</span>
-            <span class="album-cover-date">Framingham, Massachusetts</span>
-            <span class="album-cover-meta">4 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
-          </span>
-        </button>
-        <div class="album-panel" id="album-panel-ma-walk" hidden>
-        <div class="gallery-head">
-          <h2>Massachusetts Optimism Walk</h2>
-          <p>Framingham, Massachusetts</p>
-          <p>Joseph has volunteered at the Massachusetts Optimism Walk in Framingham for the past four years. The 2026 walk — Sunday, May 17 at Bowditch Field — was its 40th annual event.</p>
-        </div>
-        <div class="uniform-gallery" data-gallery="ma-walk" data-gallery-title="Massachusetts Optimism Walk">
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with Michelle Harman McDonald, MSW, LSW, Chief Operating Officer of APDA National, and Bill Patjane, Regional Director – Northeast.">
-                <span class="tile-frame"><img src="assets/mawalk-leadership-thumb.jpg" data-full="assets/mawalk-leadership.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski with Michelle Harman McDonald and Bill Patjane at the Massachusetts Optimism Walk" width="1463" height="1463" /></span>
-              </button>
-              <figcaption>Joseph with Michelle Harman McDonald, MSW, LSW, Chief Operating Officer of APDA National, and Bill Patjane, Regional Director – Northeast.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Massachusetts Optimism Walk at Bowditch Field, Framingham.">
-                <span class="tile-frame"><img src="assets/mawalk-letters-thumb.jpg" data-full="assets/mawalk-letters.jpg" loading="lazy" decoding="async" alt="APDA WALK letters on the grass at Bowditch Field, Framingham" width="1600" height="838" /></span>
-              </button>
-              <figcaption>The Massachusetts Optimism Walk at Bowditch Field, Framingham.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with a fellow volunteer for the day.">
-                <span class="tile-frame"><img src="assets/mawalk-volunteer-thumb.jpg" data-full="assets/mawalk-volunteer.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski with a fellow volunteer in green Optimism Walk shirts" width="1463" height="1463" /></span>
-              </button>
-              <figcaption>Joseph with a fellow volunteer for the day.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with members of Team Dominachin.">
-                <span class="tile-frame"><img src="assets/mawalk-team-dominachin-thumb.jpg" data-full="assets/mawalk-team-dominachin.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski standing with members of Team Dominachin in tie-dye shirts" width="1080" height="1080" /></span>
-              </button>
-              <figcaption>Joseph with members of Team Dominachin.</figcaption>
-            </figure>
-        </div>
-        </div>
-      </section>
-
-      <section class="gallery-section album" id="gallery-bristol-2023" data-year="2023" data-event-type="chapter" data-series="bristol-2024" aria-label="Bristol Fourth of July 2023 gallery">
-        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-bristol-2023">
-          <img src="assets/bristol2023-banner-thumb.jpg" loading="lazy" decoding="async" alt="Bristol Fourth of July — 2023" />
-          <span class="album-cover-text">
-            <span class="album-cover-name">Bristol Fourth of July — 2023</span>
-            <span class="album-cover-date">Bristol, Rhode Island</span>
-            <span class="album-cover-meta">5 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
-          </span>
-        </button>
-        <div class="album-panel" id="album-panel-bristol-2023" hidden>
-        <div class="gallery-head">
-          <h2>Bristol Fourth of July — 2023</h2>
-          <p>Bristol, Rhode Island</p>
-          <p>Joseph and fellow APDA Rhode Island walkers marched in Bristol's Fourth of July Celebration in 2023 — carrying the chapter banner down the parade route and spreading the word about the Optimism Walk, rain or shine.</p>
-        </div>
-        <div class="uniform-gallery" data-gallery="bristol-2023" data-gallery-title="Bristol Fourth of July — 2023">
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph and fellow walkers with the APDA banner on the parade route.">
-                <span class="tile-frame"><img src="assets/bristol2023-banner-thumb.jpg" data-full="assets/bristol2023-banner.jpg" loading="lazy" decoding="async" alt="Joseph and fellow walkers with the APDA banner on the parade route" width="1080" height="1422" /></span>
-              </button>
-              <figcaption>Joseph and fellow walkers with the APDA banner on the parade route.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Fellow walkers with the banner and their walk signs on the route.">
-                <span class="tile-frame"><img src="assets/bristol2023-banner2-thumb.jpg" data-full="assets/bristol2023-banner2.jpg" loading="lazy" decoding="async" alt="Fellow walkers with the banner and their walk signs on the route" width="1600" height="1200" /></span>
-              </button>
-              <figcaption>Fellow walkers with the banner and their walk signs on the route.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: I walk for all who live with Parkinson's.">
-                <span class="tile-frame"><img src="assets/bristol2023-sign-thumb.jpg" data-full="assets/bristol2023-sign.jpg" loading="lazy" decoding="async" alt="I walk for all who live with Parkinson's" width="1079" height="1434" /></span>
-              </button>
-              <figcaption>I walk for all who live with Parkinson's.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Rain didn't stop the celebration.">
-                <span class="tile-frame"><img src="assets/bristol2023-umbrellas-thumb.jpg" data-full="assets/bristol2023-umbrellas.jpg" loading="lazy" decoding="async" alt="Rain didn't stop the celebration" width="1079" height="1402" /></span>
-              </button>
-              <figcaption>Rain didn't stop the celebration.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Riding the route in the chapter car, flags out the windows.">
-                <span class="tile-frame"><img src="assets/bristol2023-car-thumb.jpg" data-full="assets/bristol2023-car.jpg" loading="lazy" decoding="async" alt="Riding the route in the chapter car, flags out the windows" width="1079" height="1434" /></span>
-              </button>
-              <figcaption>Riding the route in the chapter car, flags out the windows.</figcaption>
-            </figure>
-        </div>
-        </div>
-      </section>
-
-      <section class="gallery-section album" id="gallery-bristol-2024" data-year="2024" data-event-type="chapter" data-series="bristol-2024" aria-label="Bristol Fourth of July 2024 gallery">
-        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-bristol-2024">
-          <img src="assets/bristol2024-group-thumb.jpg" loading="lazy" decoding="async" alt="Bristol Fourth of July — 2024" />
-          <span class="album-cover-text">
-            <span class="album-cover-name">Bristol Fourth of July — 2024</span>
-            <span class="album-cover-date">Bristol, Rhode Island</span>
-            <span class="album-cover-meta">3 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
-          </span>
-        </button>
-        <div class="album-panel" id="album-panel-bristol-2024" hidden>
-        <div class="gallery-head">
-          <h2>Bristol Fourth of July — 2024</h2>
-          <p>Bristol, Rhode Island</p>
-          <p>On July 4, 2024, Joseph marched with fellow APDA Rhode Island walkers in Bristol's Fourth of July Celebration — the nation's oldest continuous Independence Day celebration — carrying the chapter banner down the parade route and inviting everyone to that fall's Optimism Walk at Warwick City Park.</p>
-        </div>
-        <div class="uniform-gallery" data-gallery="bristol-2024" data-gallery-title="Bristol Fourth of July — 2024">
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The whole crew behind the APDA Rhode Island banner before the parade.">
-                <span class="tile-frame"><img src="assets/bristol2024-group-thumb.jpg" data-full="assets/bristol2024-group.jpg" loading="lazy" decoding="async" alt="The whole crew behind the APDA Rhode Island banner before the parade" width="1600" height="684" /></span>
-              </button>
-              <figcaption>The whole crew behind the APDA Rhode Island banner before the parade.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Carrying the chapter banner down the parade route, walk signs in hand.">
-                <span class="tile-frame"><img src="assets/bristol2024-banner-thumb.jpg" data-full="assets/bristol2024-banner.jpg" loading="lazy" decoding="async" alt="Carrying the chapter banner down the parade route, walk signs in hand" width="1600" height="1200" /></span>
-              </button>
-              <figcaption>Carrying the chapter banner down the parade route, walk signs in hand.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph with a fellow walker beside the parade car.">
-                <span class="tile-frame"><img src="assets/bristol2024-car-thumb.jpg" data-full="assets/bristol2024-car.jpg" loading="lazy" decoding="async" alt="Joseph with a fellow walker beside the parade car" width="960" height="958" /></span>
-              </button>
-              <figcaption>Joseph with a fellow walker beside the parade car.</figcaption>
-            </figure>
-        </div>
-        </div>
-      </section>
-
-      <section class="gallery-section album" id="gallery-taco-tuesday-2024" data-year="2024" data-event-type="team" data-series="taco-tuesday-2024" aria-label="Taco Tuesday at Lake Taco 2024 gallery">
-        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-taco-tuesday-2024">
-          <img src="assets/taco2024-table-thumb.jpg" loading="lazy" decoding="async" alt="Taco Tuesday at Lake Taco — 2024" />
-          <span class="album-cover-text">
-            <span class="album-cover-name">Taco Tuesday at Lake Taco — 2024</span>
-            <span class="album-cover-date">Lake Taco · Coventry</span>
-            <span class="album-cover-meta">3 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
-          </span>
-        </button>
-        <div class="album-panel" id="album-panel-taco-tuesday-2024" hidden>
-        <div class="gallery-head">
-          <h2>Taco Tuesday at Lake Taco — 2024</h2>
-          <p>Lake Taco · Coventry</p>
-          <p>Team Golomboski's Taco Tuesday fundraiser with trivia at Lake Taco in Coventry — 10% of every sale benefited APDA RI. April 16, 2024.</p>
-        </div>
-        <div class="uniform-gallery" data-gallery="taco-tuesday-2024" data-gallery-title="Taco Tuesday at Lake Taco — 2024">
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Team Golomboski table at Lake Taco — posters, wristbands, and Twizzlers at the ready.">
-                <span class="tile-frame"><img src="assets/taco2024-table-thumb.jpg" data-full="assets/taco2024-table.jpg" loading="lazy" decoding="async" alt="The Team Golomboski table at Lake Taco — posters, wristbands, and Twizzlers at the ready" width="1600" height="1200" /></span>
-              </button>
-              <figcaption>The Team Golomboski table at Lake Taco — posters, wristbands, and Twizzlers at the ready.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph and a fellow team member at the table.">
-                <span class="tile-frame"><img src="assets/taco2024-team-thumb.jpg" data-full="assets/taco2024-team.jpg" loading="lazy" decoding="async" alt="Joseph and a fellow team member at the table" width="960" height="960" /></span>
-              </button>
-              <figcaption>Joseph and a fellow team member at the table.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The event flyer.">
-                <span class="tile-frame"><img src="assets/taco-tuesday-flyer-thumb.jpg" data-full="assets/taco-tuesday-flyer.jpg" loading="lazy" decoding="async" alt="The event flyer" width="1545" height="2000" /></span>
-              </button>
-              <figcaption>The event flyer.</figcaption>
-            </figure>
-        </div>
-        </div>
-      </section>
-
       <section class="gallery-section album" id="gallery-wedding-2019" data-year="2019" data-event-type="other" data-series="wedding" aria-label="A Wedding at Cherry Hill 2019 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-wedding-2019">
           <img src="assets/wedding-2019-with-dad-thumb.jpg" loading="lazy" decoding="async" alt="A Wedding at Cherry Hill — 2019" />
@@ -8832,6 +8810,43 @@
         </div>
       </section>
 
+      <section class="gallery-section album" id="gallery-optimism-walk-2018" data-year="2018" data-event-type="chapter" data-series="optimism-walk" aria-label="Rhode Island Optimism Walk 2018 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2018">
+          <img src="assets/walk2018-banner-thumb.jpg" loading="lazy" decoding="async" alt="Rhode Island Optimism Walk — 2018" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Rhode Island Optimism Walk — 2018</span>
+            <span class="album-cover-date">Goddard Memorial State Park · September 8, 2018</span>
+            <span class="album-cover-meta">3 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-optimism-walk-2018" hidden>
+        <div class="gallery-head">
+          <h2>Rhode Island Optimism Walk — 2018</h2>
+          <p>Goddard Memorial State Park · September 8, 2018</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="optimism-walk-2018" data-gallery-title="Rhode Island Optimism Walk — 2018">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Carrying the Team Golomboski 2018 banner down the course.">
+                <span class="tile-frame"><img src="assets/walk2018-banner-thumb.jpg" data-full="assets/walk2018-banner.jpg" loading="lazy" decoding="async" alt="Three walkers in white Optimism Walk shirts carrying the large &#x27;Team Golomboski 2018 — Fights Against Parkinson&#x27;s Disease&#x27; banner along a tree-lined park road at Goddard Memorial State Park" width="1875" height="1250" /></span>
+              </button>
+              <figcaption>Carrying the Team Golomboski 2018 banner down the course.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Walkers on the course at Goddard Memorial State Park.">
+                <span class="tile-frame"><img src="assets/walk2018-course-group-thumb.jpg" data-full="assets/walk2018-course-group.jpg" loading="lazy" decoding="async" alt="A group of walkers coming down the paved course at Goddard Memorial State Park — a man in a wheelchair at the front of the group, with families, strollers and a second wheelchair user behind" width="1875" height="1250" /></span>
+              </button>
+              <figcaption>Walkers on the course at Goddard Memorial State Park.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski on the course with the team's four-legged walker.">
+                <span class="tile-frame"><img class="focal-w18-joseph-dog" src="assets/walk2018-joseph-dog-thumb.jpg" data-full="assets/walk2018-joseph-dog.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski in a blue Optimism Walks shirt walking the team&#x27;s black dog, wearing its white walk shirt, down a wooded park road" width="2500" height="3750" /></span>
+              </button>
+              <figcaption>Joseph Golomboski on the course with the team's four-legged walker.</figcaption>
+            </figure>
+        </div>
+        </div>
+      </section>
+
       <section class="gallery-section album" id="gallery-optimism-walk-2017" data-year="2017" data-event-type="chapter" data-series="optimism-walk" aria-label="Rhode Island Optimism Walk 2017 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-optimism-walk-2017">
           <img src="assets/walk2017-team-group-wide-thumb.jpg" loading="lazy" decoding="async" alt="Rhode Island Optimism Walk — 2017" />
@@ -9020,19 +9035,159 @@
         </div>
       </section>
 
+      <section class="gallery-section album" id="gallery-bake-sale-2017" data-year="2017" data-event-type="team" data-series="bake-sale" aria-label="Cherry Hill Bake Sale 2017 gallery">
+        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-bake-sale-2017">
+          <img class="focal-sale-wide" src="assets/sale-table-wide-thumb.jpg" loading="lazy" decoding="async" alt="Cherry Hill Bake Sale — 2017" />
+          <span class="album-cover-text">
+            <span class="album-cover-name">Cherry Hill Bake Sale — 2017</span>
+            <span class="album-cover-date">Cherry Hill Manor, Johnston · August 20–21, 2017</span>
+            <span class="album-cover-meta">20 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
+          </span>
+        </button>
+        <div class="album-panel" id="album-panel-bake-sale-2017" hidden>
+        <div class="gallery-head">
+          <h2>Cherry Hill Bake Sale — 2017</h2>
+          <p>Cherry Hill Manor, Johnston · August 20–21, 2017</p>
+        </div>
+        <div class="uniform-gallery" data-gallery="bake-sale-2017" data-gallery-title="Cherry Hill Bake Sale — 2017">
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The bake sale table at Cherry Hill Manor, 2017 — Sr. at his post beside it.">
+                <span class="tile-frame"><img class="focal-sale-wide" src="assets/sale-table-wide-thumb.jpg" data-full="assets/sale-table-wide.jpg" loading="lazy" decoding="async" alt="The bake sale table at Cherry Hill Manor with Joseph P. Golomboski Sr. seated at the left beside it" width="4096" height="2304" /></span>
+              </button>
+              <figcaption>The bake sale table at Cherry Hill Manor, 2017 — Sr. at his post beside it.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Team Golomboski cake, with silver and blue awareness ribbons.">
+                <span class="tile-frame"><img src="assets/sale-cake-thumb.jpg" data-full="assets/sale-cake.jpg" loading="lazy" decoding="async" alt="The Team Golomboski cake with blue frosting and silver and blue awareness ribbons" width="1920" height="1080" /></span>
+              </button>
+              <figcaption>The Team Golomboski cake, with silver and blue awareness ribbons.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski Jr. behind the bake sale table, with his dad at his side, Cherry Hill Manor, 2017.">
+                <span class="tile-frame"><img src="assets/sale-table-joseph-thumb.jpg" data-full="assets/sale-table-joseph.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski Jr. standing behind the bake sale table with his dad, Joseph P. Golomboski Sr., seated at his side" width="1920" height="1440" /></span>
+              </button>
+              <figcaption>Joseph Golomboski Jr. behind the bake sale table, with his dad at his side, Cherry Hill Manor, 2017.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Vanilla cupcakes with chocolate buttercream and silver Parkinson's awareness ribbons — baked by Lisa Uva for the 2017 bake sale at Cherry Hill Manor.">
+                <span class="tile-frame"><img src="assets/bake-tray-thumb.jpg" data-full="assets/bake-tray.jpg" loading="lazy" decoding="async" alt="A tray of vanilla cupcakes with chocolate buttercream rosettes and silver Parkinson's awareness ribbons" width="4096" height="3072" /></span>
+              </button>
+              <figcaption>Vanilla cupcakes with chocolate buttercream and silver Parkinson's awareness ribbons — baked by Lisa Uva for the 2017 bake sale at Cherry Hill Manor.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Bagged cookies ready for the sale table.">
+                <span class="tile-frame"><img src="assets/sale-cookies-thumb.jpg" data-full="assets/sale-cookies.jpg" loading="lazy" decoding="async" alt="Bagged cookies lined up on the green tablecloth, ready for the sale table" width="1488" height="742" /></span>
+              </button>
+              <figcaption>Bagged cookies ready for the sale table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Cakes, cookies, and sale items on the green tablecloth at Cherry Hill.">
+                <span class="tile-frame"><img src="assets/sale-table-items-thumb.jpg" data-full="assets/sale-table-items.jpg" loading="lazy" decoding="async" alt="Cakes, cookies, and sale items arranged on the green tablecloth" width="748" height="562" /></span>
+              </button>
+              <figcaption>Cakes, cookies, and sale items on the green tablecloth at Cherry Hill.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Boxes of Lisa Uva's cupcakes lined up on the sale table.">
+                <span class="tile-frame"><img src="assets/sale-boxes-thumb.jpg" data-full="assets/sale-boxes.jpg" loading="lazy" decoding="async" alt="Boxes of Lisa Uva's cupcakes lined up on the sale table" width="4096" height="2304" /></span>
+              </button>
+              <figcaption>Boxes of Lisa Uva's cupcakes lined up on the sale table.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The sale table with the Team Golomboski cake — and the first slices already gone.">
+                <span class="tile-frame"><img src="assets/sale-table-cake-thumb.jpg" data-full="assets/sale-table-cake.jpg" loading="lazy" decoding="async" alt="The bake sale table with the Team Golomboski cake, bagged cookies, and sale flyers" width="4096" height="2304" /></span>
+              </button>
+              <figcaption>The sale table with the Team Golomboski cake — and the first slices already gone.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The sign out front: stop by for a snack.">
+                <span class="tile-frame"><img class="focal-sale-sign" src="assets/sale-sign-thumb.jpg" data-full="assets/sale-sign.jpg" loading="lazy" decoding="async" alt="A lawn sign reading 'Stop by for a snack — bake sale today'" width="2304" height="4096" /></span>
+              </button>
+              <figcaption>The sign out front: stop by for a snack.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Cherry Hill Manor, Johnston.">
+                <span class="tile-frame"><img src="assets/sale-cherryhill-thumb.jpg" data-full="assets/sale-cherryhill.jpg" loading="lazy" decoding="async" alt="The Cherry Hill Manor sign on the lawn in front of the brick building in Johnston" width="4096" height="2304" /></span>
+              </button>
+              <figcaption>Cherry Hill Manor, Johnston.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The bake sale table from the front, with framed photos of Dad watching over it.">
+                <span class="tile-frame"><img src="assets/sale-table-front-thumb.jpg" data-full="assets/sale-table-front.jpg" loading="lazy" decoding="async" alt="The bake sale table from the front, with framed photos of Joseph P. Golomboski Sr. on it" width="1280" height="960" /></span>
+              </button>
+              <figcaption>The bake sale table from the front, with framed photos of Dad watching over it.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A boxed set ready for the sale — cupcakes by Lisa Uva of Charlie &amp; Co.">
+                <span class="tile-frame"><img src="assets/bake-box-thumb.jpg" data-full="assets/bake-box.jpg" loading="lazy" decoding="async" alt="A boxed set of chocolate-buttercream cupcakes with a Charlie &amp; Co. label, ready for the sale" width="4096" height="3072" /></span>
+              </button>
+              <figcaption>A boxed set ready for the sale — cupcakes by Lisa Uva of Charlie &amp; Co.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A silver ribbon for Parkinson's awareness, piped in frosting.">
+                <span class="tile-frame"><img src="assets/bake-ribbon-close-thumb.jpg" data-full="assets/bake-ribbon-close.jpg" loading="lazy" decoding="async" alt="Close-up of a silver Parkinson's awareness ribbon piped in frosting on a vanilla-buttercream cupcake" width="1440" height="1920" /></span>
+              </button>
+              <figcaption>A silver ribbon for Parkinson's awareness, piped in frosting.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Chocolate cupcakes with vanilla buttercream, boxed for the sale.">
+                <span class="tile-frame"><img src="assets/bake-box-white-thumb.jpg" data-full="assets/bake-box-white.jpg" loading="lazy" decoding="async" alt="A box of chocolate cupcakes with vanilla buttercream rosettes and silver ribbons" width="4096" height="3072" /></span>
+              </button>
+              <figcaption>Chocolate cupcakes with vanilla buttercream, boxed for the sale.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Chocolate cupcakes with white ribbons, fresh on the tray.">
+                <span class="tile-frame"><img src="assets/bake-tray-choc-thumb.jpg" data-full="assets/bake-tray-choc.jpg" loading="lazy" decoding="async" alt="A tray of chocolate cupcakes with chocolate rosettes and white awareness ribbons" width="4096" height="3072" /></span>
+              </button>
+              <figcaption>Chocolate cupcakes with white ribbons, fresh on the tray.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Vanilla-frosted cupcakes with silver ribbons.">
+                <span class="tile-frame"><img src="assets/bake-tray-white-thumb.jpg" data-full="assets/bake-tray-white.jpg" loading="lazy" decoding="async" alt="Vanilla-frosted cupcakes with silver awareness ribbons on a tray" width="4096" height="3072" /></span>
+              </button>
+              <figcaption>Vanilla-frosted cupcakes with silver ribbons.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: One of Lisa's cupcakes, finished with sugar crystals.">
+                <span class="tile-frame"><img src="assets/bake-single-white-thumb.jpg" data-full="assets/bake-single-white.jpg" loading="lazy" decoding="async" alt="A single vanilla-buttercream cupcake finished with sugar crystals" width="1440" height="1920" /></span>
+              </button>
+              <figcaption>One of Lisa's cupcakes, finished with sugar crystals.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Chocolate buttercream and sugar crystals, up close.">
+                <span class="tile-frame"><img src="assets/bake-single-choc-thumb.jpg" data-full="assets/bake-single-choc.jpg" loading="lazy" decoding="async" alt="A chocolate-buttercream cupcake with sugar crystals, up close" width="4096" height="3072" /></span>
+              </button>
+              <figcaption>Chocolate buttercream and sugar crystals, up close.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Vanilla cupcakes with chocolate rosettes.">
+                <span class="tile-frame"><img src="assets/bake-vanilla-close-thumb.jpg" data-full="assets/bake-vanilla-close.jpg" loading="lazy" decoding="async" alt="Vanilla cupcakes with chocolate rosettes and sugar crystals, close up" width="4096" height="3072" /></span>
+              </button>
+              <figcaption>Vanilla cupcakes with chocolate rosettes.</figcaption>
+            </figure>
+            <figure class="gallery-tile">
+              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Chocolate rosettes with sugar crystals, ready for the sale.">
+                <span class="tile-frame"><img src="assets/bake-rosettes-thumb.jpg" data-full="assets/bake-rosettes.jpg" loading="lazy" decoding="async" alt="Chocolate rosettes with sugar crystals on a tray, ready for the sale" width="4096" height="3072" /></span>
+              </button>
+              <figcaption>Chocolate rosettes with sugar crystals, ready for the sale.</figcaption>
+            </figure>
+        </div>
+        <p class="gallery-closing">Photos from the Golomboski family collection.</p>
+        </div>
+      </section>
+
       <section class="gallery-section album" id="gallery-raffle-2017" data-year="2017" data-event-type="team" data-series="raffle" aria-label="Team Golomboski Raffle 2017 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-raffle-2017">
           <img src="assets/raffle2017-dad-cover-thumb.jpg" loading="lazy" decoding="async" alt="Team Golomboski Raffle — 2017" />
           <span class="album-cover-text">
             <span class="album-cover-name">Team Golomboski Raffle — 2017</span>
-            <span class="album-cover-date">Cherry Hill Manor, Johnston · August 2017</span>
+            <span class="album-cover-date">Cherry Hill Manor, Johnston · August 18, 2017</span>
             <span class="album-cover-meta">9 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
           </span>
         </button>
         <div class="album-panel" id="album-panel-raffle-2017" hidden>
         <div class="gallery-head">
           <h2>Team Golomboski Raffle — 2017</h2>
-          <p>Cherry Hill Manor, Johnston · August 2017</p>
+          <p>Cherry Hill Manor, Johnston · August 18, 2017</p>
         </div>
         <div class="uniform-gallery" data-gallery="raffle-2017" data-gallery-title="Team Golomboski Raffle — 2017">
             <figure class="gallery-tile">
@@ -9168,146 +9323,6 @@
         </div>
       </section>
 
-      <section class="gallery-section album" id="gallery-bake-sale-2017" data-year="2017" data-event-type="team" data-series="bake-sale" aria-label="Cherry Hill Bake Sale 2017 gallery">
-        <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-bake-sale-2017">
-          <img class="focal-sale-wide" src="assets/sale-table-wide-thumb.jpg" loading="lazy" decoding="async" alt="Cherry Hill Bake Sale — 2017" />
-          <span class="album-cover-text">
-            <span class="album-cover-name">Cherry Hill Bake Sale — 2017</span>
-            <span class="album-cover-date">Cherry Hill Manor, Johnston · 2017</span>
-            <span class="album-cover-meta">20 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
-          </span>
-        </button>
-        <div class="album-panel" id="album-panel-bake-sale-2017" hidden>
-        <div class="gallery-head">
-          <h2>Cherry Hill Bake Sale — 2017</h2>
-          <p>Cherry Hill Manor, Johnston · 2017</p>
-        </div>
-        <div class="uniform-gallery" data-gallery="bake-sale-2017" data-gallery-title="Cherry Hill Bake Sale — 2017">
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The bake sale table at Cherry Hill Manor, 2017 — Sr. at his post beside it.">
-                <span class="tile-frame"><img class="focal-sale-wide" src="assets/sale-table-wide-thumb.jpg" data-full="assets/sale-table-wide.jpg" loading="lazy" decoding="async" alt="The bake sale table at Cherry Hill Manor with Joseph P. Golomboski Sr. seated at the left beside it" width="4096" height="2304" /></span>
-              </button>
-              <figcaption>The bake sale table at Cherry Hill Manor, 2017 — Sr. at his post beside it.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The Team Golomboski cake, with silver and blue awareness ribbons.">
-                <span class="tile-frame"><img src="assets/sale-cake-thumb.jpg" data-full="assets/sale-cake.jpg" loading="lazy" decoding="async" alt="The Team Golomboski cake with blue frosting and silver and blue awareness ribbons" width="1920" height="1080" /></span>
-              </button>
-              <figcaption>The Team Golomboski cake, with silver and blue awareness ribbons.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Joseph Golomboski Jr. behind the bake sale table, with his dad at his side, Cherry Hill Manor, 2017.">
-                <span class="tile-frame"><img src="assets/sale-table-joseph-thumb.jpg" data-full="assets/sale-table-joseph.jpg" loading="lazy" decoding="async" alt="Joseph Golomboski Jr. standing behind the bake sale table with his dad, Joseph P. Golomboski Sr., seated at his side" width="1920" height="1440" /></span>
-              </button>
-              <figcaption>Joseph Golomboski Jr. behind the bake sale table, with his dad at his side, Cherry Hill Manor, 2017.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Vanilla cupcakes with chocolate buttercream and silver Parkinson's awareness ribbons — baked by Lisa Uva for the 2017 bake sale at Cherry Hill Manor.">
-                <span class="tile-frame"><img src="assets/bake-tray-thumb.jpg" data-full="assets/bake-tray.jpg" loading="lazy" decoding="async" alt="A tray of vanilla cupcakes with chocolate buttercream rosettes and silver Parkinson's awareness ribbons" width="4096" height="3072" /></span>
-              </button>
-              <figcaption>Vanilla cupcakes with chocolate buttercream and silver Parkinson's awareness ribbons — baked by Lisa Uva for the 2017 bake sale at Cherry Hill Manor.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Bagged cookies ready for the sale table.">
-                <span class="tile-frame"><img src="assets/sale-cookies-thumb.jpg" data-full="assets/sale-cookies.jpg" loading="lazy" decoding="async" alt="Bagged cookies lined up on the green tablecloth, ready for the sale table" width="1488" height="742" /></span>
-              </button>
-              <figcaption>Bagged cookies ready for the sale table.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Cakes, cookies, and sale items on the green tablecloth at Cherry Hill.">
-                <span class="tile-frame"><img src="assets/sale-table-items-thumb.jpg" data-full="assets/sale-table-items.jpg" loading="lazy" decoding="async" alt="Cakes, cookies, and sale items arranged on the green tablecloth" width="748" height="562" /></span>
-              </button>
-              <figcaption>Cakes, cookies, and sale items on the green tablecloth at Cherry Hill.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Boxes of Lisa Uva's cupcakes lined up on the sale table.">
-                <span class="tile-frame"><img src="assets/sale-boxes-thumb.jpg" data-full="assets/sale-boxes.jpg" loading="lazy" decoding="async" alt="Boxes of Lisa Uva's cupcakes lined up on the sale table" width="4096" height="2304" /></span>
-              </button>
-              <figcaption>Boxes of Lisa Uva's cupcakes lined up on the sale table.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The sale table with the Team Golomboski cake — and the first slices already gone.">
-                <span class="tile-frame"><img src="assets/sale-table-cake-thumb.jpg" data-full="assets/sale-table-cake.jpg" loading="lazy" decoding="async" alt="The bake sale table with the Team Golomboski cake, bagged cookies, and sale flyers" width="4096" height="2304" /></span>
-              </button>
-              <figcaption>The sale table with the Team Golomboski cake — and the first slices already gone.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The sign out front: stop by for a snack.">
-                <span class="tile-frame"><img class="focal-sale-sign" src="assets/sale-sign-thumb.jpg" data-full="assets/sale-sign.jpg" loading="lazy" decoding="async" alt="A lawn sign reading 'Stop by for a snack — bake sale today'" width="2304" height="4096" /></span>
-              </button>
-              <figcaption>The sign out front: stop by for a snack.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Cherry Hill Manor, Johnston.">
-                <span class="tile-frame"><img src="assets/sale-cherryhill-thumb.jpg" data-full="assets/sale-cherryhill.jpg" loading="lazy" decoding="async" alt="The Cherry Hill Manor sign on the lawn in front of the brick building in Johnston" width="4096" height="2304" /></span>
-              </button>
-              <figcaption>Cherry Hill Manor, Johnston.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: The bake sale table from the front, with framed photos of Dad watching over it.">
-                <span class="tile-frame"><img src="assets/sale-table-front-thumb.jpg" data-full="assets/sale-table-front.jpg" loading="lazy" decoding="async" alt="The bake sale table from the front, with framed photos of Joseph P. Golomboski Sr. on it" width="1280" height="960" /></span>
-              </button>
-              <figcaption>The bake sale table from the front, with framed photos of Dad watching over it.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A boxed set ready for the sale — cupcakes by Lisa Uva of Charlie &amp; Co.">
-                <span class="tile-frame"><img src="assets/bake-box-thumb.jpg" data-full="assets/bake-box.jpg" loading="lazy" decoding="async" alt="A boxed set of chocolate-buttercream cupcakes with a Charlie &amp; Co. label, ready for the sale" width="4096" height="3072" /></span>
-              </button>
-              <figcaption>A boxed set ready for the sale — cupcakes by Lisa Uva of Charlie &amp; Co.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: A silver ribbon for Parkinson's awareness, piped in frosting.">
-                <span class="tile-frame"><img src="assets/bake-ribbon-close-thumb.jpg" data-full="assets/bake-ribbon-close.jpg" loading="lazy" decoding="async" alt="Close-up of a silver Parkinson's awareness ribbon piped in frosting on a vanilla-buttercream cupcake" width="1440" height="1920" /></span>
-              </button>
-              <figcaption>A silver ribbon for Parkinson's awareness, piped in frosting.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Chocolate cupcakes with vanilla buttercream, boxed for the sale.">
-                <span class="tile-frame"><img src="assets/bake-box-white-thumb.jpg" data-full="assets/bake-box-white.jpg" loading="lazy" decoding="async" alt="A box of chocolate cupcakes with vanilla buttercream rosettes and silver ribbons" width="4096" height="3072" /></span>
-              </button>
-              <figcaption>Chocolate cupcakes with vanilla buttercream, boxed for the sale.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Chocolate cupcakes with white ribbons, fresh on the tray.">
-                <span class="tile-frame"><img src="assets/bake-tray-choc-thumb.jpg" data-full="assets/bake-tray-choc.jpg" loading="lazy" decoding="async" alt="A tray of chocolate cupcakes with chocolate rosettes and white awareness ribbons" width="4096" height="3072" /></span>
-              </button>
-              <figcaption>Chocolate cupcakes with white ribbons, fresh on the tray.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Vanilla-frosted cupcakes with silver ribbons.">
-                <span class="tile-frame"><img src="assets/bake-tray-white-thumb.jpg" data-full="assets/bake-tray-white.jpg" loading="lazy" decoding="async" alt="Vanilla-frosted cupcakes with silver awareness ribbons on a tray" width="4096" height="3072" /></span>
-              </button>
-              <figcaption>Vanilla-frosted cupcakes with silver ribbons.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: One of Lisa's cupcakes, finished with sugar crystals.">
-                <span class="tile-frame"><img src="assets/bake-single-white-thumb.jpg" data-full="assets/bake-single-white.jpg" loading="lazy" decoding="async" alt="A single vanilla-buttercream cupcake finished with sugar crystals" width="1440" height="1920" /></span>
-              </button>
-              <figcaption>One of Lisa's cupcakes, finished with sugar crystals.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Chocolate buttercream and sugar crystals, up close.">
-                <span class="tile-frame"><img src="assets/bake-single-choc-thumb.jpg" data-full="assets/bake-single-choc.jpg" loading="lazy" decoding="async" alt="A chocolate-buttercream cupcake with sugar crystals, up close" width="4096" height="3072" /></span>
-              </button>
-              <figcaption>Chocolate buttercream and sugar crystals, up close.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Vanilla cupcakes with chocolate rosettes.">
-                <span class="tile-frame"><img src="assets/bake-vanilla-close-thumb.jpg" data-full="assets/bake-vanilla-close.jpg" loading="lazy" decoding="async" alt="Vanilla cupcakes with chocolate rosettes and sugar crystals, close up" width="4096" height="3072" /></span>
-              </button>
-              <figcaption>Vanilla cupcakes with chocolate rosettes.</figcaption>
-            </figure>
-            <figure class="gallery-tile">
-              <button type="button" class="photo-open" aria-haspopup="dialog" aria-label="Enlarge photo: Chocolate rosettes with sugar crystals, ready for the sale.">
-                <span class="tile-frame"><img src="assets/bake-rosettes-thumb.jpg" data-full="assets/bake-rosettes.jpg" loading="lazy" decoding="async" alt="Chocolate rosettes with sugar crystals on a tray, ready for the sale" width="4096" height="3072" /></span>
-              </button>
-              <figcaption>Chocolate rosettes with sugar crystals, ready for the sale.</figcaption>
-            </figure>
-        </div>
-        <p class="gallery-closing">Photos from the Golomboski family collection.</p>
-        </div>
-      </section>
-
       <section class="gallery-section album" id="gallery-christmas-card-2016" data-year="2016" data-event-type="other" data-series="christmas-card" aria-label="Christmas Card Contest 2016 gallery">
         <button type="button" class="album-cover" aria-expanded="false" aria-controls="album-panel-christmas-card-2016">
           <img src="assets/xmas2016-group-thumb.jpg" loading="lazy" decoding="async" alt="Christmas Card Contest — 2016" />
@@ -9369,14 +9384,14 @@
           <img src="assets/walk2016-team-group-thumb.jpg" loading="lazy" decoding="async" alt="Rhode Island Optimism Walk — 2016" />
           <span class="album-cover-text">
             <span class="album-cover-name">Rhode Island Optimism Walk — 2016</span>
-            <span class="album-cover-date">Goddard Memorial State Park · 2016</span>
+            <span class="album-cover-date">Goddard Memorial State Park · September 16, 2016</span>
             <span class="album-cover-meta">15 photos · <span class="when-closed">View album ↓</span><span class="when-open">Close album ↑</span></span>
           </span>
         </button>
         <div class="album-panel" id="album-panel-optimism-walk-2016" hidden>
         <div class="gallery-head">
           <h2>Rhode Island Optimism Walk — 2016</h2>
-          <p>Goddard Memorial State Park · 2016</p>
+          <p>Goddard Memorial State Park · September 16, 2016</p>
         </div>
         <div class="uniform-gallery" data-gallery="optimism-walk-2016" data-gallery-title="Rhode Island Optimism Walk — 2016">
             <figure class="gallery-tile">
@@ -11171,7 +11186,7 @@
       <p>New to Parkinson's? Start here — what it is, what the symptoms look like, and the questions worth asking, all in plain language.</p>
       </div>
       <figure class="page-hero-photo">
-        <img src="assets/support.jpg" alt="A support group seated in a circle, talking and laughing together" width="1024" height="421" />
+        <img src="assets/joseph-sr-portrait.png" alt="Joseph Golomboski Sr." width="1080" height="1350" />
       </figure>
     </div>
   </section>
