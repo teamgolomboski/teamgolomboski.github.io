@@ -2801,6 +2801,14 @@
     .film-frame{width:152px}
     .filmstrip-block{margin-top:44px}
   }
+  /* Video players (Events archive grid + Media card embed): responsive 16:9, 2-across on desktop, stacked on phones. */
+  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px}
+  @media (max-width:700px){.video-grid{grid-template-columns:1fr}}
+  .video-item{margin:0}
+  .video-frame{position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#0a2340}
+  .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+  .video-item figcaption{margin-top:10px;font-weight:700;color:#0a2340}
+  .media-card .video-frame{margin:14px 0}
 </style>
 </head>
 <body>
@@ -2831,6 +2839,7 @@
         <div class="nav-drop-menu">
           <a href="#/in-the-news" data-route="in-the-news">In the News</a>
           <a href="#/galleries" data-route="galleries">Photo Galleries</a>
+          <a href="#/events#video-recaps">Videos</a>
         </div>
       </div>
       <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
@@ -2854,6 +2863,7 @@
         <a href="#/media" data-route="media">Media</a>
         <a class="mobile-sub" href="#/in-the-news" data-route="in-the-news">In the News</a>
         <a class="mobile-sub" href="#/galleries" data-route="galleries">Photo Galleries</a>
+        <a class="mobile-sub" href="#/events#video-recaps">Videos</a>
         <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
         <a href="#/introduction-to-parkinsons" data-route="introduction-to-parkinsons">Introduction to Parkinson's</a>
       </nav>
@@ -4822,16 +4832,34 @@
     </div>
   </section>
 
-  <section class="section section-alt">
+  <section class="section section-alt" id="video-recaps">
     <div class="wrap">
       <div class="section-head">
         <div class="rule" aria-hidden="true"></div>
         <h2>From the Archive: Walk Recaps, 2014–2021</h2>
         <p>Video recaps from Team Golomboski's earlier Optimism Walk years.</p>
       </div>
-      <div class="placeholder-box">
-        <h3>Video recaps, 2014–2021</h3>
-        <p>Recap videos exist for the <strong>2014–2021</strong> walk seasons. Read how it all started on our <a href="#/our-story">Our Story</a> page.</p>
+      <div class="video-grid">
+        <figure class="video-item">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/f_Vhk93pG90" title="2014 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <figcaption>2014 — 2014 APDA Optimism Walk and 5k</figcaption>
+        </figure>
+        <figure class="video-item">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/hWOsLHHM5qE" title="2016 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <figcaption>2016 — 2016 APDA Optimism Walk and 5k</figcaption>
+        </figure>
+        <figure class="video-item">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/lrCSNPKcdeU" title="2017 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <figcaption>2017 — 2017 APDA Optimism Walk and 5k</figcaption>
+        </figure>
+        <figure class="video-item">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/LoWPCAiqojI" title="2019 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <figcaption>2019 — 2019 APDA Optimism Walk and 5k</figcaption>
+        </figure>
+        <figure class="video-item">
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/PK7SaPUcz3M" title="APDA September Virtual Optimism Walk (2021) — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+          <figcaption>2021 — APDA September Virtual Optimism Walk</figcaption>
+        </figure>
       </div>
       <div class="cta-band" style="margin-top:40px">
         <h2>Be Part of the Next One</h2>
@@ -5202,6 +5230,7 @@
         <article class="media-card">
           <h3>Episode 30 | Parkinson's Association | Joe Golomboski</h3>
           <p><strong>The Ernest Faison Show · Episode 30.</strong> Joseph joins Ernest Faison to talk about the Parkinson's Association and the work of Team Golomboski.</p>
+          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/jFnxBxa7FIA" title="The Ernest Faison Show, Episode 30 — Parkinson's Association with Joe Golomboski" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
           <a class="more-link" href="https://www.youtube.com/watch?v=jFnxBxa7FIA" target="_blank" rel="noopener">Watch the episode →</a>
         </article>
         <article class="media-card">
