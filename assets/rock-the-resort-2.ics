@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Team Golomboski//Events//EN
+BEGIN:VEVENT
+UID:rock-the-resort-2-20270411@teamgolomboski.com
+DTSTAMP:20261114T011800Z
+DTSTART;VALUE=DATE:20270411
+DTEND;VALUE=DATE:20270412
+SUMMARY:Rock the Resort II — Concert for a Cure
+LOCATION:The Last Resort\, Smithfield\, RI
+DESCRIPTION:Team Golomboski's annual Concert for a Cure benefiting the APDA Rhode Island Chapter. Event page: https://teamgolomboski.com/#/rock-the-resort
+END:VEVENT
+END:VCALENDAR
