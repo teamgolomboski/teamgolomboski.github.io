@@ -5,15 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <meta name="color-scheme" content="light" />
 <meta name="description" content="Team Golomboski is a Rhode Island family team founded in 2014 in honor of Joseph Golomboski Sr., walking the Rhode Island Optimism Walk for APDA Rhode Island." />
+<link rel="canonical" href="https://teamgolomboski.com/" />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://teamgolomboski.github.io/" />
+<meta property="og:url" content="https://teamgolomboski.com/" />
 <meta property="og:title" content="Team Golomboski | Rhode Island Parkinson's Fundraising" />
 <meta property="og:description" content="Team Golomboski is a Rhode Island family team founded in 2014 in honor of Joseph Golomboski Sr., walking the Rhode Island Optimism Walk for APDA Rhode Island." />
-<meta property="og:image" content="https://teamgolomboski.github.io/assets/hero-walk-2026.jpg" />
+<meta property="og:image" content="https://teamgolomboski.com/assets/hero-walk-2026.jpg" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Team Golomboski | Rhode Island Parkinson's Fundraising" />
 <meta name="twitter:description" content="Team Golomboski is a Rhode Island family team founded in 2014 in honor of Joseph Golomboski Sr., walking the Rhode Island Optimism Walk for APDA Rhode Island." />
-<meta name="twitter:image" content="https://teamgolomboski.github.io/assets/hero-walk-2026.jpg" />
+<meta name="twitter:image" content="https://teamgolomboski.com/assets/hero-walk-2026.jpg" />
 <title>Team Golomboski | Rhode Island Parkinson's Fundraising</title>
 <link rel="icon" type="image/png" href="assets/favicon-g.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1144,6 +1145,12 @@
   /* Team Golomboski goal bar (Events walk entry): final state is a full bar —
      JS stages it at 0 only when motion is allowed, then animates on view. */
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+  /* Skip link: the first tab stop on every page — visually hidden
+     until focused, then it drops in above the header. Its click is
+     handled by the skip-link script at the end of the body (a bare
+     #app hash would be read by the router as a route). */
+  .skip-link{position:absolute;left:16px;top:-70px;z-index:200;background:#0a2340;color:#fff;padding:12px 22px;border-radius:0 0 10px 10px;font-weight:700;text-decoration:none;transition:top .15s ease}
+  .skip-link:focus{top:0;color:#fff}
   .team-progress{margin:18px 0 6px}
   .event-body p.team-progress-label{margin:0 0 10px;font-weight:700;color:var(--ink);font-size:1rem}
   .event-body p.team-progress-label strong{color:var(--green-dark)}
@@ -1675,16 +1682,12 @@
   /* The "More Books to Explore" pop-up was retired with the
      bookshelf build (Nov 9, 2026): all nine books now stand on
      the shelf, so the modal, its button and its script are gone. */
-  /* ---------- Shelf placeholder covers (Recommended Reading) ----------
-     Slots whose real cover is not on the site yet stand on the
-     shelf as a plain placeholder plate inside the standard cover
-     frame, labeled "Cover coming soon" — no drawn or generated
-     cover art. Used by Our Bookshelf's tenth slot. (The narrow
-     right-side booklet
-     cover column that used to sit beside the text on the Reading,
-     Just Diagnosed and Caregivers pages was removed Nov 10, 2026;
+  /* Shelf placeholder covers were retired Nov 13, 2026: every Our
+     Bookshelf slot now carries its real cover, so the placeholder
+     plate style is gone. (The narrow right-side booklet cover
+     column that used to sit beside the text on the Reading, Just
+     Diagnosed and Caregivers pages was removed Nov 10, 2026;
      those sections now run full width.) */
-  .shelf-cover-placeholder{display:flex;align-items:center;justify-content:center;width:100%;height:100%;padding:14px;text-align:center;font-family:"Archivo",sans-serif;font-size:.92rem;font-weight:700;line-height:1.45;color:#5b7186;background:#e7edf3}
   /* "On this page" jump control (Our Story): directly under the
      page hero, one compact row — the small "On this page" label
      beside a single dropdown holding all eleven stops (the five
@@ -2801,6 +2804,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#app">Skip to content</a>
 
 <!-- ============================================================
      NAVIGATION — shared by every page
@@ -2857,7 +2861,7 @@
   </div>
 </header>
 
-<main id="app">
+<main id="app" tabindex="-1">
 
 <!-- ============================================================
      PAGE: HOME
@@ -4448,7 +4452,7 @@
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://www.stacysmithstudios.com/" target="_blank" rel="noopener">Stacy Smith Studios Photography</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Superfan</span><a class="sponsor-link" href="https://www.martonegroup.com/agents/338535-Paul-Harrison/" target="_blank" rel="noopener">Paul Harrison Realtor</a> (In Memory of George Young)</div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">The Opening Act</span><a class="sponsor-link" href="https://www.themusiccomplexri.com/" target="_blank" rel="noopener">The Music Complex RI</a></div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Venue Sponsor</span><a class="sponsor-link" href="http://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
+          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Venue Sponsor</span><a class="sponsor-link" href="https://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
         </div>
         <div class="sponsor-wall-head" style="margin-top:36px">
           <h3>Funny 4 Funds 2024</h3>
@@ -4460,9 +4464,9 @@
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span>Kuts By Ken</div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://www.mariakishfy.com/" target="_blank" rel="noopener">Maria Kishfy Health &amp; Fitness Consultant</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span>Pontiac Tap</div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
+          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span>Tony Jones - Realtor</div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://www.yourfavoriteinflatables.com/" target="_blank" rel="noopener">Your Favorite Inflatables</a></div>
+          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://www.yourfavoriteinflatables.com/" target="_blank" rel="noopener">Your Favorite Inflatables</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Show Sponsor</span><a class="sponsor-link" href="https://www.themusiccomplexri.com/" target="_blank" rel="noopener">The Music Complex RI</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Show Sponsor</span>Anthony Golomboski of RE/MAX 1st Choice</div>
         </div>
@@ -4474,12 +4478,12 @@
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Silver</span><a class="sponsor-link" href="https://www.themusiccomplexri.com/" target="_blank" rel="noopener">Rudy D&rsquo;Agostino&rsquo;s The Music Complex RI</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://actionautoparts.com/" target="_blank" rel="noopener">Action Auto Parts</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span>Anthony Golomboski RE/MAX</div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://hanpalacechineserestaurant.com/default.htm" target="_blank" rel="noopener">Han Palace</a></div>
+          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://hanpalacechineserestaurant.com/default.htm" target="_blank" rel="noopener">Han Palace</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://hurdermillwork.com/" target="_blank" rel="noopener">Hurder Millwork Corp.</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span>Kuts By Ken</div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://www.mariakishfy.com/" target="_blank" rel="noopener">Maria Kishfy Health &amp; Fitness Consultant</a></div>
           <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://www.stacysmithstudios.com/" target="_blank" rel="noopener">Stacy Smith Studios</a></div>
-          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="http://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
+          <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Bronze</span><a class="sponsor-link" href="https://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
           <a class="sponsor-tile sponsor-tile-invite" href="mailto:teamgolomboski@gmail.com?subject=Sponsor%20Team%20Golomboski">Your Business Here — Become a Sponsor →</a>
         </div>
         <p style="margin-top:16px;color:var(--muted);font-size:.95rem">Supported Team Golomboski and don&rsquo;t see your name yet? Write to <a href="mailto:teamgolomboski@gmail.com">teamgolomboski@gmail.com</a> and we&rsquo;ll add you right away. Sponsors listed here are businesses that supported <strong style="color:var(--ink)">Team Golomboski events</strong> directly.</p>
@@ -5041,7 +5045,7 @@
         <p>The first Rock the Resort — Concert for a Cure was made possible by these local businesses and supporters. Thank you for standing with Rhode Island families living with Parkinson's.</p>
       </div>
       <div class="sponsor-grid">
-        <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Venue Sponsor</span><a class="sponsor-link" href="http://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
+        <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Venue Sponsor</span><a class="sponsor-link" href="https://www.thelastresortri.com/" target="_blank" rel="noopener">The Last Resort</a></div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Backstage VIP</span><a class="sponsor-link" href="https://oakleyhomeaccess.com" target="_blank" rel="noopener">Oakley Home Access</a></div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">Backstage VIP</span><a class="sponsor-link" href="https://heavymetalmuscleco.com" target="_blank" rel="noopener">The Heavy Metal Muscle Co.</a></div>
         <div class="sponsor-tile sponsor-tile-tiered"><span class="sponsor-tier">The Opening Act</span>Anthony Golomboski of RE/MAX 1st Choice</div>
@@ -11828,7 +11832,7 @@
   // here. The router also reads this table to keep the tab's meta
   // description and OG/Twitter tags in step with the page shown.
   // ================================================================
-  var SITE_BASE = "https://teamgolomboski.github.io/";
+  var SITE_BASE = "https://teamgolomboski.com/";
   var PAGE_META = {
     "home": { path: "", title: "Team Golomboski | Rhode Island Parkinson's Fundraising", description: "Team Golomboski is a Rhode Island family team founded in 2014 in honor of Joseph Golomboski Sr., walking the Rhode Island Optimism Walk for APDA Rhode Island.", image: "hero-walk-2026.jpg" },
     "our-story": { path: "our-story", title: "Our Story | Team Golomboski", description: "How Team Golomboski began in 2014 around Joseph Golomboski Sr. — diagnosed at 44, the first Optimism Walk, and the family still walking in his memory today.", image: "dad-frame-hd.jpg" },
@@ -12798,7 +12802,7 @@
 
   // Share This Page (footer): shares the page the visitor is on —
   // by its PRETTY URL from the PAGE_META table (site base + page
-  // slug, e.g. https://teamgolomboski.github.io/events), never the
+  // slug, e.g. https://teamgolomboski.com/events), never the
   // hash URL. At publish time each pretty URL is a static stub
   // carrying that page's share card (title, description, image)
   // and redirecting into the matching hash view, so a link shared
@@ -12931,6 +12935,22 @@
         requestAnimationFrame(step);
       }
     }
+  })();
+</script>
+
+<script>
+  // Skip link: move keyboard focus to the main content without
+  // changing the URL — the hash router would read a bare #app
+  // hash as a route and send the reader home.
+  (function () {
+    var link = document.querySelector(".skip-link");
+    var main = document.getElementById("app");
+    if (!link || !main) { return; }
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      main.focus({ preventScroll: true });
+      main.scrollIntoView();
+    });
   })();
 </script>
 
