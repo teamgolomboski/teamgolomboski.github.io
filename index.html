@@ -1045,6 +1045,13 @@
   .story-timeline .timeline-year{font-size:1.18rem;font-weight:900;color:#ffb287}
   .story-timeline .timeline-desc{margin-top:0;font-size:1.02rem}
   @media (max-width:480px){ .story-timeline .timeline-list li{grid-template-columns:56px 1fr;gap:12px} .story-timeline .timeline-year{font-size:1.05rem} }
+  /* Year-by-Year ledger (Impact, inside Twelve Years): a compact record
+     block reusing the .story-timeline list presentation above; only the
+     heading, intro and closing note carry their own spacing here. */
+  .year-ledger{margin-top:44px}
+  .year-ledger h3{font-size:1.35rem;font-weight:800}
+  .year-ledger-intro{color:var(--muted);margin:12px 0 26px;font-size:1.02rem;line-height:1.65;max-width:760px}
+  .year-ledger-note{color:var(--muted);margin:20px 0 0;font-size:.98rem;line-height:1.6}
 
   /* ---------- Our Story — tappable "Story So Far" entries ----------
      Each entry gains a small "+ See the photo" toggle under its
@@ -1248,6 +1255,12 @@
   .circle-panel p strong{color:#fff}
   .circle-amount{display:inline-block;margin-top:20px;background:rgba(240,100,35,.14);border:1px solid rgba(255,178,135,.45);color:#ffb287;font-family:"Archivo",sans-serif;font-weight:800;font-size:1rem;border-radius:99px;padding:8px 18px}
   .circle-panel .join-actions{margin-top:24px}
+  /* Circle names line: the standing Circle's three entries, set in the
+     panel's own language — white, bold, larger than body text, centered.
+     The .section-prefixed selector outranks the light-scheme rule that
+     restores .circle-panel paragraph text to light gray-blue, so the
+     names stay pure white on the navy panel. */
+  .section .circle-panel p.circle-names{color:#fff;font-weight:800;font-size:1.18rem;line-height:1.55;max-width:820px;margin-top:22px}
   /* Join pathways on Impact */
   .impact-join-card .btn{margin-top:auto}
   @media (max-width:900px){ .sponsor-layout{grid-template-columns:1fr} .circle-panel{padding:32px 22px} }
@@ -1811,6 +1824,13 @@
   .profile-bio p{color:var(--muted);margin:0 0 14px;font-size:1.03rem;line-height:1.7}
   .profile-bio p strong{color:var(--ink)}
   .profile-bio p:last-child{margin-bottom:0}
+  /* Profile pull-quote (Joseph & Alicia): navy text with an APDA-blue
+     left border, sitting directly after the bio inside each profile
+     card. The card-scoped selectors outrank the generic light-section
+     paragraph color so the quote keeps its navy. */
+  .profile-card .profile-quote{margin:26px 0 0;padding:4px 0 4px 20px;border-left:4px solid #005eb8}
+  .profile-card .profile-quote p{color:#0a2340;margin:0;font-size:1.08rem;line-height:1.65}
+  .profile-card .profile-quote .profile-quote-attr{display:block;margin-top:10px;font-weight:700;font-size:.98rem;color:#0a2340}
   .timeline{margin-top:28px;padding-top:26px;border-top:1px solid var(--line)}
   .timeline h4{font-family:"Archivo",sans-serif;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--green-dark);margin:0 0 18px}
   .timeline h4{color:#7fd6a5}
@@ -2821,6 +2841,20 @@
   [data-page="videos"] .video-archive li.open .timeline-toggle .when-open{display:inline}
   [data-page="videos"] .video-archive li.open .timeline-toggle .when-closed{display:none}
   [data-page="videos"] .video-archive .timeline-panel{margin:2px 0 20px}
+  /* Rock the Resort page — FAQ accordion: the same toggle/panel
+     pattern as the Videos archive above (.timeline-toggle /
+     .timeline-panel), scoped to this page. Full-width question
+     rows with +/− labels, all closed by default; the answer sits
+     in the white light-section panel, its text in the standard
+     light body color. */
+  [data-page="rock-the-resort"] .rtr-faq{list-style:none;margin:6px 0 0;padding:0;max-width:1000px}
+  [data-page="rock-the-resort"] .rtr-faq > li{border-top:1px solid #d3dde7}
+  [data-page="rock-the-resort"] .rtr-faq > li:last-child{border-bottom:1px solid #d3dde7}
+  [data-page="rock-the-resort"] .rtr-faq .timeline-toggle{display:flex;width:100%;margin-top:0;padding:16px 8px;font-size:1.05rem;color:#0a2340;text-align:left}
+  [data-page="rock-the-resort"] .rtr-faq li.open .timeline-toggle .when-open{display:inline}
+  [data-page="rock-the-resort"] .rtr-faq li.open .timeline-toggle .when-closed{display:none}
+  [data-page="rock-the-resort"] .rtr-faq .timeline-panel{margin:2px 0 20px}
+  [data-page="rock-the-resort"] .rtr-faq .timeline-panel p{margin:0;color:#33475c;font-size:1rem;line-height:1.6}
 </style>
 </head>
 <body>
@@ -4085,6 +4119,10 @@
           <p>Beyond the walk, Joseph chairs and helps lead Team Golomboski's own events, including <strong>Rock the Resort: Concert for a Cure</strong> and the team's Funny 4 Funds fundraisers, and he represents APDA RI at community events across the state — speaking with families, partners, and supporters about local programs and support.</p>
           <p>His leadership is defined by continuity: the same volunteer who walked in 2014 now leads the board, chairs the walk, and captains the team his family founded in his father's honor.</p>
         </div>
+        <blockquote class="profile-quote">
+          <p>My Dad inspired me to become the man that I am today. I want to honor his memory by fighting for a cure and helping others who are going through this journey.</p>
+          <span class="profile-quote-attr">— Joseph Golomboski</span>
+        </blockquote>
         <div class="timeline" aria-label="Joseph Golomboski Jr. milestones">
           <h4>Milestones</h4>
           <ul class="timeline-list">
@@ -4193,6 +4231,10 @@
           <p>She serves as a <strong>Member of the Board of Directors of the APDA RI Chapter</strong>, bringing the perspective of a co-founder and longtime walk participant to the chapter's leadership.</p>
           <p>Alicia shares in the full life of the team — the annual Rhode Island Optimism Walk, Funny 4 Funds fundraisers, and Rock the Resort: Concert for a Cure — and in the quieter work between events that keeps a community team strong year after year.</p>
         </div>
+        <blockquote class="profile-quote">
+          <p>Every step we take is for our Dad. We will continue to honor his memory by spreading awareness, supporting families, and fighting for a cure.</p>
+          <span class="profile-quote-attr">— Alicia Golomboski</span>
+        </blockquote>
       </article>
       <figure class="family-photo">
         <img src="assets/mom-walk.jpg" alt="Alicia Golomboski, her mother Donna Harrison Lerch, and Joseph Golomboski Jr. standing together in navy Optimism Walk shirts at an Optimism Walk event" width="848" height="848" />
@@ -4414,6 +4456,55 @@
           </li>
         </ul>
       </div>
+      <div class="year-ledger">
+        <h3>Year by Year</h3>
+        <p class="year-ledger-intro">This is the team&rsquo;s own year-by-year record from its first decade, 2014–2024 — every Optimism Walk, plus the Funny 4 Funds comedy nights that joined the effort along the way.</p>
+        <div class="story-timeline">
+          <ul class="timeline-list">
+            <li>
+              <span class="timeline-year">2014</span>
+              <span class="timeline-desc">Optimism Walk: $1,210.00 raised · $500 goal</span>
+            </li>
+            <li>
+              <span class="timeline-year">2016</span>
+              <span class="timeline-desc">Optimism Walk: $405.00 raised · $2,000 goal</span>
+            </li>
+            <li>
+              <span class="timeline-year">2017</span>
+              <span class="timeline-desc">Optimism Walk: $2,422.00 raised · $3,000 goal</span>
+            </li>
+            <li>
+              <span class="timeline-year">2018</span>
+              <span class="timeline-desc">Optimism Walk: $430.00 raised · $500 goal</span>
+            </li>
+            <li>
+              <span class="timeline-year">2019</span>
+              <span class="timeline-desc">Optimism Walk: $2,937.00 raised · $2,019 goal</span>
+            </li>
+            <li>
+              <span class="timeline-year">2020</span>
+              <span class="timeline-desc">Optimism Walk: $2,200.00 raised · $2,020 goal</span>
+            </li>
+            <li>
+              <span class="timeline-year">2021</span>
+              <span class="timeline-desc">Optimism Walk: $2,796 raised · $2,021 goal — plus Parkinson&rsquo;s Awareness Month: $861 raised · $200 goal</span>
+            </li>
+            <li>
+              <span class="timeline-year">2022</span>
+              <span class="timeline-desc">Optimism Walk: $6,441.39 raised · $5,000 goal — plus Funny 4 Funds Comedy: $4,600 raised · $2,000 goal</span>
+            </li>
+            <li>
+              <span class="timeline-year">2023</span>
+              <span class="timeline-desc">Optimism Walk: $6,196.01 raised · $5,000 goal — plus Funny 4 Funds Comedy: $4,503.01 raised · $2,000 goal</span>
+            </li>
+            <li>
+              <span class="timeline-year">2024</span>
+              <span class="timeline-desc">Optimism Walk: $8,232.37 raised · $5,000 goal — plus Funny 4 Funds Comedy: $4,455 raised · $4,000 goal</span>
+            </li>
+          </ul>
+        </div>
+        <p class="year-ledger-note">Funny 4 Funds comedy show funds were added to the team&rsquo;s overall Optimism Walk amount.</p>
+      </div>
       <div class="impact-gallery" style="margin-top:36px">
         <figure>
           <img src="assets/impact-team-2025-blur.jpg" alt="Team Golomboski group at the 2025 Optimism Walk holding a framed Top Fundraising Team 3rd Place certificate." width="1548" height="1366" />
@@ -4564,11 +4655,12 @@
   <section class="section" style="padding-top:0" id="circle-of-optimism" aria-label="Circle of Optimism">
     <div class="wrap">
       <div class="circle-panel">
-        <p class="circle-eyebrow">Donor Recognition</p>
+        <p class="circle-eyebrow">Team Recognition</p>
         <h2>Circle of Optimism</h2>
-        <p>Our highest thanks for the donors whose generosity leads the way. Donors who give <strong>$1,000 or more</strong> in support of Team Golomboski are recognized here by name — because leadership like that deserves to be seen, and to inspire the next gift.</p>
+        <p>The Circle of Optimism honors the Team Golomboski members who raised over $1,000 for APDA Rhode Island — the fundraisers whose personal efforts lead the way, year after year.</p>
         <span class="circle-amount">$1,000+ · Circle of Optimism</span>
-        <p>Thank you to every donor, at every level, who made 2026 possible. The 2026 Circle names are being confirmed and will be listed here.</p>
+        <p class="circle-names">Alicia Golomboski · Anthony and Gayle Golomboski · Joseph Golomboski Jr.</p>
+        <p>Thank you to every donor, at every level, who made 2026 possible.</p>
         <div class="join-actions">
           <a class="btn btn-orange" href="https://www.apdaparkinson.org/community/rhode-island/ways-donate/donate/" target="_blank" rel="noopener">Donate to APDA RI</a>
           <a class="btn btn-outline" href="#/donate">More Ways to Give</a>
@@ -4993,6 +5085,9 @@
               <li>Emcee: Stephen Donovan</li>
             </ul>
             <p><strong>Thank you</strong> to the performers, to Stephen Donovan for hosting the night, and to every sponsor and supporter who helped make the first concert happen.</p>
+            <p>The Opening Act — Anthony Golomboski of RE/MAX 1st Choice</p>
+            <p>Superfan — Hurder Millwork Corporation · Demo&rsquo;s Pizza Factory (Warwick, RI) · Therapeutic Impressions · Joe &amp; Son&rsquo;s Auto Service · Stacy Smith Studios Photography</p>
+            <p>Also with thanks to The Music Complex RI and Oakley Home Access.</p>
             <figure class="event-photo">
               <img src="assets/rock-resort-collage.jpg" alt="Photo collage from Rock the Resort 2026: performers, attendees, and a framed photo of Joseph Golomboski Sr." width="1800" height="1200" />
               <figcaption>Scenes from Rock the Resort 2026 — Concert for a Cure, in loving memory of Joseph Golomboski Sr.</figcaption>
@@ -5025,6 +5120,41 @@
           </div>
         </article>
       </div>
+      <div class="prose" style="margin-top:30px">
+        <h3 class="story-subhead">FAQ</h3>
+      </div>
+      <ul class="rtr-faq">
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="rtr-faq-panel-1"><span class="when-closed">+ What is Rock the Resort?</span><span class="when-open">− What is Rock the Resort?</span></button>
+          <div class="timeline-panel" id="rtr-faq-panel-1" hidden>
+            <p>Team Golomboski&rsquo;s annual Concert for a Cure: live music, raffles, and auctions supporting APDA Rhode Island in the fight against Parkinson&rsquo;s disease.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="rtr-faq-panel-2"><span class="when-closed">+ When and where is the next one?</span><span class="when-open">− When and where is the next one?</span></button>
+          <div class="timeline-panel" id="rtr-faq-panel-2" hidden>
+            <p>Sunday, April 11, 2027, at The Last Resort, Smithfield, RI.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="rtr-faq-panel-3"><span class="when-closed">+ Is there an admission fee?</span><span class="when-open">− Is there an admission fee?</span></button>
+          <div class="timeline-panel" id="rtr-faq-panel-3" hidden>
+            <p>A $20 suggested donation at the door; 100% of proceeds benefit APDA RI.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="rtr-faq-panel-4"><span class="when-closed">+ Can I bring my family?</span><span class="when-open">− Can I bring my family?</span></button>
+          <div class="timeline-panel" id="rtr-faq-panel-4" hidden>
+            <p>Absolutely — it&rsquo;s family-friendly and all are welcome.</p>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="rtr-faq-panel-5"><span class="when-closed">+ How can I become a sponsor?</span><span class="when-open">− How can I become a sponsor?</span></button>
+          <div class="timeline-panel" id="rtr-faq-panel-5" hidden>
+            <p>Reach out to Team Golomboski at teamgolomboski@gmail.com.</p>
+          </div>
+        </li>
+      </ul>
       <aside class="learn-more" aria-label="Learn more">
         <h3>Learn more</h3>
         <ul>
@@ -12924,6 +13054,34 @@
   // it, and aria-expanded stays in step.
   (function () {
     var items = document.querySelectorAll('[data-page="videos"] .video-archive > li');
+    if (!items.length) { return; }
+    function setOpen(item, open) {
+      item.classList.toggle("open", open);
+      var btn = item.querySelector(".timeline-toggle");
+      var panel = item.querySelector(".timeline-panel");
+      if (btn) { btn.setAttribute("aria-expanded", open ? "true" : "false"); }
+      if (panel) { panel.hidden = !open; }
+    }
+    for (var i = 0; i < items.length; i++) {
+      (function (item) {
+        var btn = item.querySelector(".timeline-toggle");
+        if (!btn) { return; }
+        btn.addEventListener("click", function () {
+          var willOpen = !item.classList.contains("open");
+          for (var j = 0; j < items.length; j++) { setOpen(items[j], false); }
+          if (willOpen) { setOpen(item, true); }
+        });
+      })(items[i]);
+    }
+  })();
+
+
+  // Rock the Resort FAQ accordion: the same tap-to-open pattern
+  // as the Videos archive above — one question open at a time,
+  // all rows closed by default, tapping the open question closes
+  // it, and aria-expanded stays in step.
+  (function () {
+    var items = document.querySelectorAll('[data-page="rock-the-resort"] .rtr-faq > li');
     if (!items.length) { return; }
     function setOpen(item, open) {
       item.classList.toggle("open", open);
