@@ -2809,6 +2809,18 @@
   .video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
   .video-item figcaption{margin-top:10px;font-weight:700;color:#0a2340}
   .media-card .video-frame{margin:14px 0}
+  /* Videos page — archive accordion: reuses the Our Story timeline
+     toggle/panel pattern (.timeline-toggle / .timeline-panel); these
+     rules only stretch each toggle into a full-width tappable row,
+     swap its +/− label spans, and space the panels. Navy / APDA
+     blue only, scoped to the videos page. */
+  [data-page="videos"] .video-archive{list-style:none;margin:28px 0 0;padding:0}
+  [data-page="videos"] .video-archive > li{border-top:1px solid #d3dde7}
+  [data-page="videos"] .video-archive > li:last-child{border-bottom:1px solid #d3dde7}
+  [data-page="videos"] .video-archive .timeline-toggle{display:flex;width:100%;margin-top:0;padding:16px 8px;font-size:1.05rem;color:#0a2340;text-align:left}
+  [data-page="videos"] .video-archive li.open .timeline-toggle .when-open{display:inline}
+  [data-page="videos"] .video-archive li.open .timeline-toggle .when-closed{display:none}
+  [data-page="videos"] .video-archive .timeline-panel{margin:2px 0 20px}
 </style>
 </head>
 <body>
@@ -2839,7 +2851,7 @@
         <div class="nav-drop-menu">
           <a href="#/in-the-news" data-route="in-the-news">In the News</a>
           <a href="#/galleries" data-route="galleries">Photo Galleries</a>
-          <a href="#/events#video-recaps">Videos</a>
+          <a href="#/videos">Videos</a>
         </div>
       </div>
       <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
@@ -2863,7 +2875,7 @@
         <a href="#/media" data-route="media">Media</a>
         <a class="mobile-sub" href="#/in-the-news" data-route="in-the-news">In the News</a>
         <a class="mobile-sub" href="#/galleries" data-route="galleries">Photo Galleries</a>
-        <a class="mobile-sub" href="#/events#video-recaps">Videos</a>
+        <a class="mobile-sub" href="#/videos">Videos</a>
         <a href="#/pd-resources/reading" data-route="pd-resources/reading">Books</a>
         <a href="#/introduction-to-parkinsons" data-route="introduction-to-parkinsons">Introduction to Parkinson's</a>
       </nav>
@@ -4832,36 +4844,9 @@
     </div>
   </section>
 
-  <section class="section section-alt" id="video-recaps">
+  <section class="section section-alt">
     <div class="wrap">
-      <div class="section-head">
-        <div class="rule" aria-hidden="true"></div>
-        <h2>From the Archive: Walk Recaps, 2014–2021</h2>
-        <p>Video recaps from Team Golomboski's earlier Optimism Walk years.</p>
-      </div>
-      <div class="video-grid">
-        <figure class="video-item">
-          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/f_Vhk93pG90" title="2014 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-          <figcaption>2014 — 2014 APDA Optimism Walk and 5k</figcaption>
-        </figure>
-        <figure class="video-item">
-          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/hWOsLHHM5qE" title="2016 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-          <figcaption>2016 — 2016 APDA Optimism Walk and 5k</figcaption>
-        </figure>
-        <figure class="video-item">
-          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/lrCSNPKcdeU" title="2017 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-          <figcaption>2017 — 2017 APDA Optimism Walk and 5k</figcaption>
-        </figure>
-        <figure class="video-item">
-          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/LoWPCAiqojI" title="2019 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-          <figcaption>2019 — 2019 APDA Optimism Walk and 5k</figcaption>
-        </figure>
-        <figure class="video-item">
-          <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/PK7SaPUcz3M" title="APDA September Virtual Optimism Walk (2021) — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
-          <figcaption>2021 — APDA September Virtual Optimism Walk</figcaption>
-        </figure>
-      </div>
-      <div class="cta-band" style="margin-top:40px">
+      <div class="cta-band">
         <h2>Be Part of the Next One</h2>
         <p>Every event starts with people willing to show up. Your gift today helps power the next walk, the next concert, and the programs in between.</p>
         <a class="btn btn-orange btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/ways-donate/donate/" target="_blank" rel="noopener">Donate to APDA RI</a>
@@ -5136,6 +5121,17 @@
             <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
           </span>
         </a>
+        <a class="pathway-card hub-card media-hub-card" href="#/videos">
+          <span class="media-hub-frame">
+            <img class="media-hub-fill" src="assets/rock-resort-crowd.jpg" alt="" aria-hidden="true" width="1079" height="723" loading="lazy" />
+            <img class="media-hub-img" src="assets/rock-resort-crowd.jpg" alt="Concert crowd with hands raised toward the stage at Rock the Resort 2026." width="1079" height="723" loading="lazy" />
+          </span>
+          <span class="media-hub-body">
+            <h3>Videos</h3>
+            <p>Watch Joseph's Faison interview and walk recaps from 2014–2021.</p>
+            <span class="hub-card-cta">Explore <span aria-hidden="true">&rarr;</span></span>
+          </span>
+        </a>
       </div>
     </div>
   </section>
@@ -5254,6 +5250,96 @@
   </section>
 
 </div><!-- /page in-the-news -->
+
+<!-- ============================================================
+     PAGE: VIDEOS
+     ============================================================ -->
+<div class="page" data-page="videos">
+
+  <section class="page-hero" aria-label="Videos introduction">
+    <div class="wrap">
+      <div class="page-hero-text">
+      <div class="crumb"><a href="#/">Home</a> · Videos</div>
+      <h1>Videos</h1>
+      <p>Watch Team Golomboski in action — Joseph's television interview and recaps from our Optimism Walk years.</p>
+      </div>
+      <figure class="page-hero-photo">
+        <img src="assets/walk2025-start.jpg" alt="A crowd of walkers in purple 2025 Optimism Walk shirts streaming under the green, white and blue balloon arch at the start of the walk, Warwick City Park" width="2048" height="1366" />
+      </figure>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>Joseph on The Ernest Faison Show</h2>
+      </div>
+      <figure class="video-item">
+        <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/jFnxBxa7FIA" title="The Ernest Faison Show, Episode 30 — Parkinson's Association with Joe Golomboski" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+        <figcaption>The Ernest Faison Show · Episode 30 — Joseph talks about the Parkinson's Association and the work of Team Golomboski.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="rule" aria-hidden="true"></div>
+        <h2>From the Archive: Walk Recaps, 2014–2021</h2>
+        <p>Video recaps from Team Golomboski's earlier Optimism Walk years.</p>
+      </div>
+      <ul class="video-archive">
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="video-panel-2014"><span class="when-closed">+ 2014 — 2014 APDA Optimism Walk and 5k</span><span class="when-open">− 2014 — 2014 APDA Optimism Walk and 5k</span></button>
+          <div class="timeline-panel" id="video-panel-2014" hidden>
+            <figure class="video-item">
+              <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/f_Vhk93pG90" title="2014 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+              <figcaption>2014 — 2014 APDA Optimism Walk and 5k</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="video-panel-2016"><span class="when-closed">+ 2016 — 2016 APDA Optimism Walk and 5k</span><span class="when-open">− 2016 — 2016 APDA Optimism Walk and 5k</span></button>
+          <div class="timeline-panel" id="video-panel-2016" hidden>
+            <figure class="video-item">
+              <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/hWOsLHHM5qE" title="2016 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+              <figcaption>2016 — 2016 APDA Optimism Walk and 5k</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="video-panel-2017"><span class="when-closed">+ 2017 — 2017 APDA Optimism Walk and 5k</span><span class="when-open">− 2017 — 2017 APDA Optimism Walk and 5k</span></button>
+          <div class="timeline-panel" id="video-panel-2017" hidden>
+            <figure class="video-item">
+              <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/lrCSNPKcdeU" title="2017 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+              <figcaption>2017 — 2017 APDA Optimism Walk and 5k</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="video-panel-2019"><span class="when-closed">+ 2019 — 2019 APDA Optimism Walk and 5k</span><span class="when-open">− 2019 — 2019 APDA Optimism Walk and 5k</span></button>
+          <div class="timeline-panel" id="video-panel-2019" hidden>
+            <figure class="video-item">
+              <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/LoWPCAiqojI" title="2019 APDA Optimism Walk and 5k — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+              <figcaption>2019 — 2019 APDA Optimism Walk and 5k</figcaption>
+            </figure>
+          </div>
+        </li>
+        <li>
+          <button type="button" class="timeline-toggle" aria-expanded="false" aria-controls="video-panel-2021"><span class="when-closed">+ 2021 — APDA September Virtual Optimism Walk</span><span class="when-open">− 2021 — APDA September Virtual Optimism Walk</span></button>
+          <div class="timeline-panel" id="video-panel-2021" hidden>
+            <figure class="video-item">
+              <div class="video-frame"><iframe src="https://www.youtube-nocookie.com/embed/PK7SaPUcz3M" title="APDA September Virtual Optimism Walk (2021) — video recap" loading="lazy" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+              <figcaption>2021 — APDA September Virtual Optimism Walk</figcaption>
+            </figure>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+</div><!-- /page videos -->
 
 <!-- ============================================================
      PAGE: PHOTO GALLERIES
@@ -11654,6 +11740,7 @@
             <li><a href="#/galleries">Photo Galleries</a><span>Walk days, concerts, and team events in pictures, from 2014 to today.</span></li>
             <li><a href="#/media">Media</a><span>Team Golomboski in the news and in pictures — press coverage and photo galleries.</span></li>
             <li><a href="#/in-the-news">In the News</a><span>Team Golomboski in the news — coverage and interviews.</span></li>
+            <li><a href="#/videos">Videos</a><span>Joseph's Ernest Faison Show interview, plus Optimism Walk recaps from 2014–2021.</span></li>
             <li><a href="#/press-kit">Press Kit</a><span>The facts, figures, and contacts for reporters, producers, and partners.</span></li>
             <li><a href="#/donate">Donate</a><span>Give through Team Golomboski to the APDA Rhode Island Chapter.</span></li>
             <li><a href="#/pd-resources/reading">Books</a><span>APDA booklets and books our community has found helpful.</span></li>
@@ -11871,6 +11958,7 @@
     "rock-the-resort": { path: "rock-the-resort", title: "Rock the Resort | Team Golomboski", description: "Rock the Resort is Team Golomboski's annual Concert for a Cure — live music at The Last Resort in Smithfield, benefiting the APDA Rhode Island Chapter.", image: "rock-the-resort-team.jpg" },
     "media": { path: "media", title: "Media | Team Golomboski", description: "Team Golomboski in the news and in pictures — press coverage and photo galleries.", image: "rocky-point-cover.jpg" },
     "in-the-news": { path: "in-the-news", title: "In the News | Team Golomboski", description: "Team Golomboski in the news: coverage and interviews from NBC 10, The Rhode Island Wave, Together for Sharon, and the Johnston Sun Rise.", image: "rocky-point-cover.jpg" },
+    "videos": { path: "videos", title: "Videos | Team Golomboski", description: "Watch Team Golomboski in action: Joseph Golomboski's interview on The Ernest Faison Show and Optimism Walk video recaps from 2014–2021.", image: "rock-resort-crowd.jpg" },
     "introduction-to-parkinsons": { path: "introduction-to-parkinsons", title: "Introduction to Parkinson's | Team Golomboski", description: "An introduction to Parkinson's disease in plain language: what it is, motor and non-motor symptoms, young onset, the five stages, and questions to ask your doctor.", image: "support.jpg" },
     "galleries": { path: "galleries", title: "Photo Galleries | Team Golomboski", description: "Photo galleries from the days that built Team Golomboski: Optimism Walks from 2014 to 2026, Rock the Resort, Funny 4 Funds, and more team events.", image: "walk2017-team-group-wide.jpg" },
     "donate": { path: "donate", title: "Donate | Team Golomboski", description: "Donate through Team Golomboski to the APDA Rhode Island Chapter. Every gift stays in Rhode Island, funding local programs, support, and research.", image: "funny4funds-check.jpg" },
@@ -11897,6 +11985,7 @@
       "rock-the-resort": "Rock the Resort | Team Golomboski",
       "media": "Media | Team Golomboski",
       "in-the-news": "In the News | Team Golomboski",
+      "videos": "Videos | Team Golomboski",
       "introduction-to-parkinsons": "Introduction to Parkinson's | Team Golomboski",
       "galleries": "Photo Galleries | Team Golomboski",
       "donate": "Donate | Team Golomboski",
@@ -12807,6 +12896,34 @@
   // and aria-expanded stays in step, same pattern as the albums.
   (function () {
     var items = document.querySelectorAll('[data-page="our-story"] .story-timeline .timeline-list > li');
+    if (!items.length) { return; }
+    function setOpen(item, open) {
+      item.classList.toggle("open", open);
+      var btn = item.querySelector(".timeline-toggle");
+      var panel = item.querySelector(".timeline-panel");
+      if (btn) { btn.setAttribute("aria-expanded", open ? "true" : "false"); }
+      if (panel) { panel.hidden = !open; }
+    }
+    for (var i = 0; i < items.length; i++) {
+      (function (item) {
+        var btn = item.querySelector(".timeline-toggle");
+        if (!btn) { return; }
+        btn.addEventListener("click", function () {
+          var willOpen = !item.classList.contains("open");
+          for (var j = 0; j < items.length; j++) { setOpen(items[j], false); }
+          if (willOpen) { setOpen(item, true); }
+        });
+      })(items[i]);
+    }
+  })();
+
+
+  // Videos page "From the Archive" accordion: the same tap-to-open
+  // pattern as the Our Story timeline above — one walk year open at
+  // a time, all rows closed by default, tapping the open year closes
+  // it, and aria-expanded stays in step.
+  (function () {
+    var items = document.querySelectorAll('[data-page="videos"] .video-archive > li');
     if (!items.length) { return; }
     function setOpen(item, open) {
       item.classList.toggle("open", open);
