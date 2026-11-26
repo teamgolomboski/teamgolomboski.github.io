@@ -1279,7 +1279,7 @@
   .section .circle-panel p.circle-names{color:#fff;font-weight:800;font-size:1.18rem;line-height:1.55;max-width:820px;margin-top:22px}
   /* Join pathways on Impact */
   .impact-join-card .btn{margin-top:auto}
-  @media (max-width:900px){ .sponsor-layout{grid-template-columns:1fr} .circle-panel{padding:32px 22px} }
+  @media (max-width:1150px){ .sponsor-layout{grid-template-columns:1fr} .circle-panel{padding:32px 22px} }
   @media (max-width:768px){ .impact-hero-actions .btn{flex:1 1 auto;justify-content:center;text-align:center} .sponsor-card{padding:24px 20px} }
   .news-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .news-more{margin:26px 0 0;color:var(--muted);font-size:1rem}
@@ -2696,14 +2696,14 @@
      to the full 1120px wrap (max-width:none). */
   .beside{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:40px;align-items:start}
   .beside-flip{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr)}
-  @media (min-width:901px){
+  @media (min-width:1151px){
     .beside-flip .beside-text{grid-column:2;grid-row:1}
     .beside-flip .beside-figure{grid-column:1;grid-row:1}
   }
   .beside-text{min-width:0}
   .beside-figure{margin:0;min-width:0}
   .beside-figure-narrow{max-width:340px;width:100%;justify-self:center}
-  @media (max-width:900px){
+  @media (max-width:1150px){
     .beside,.beside-flip{grid-template-columns:1fr;gap:26px}
     .beside-figure{order:-1;max-width:640px}
     .beside-figure-narrow{max-width:340px}
@@ -2716,6 +2716,12 @@
     .cal-btns{flex-direction:column}
     .cal-btns .btn{width:100%;justify-content:center}
   }
+  /* Rock the Resort 2 logo block: the event logo and its calendar/news
+     buttons sit in their own centered block under the "Tradition
+     Continues" columns, not inside the text column. */
+  .rtr-logo-block{text-align:center;margin-top:34px}
+  .rtr-logo-block .cal-btns{justify-content:center}
+  .rtr-logo-block img{display:block;margin:0 auto;max-width:360px;width:100%}
   /* Genetics: the two family photos become a two-column figure row */
   .genetics-photo-row{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px;align-items:start}
   .genetics-photo-row .family-photo{margin:0;max-width:none}
@@ -2784,7 +2790,7 @@
   @media (min-width:901px){
     [data-page="introduction-to-parkinsons"] .young-facts .fact-grid{grid-template-columns:repeat(3,1fr);gap:22px 18px}
   }
-  @media (max-width:900px){
+  @media (max-width:1150px){
     [data-page="introduction-to-parkinsons"] .beside-young-onset .beside-figure{order:0}
   }
 
@@ -11080,14 +11086,16 @@
         <p style="margin-top:14px">Rock the Resort is now a yearly tradition — a night this community can look forward to every year. It carries the same spirit as walk day: neighbors, music, and showing up for Rhode Island families living with Parkinson's.</p>
         <p>Each year's concert supports the same mission as everything Team Golomboski does — funding the APDA RI Chapter's local programs, support services, and research toward a cure.</p>
         <p><strong>Rock the Resort II is set for Sunday, April 11, 2027</strong> — back at The Last Resort in Smithfield. More details will be posted here and shared through APDA RI Chapter news as the date gets closer.</p>
-        <img src="assets/rock-the-resort-2-logo.png" alt="Rock the Resort 2 — A Concert for a Cure — Sunday, April 11, 2027, The Last Resort, Smithfield, RI" width="1600" height="1600" loading="lazy" style="display:block;width:100%;max-width:360px;height:auto;margin:24px auto 4px" />
-        <p class="cal-btns" style="margin-top:20px"><a class="btn btn-green btn-lg" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Rock%20the%20Resort%20II%20%E2%80%94%20Concert%20for%20a%20Cure&dates=20270411/20270412&details=Team%20Golomboski%27s%20annual%20Concert%20for%20a%20Cure%20benefiting%20the%20APDA%20Rhode%20Island%20Chapter.%20Event%20page%3A%20https%3A//teamgolomboski.com/%23/rock-the-resort&location=The%20Last%20Resort%2C%20Smithfield%2C%20RI" target="_blank" rel="noopener">Add to Calendar</a> <a class="btn btn-outline btn-lg" href="assets/rock-the-resort-2.ics">Apple / Outlook (.ics)</a></p>
-        <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Get APDA RI News</a></p>
         </div>
         <figure class="recap-photo beside-figure">
           <img src="assets/rock-resort-crowd.jpg" alt="Concert crowd with hands raised toward the stage at Rock the Resort 2026." width="1079" height="723" />
           <figcaption>Hands up — the crowd at Rock the Resort 2026.</figcaption>
         </figure>
+      </div>
+      <div class="rtr-logo-block">
+        <img src="assets/rock-the-resort-2-logo.png" alt="Rock the Resort 2 — A Concert for a Cure — Sunday, April 11, 2027, The Last Resort, Smithfield, RI" width="1600" height="1600" loading="lazy" style="display:block;width:100%;max-width:360px;height:auto;margin:24px auto 4px" />
+        <p class="cal-btns" style="margin-top:20px"><a class="btn btn-green btn-lg" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Rock%20the%20Resort%20II%20%E2%80%94%20Concert%20for%20a%20Cure&dates=20270411/20270412&details=Team%20Golomboski%27s%20annual%20Concert%20for%20a%20Cure%20benefiting%20the%20APDA%20Rhode%20Island%20Chapter.%20Event%20page%3A%20https%3A//teamgolomboski.com/%23/rock-the-resort&location=The%20Last%20Resort%2C%20Smithfield%2C%20RI" target="_blank" rel="noopener">Add to Calendar</a> <a class="btn btn-outline btn-lg" href="assets/rock-the-resort-2.ics">Apple / Outlook (.ics)</a></p>
+        <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Get APDA RI News</a></p>
       </div>
     </div>
   </section>
@@ -11303,14 +11311,16 @@
         <p style="margin-top:14px">Rock the Resort es ahora una tradición anual — una noche que esta comunidad puede esperar cada año. Lleva el mismo espíritu del día de la caminata: vecinos, música y estar presente para las familias de Rhode Island que viven con Parkinson.</p>
         <p>El concierto de cada año apoya la misma misión que todo lo que hace Team Golomboski — financiar los programas locales, los servicios de apoyo y la investigación hacia una cura del capítulo APDA RI.</p>
         <p><strong>Rock the Resort II está fijado para el domingo 11 de abril de 2027 — de vuelta en The Last Resort en Smithfield.</strong> Se publicarán más detalles aquí y se compartirán a través de las noticias del capítulo APDA RI a medida que se acerque la fecha.</p>
-        <img src="assets/rock-the-resort-2-logo.png" alt="Rock the Resort 2 — A Concert for a Cure — domingo 11 de abril de 2027, The Last Resort, Smithfield, RI" width="1600" height="1600" loading="lazy" style="display:block;width:100%;max-width:360px;height:auto;margin:24px auto 4px" />
-        <p class="cal-btns" style="margin-top:20px"><a class="btn btn-green btn-lg" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rock%20the%20Resort%20II%20%E2%80%94%20Concert%20for%20a%20Cure&amp;dates=20270411/20270412&amp;details=Team%20Golomboski%27s%20annual%20Concert%20for%20a%20Cure%20benefiting%20the%20APDA%20Rhode%20Island%20Chapter.%20Event%20page%3A%20https%3A//teamgolomboski.com/%23/rock-the-resort&amp;location=The%20Last%20Resort%2C%20Smithfield%2C%20RI" target="_blank" rel="noopener">Agregar al calendario</a> <a class="btn btn-outline btn-lg" href="assets/rock-the-resort-2.ics">Apple / Outlook (.ics)</a></p>
-        <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Recibir noticias de APDA RI</a></p>
         </div>
         <figure class="recap-photo beside-figure">
           <img src="assets/rock-resort-crowd.jpg" alt="Multitud del concierto con las manos en alto hacia el escenario en Rock the Resort 2026." width="1079" height="723" />
           <figcaption>Manos arriba — el público en Rock the Resort 2026.</figcaption>
         </figure>
+      </div>
+      <div class="rtr-logo-block">
+        <img src="assets/rock-the-resort-2-logo.png" alt="Rock the Resort 2 — A Concert for a Cure — domingo 11 de abril de 2027, The Last Resort, Smithfield, RI" width="1600" height="1600" loading="lazy" style="display:block;width:100%;max-width:360px;height:auto;margin:24px auto 4px" />
+        <p class="cal-btns" style="margin-top:20px"><a class="btn btn-green btn-lg" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rock%20the%20Resort%20II%20%E2%80%94%20Concert%20for%20a%20Cure&amp;dates=20270411/20270412&amp;details=Team%20Golomboski%27s%20annual%20Concert%20for%20a%20Cure%20benefiting%20the%20APDA%20Rhode%20Island%20Chapter.%20Event%20page%3A%20https%3A//teamgolomboski.com/%23/rock-the-resort&amp;location=The%20Last%20Resort%2C%20Smithfield%2C%20RI" target="_blank" rel="noopener">Agregar al calendario</a> <a class="btn btn-outline btn-lg" href="assets/rock-the-resort-2.ics">Apple / Outlook (.ics)</a></p>
+        <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Recibir noticias de APDA RI</a></p>
       </div>
     </div>
   </section>
@@ -11526,14 +11536,16 @@
         <p style="margin-top:14px">Rock the Resort jest teraz coroczną tradycją — wieczorem, na który ta społeczność może czekać każdego roku. Niesie tego samego ducha co dzień marszu: sąsiedzi, muzyka i obecność dla rodzin z Rhode Island żyjących z chorobą Parkinsona.</p>
         <p>Każdy doroczny koncert wspiera tę samą misję co wszystko, co robi Team Golomboski — finansowanie lokalnych programów oddziału APDA RI, usług wsparcia i badań na rzecz leku.</p>
         <p><strong>Rock the Resort II odbędzie się w niedzielę, 11 kwietnia 2027 — ponownie w The Last Resort w Smithfield.</strong> Więcej szczegółów pojawi się tutaj i będzie udostępnianych w wiadomościach oddziału APDA RI, gdy data się zbliży.</p>
-        <img src="assets/rock-the-resort-2-logo.png" alt="Rock the Resort 2 — A Concert for a Cure — Sunday, April 11, 2027, The Last Resort, Smithfield, RI" width="1600" height="1600" loading="lazy" style="display:block;width:100%;max-width:360px;height:auto;margin:24px auto 4px" />
-        <p class="cal-btns" style="margin-top:20px"><a class="btn btn-green btn-lg" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rock%20the%20Resort%20II%20%E2%80%94%20Concert%20for%20a%20Cure&amp;dates=20270411/20270412&amp;details=Team%20Golomboski%27s%20annual%20Concert%20for%20a%20Cure%20benefiting%20the%20APDA%20Rhode%20Island%20Chapter.%20Event%20page%3A%20https%3A//teamgolomboski.com/%23/rock-the-resort&amp;location=The%20Last%20Resort%2C%20Smithfield%2C%20RI" target="_blank" rel="noopener">Dodaj do kalendarza</a> <a class="btn btn-outline btn-lg" href="assets/rock-the-resort-2.ics">Apple / Outlook (.ics)</a></p>
-        <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Otrzymuj wiadomości APDA RI</a></p>
         </div>
         <figure class="recap-photo beside-figure">
           <img src="assets/rock-resort-crowd.jpg" alt="Tłum koncertowy z rękami uniesionymi w stronę sceny na Rock the Resort 2026." width="1079" height="723" />
           <figcaption>Ręce w górze — tłum na Rock the Resort 2026.</figcaption>
         </figure>
+      </div>
+      <div class="rtr-logo-block">
+        <img src="assets/rock-the-resort-2-logo.png" alt="Rock the Resort 2 — A Concert for a Cure — Sunday, April 11, 2027, The Last Resort, Smithfield, RI" width="1600" height="1600" loading="lazy" style="display:block;width:100%;max-width:360px;height:auto;margin:24px auto 4px" />
+        <p class="cal-btns" style="margin-top:20px"><a class="btn btn-green btn-lg" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rock%20the%20Resort%20II%20%E2%80%94%20Concert%20for%20a%20Cure&amp;dates=20270411/20270412&amp;details=Team%20Golomboski%27s%20annual%20Concert%20for%20a%20Cure%20benefiting%20the%20APDA%20Rhode%20Island%20Chapter.%20Event%20page%3A%20https%3A//teamgolomboski.com/%23/rock-the-resort&amp;location=The%20Last%20Resort%2C%20Smithfield%2C%20RI" target="_blank" rel="noopener">Dodaj do kalendarza</a> <a class="btn btn-outline btn-lg" href="assets/rock-the-resort-2.ics">Apple / Outlook (.ics)</a></p>
+        <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Otrzymuj wiadomości APDA RI</a></p>
       </div>
     </div>
   </section>
@@ -11749,14 +11761,16 @@
         <p style="margin-top:14px">O Rock the Resort é agora uma tradição anual — uma noite que esta comunidade pode aguardar com expectativa todos os anos. Tem o mesmo espírito do dia da caminhada: vizinhos, música e estar presente pelas famílias de Rhode Island que vivem com Parkinson.</p>
         <p>Cada concerto anual apoia a mesma missão de tudo o que a Team Golomboski faz — financiar os programas locais do Capítulo APDA RI, os serviços de apoio e a investigação em busca de uma cura.</p>
         <p><strong>O Rock the Resort II está marcado para domingo, 11 de abril de 2027 — de volta ao The Last Resort, em Smithfield.</strong> Mais detalhes serão publicados aqui e partilhados através das notícias do Capítulo APDA RI à medida que a data se aproximar.</p>
-        <img src="assets/rock-the-resort-2-logo.png" alt="Rock the Resort 2 — A Concert for a Cure — Domingo, 11 de abril de 2027, The Last Resort, Smithfield, RI" width="1600" height="1600" loading="lazy" style="display:block;width:100%;max-width:360px;height:auto;margin:24px auto 4px" />
-        <p class="cal-btns" style="margin-top:20px"><a class="btn btn-green btn-lg" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rock%20the%20Resort%20II%20%E2%80%94%20Concert%20for%20a%20Cure&amp;dates=20270411/20270412&amp;details=Team%20Golomboski%27s%20annual%20Concert%20for%20a%20Cure%20benefiting%20the%20APDA%20Rhode%20Island%20Chapter.%20Event%20page%3A%20https%3A//teamgolomboski.com/%23/rock-the-resort&amp;location=The%20Last%20Resort%2C%20Smithfield%2C%20RI" target="_blank" rel="noopener">Adicionar ao Calendário</a> <a class="btn btn-outline btn-lg" href="assets/rock-the-resort-2.ics">Apple / Outlook (.ics)</a></p>
-        <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Receber Notícias da APDA RI</a></p>
         </div>
         <figure class="recap-photo beside-figure">
           <img src="assets/rock-resort-crowd.jpg" alt="Multidão do concerto com as mãos levantadas em direção ao palco no Rock the Resort 2026." width="1079" height="723" />
           <figcaption>Mãos no ar — a multidão no Rock the Resort 2026.</figcaption>
         </figure>
+      </div>
+      <div class="rtr-logo-block">
+        <img src="assets/rock-the-resort-2-logo.png" alt="Rock the Resort 2 — A Concert for a Cure — Domingo, 11 de abril de 2027, The Last Resort, Smithfield, RI" width="1600" height="1600" loading="lazy" style="display:block;width:100%;max-width:360px;height:auto;margin:24px auto 4px" />
+        <p class="cal-btns" style="margin-top:20px"><a class="btn btn-green btn-lg" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Rock%20the%20Resort%20II%20%E2%80%94%20Concert%20for%20a%20Cure&amp;dates=20270411/20270412&amp;details=Team%20Golomboski%27s%20annual%20Concert%20for%20a%20Cure%20benefiting%20the%20APDA%20Rhode%20Island%20Chapter.%20Event%20page%3A%20https%3A//teamgolomboski.com/%23/rock-the-resort&amp;location=The%20Last%20Resort%2C%20Smithfield%2C%20RI" target="_blank" rel="noopener">Adicionar ao Calendário</a> <a class="btn btn-outline btn-lg" href="assets/rock-the-resort-2.ics">Apple / Outlook (.ics)</a></p>
+        <p style="margin-top:20px"><a class="btn btn-outline btn-lg" href="https://www.apdaparkinson.org/community/rhode-island/" target="_blank" rel="noopener">Receber Notícias da APDA RI</a></p>
       </div>
     </div>
   </section>
